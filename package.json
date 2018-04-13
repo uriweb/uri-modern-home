@@ -1,0 +1,56 @@
+{
+  "name": "uri-modern-home",
+  "version": "0.1.0",
+  "description": "URI Modern Home is a WordPress theme designed for the University of Rhode Island homepage site. It is a child theme of URI Modern.",
+  "themeName": "URI Modern Home",
+  "textDomain": "uri",
+  "template": "uri-modern",
+  "main": "index.php",
+  "homepage": "https://www.uri.edu",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uriweb/uri-modern-home.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "University of Rhode Island",
+  "authorHuman": "Brandon Fuller <bjcfuller@uri.edu>",
+  "authorURI": "https://today.uri.edu",
+  "license": "GPL-3.0",
+  "licenseURI": "http://www.gnu.org/licenses/gpl.html",
+  "devDependencies": {
+    "autoprefixer": "^8.2.0",
+    "gulp": ">=4.0.0",
+    "gulp-changed": "^3.2.0",
+    "gulp-concat": ">=2.6.1",
+    "gulp-header": "^2.0.5",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-jscs": "^4.1.0",
+    "gulp-jshint": ">=2.0.4",
+    "gulp-postcss": ">=7.0.0",
+    "gulp-sass": ">=3.0.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-strip-debug": "^3.0.0",
+    "gulp-uglify": "^3.0.0",
+    "jshint": ">=2.9.4"
+  },
+  "engines": {
+    "node": ">=8.9.4",
+    "npm": ">=5.6.0"
+  },
+  "browserslist": {
+    "production": [
+      "> 1%",
+      "last 2 versions",
+      "Firefox >= 20",
+      "iOS >=8"
+    ],
+    "development": [
+      "> 1%",
+      "last 2 versions",
+      "Firefox >= 20",
+      "iOS >=8"
+    ]
+  }
+}
