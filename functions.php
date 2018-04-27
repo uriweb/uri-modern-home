@@ -26,4 +26,4 @@ add_action( 'wp_enqueue_scripts', 'uri_modern_home_enqueues' );
 /**
  * Custom fields
  */
-require get_stylesheet_directory_uri() . '/inc/custom-fields.php';
+require get_stylesheet_directory() . '/inc/custom-fields.php';
