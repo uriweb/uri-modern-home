@@ -81,8 +81,9 @@ if ( function_exists( 'register_field_group' ) ) {
 					'type' => 'select',
 					'instructions' => 'Select the template to use.',
 					'choices' => array(
-						'default' => 'Default',
-						'external' => 'Minimal Branding',
+						'default' => 'Default Template',
+						'external' => 'External Landing Page',
+						'internal' => 'Internal Landing Page',
 					),
 					'default_value' => 'default',
 					'allow_null' => 0,
