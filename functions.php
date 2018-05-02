@@ -18,7 +18,6 @@ function uri_modern_home_enqueues() {
 
 	wp_enqueue_style( 'uri-modern-home-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ), wp_get_theme()->get( 'Version' ) );
 
-	wp_enqueue_script( 'uri-modern-home-script', get_stylesheet_directory_uri() . '/js/script.min.js', array(), wp_get_theme()->get( 'Version' ) );
 }
 add_action( 'wp_enqueue_scripts', 'uri_modern_home_enqueues' );
 
