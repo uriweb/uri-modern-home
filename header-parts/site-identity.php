@@ -23,6 +23,11 @@
 			$site_title = $top_ancestor_title;
 			$site_title_url = get_permalink( $top_ancestor_id );
 
+		} else if ( 'Gateway' == $top_ancestor_title ) {
+
+			$site_title = get_the_title();
+			$site_title_url = get_permalink();
+
 		} else {
 
 			$site_title = get_bloginfo( 'name' );
