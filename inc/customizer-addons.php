@@ -27,7 +27,7 @@ function uri_modern_home_customize_register( $wp_customize ) {
 			array(
 				'section'     => 'header_image',
 				'label'       => __( 'Use Top Ancestor Title', 'uri' ),
-				'description' => __( 'Whitelist top-level ancestor pages to use as the site name for it and all its children.  One link per line.', 'uri' ),
+				'description' => __( 'Whitelist top-level ancestor pages to use its title as the site name for it and all of its children.  One page title per line, case-sensitive.', 'uri' ),
 				'type'        => 'textarea',
 			)
 		)
