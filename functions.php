@@ -26,3 +26,9 @@ add_action( 'wp_enqueue_scripts', 'uri_modern_home_enqueues' );
  * Custom fields
  */
 require get_stylesheet_directory() . '/inc/custom-fields.php';
+
+
+/**
+ * Customizer addons
+ */
+require get_stylesheet_directory() . '/inc/customizer-addons.php';
