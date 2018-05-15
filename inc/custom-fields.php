@@ -22,7 +22,7 @@ register_post_type(
 		'query_var' => true,
 		'has_archive' => true,
 		'exclude_from_search' => false,
-		'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions' ),
 		'taxonomies' => array( 'post_tag', 'category' ),
 		'labels' => array(
 			'name' => __( 'Features' ),
