@@ -30,7 +30,6 @@ get_header(); ?>
 				echo do_shortcode( '[cl-scard excerpt=" " post="' . get_the_ID() . '"]' );
 
 			} else {
-
 				/*
 				 * Include the Post-Format-specific template for the content.
 				 * If you want to override this in a child theme, then include a file
