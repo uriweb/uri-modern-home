@@ -27,7 +27,7 @@ get_header(); ?>
 
 			if ( function_exists( 'uri_cl_shortcode_scard' ) ) {
 
-				echo do_shortcode( '[cl-scard post="' . get_the_ID() . '"]' );
+				echo do_shortcode( '[cl-scard post="' . get_the_ID() . '" showcat="false"]' );
 
 			} else {
 				/*
