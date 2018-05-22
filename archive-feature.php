@@ -29,7 +29,7 @@ get_header(); ?>
 
 			} else if ( 'card' == $presentation && function_exists( 'uri_cl_shortcode_card' ) ) {
 
-				echo do_shortcode( '<div>[cl-card title="' . get_the_title() . '" body="' . str_replace( array( '[', ']' ), array( '&#91;', '&#93;' ), get_the_excerpt() ) . '" link="' . get_permalink() . '" img="' . get_the_post_thumbnail_url() . '" button="Read More"]</div>' );
+				echo do_shortcode( '<div>[cl-card title="' . get_the_title() . '" body="' . str_replace( array( '[', ']', '"' ), array( '&#91;', '&#93;', '&#34;' ), get_the_excerpt() ) . '" link="' . get_permalink() . '" img="' . get_the_post_thumbnail_url() . '" button="Read More"]</div>' );
 
 			} else {
 				/*
