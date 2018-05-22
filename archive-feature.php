@@ -16,25 +16,40 @@ get_header(); ?>
 	?>
 
 		<header class="page-header">
-			<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-			?>
+			<h1 class="page-title">Features</h1>
 		</header><!-- .page-header -->
 
+		<div class="cl-tiles thirds">
 		<?php
 		/* Start the Loop */
 		while ( have_posts() ) :
 			the_post();
 
-			/*
-			 * Include the Post-Format-specific template for the content.
-			 * If you want to override this in a child theme, then include a file
-			 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-			 */
-			get_template_part( 'template-parts/content-feature' );
+			$presentation = 'card'; // Choose 'card' or 'scard'
+
+			if ( 'scard' == $presentation && function_exists( 'uri_cl_shortcode_scard' ) ) {
+
+				echo do_shortcode( '[cl-scard post="' . get_the_ID() . '" showcat="false"]' );
+
+			} else if ( 'card' == $presentation && function_exists( 'uri_cl_shortcode_card' ) ) {
+
+				echo do_shortcode( '<div>[cl-card title="' . get_the_title() . '" body="' . str_replace( array( '[', ']' ), array( '&#91;', '&#93;' ), get_the_excerpt() ) . '" link="' . get_permalink() . '" img="' . get_the_post_thumbnail_url() . '" button="Read More"]</div>' );
+
+			} else {
+				/*
+				 * Include the Post-Format-specific template for the content.
+				 * If you want to override this in a child theme, then include a file
+				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+				 */
+				get_template_part( 'template-parts/content-feature' );
+
+			}
 
 		endwhile;
+
+		?>
+		</div>
+		<?php
 
 		the_posts_navigation();
 

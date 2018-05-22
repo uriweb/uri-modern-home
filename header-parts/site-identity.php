@@ -18,6 +18,8 @@
 		$top_ancestor_id = get_ancestors( get_the_ID(), 'page' )[0];
 		$top_ancestor_title = empty( $top_ancestor_id ) ? get_the_title() : get_the_title( $top_ancestor_id );
 
+		$this_post_type = get_post_type( get_the_ID() );
+
 		if ( in_array( $top_ancestor_title, $ancestor_title_whitelist ) ) {
 
 			$site_title = $top_ancestor_title;
@@ -27,6 +29,11 @@
 
 			$site_title = get_the_title();
 			$site_title_url = get_permalink();
+
+		} else if ( 'feature' == $this_post_type ) {
+
+			$site_title = 'Features';
+			$site_title_url = get_post_type_archive_link( $this_post_type );
 
 		} else {
 

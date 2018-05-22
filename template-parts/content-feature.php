@@ -19,6 +19,9 @@
 		   <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		</header><!-- .entry-header -->
 		<?php
+		if ( ! has_post_format( 'video' ) && ! get_field( 'uri_modern_hide_featured_image' ) ) {
+			get_template_part( 'template-parts/featured-image' );
+		}
 		}
 } else {
 		?>
@@ -26,10 +29,9 @@
 		<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 		</header><!-- .entry-header -->
 		<?php
-	}
-
-	if ( ! has_post_format( 'video' ) ) {
-		get_template_part( 'template-parts/featured-image' );
+		if ( ! has_post_format( 'video' ) ) {
+			get_template_part( 'template-parts/featured-image' );
+		}
 	}
 	?>
 
