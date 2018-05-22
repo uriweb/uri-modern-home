@@ -28,15 +28,10 @@ if ( get_field( 'stylesheet' ) ) : ?>
 
 			the_post_navigation(
 				array(
-					'prev_text' => 'Previous post',
-					'next_text' => 'Next post',
+					'prev_text' => 'Previous feature',
+					'next_text' => 'Next feature',
 				)
 			);
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
 
 		endwhile; // End of the loop.
 		?>
