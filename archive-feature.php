@@ -15,10 +15,6 @@ get_header(); ?>
 	if ( have_posts() ) :
 	?>
 
-		<header class="page-header">
-			<h1 class="page-title">Features</h1>
-		</header><!-- .page-header -->
-
 		<div class="cl-tiles thirds">
 		<?php
 		/* Start the Loop */
