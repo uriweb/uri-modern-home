@@ -26,6 +26,13 @@ if ( get_field( 'stylesheet' ) ) : ?>
 
 			get_template_part( 'template-parts/content-feature' );
 
+			the_post_navigation(
+				array(
+					'prev_text' => 'Previous feature',
+					'next_text' => 'Next feature',
+				)
+			);
+
 		endwhile; // End of the loop.
 		?>
 
