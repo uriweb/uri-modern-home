@@ -55,7 +55,7 @@ if ( function_exists( 'register_field_group' ) ) {
 					'key' => 'field_5ae361dc0475c',
 					'label' => 'Hero Excerpt',
 					'name' => 'hero_excerpt',
-					'type' => 'wysiwyg',
+					'type' => 'textarea',
 					'instructions' => 'A short excerpt formatted for use on the homepage',
 					'default_value' => '',
 					'toolbar' => 'full',
