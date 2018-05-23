@@ -8,7 +8,7 @@
 	foreach($posts_array as $post) {
 		setup_postdata( $post );
 
-		$excerpt = get_field( 'hero_excerpt', $post->ID );
+		$excerpt = get_field( 'hero_excerpt', $post->ID, FALSE );
 
 		if( !empty( $excerpt ) ) {
 			$html .= $excerpt;
