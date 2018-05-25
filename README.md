@@ -14,10 +14,11 @@ URI Modern Home is a WordPress theme designed for the University of Rhode Island
 
 [![Master Build Status](https://travis-ci.org/uriweb/uri-modern-home.svg?branch=master "Master build status")](https://travis-ci.org/uriweb/uri-modern-home)
 [![Develop Build Status](https://travis-ci.org/uriweb/uri-modern-home.svg?branch=develop "Develop build status")](https://travis-ci.org/uriweb/uri-modern-home)
+[![CodeFactor](https://www.codefactor.io/repository/github/uriweb/uri-modern-home/badge/master)](https://www.codefactor.io/repository/github/uriweb/uri-modern-home/overview/master)
 [![devDependencies Status](https://david-dm.org/uriweb/uri-modern-home/dev-status.svg "devDependencies status")](https://david-dm.org/uriweb/uri-modern-home?type=dev)
 
 Contributors: Brandon Fuller  
 Tags: themes  
 Requires at least: 4.0  
 Tested up to: 4.9  
-Stable tag: 0.4.0  
+Stable tag: 1.0.0  
