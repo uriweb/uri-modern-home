@@ -18,6 +18,7 @@ URI Modern Home 1.0.1 adds stylesheets for features.
 
 [![Master Build Status](https://travis-ci.org/uriweb/uri-modern-home.svg?branch=master "Master build status")](https://travis-ci.org/uriweb/uri-modern-home)
 [![CodeFactor](https://www.codefactor.io/repository/github/uriweb/uri-modern-home/badge/master)](https://www.codefactor.io/repository/github/uriweb/uri-modern-home/overview/master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e0a03abdc4344cf79f92384a7ca76f27?branch=master)](https://www.codacy.com/app/uriweb/uri-modern-home?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=uriweb/uri-modern-home&amp;utm_campaign=Badge_Grade)
 [![devDependencies Status](https://david-dm.org/uriweb/uri-modern-home/dev-status.svg "devDependencies status")](https://david-dm.org/uriweb/uri-modern-home?type=dev)
 
 Contributors: Brandon Fuller  
