@@ -51,16 +51,58 @@
 	background-size: 100% auto;
 }
 
+.artboard {
+	margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 1000px) {
+	.artboard {
+		width: 100vw;
+		position: relative;
+		left: -25px;
+	}
+}
+
+.artboard img {
+	width: 100%;
+	height: auto;
+	padding: 0;
+}
+
+.caption {
+	font-size: .9rem;
+	color: rgba(0,0,0,.5);
+	padding: 1rem 25px 0;
+	max-width: 360px;
+}
+
+@media screen and (min-width: 1000px) {
+	.artboard {
+		margin-bottom: 3rem;
+	}
+	.caption {
+		padding: 1rem 0;
+	}
+}
+
 .content-canvas {
-	padding-top: 3rem;
+	padding-top: 5rem;
 	padding-bottom: 3rem;
 }
 
 .content-canvas h1 {
 	font-family: "Tulpen One", "Hind", "Lato", sans-serif;
 	font-size: 3rem;
+	margin-bottom: 3rem;
 	letter-spacing: .5rem;
 	text-transform: lowercase;
+}
+
+.content-body {
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 4rem;
 }
 
 .section-lead {
