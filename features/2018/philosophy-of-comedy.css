@@ -85,11 +85,6 @@ h2 {
 	max-width: 360px;
 }
 
-.caption p {
-	line-height: 125%;
-	margin-bottom: 1rem;
-}
-
 .caption:after {
 	display: block;
 	content: '';
@@ -97,6 +92,20 @@ h2 {
 	height: 1px;
 	background: #ff6872;
 	margin-top: 1rem;
+}
+
+.caption p {
+	line-height: 125%;
+	margin-bottom: 1rem;
+}
+
+.caption a {
+	text-decoration: none;
+}
+
+.caption a:hover,
+.caption a:focus {
+	text-decoration: underline;
 }
 
 .credit {
