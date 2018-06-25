@@ -137,6 +137,7 @@ h2 {
 
 #hero img {
 	width: 200%;
+	max-width: initial;
 	height: auto;
 	margin-left: -50%;
 	padding: 0;
