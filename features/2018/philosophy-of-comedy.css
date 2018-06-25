@@ -72,12 +72,6 @@ h2 {
 	width: 100vw;
 }
 
-.artbaord:after {
-	display: block;
-	content: '';
-	clear: both;
-}
-
 .artboard img {
 	width: 100%;
 	height: auto;
