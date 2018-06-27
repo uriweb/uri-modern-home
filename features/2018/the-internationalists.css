@@ -166,3 +166,37 @@
 .section-uniquely-prepared {
 	background: linear-gradient(#efffff, rgba(239,255,255,0) );
 }
+
+.intl-programs {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: left;
+	text-align: center;
+	font-family: "Hind", sans-serif;
+	font-size: .9rem;
+	margin-bottom: 4rem;
+}
+
+.intl-programs>div {
+	flex: 1;
+	box-sizing: border-box;
+	min-width: 150px;
+	max-width: 200px;
+	padding: 0 1.5rem;
+}
+
+.intl-programs a {
+	color: #aa7161;
+}
+
+.intl-programs a:hover,
+.intl-programs a:focus {
+	color: inherit;
+}
+
+.intl-programs img {
+	max-width: 100%;
+	min-width: initial;
+	width: 64px;
+	margin: 0 auto;
+}
