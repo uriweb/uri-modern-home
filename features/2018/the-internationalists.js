@@ -9,9 +9,18 @@
 	var els, l;
 	
 	window.addEventListener( 'load', function() {
+		
+		var i;
+		
 		els = document.querySelectorAll( '.artboard.reveal' );
 		l = els.length;
+		
+		for ( i = 0; i < l; i++ ) {
+			els[i].classList.add( 'has-js' );
+		}
+		
 		showImages;
+		
 	});
 	
 	window.addEventListener( 'scroll', showImages, false );

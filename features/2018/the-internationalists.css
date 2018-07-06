@@ -68,14 +68,14 @@
 	padding: 0;
 }
 
-.artboard.reveal {
+.artboard.reveal.has-js {
 	visibility: hidden;
 	top: 1rem;
 	opacity: 0;
 	transition: top .5s ease-in-out, opacity .5s ease-in-out;
 }
 
-.artboard.reveal.visible {
+.artboard.reveal.has-js.visible {
 	visibility: visible;
 	top: 0;
 	opacity: 1;
