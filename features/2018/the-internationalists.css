@@ -53,20 +53,32 @@
 
 .artboard {
 	margin-bottom: 2rem;
+	position: relative;
+	left: -25px;
+	top: 0;
 }
 
-@media screen and (max-width: 1000px) {
-	.artboard {
-		width: 100vw;
-		position: relative;
-		left: -25px;
-	}
+.artboard.section-break {
+	margin-bottom: 0;
 }
 
 .artboard img {
 	width: 100%;
 	height: auto;
 	padding: 0;
+}
+
+.artboard.reveal {
+	visibility: hidden;
+	top: 1rem;
+	opacity: 0;
+	transition: top .5s ease-in-out, opacity .5s ease-in-out;
+}
+
+.artboard.reveal.visible {
+	visibility: visible;
+	top: 0;
+	opacity: 1;
 }
 
 .caption {
@@ -76,9 +88,24 @@
 	max-width: 360px;
 }
 
+.section-break .caption {
+	position: absolute;
+	bottom: -2rem;
+	left: 25px;
+	padding: 0;
+	z-index: 10;
+}
+
+@media screen and (max-width: 1000px) {
+	.artboard {
+		width: 100vw;
+	}
+}
+
 @media screen and (min-width: 1000px) {
 	.artboard {
 		margin-bottom: 3rem;
+		left: 0;
 	}
 	.caption {
 		padding: 1rem 0;
@@ -155,8 +182,8 @@
 }
 
 .section-new-generation {
-	background: linear-gradient(#211204, #3d1b01);
-	color: #ffbda5;
+	background: linear-gradient(#3d1b01, #000);
+	color: #c99a94;
 }
 
 .section-new-generation h1 {
