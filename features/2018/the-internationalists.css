@@ -2,7 +2,7 @@
    THE INTERNATIONALISTS
    ============================== */
 
-@import url("https://fonts.googleapis.com/css?family=Tulpen+One|Raleway:200");
+@import url("https://fonts.googleapis.com/css?family=Tulpen+One|Raleway:200|Nova+Mono");
 
 .globalnav {
 	display: none;
@@ -52,7 +52,7 @@
 }
 
 .artboard {
-	margin-bottom: 2rem;
+	margin-bottom: 3rem;
 	position: relative;
 	left: -25px;
 	top: 0;
@@ -62,23 +62,45 @@
 	margin-bottom: 0;
 }
 
+.artboard.reveal {
+	left: 0;
+	box-sizing: border-box;
+	transform: rotate(-1deg);
+	box-shadow: 0 .1rem 4rem rgba(0,0,0,.1);
+	padding: 1rem 1rem 3rem;
+	background: #fff;
+	border-radius: 2px;
+}
+
 .artboard img {
 	width: 100%;
 	height: auto;
 	padding: 0;
+	position: relative;
 }
 
 .artboard.reveal.has-js {
 	visibility: hidden;
-	top: 1rem;
+	transform: rotate(0);
+	top: 2rem;
 	opacity: 0;
-	transition: top .5s ease-in-out, opacity .5s ease-in-out;
+	transition: top 2s ease-in-out, opacity .5s ease-in-out, transform 1s ease-in-out 1s;
+}
+
+.artboard.reveal.has-js img {
+	filter: brightness(10);
+	transition: filter 4s ease-in-out;
 }
 
 .artboard.reveal.has-js.visible {
 	visibility: visible;
+	transform: rotate(-1deg);
 	top: 0;
 	opacity: 1;
+}
+
+.artboard.reveal.has-js.visible img {
+	filter: brightness(1);
 }
 
 .caption {
@@ -86,6 +108,11 @@
 	color: rgba(0,0,0,.5);
 	padding: 1rem 25px 0;
 	max-width: 360px;
+}
+
+.artboard.reveal .caption {
+	color: #999;
+	font-family: "Nova Mono", "Charter", "Georgia", serif;
 }
 
 .section-break .caption {
@@ -100,11 +127,17 @@
 	.artboard {
 		width: 100vw;
 	}
+	.artboard.reveal {
+		padding-left: 0;
+		padding-right: 0;
+		border-radius: 0;
+		transform: rotate(0) !important;
+	}
 }
 
 @media screen and (min-width: 1000px) {
 	.artboard {
-		margin-bottom: 3rem;
+		margin-bottom: 4rem;
 		left: 0;
 	}
 	.caption {
@@ -201,6 +234,7 @@
 	text-align: center;
 	font-family: "Hind", sans-serif;
 	font-size: .9rem;
+	margin-top: 1.5rem;
 	margin-bottom: 4rem;
 }
 
@@ -214,16 +248,27 @@
 
 .intl-programs a {
 	color: #aa7161;
+	box-sizing: border-box;
+	display: block;
+	border: 1px solid transparent;
+	padding: 1rem .5rem;
+	border-radius: 5px;
+	transition: all .1s ease-in-out;
 }
 
 .intl-programs a:hover,
 .intl-programs a:focus {
-	color: inherit;
+	border: 1px solid rgba(255,255,255,.2);
+}
+
+.intl-programs span {
+	display: block;
 }
 
 .intl-programs img {
 	max-width: 100%;
 	min-width: initial;
+	padding: 0;
 	width: 64px;
-	margin: 0 auto;
+	margin: 0 auto 1.5rem;
 }
