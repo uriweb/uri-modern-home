@@ -48,21 +48,20 @@ add_action( 'init', 'uri_modern_home_create_feature_post_type' );
 /**
  * Set the default order for homepage features to most recent first in the admin screen
  */
-function uri_modern_home_set_custom_post_types_admin_order($wp_query) {
+function uri_modern_home_set_custom_post_types_admin_order( $wp_query ) {
 
-	if ( is_admin() && !isset( $_GET['orderby'] ) ) {
+	if ( is_admin() && ! isset( $_GET['orderby'] ) ) {
 
 		$post_type = $wp_query->query['post_type'];
 
 		if ( 'feature' == $post_type ) {
-			$wp_query->set('orderby', 'date');
-			$wp_query->set('order', 'DESC');
+			$wp_query->set( 'orderby', 'date' );
+			$wp_query->set( 'order', 'DESC' );
 		}
-
-	}
+}
 
 }
-add_filter('pre_get_posts', 'uri_modern_home_set_custom_post_types_admin_order');
+add_filter( 'pre_get_posts', 'uri_modern_home_set_custom_post_types_admin_order' );
 
 
 
