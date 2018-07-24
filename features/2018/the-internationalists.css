@@ -37,12 +37,12 @@
 }
 
 @supports ( (-webkit-background-clip: initial) and (-webkit-text-fill-color: initial) ) {
-	
+
 	#hero h1 {
 		color: transparent;
 		background: linear-gradient(to bottom, #C44644, #EB9E69);
 		-webkit-background-clip: text;
-  		-webkit-text-fill-color: transparent;
+		-webkit-text-fill-color: transparent;
 		text-shadow: none;
 	}
 }
