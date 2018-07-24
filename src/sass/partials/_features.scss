@@ -10,7 +10,7 @@
 .feature-caption {
 	font-size: .9rem;
 	color: #555;
-	padding: 1rem 0;
+	padding: 0 0 1rem;
 	max-width: 360px;
 	line-height: 125%;
 	margin-bottom: 2rem;
@@ -23,6 +23,10 @@
 	height: 1px;
 	background: #ccc;
 	margin-top: 1rem;
+}
+
+.feature-caption p {
+	margin-bottom: 1rem;
 }
 
 .feature-caption .credit {

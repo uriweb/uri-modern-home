@@ -15,6 +15,6 @@ Tags: education, theme-options
 @author Brandon Fuller <bjcfuller@uri.edu>
 
 */
-.cl-scard .cl-scard-category-the-big-story{color:#717da3}.cl-scard .cl-scard-category-the-big-story:after{border-bottom-color:#717da3}.feature-hero img{max-width:100%;height:auto}.feature-caption{font-size:.9rem;color:#555;padding:1rem 0;max-width:360px;line-height:125%;margin-bottom:2rem}.feature-caption:after{display:block;content:'';width:100px;height:1px;background:#ccc;margin-top:1rem}.feature-caption .credit{color:#999;font-size:.8rem;margin:.5rem 0 1rem}
+.cl-scard .cl-scard-category-the-big-story{color:#717da3}.cl-scard .cl-scard-category-the-big-story:after{border-bottom-color:#717da3}.feature-hero img{max-width:100%;height:auto}.feature-caption{font-size:.9rem;color:#555;padding:0 0 1rem;max-width:360px;line-height:125%;margin-bottom:2rem}.feature-caption:after{display:block;content:'';width:100px;height:1px;background:#ccc;margin-top:1rem}.feature-caption p{margin-bottom:1rem}.feature-caption .credit{color:#999;font-size:.8rem;margin:.5rem 0 1rem}
 
 /*# sourceMappingURL=map/style.css.map */
