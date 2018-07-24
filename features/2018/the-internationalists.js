@@ -36,7 +36,7 @@
 			
 			offset = els[i].getBoundingClientRect().top;
 									
-			if ( vh * .75 > offset ) {
+			if ( vh * .8 > offset ) {
 				els[i].classList.add( 'visible' );
 			}
 			

@@ -2,7 +2,7 @@
    THE INTERNATIONALISTS
    ============================== */
 
-@import url("https://fonts.googleapis.com/css?family=Tulpen+One|Raleway:200|Nova+Mono");
+@import url("https://fonts.googleapis.com/css?family=Tulpen+One|Raleway:200");
 
 .globalnav {
 	display: none;
@@ -62,16 +62,6 @@
 	margin-bottom: 0;
 }
 
-.artboard.reveal {
-	left: 0;
-	box-sizing: border-box;
-	transform: rotate(-1deg);
-	box-shadow: 0 .1rem 4rem rgba(0,0,0,.1);
-	padding: 1rem 1rem 3rem;
-	background: #fff;
-	border-radius: 2px;
-}
-
 .artboard img {
 	width: 100%;
 	height: auto;
@@ -81,20 +71,18 @@
 
 .artboard.reveal.has-js {
 	visibility: hidden;
-	transform: rotate(0);
 	top: 2rem;
 	opacity: 0;
-	transition: top 2s ease-in-out, opacity .5s ease-in-out, transform 1s ease-in-out 1s;
+	transition: top 1s ease-in-out, opacity .5s ease-in-out;
 }
 
 .artboard.reveal.has-js img {
 	filter: brightness(10);
-	transition: filter 4s ease-in-out;
+	transition: filter .8s ease-in-out;
 }
 
 .artboard.reveal.has-js.visible {
 	visibility: visible;
-	transform: rotate(-1deg);
 	top: 0;
 	opacity: 1;
 }
@@ -110,11 +98,6 @@
 	max-width: 360px;
 }
 
-.artboard.reveal .caption {
-	color: #999;
-	font-family: "Nova Mono", "Charter", "Georgia", serif;
-}
-
 .section-break .caption {
 	position: absolute;
 	bottom: -2rem;
@@ -126,12 +109,6 @@
 @media screen and (max-width: 1000px) {
 	.artboard {
 		width: 100vw;
-	}
-	.artboard.reveal {
-		padding-left: 0;
-		padding-right: 0;
-		border-radius: 0;
-		transform: rotate(0) !important;
 	}
 }
 
@@ -214,13 +191,17 @@
 	color: #8e5863;
 }
 
-.section-new-generation {
+.section-visionary-programs {
 	background: linear-gradient(#3d1b01, #000);
 	color: #c99a94;
 }
 
-.section-new-generation h1 {
+.section-visionary-programs h1 {
 	color: #c46a54;
+}
+
+.section-visionary-programs a {
+	color: #ec6863;
 }
 
 .section-uniquely-prepared {
@@ -271,4 +252,26 @@
 	padding: 0;
 	width: 64px;
 	margin: 0 auto 1.5rem;
+}
+
+.section-post-script {
+	font-family: "Hind", Arial, sans-serif;
+	font-size: 1rem;
+	color: #555;
+	position: relative;
+	padding: 2rem 0 0;
+}
+
+.section-post-script:before {
+	display: block;
+	content: '';
+	width: 100px;
+	height: 1px;
+	background: #ddd;
+	position: absolute;
+	top: 0;
+}
+
+.section-post-script p {
+	max-width: 400px;
 }
