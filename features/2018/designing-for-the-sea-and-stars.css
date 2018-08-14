@@ -1,0 +1,114 @@
+/* ==============================
+   DESIGNING FOR THE SEA AND STARS
+   ============================== */
+
+@import url("https://fonts.googleapis.com/css?family=Sacramento|Economica");
+
+#content {
+	background: #000;
+	color: #fff;
+}
+
+#keyframes {
+	position: relative;
+	z-index: 0;
+}
+
+#story {
+	position: relative;
+	z-index: 10;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.keyframe {
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	margin-left: -50vw;
+}
+
+.keyframe img {
+	width: 100%;
+	height: auto;
+}
+
+#keyframe-backdrop-sky {
+	position: absolute;
+	top: 0;
+}
+
+#keyframe-mountain-1 {
+	position: absolute;
+	top: 85vw;
+}
+
+#keyframe-mountain-2 {
+	position: absolute;
+	top: 95vw;
+}
+
+#keyframe-mountain-3 {
+	position: absolute;
+	top: 105vw;
+}
+
+#keyframe-mountain-4 {
+	position: absolute;
+	top: 115vw;
+}
+
+#keyframe-top-layer {
+	position: absolute;
+	top: 105vw;
+}
+
+#keyframe-backdrop-underwater {
+	position: absolute;
+	top: 130vw;
+}
+
+#story-header {
+	padding: 6rem 0 4rem;
+	text-align: center;
+}
+
+#story-deck {
+	font-family: 'Economica', 'Hind', sans-serif;
+	text-align: center;
+	font-size: 2rem;
+	padding-bottom: 2rem;
+	text-shadow: 0 0 1rem rgba(0,0,0,.5);
+}
+
+.story-title {
+	max-width: 100%;
+	font-family: 'Sacramento', 'Lato', cursive, sans-serif;
+	font-size: 7rem;
+	color: #fff;
+}
+
+.story-title span {
+	display: block;
+	font-size: 4rem;
+	margin-bottom: 1rem;
+}
+
+#progress-bar {
+	width: 20px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 12;
+	background: rgba(0,0,0,.5);
+}
+
+#page-progress {
+	position: relative;
+	top: 0;
+	width: 100%;
+	height: 5px;
+	background: #3dc1f2;
+}
+	
