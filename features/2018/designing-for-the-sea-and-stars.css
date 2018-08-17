@@ -2,23 +2,34 @@
    DESIGNING FOR THE SEA AND STARS
    ============================== */
 
-@import url("https://fonts.googleapis.com/css?family=Sacramento|Economica");
+@import url("https://fonts.googleapis.com/css?family=Julius+Sans+One|Economica");
+
+#page {
+	background: #000;
+}
 
 #content {
-	background: #000;
+	background: linear-gradient(to bottom, #04092f 50%, #000 80%);
 	color: #fff;
 }
 
-#keyframes {
+.entry-content {
 	position: relative;
+}
+
+#keyframes {
+	position: absolute;
 	z-index: 0;
+	width: 100%;
 }
 
 #story {
 	position: relative;
 	z-index: 10;
 	max-width: 600px;
-	margin: 0 auto;
+	margin: 0 auto 5rem;
+	padding-bottom: 50vw;
+	text-shadow: 0 0 .5rem rgba(0,0,0,.5)
 }
 
 .keyframe {
@@ -26,46 +37,47 @@
 	position: relative;
 	left: 50%;
 	margin-left: -50vw;
+	z-index: 0;
 }
 
 .keyframe img {
 	width: 100%;
 	height: auto;
+	padding: 0;
 }
 
 #keyframe-backdrop-sky {
-	position: absolute;
 	top: 0;
 }
 
+#keyframe-backdrop-sky img {
+	min-width: 1000px;
+}
+
 #keyframe-mountain-1 {
-	position: absolute;
-	top: 85vw;
+	top: -17vw;
 }
 
 #keyframe-mountain-2 {
-	position: absolute;
-	top: 95vw;
+	top: -26vw;
 }
 
 #keyframe-mountain-3 {
-	position: absolute;
-	top: 105vw;
+	top: -37vw;
 }
 
 #keyframe-mountain-4 {
-	position: absolute;
-	top: 115vw;
+	top: -46vw;
 }
 
 #keyframe-top-layer {
-	position: absolute;
-	top: 105vw;
+	z-index: 3;
+	top: -62vw;
 }
 
 #keyframe-backdrop-underwater {
-	position: absolute;
-	top: 130vw;
+	z-index: 2;
+	top: -97vw;
 }
 
 #story-header {
@@ -83,14 +95,14 @@
 
 .story-title {
 	max-width: 100%;
-	font-family: 'Sacramento', 'Lato', cursive, sans-serif;
+	font-family: 'Julius Sans One', 'Lato', cursive, sans-serif;
 	font-size: 7rem;
 	color: #fff;
 }
 
 .story-title span {
 	display: block;
-	font-size: 4rem;
+	font-size: 3rem;
 	margin-bottom: 1rem;
 }
 
@@ -110,5 +122,14 @@
 	width: 100%;
 	height: 5px;
 	background: #3dc1f2;
+}
+
+#titanic {
+	width: 100vw;
+	position: absolute;
+	left: 50%;
+	margin-left: -50vw;
+	z-index: 0;
+	bottom: 0;
 }
 	

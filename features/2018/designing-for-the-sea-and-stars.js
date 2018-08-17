@@ -12,7 +12,7 @@
 	
 	function initPage() {
 		
-		initProgressBar();
+		//initProgressBar();
 		initParallax();
 		
 	}
@@ -44,17 +44,24 @@
 	
 	function initParallax() {
 		
-		var frames, top, speed, yPos, i;
+		var frames, top, vh, vw, speed, yPos, offset, f, i;
 		
 		frames = document.querySelectorAll( '.parallax' );
 	
 		window.addEventListener( 'scroll', function() {
 
 			top = this.pageYOffset;
+			vh = this.innerHeight;
+			vw = this.innerWidth;
 
 			for ( i = 0; i < frames.length; i++ ) {
-				speed = frames[i].getAttribute('data-speed');
-				yPos = -( top * speed / 100 );
+				
+				offset = frames[i].getBoundingClientRect().top;
+								
+				f = offset - vh;
+								
+				speed = frames[i].getAttribute('data-speed') * ( vw * 0.001 );
+				yPos = Math.min( 0, ( f * speed / 100 ) );
 				frames[i].setAttribute( 'style', 'transform: translate3d(0px, ' + yPos + 'px, 0px)' );
 			}
 			
