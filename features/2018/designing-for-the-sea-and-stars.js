@@ -12,39 +12,64 @@
 	
 	function initPage() {
 		
-		//initProgressBar();
+		initProgressBar();
 		initParallax();
 		
 	}
 	
 	function initProgressBar() {
 				
-		var bar;
+		var content, bar, div, pos;
 		
-		bar = document.getElementById( 'page-progress' );
-		window.addEventListener( 'resize', resizeProgress.bind( null, bar ), false );
-		window.addEventListener( 'scroll', resizeProgress.bind( null, bar ), false);
+		bar = document.getElementById( 'progress' );
+		bar.classList.add( 'has-js' );
+		
+		div = bar.querySelector( '.progress-bar' );
+		
+		content = document.getElementById( 'story' );
+		pos = bar.getBoundingClientRect().top;
+		
+		window.addEventListener( 'resize', updateProgress.bind( null, content, bar, pos, div ), false );
+		window.addEventListener( 'scroll', updateProgress.bind( null, content, bar, pos, div ), false);
 		
 		
 	}
 	
-	function resizeProgress( bar ) {
+	function updateProgress( content, bar, pos, div ) {
 		
-		var ch, vh, pos, val;
+		var vh, contentHeight, contentTop, yPos, progress;
 		
-		ch = document.getElementById( 'content' ).offsetHeight;
 		vh = window.innerHeight;
-		pos = window.pageYOffset;
-				
-		val = Math.min( pos / ( ch - vh ) * 100, 100 );
-				
-		bar.style.top = val + '%';
+		contentHeight =  content.offsetHeight;
+		contentTop = content.offsetTop;
+		yPos = window.pageYOffset;
+		
+		progress = Math.min( 97, Math.max( 0, ( yPos - contentTop ) / contentHeight * 100 ) );
+		div.style.top =  progress + '%';
+		if ( progress > 29 ) {
+			div.classList.add( 'titan' );
+		} else {
+			div.classList.remove( 'titan' );
+		}
+		
+		if ( pos < yPos ) {
+			bar.classList.add( 'sticky' );
+			
+			if (contentHeight + contentTop - vh < yPos ) {
+				bar.classList.add( 'end' );
+			} else {
+				bar.classList.remove( 'end' );
+			}
+			
+		} else {
+			bar.classList.remove( 'sticky' );
+		}
 		
 	}
 	
 	function initParallax() {
 		
-		var frames, top, vh, vw, speed, yPos, offset, f, i;
+		var frames, top, vh, vw, s, yPos, y, i;
 		
 		frames = document.querySelectorAll( '.parallax' );
 	
@@ -55,13 +80,11 @@
 			vw = this.innerWidth;
 
 			for ( i = 0; i < frames.length; i++ ) {
+												
+				y = frames[i].getBoundingClientRect().top - vh;		
+				s = frames[i].getAttribute('data-speed') * vw / 1000;
 				
-				offset = frames[i].getBoundingClientRect().top;
-								
-				f = offset - vh;
-								
-				speed = frames[i].getAttribute('data-speed') * ( vw * 0.001 );
-				yPos = Math.min( 0, ( f * speed / 100 ) );
+				yPos = Math.min( 0, ( y * s / 100 ) );
 				frames[i].setAttribute( 'style', 'transform: translate3d(0px, ' + yPos + 'px, 0px)' );
 			}
 			

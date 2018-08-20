@@ -15,6 +15,7 @@
 
 .entry-content {
 	position: relative;
+	padding-bottom: 50vw;
 }
 
 #keyframes {
@@ -28,7 +29,6 @@
 	z-index: 10;
 	max-width: 600px;
 	margin: 0 auto 5rem;
-	padding-bottom: 50vw;
 	text-shadow: 0 0 .5rem rgba(0,0,0,.5)
 }
 
@@ -106,22 +106,81 @@
 	margin-bottom: 1rem;
 }
 
-#progress-bar {
+#progress {
+	z-index: 10;
+	display: none;
 	width: 20px;
-	height: 100%;
+	height: 100vh;
+	background: linear-gradient(to bottom, rgba(0,0,0,.4) calc( 30% + 5px ), rgba(18,85,146,.4) calc( 30% + 5px ));
+	position: absolute;
+	left: 50%;
+	margin-left: -50vw;
+	top: 0;
+}
+
+#progress.has-js {
+	display: block;
+}
+
+#progress.sticky {
+	position: fixed;
+}
+
+#progress.end {
+	position: absolute;
+	top: initial;
+	bottom: 0;
+}
+
+#progress .progress-bar {
+	display: block;
+	position: relative;
+	top: 0;
+	height: 20px;
+	width: 100%;
+}
+
+#progress .progress-bar div {
+	display: block;
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 12;
-	background: rgba(0,0,0,.5);
+	height: 100%;
+	width: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
 }
 
-#page-progress {
+#progress .progress-bar div.progress-bar-titan {
+	display: none;
+}
+
+#progress .progress-bar.titan div.progress-bar-titan {
+	display: block;
+}
+
+#progress .progress-bar.titan div.progress-bar-rocket {
+	display: none;
+}
+	
+
+#progress .progress-label {
+	position: absolute;
+	left: 30px;
+	font-size: .8rem;
+	font-family: 'Economica', 'Hind', sans-serif;
+}
+
+#progress .progress-label:before {
+	display: block;
+	width: 20px;
+	height: 2px;
+	content: '';
 	position: relative;
-	top: 0;
-	width: 100%;
-	height: 5px;
-	background: #3dc1f2;
+	left: -30px;
+	top: 7px;
+	background: #fff;
 }
 
 #titanic {
