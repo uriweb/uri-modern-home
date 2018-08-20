@@ -10,6 +10,10 @@
 	
 	window.addEventListener( 'load', initPage, false );
 	
+	
+	/**
+	 * Initialize the page
+	 */
 	function initPage() {
 		
 		initProgressBar();
@@ -17,56 +21,64 @@
 		
 	}
 	
+	
+	/**
+	 * Initialize the progress bar
+	 */
 	function initProgressBar() {
 				
-		var content, bar, div, pos;
+		var data = {};
 		
-		bar = document.getElementById( 'progress' );
-		bar.classList.add( 'has-js' );
+		data.bar = document.getElementById( 'progress' );
+		data.bar.classList.add( 'has-js' );
 		
-		div = bar.querySelector( '.progress-bar' );
+		data.div = data.bar.querySelector( '.progress-bar' );
+		data.pos = data.bar.getBoundingClientRect().top;
+		data.story = document.getElementById( 'story' );		
 		
-		content = document.getElementById( 'story' );
-		pos = bar.getBoundingClientRect().top;
-		
-		window.addEventListener( 'resize', updateProgress.bind( null, content, bar, pos, div ), false );
-		window.addEventListener( 'scroll', updateProgress.bind( null, content, bar, pos, div ), false);
+		window.addEventListener( 'resize', updateProgress.bind( null, data ), false );
+		window.addEventListener( 'scroll', updateProgress.bind( null, data ), false);
 		
 		
 	}
 	
-	function updateProgress( content, bar, pos, div ) {
+	
+	/**
+	 * Update the progress bar
+	 *
+	 * @param data obj The data initialized in initProgressBar().
+	 */
+	function updateProgress( data ) {
 		
-		var vh, contentHeight, contentTop, yPos, progress;
+		var vh, storyHeight, storyTop, yPos, prog;
 		
 		vh = window.innerHeight;
-		contentHeight =  content.offsetHeight;
-		contentTop = content.offsetTop;
+		storyHeight =  data.story.offsetHeight;
+		storyTop = data.story.offsetTop;
 		yPos = window.pageYOffset;
 		
-		progress = Math.min( 97, Math.max( 0, ( yPos - contentTop ) / contentHeight * 100 ) );
-		div.style.top =  progress + '%';
-		if ( progress > 29 ) {
-			div.classList.add( 'titan' );
-		} else {
-			div.classList.remove( 'titan' );
-		}
+		// Calculate the progress as a percent between 0-97
+		prog = Math.min( 97, Math.max( 0, ( yPos - storyTop ) / storyHeight * 100 ) );
+		data.div.style.top =  prog + '%';
 		
-		if ( pos < yPos ) {
-			bar.classList.add( 'sticky' );
-			
-			if (contentHeight + contentTop - vh < yPos ) {
-				bar.classList.add( 'end' );
-			} else {
-				bar.classList.remove( 'end' );
-			}
-			
+		// If the progress is >29%, swap out the rocket for the submarine
+		prog > 29 ? data.div.classList.add( 'titan' ) : data.div.classList.remove( 'titan' );
+		
+		// If the page scroll is past the initial story top, make the progress bar sticky.
+		// And, if the end of the story scrolls into view, move the progress bar along with it.
+		if ( yPos > data.pos ) {
+			data.bar.classList.add( 'sticky' );
+			storyHeight + storyTop - vh < yPos ? data.bar.classList.add( 'end' ) : data.bar.classList.remove( 'end' );
 		} else {
-			bar.classList.remove( 'sticky' );
+			data.bar.classList.remove( 'sticky' );
 		}
 		
 	}
 	
+	
+	/**
+	 * Initialize Parallax
+	 */
 	function initParallax() {
 		
 		var frames, top, vh, vw, s, yPos, y, i;
@@ -80,10 +92,15 @@
 			vw = this.innerWidth;
 
 			for ( i = 0; i < frames.length; i++ ) {
-												
-				y = frames[i].getBoundingClientRect().top - vh;		
+				
+				// Shift the frame offset so that the bottom of the viewport is now 0
+				// This makes it so that frames don't move until they're scrolled into view
+				y = frames[i].getBoundingClientRect().top - vh;	
+				
+				// Adjust the speed to be relative to the viewport width
 				s = frames[i].getAttribute('data-speed') * vw / 1000;
 				
+				// Set the y translation of the frame (only generates numbers <=0)
 				yPos = Math.min( 0, ( y * s / 100 ) );
 				frames[i].setAttribute( 'style', 'transform: translate3d(0px, ' + yPos + 'px, 0px)' );
 			}
