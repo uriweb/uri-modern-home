@@ -31,6 +31,7 @@
 		
 		data.vh = window.innerHeight;
 		data.vw = window.innerWidth;
+		data.lastPos = window.pageYOffset;
 		
 		data.bar = document.getElementById( 'progress' );
 		data.bar.classList.add( 'has-js' );
@@ -98,7 +99,7 @@
 		range = bottom - data.scale.waterline;
 		maxDepth = data.scale.depths[n - 1];
 		
-		data.bar.style.background = 'linear-gradient(to bottom, rgba(0,0,0,.4) calc( ' + data.scale.waterline + '% + 5px ), rgba(18,85,146,.4) calc( ' + data.scale.waterline + '% + 5px ))';
+		data.bar.style.background = 'linear-gradient(to bottom, rgba(0,0,0,.4) calc( ' + data.scale.waterline + '% + 5px ), rgba(18,85,146,.4) calc( ' + data.scale.waterline + '% + 5px ), rgba(0,20,40,.6) calc( 98% + 5px ), rgba(120,96,38,.5) calc( 98% + 5px ))';
 		
 		data.scale.ticks[0].style.top = data.scale.waterline + '%';
 		data.scale.ticks[n - 1].style.top = bottom + '%';
@@ -131,11 +132,15 @@
 		// Swap out the rocket for the submarine at the waterline
 		prog > data.scale.waterline - 1 ? data.indicator.classList.add( 'titan' ) : data.indicator.classList.remove( 'titan' );
 		
+		yPos < data.lastPos ? data.indicator.classList.add( 'flame' ) : data.indicator.classList.remove( 'flame' );
+		
+		data.lastPos = yPos;
+		
 		// If the page scroll is past the initial story top, make the progress bar sticky.
 		// And, if the end of the story scrolls into view, move the progress bar along with it.
 		if ( yPos > data.pos ) {
 			data.bar.classList.add( 'sticky' );
-			data.storyHeight + data.storyTop < yPos + data.vh - data.storyTop ? data.bar.classList.add( 'end' ) : data.bar.classList.remove( 'end' );
+			data.storyHeight + data.pos < yPos + data.vh - data.storyTop ? data.bar.classList.add( 'end' ) : data.bar.classList.remove( 'end' );
 		} else {
 			data.bar.classList.remove( 'sticky' );
 		}
