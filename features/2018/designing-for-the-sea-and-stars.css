@@ -106,16 +106,58 @@
 	margin-bottom: 1rem;
 }
 
+#story h2 {
+	font-family: 'Economica', 'Hind', sans-serif;
+	font-size: 2rem;
+	color: #c7f2ff;
+	border-bottom: 3px solid #c7f277;
+	padding: 2rem 0 1rem;
+}
+
+.artboard {
+	margin-bottom: 4rem;
+	text-align: center;
+}
+
+.artboard:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+
+.caption {
+	font-family: 'Economica', 'Hind', sans-serif;
+	font-size: .9rem;
+	color: rgba(255,255,255,.5);
+}
+
+.caption:after {
+	display: block;
+	position: relative;
+	top: 1rem;
+	content: '';
+	width: 50px;
+	height: 0;
+	border-bottom: 1px dotted rgba(255,255,255,.5);
+	margin-left: calc( 50% - 25px );
+}
+
 #progress {
 	z-index: 10;
 	display: none;
-	width: 20px;
+	width: 15px;
 	height: 100vh;
-	background: linear-gradient(to bottom, rgba(0,0,0,.4) calc( 30% + 5px ), rgba(18,85,146,.4) calc( 30% + 5px ));
 	position: absolute;
 	left: 50%;
 	margin-left: -50vw;
 	top: 0;
+}
+
+@supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)) {
+    #progress {
+		-webkit-backdrop-filter: saturate(200%) blur(10px);
+		backdrop-filter: saturate(200%) blur(10px);
+	}
 }
 
 #progress.has-js {
@@ -167,20 +209,60 @@
 
 #progress .progress-label {
 	position: absolute;
-	left: 30px;
-	font-size: .8rem;
+	left: 7px;
+	font-size: .7rem;
+	text-shadow: 1px 1px 0 rgba(0,0,0,.5);
+	color: rgba(255,255,255,.8);
 	font-family: 'Economica', 'Hind', sans-serif;
+	transform: rotate(-90deg) translate(5px, 0);
+	transform-origin: 0 50%;
 }
 
 #progress .progress-label:before {
 	display: block;
-	width: 20px;
-	height: 2px;
+	height: 15px;
+	width: 1px;
 	content: '';
-	position: relative;
-	left: -30px;
-	top: 7px;
-	background: #fff;
+	position: absolute;
+	left: -6px;
+	bottom: -2.5px;
+	background: rgba(255,255,255,.5);
+}
+
+@media screen and (min-width: 600px) {
+	
+	#progress {
+		width: 20px;
+	}
+	
+	#progress .progress-label {
+		left: 10px;
+	}
+	
+	#progress .progress-label:before {
+		height: 20px;
+		bottom: -5px;
+	}
+	
+}
+
+@media screen and (min-width: 800px) {
+	
+	#progress .progress-label {
+		left: 30px;
+		font-size: .8rem;
+		transform: rotate(0) translate(0, 0);
+		color: rgba(255,255,255,.5);
+	}
+
+	#progress .progress-label:before {
+		width: 20px;
+		height: 2px;
+		left: -30px;
+		top: 5px;
+		bottom: initial;
+	}
+	
 }
 
 #titanic {
