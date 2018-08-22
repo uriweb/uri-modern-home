@@ -74,7 +74,7 @@
 
 #keyframe-top-layer {
 	z-index: 3;
-	top: -62vw;
+	top: -67vw;
 }
 
 #keyframe-backdrop-underwater {
@@ -218,93 +218,6 @@
 	bottom: 0;
 }
 
-#progress .progress-bar {
-	display: block;
-	position: relative;
-	top: 0;
-	height: 20px;
-	width: 100%;
-}
-
-#progress .progress-bar>div {
-	display: block;
-	opacity: 1;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: 100% auto;
-	transition: opacity .2s;
-}
-
-#progress .progress-bar .progress-bar-rocket {
-	transform: rotate(0);
-	animation: wobble 10s infinite alternate ease-in-out;
-}
-
-#progress .progress-bar.flame .progress-bar-rocket {
-	animation: none;
-}
-
-#progress .progress-bar .progress-bar-titan {
-	opacity: 0;
-}
-
-#progress .progress-bar.titan .progress-bar-titan {
-	opacity: 1;
-	transform: rotate(0);
-	animation: wobble 5s infinite alternate ease-in-out;
-}
-
-#progress.end .progress-bar.titan .progress-bar-titan {
-	animation: none;
-}
-
-#progress .progress-bar.titan .progress-bar-rocket {
-	opacity: 0;
-}
-	
-#progress .progress-bar .rocket-chute {
-	position: absolute;
-	top: -13px;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-position: center top;
-	background-repeat: no-repeat;
-	background-size: 80% auto;
-	transform: scale(1);
-	transform-origin: 50% 100%;
-	transition: transform .2s ease-in;
-}
-
-#progress .progress-bar .rocket-flame {
-	position: absolute;
-	top: 18px;
-	left: 35%;
-	width: 30%;
-	height: 100%;
-	background-position: 0 top;
-	background-repeat: no-repeat;
-	background-size: 200% auto;
-	animation: rocket-flame .5s steps(2, end) infinite;
-	transform: scale(1, 0);
-	transform-origin: 50% 0;
-	transition: transform .1s ease-out;
-}
-
-#progress .progress-bar.flame .rocket-chute {
-	transform: scale(0, 0.5);
-	transition: transform 0.5s ease-out;
-}
-
-#progress .progress-bar.flame .rocket-flame {
-	transform: scale(1);
-}
-
 #progress .progress-label {
 	position: absolute;
 	left: 8px;
@@ -325,6 +238,93 @@
 	left: -6px;
 	bottom: -1.5px;
 	background: rgba(255,255,255,.5);
+}
+
+#indicator {
+	display: block;
+	position: relative;
+	top: 0;
+	height: 20px;
+	width: 100%;
+}
+
+#indicator>div {
+	display: block;
+	opacity: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	transition: opacity .2s;
+}
+
+#indicator .indicator-rocket {
+	transform: rotate(0);
+	animation: wobble 10s infinite alternate ease-in-out;
+}
+
+#indicator.flame .indicator-rocket {
+	animation: none;
+}
+
+#indicator .indicator-titan {
+	opacity: 0;
+}
+
+#indicator.titan .indicator-titan {
+	opacity: 1;
+	transform: rotate(0);
+	animation: wobble 5s infinite alternate ease-in-out;
+}
+
+#progress.end #indicator.titan .indicator-titan {
+	animation: none;
+}
+
+#indicator.titan .indicator-rocket {
+	opacity: 0;
+}
+	
+#indicator .rocket-chute {
+	position: absolute;
+	top: -13px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: 80% auto;
+	transform: scale(1);
+	transform-origin: 50% 100%;
+	transition: transform .2s ease-in;
+}
+
+#indicator .rocket-flame {
+	position: absolute;
+	top: 18px;
+	left: 35%;
+	width: 30%;
+	height: 100%;
+	background-position: 0 top;
+	background-repeat: no-repeat;
+	background-size: 200% auto;
+	animation: rocket-flame .5s steps(2, end) infinite;
+	transform: scale(1, 0);
+	transform-origin: 50% 0;
+	transition: transform .1s ease-out;
+}
+
+#indicator.flame .rocket-chute {
+	transform: scale(0, 0.5);
+	transition: transform 0.5s ease-out;
+}
+
+#indicator.flame .rocket-flame {
+	transform: scale(1);
 }
 
 @media screen and (min-width: 600px) {

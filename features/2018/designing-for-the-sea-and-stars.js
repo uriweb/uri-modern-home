@@ -16,137 +16,10 @@
 	 */
 	function initPage() {
 		
-		initProgressBar();
 		initParallax();
+		initProgressBar();
 		
 	}
-	
-	
-	/**
-	 * Initialize the progress bar
-	 */
-	function initProgressBar() {
-				
-		var data = {};
-		
-		data.vh = window.innerHeight;
-		data.vw = window.innerWidth;
-		data.lastPos = window.pageYOffset;
-		
-		data.bar = document.getElementById( 'progress' );
-		data.bar.classList.add( 'has-js' );
-		
-		data.indicator = data.bar.querySelector( '.progress-bar' );
-		data.pos = data.bar.getBoundingClientRect().top;
-		
-		data.story = document.getElementById( 'story' );
-		data.storyHeight =  data.story.offsetHeight;
-		data.storyTop = data.story.offsetTop;
-		
-		data.scale = getProgressScale();
-		
-		setProgressScale( data );
-		updateProgress( data );
-				
-		window.addEventListener( 'resize', function() {
-			
-			data.vh = window.innerHeight;
-			data.vw = window.innerWidth;
-			
-			data.storyHeight =  data.story.offsetHeight;
-			data.storyTop = data.story.offsetTop;
-			
-			setProgressScale( data );
-			updateProgress( data );
-			
-		}, false );
-		
-		window.addEventListener( 'scroll', updateProgress.bind( null, data ), false );
-		
-	}
-	
-	
-	/**
-	 * Get the progress scale labels and depths
-	 */
-	function getProgressScale() {
-		
-		var scale = {}, i;
-	
-		scale.ticks = document.getElementById( 'progress' ).querySelectorAll( '.progress-label' );
-		scale.depths = [];
-		for ( i = 0; i < scale.ticks.length; i++ ) {
-			scale.depths.push( scale.ticks[i].getAttribute( 'data-depth' ) );
-		}
-							  
-		return scale;
-		
-	}
-	
-	
-	/**
-	 * Set/update the progress scale
-	 *
-	 * @param data obj The data initialized in initProgressBar().
-	 */
-	function setProgressScale( data ) {
-		
-		var n, i, bottom, range, maxDepth;
-		
-		n = data.scale.ticks.length;
-		data.scale.waterline = Math.max( 2083, data.vw * 2.083 ) / data.storyHeight * 100;
-		bottom = 98;
-		range = bottom - data.scale.waterline;
-		maxDepth = data.scale.depths[n - 1];
-		
-		data.bar.style.background = 'linear-gradient(to bottom, rgba(0,0,0,.4) calc( ' + data.scale.waterline + '% + 5px ), rgba(18,85,146,.4) calc( ' + data.scale.waterline + '% + 5px ), rgba(0,20,40,.6) calc( 98% + 5px ), rgba(120,96,38,.5) calc( 98% + 5px ))';
-		
-		data.scale.ticks[0].style.top = data.scale.waterline + '%';
-		data.scale.ticks[n - 1].style.top = bottom + '%';
-				
-		for ( i = 1; i < n - 1; i++ ) {
-			
-			data.scale.ticks[i].style.top = data.scale.waterline + ( data.scale.depths[i] / maxDepth ) * range + '%';
-			
-		}
-		
-		
-	}
-	
-	
-	/**
-	 * Update the progress bar
-	 *
-	 * @param data obj The data initialized in initProgressBar().
-	 */
-	function updateProgress( data ) {
-		
-		var yPos, prog;
-		
-		yPos = window.pageYOffset;
-		
-		// Calculate the progress as a percent between 0-97
-		prog = Math.min( 97, Math.max( 0, ( yPos - data.storyTop ) / data.storyHeight * 100 ) );
-		data.indicator.style.top =  prog + '%';
-		
-		// Swap out the rocket for the submarine at the waterline
-		prog > data.scale.waterline - 1 ? data.indicator.classList.add( 'titan' ) : data.indicator.classList.remove( 'titan' );
-		
-		yPos < data.lastPos ? data.indicator.classList.add( 'flame' ) : data.indicator.classList.remove( 'flame' );
-		
-		data.lastPos = yPos;
-		
-		// If the page scroll is past the initial story top, make the progress bar sticky.
-		// And, if the end of the story scrolls into view, move the progress bar along with it.
-		if ( yPos > data.pos ) {
-			data.bar.classList.add( 'sticky' );
-			data.storyHeight + data.pos < yPos + data.vh - data.storyTop ? data.bar.classList.add( 'end' ) : data.bar.classList.remove( 'end' );
-		} else {
-			data.bar.classList.remove( 'sticky' );
-		}
-		
-	}
-
 	
 	/**
 	 * Initialize Parallax
@@ -178,6 +51,142 @@
 			}
 			
 		});
+		
+	}
+	
+	
+	/**
+	 * Initialize the progress bar
+	 */
+	function initProgressBar() {
+		
+		// Define a bunch of stuff we can pass around inside one object
+		var data = {
+			vh: window.innerHeight,
+			vw: window.innerWidth,
+			lastPos: window.pageYOffset,
+			bar: document.getElementById( 'progress' ),
+			indicator: document.getElementById( 'indicator' ),
+			scale: getProgressScale(),
+			sky: document.getElementById( 'keyframe-backdrop-sky' ),
+			story: document.getElementById( 'story' )
+		};
+		
+		// Get some measurements
+		data.pos = data.bar.getBoundingClientRect().top;
+		data.storyHeight =  data.story.offsetHeight;
+		
+		// Add a hook now that we have js
+		data.bar.classList.add( 'has-js' );
+		
+		// Initialize the scale and update the indicator
+		setProgressScale( data );
+		updateProgress( data );
+				
+		// Update indicator on scroll
+		window.addEventListener( 'scroll', updateProgress.bind( null, data ), false );
+		
+		// Update measurements, scale, and indicator on window resize
+		window.addEventListener( 'resize', function() {
+			
+			data.vh = window.innerHeight;
+			data.vw = window.innerWidth;
+			
+			data.storyHeight =  data.story.offsetHeight;
+			
+			setProgressScale( data );
+			updateProgress( data );
+			
+		}, false );
+				
+	}
+	
+	
+	/**
+	 * Get the progress scale labels and depths
+	 */
+	function getProgressScale() {
+		
+		var scale, i;
+	
+		scale = {
+			ticks: document.getElementById( 'progress' ).querySelectorAll( '.progress-label' ),
+			depths: []
+		}
+		
+		for ( i = 0; i < scale.ticks.length; i++ ) {
+			scale.depths.push( scale.ticks[i].getAttribute( 'data-depth' ) );
+		}
+							  
+		return scale;
+		
+	}
+	
+	
+	/**
+	 * Set/update the progress scale
+	 *
+	 * @param data obj The data initialized in initProgressBar().
+	 */
+	function setProgressScale( data ) {
+		
+		var n, i, bottom;
+		
+		n = data.scale.ticks.length;
+		
+		// Determine how far down the page (in percent) the waterline is
+		data.scale.waterline =  data.sky.offsetHeight / data.storyHeight * 100;
+		
+		// Define the offset (in percent) for the last tickmark
+		bottom = 98;
+				
+		// Set the background colors of the progress bar
+		data.bar.style.background = 'linear-gradient(to bottom, rgba(0,0,0,.4) calc( ' + data.scale.waterline + '% + 5px ), rgba(18,85,146,.4) calc( ' + data.scale.waterline + '% + 5px ), rgba(0,20,40,.6) calc( 98% + 5px ), rgba(120,96,38,.5) calc( 98% + 5px ))';
+		
+		// Set the offsets for the first and last tickmark (in percent)
+		data.scale.ticks[0].style.top = data.scale.waterline + '%';
+		data.scale.ticks[n - 1].style.top = bottom + '%';
+				
+		// Loop through the other tickmarks and calculate/set their offsets (in percent)
+		for ( i = 1; i < n - 1; i++ ) {
+			data.scale.ticks[i].style.top = data.scale.waterline + ( data.scale.depths[i] / data.scale.depths[n - 1] ) * ( bottom - data.scale.waterline ) + '%';
+		}
+		
+	}
+	
+	
+	/**
+	 * Update the progress bar
+	 *
+	 * @param data obj The data initialized in initProgressBar().
+	 */
+	function updateProgress( data ) {
+		
+		var yPos, prog;
+		
+		yPos = window.pageYOffset;
+		
+		// Calculate the progress as a percent between 0-97
+		prog = Math.min( 97, Math.max( 0, yPos / data.storyHeight * 100 ) );
+		data.indicator.style.top =  prog + '%';
+		
+		// Swap out the rocket for the submarine at the waterline
+		prog > data.scale.waterline - 1 ? data.indicator.classList.add( 'titan' ) : data.indicator.classList.remove( 'titan' );
+		
+		// Swap out the rocket flame for the parachute based on scroll direction
+		yPos < data.lastPos ? data.indicator.classList.add( 'flame' ) : data.indicator.classList.remove( 'flame' );
+		
+		// Store the scroll position for later reference in determining scroll direction
+		data.lastPos = yPos;
+		
+		// If the page scroll is past the initial story top, make the progress bar sticky.
+		// And, if the end of the story scrolls into view, move the progress bar along with it.
+		if ( yPos > data.pos ) {
+			data.bar.classList.add( 'sticky' );
+			data.storyHeight + data.pos < yPos + data.vh ? data.bar.classList.add( 'end' ) : data.bar.classList.remove( 'end' );
+		} else {
+			data.bar.classList.remove( 'sticky' );
+		}
 		
 	}
 	
