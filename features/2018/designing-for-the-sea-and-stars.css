@@ -14,7 +14,7 @@
 }
 
 #content {
-	background: linear-gradient(to bottom, #04092f 50%, #000 80%);
+	background: linear-gradient(to bottom, #010B28 50%, #000 80%);
 	color: #fff;
 }
 
@@ -79,7 +79,7 @@
 
 #keyframe-backdrop-underwater {
 	z-index: 2;
-	top: -97vw;
+	top: -101vw;
 }
 
 
@@ -123,10 +123,25 @@
 
 #story h2 {
 	font-family: 'Economica', 'Hind', sans-serif;
-	font-size: 2rem;
+	font-size: 2.2rem;
 	color: #c7f2ff;
-	border-bottom: 3px solid #c7f277;
 	padding: 2rem 0 1rem;
+	margin-bottom: 0;
+}
+
+@keyframes squiggle {
+	from { background-position: 0 center }
+	to { background-position: 175.5px center }
+}
+
+.squiggle {
+	width: 100%;
+	height: 20px;
+	margin-bottom: 2rem;
+	background-repeat: repeat-x;
+	background-position: 0 center;
+	background-size: auto 10px;
+	animation: squiggle 7s infinite linear;
 }
 
 .artboard {
