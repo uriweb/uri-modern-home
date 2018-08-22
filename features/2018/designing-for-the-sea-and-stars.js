@@ -73,7 +73,7 @@
 		};
 		
 		// Get some measurements
-		data.pos = data.bar.getBoundingClientRect().top;
+		data.pos = data.story.getBoundingClientRect().top;
 		data.storyHeight =  data.story.offsetHeight;
 		
 		// Add a hook now that we have js
