@@ -5,16 +5,16 @@ Author: University of Rhode Island
 Author URI: https://today.uri.edu
 Description: URI Modern Home is a WordPress theme designed for the University of Rhode Island homepage site. It is a child theme of URI Modern.
 Template: uri-modern
-Version: 1.1.0
+Version: 1.2.0
 License: GPL-3.0
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: uri
 Tags: education, theme-options
 
-@version v1.1.0
+@version v1.2.0
 @author Brandon Fuller <bjcfuller@uri.edu>
 
 */
-.cl-scard .cl-scard-category-the-big-story{color:#717da3}.cl-scard .cl-scard-category-the-big-story:after{border-bottom-color:#717da3}.feature-hero img{max-width:100%;height:auto}.feature-caption{font-size:.9rem;color:#555;padding:0 0 1rem;max-width:360px;line-height:125%;margin-bottom:2rem}.feature-caption:after{display:block;content:'';width:100px;height:1px;background:#ccc;margin-top:1rem}.feature-caption p{margin-bottom:1rem}.feature-caption .credit{color:#999;font-size:.8rem;margin:.5rem 0 1rem}
+.cl-scard .cl-scard-category-the-big-story{color:#717da3}.cl-scard .cl-scard-category-the-big-story:after{border-bottom-color:#717da3}.feature-hero img{max-width:100%;height:auto}
 
 /*# sourceMappingURL=map/style.css.map */
