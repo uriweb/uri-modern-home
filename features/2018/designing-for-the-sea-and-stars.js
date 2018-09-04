@@ -113,7 +113,7 @@
 		scale = {
 			ticks: document.getElementById( 'progress' ).querySelectorAll( '.progress-label' ),
 			depths: []
-		}
+		};
 
 		for ( i = 0; i < scale.ticks.length; i++ ) {
 			scale.depths.push( scale.ticks[i].getAttribute( 'data-depth' ) );
