@@ -197,7 +197,7 @@
 	60% { transform: rotate(-10deg) }
 	100% { transform: rotate(10deg) }
 }
-	
+
 
 #progress {
 	z-index: 10;
@@ -213,7 +213,7 @@
 }
 
 @supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)) {
-    #progress {
+	#progress {
 		-webkit-backdrop-filter: saturate(200%) blur(10px);
 		backdrop-filter: saturate(200%) blur(10px);
 	}
@@ -303,7 +303,7 @@
 #indicator.titan .indicator-rocket {
 	opacity: 0;
 }
-	
+
 #indicator .rocket-chute {
 	position: absolute;
 	top: -13px;
@@ -343,24 +343,24 @@
 }
 
 @media screen and (min-width: 600px) {
-	
+
 	#progress {
 		width: 20px;
 	}
-	
+
 	#progress .progress-label {
 		left: 10px;
 	}
-	
+
 	#progress .progress-label:before {
 		height: 20px;
 		bottom: -5px;
 	}
-	
+
 }
 
 @media screen and (min-width: 800px) {
-	
+
 	#progress .progress-label {
 		left: 30px;
 		font-size: .8rem;
@@ -375,5 +375,5 @@
 		top: 5px;
 		bottom: initial;
 	}
-	
+
 }
