@@ -129,6 +129,15 @@
 	margin-bottom: 0;
 }
 
+#story a {
+	color: #b9ef92;
+}
+
+#story a:hover,
+#story a:focus {
+	text-decoration: underline;
+}
+
 @keyframes squiggle {
 	from { background-position: 0 center }
 	to { background-position: 175.5px center }
