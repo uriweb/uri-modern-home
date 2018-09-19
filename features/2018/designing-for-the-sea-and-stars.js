@@ -139,7 +139,7 @@
 
 		// Define the offset (in percent) for the last tickmark
 		bottom = 98;
-		
+
 		// Set the progress bar offset margin
 		data.bar.style.marginLeft = 'calc( -50vw + (' + getScrollbarWidth() + 'px / 2 ) )';
 
@@ -191,39 +191,39 @@
 		}
 
 	}
-	
+
 	/*
 	 * Get scrollbar width
 	 *
 	 * @see http://jsfiddle.net/UU9kg/17/
 	 */
 	function getScrollbarWidth() {
-		
+
 		var outer, widthNoScroll, inner, widthWithScroll;
-		
-		outer = document.createElement("div");
+
+		outer = document.createElement( "div" );
 		outer.style.visibility = "hidden";
 		outer.style.width = "100px";
 		outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
 
-		document.body.appendChild(outer);
+		document.body.appendChild( outer );
 
 		widthNoScroll = outer.offsetWidth;
 		// force scrollbars
 		outer.style.overflow = "scroll";
 
 		// add innerdiv
-		inner = document.createElement("div");
+		inner = document.createElement( "div" );
 		inner.style.width = "100%";
-		outer.appendChild(inner);        
+		outer.appendChild( inner );
 
 		widthWithScroll = inner.offsetWidth;
 
 		// remove divs
-		outer.parentNode.removeChild(outer);
+		outer.parentNode.removeChild( outer );
 
 		return widthNoScroll - widthWithScroll;
-		
+
 	}
 
 })();
