@@ -139,6 +139,9 @@
 
 		// Define the offset (in percent) for the last tickmark
 		bottom = 98;
+		
+		// Set the progress bar offset margin
+		data.bar.style.marginLeft = 'calc( -50vw + (' + getScrollbarWidth() + 'px / 2 ) )';
 
 		// Set the background colors of the progress bar
 		data.bar.style.background = 'linear-gradient(to bottom, rgba(0,0,0,.4) calc( ' + data.scale.waterline + '% + 5px ), rgba(18,85,146,.4) calc( ' + data.scale.waterline + '% + 5px ), rgba(0,20,40,.6) calc( 98% + 5px ), rgba(120,96,38,.5) calc( 98% + 5px ))';
@@ -187,6 +190,40 @@
 			data.bar.classList.remove( 'sticky' );
 		}
 
+	}
+	
+	/*
+	 * Get scrollbar width
+	 *
+	 * @see http://jsfiddle.net/UU9kg/17/
+	 */
+	function getScrollbarWidth() {
+		
+		var outer, widthNoScroll, inner, widthWithScroll;
+		
+		outer = document.createElement("div");
+		outer.style.visibility = "hidden";
+		outer.style.width = "100px";
+		outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
+
+		document.body.appendChild(outer);
+
+		widthNoScroll = outer.offsetWidth;
+		// force scrollbars
+		outer.style.overflow = "scroll";
+
+		// add innerdiv
+		inner = document.createElement("div");
+		inner.style.width = "100%";
+		outer.appendChild(inner);        
+
+		widthWithScroll = inner.offsetWidth;
+
+		// remove divs
+		outer.parentNode.removeChild(outer);
+
+		return widthNoScroll - widthWithScroll;
+		
 	}
 
 })();
