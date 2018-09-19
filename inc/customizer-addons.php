@@ -13,7 +13,8 @@
 function uri_modern_home_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting(
-		'use_ancestor_title_whitelist', array(
+		'use_ancestor_title_whitelist',
+		array(
 			'default'           => '',
 			'type'              => 'option',
 			'sanitize_callback' => 'sanitize_textarea_field',

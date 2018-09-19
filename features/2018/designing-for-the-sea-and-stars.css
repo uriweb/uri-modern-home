@@ -386,3 +386,45 @@
 	}
 
 }
+
+#call {
+	position: relative;
+	width: 100%;
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+#call a {
+	text-align: center;
+	display: block;
+	font-family: "Lato", "Hind", san-serif;
+	font-weight: 900;
+	font-size: 1.3rem;
+	background-image: url(https://www.uri.edu/wp-content/uploads/home/2018/09/designing-sea-and-stars-call-text-bg.jpg);
+	background-position: center 60%;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-color: #32c1f9;
+	-webkit-background-clip: text;
+	color: transparent;
+	text-shadow: none;
+	transition: color .4s ease-in-out;
+}
+
+#call a:hover,
+#call a:focus {
+	color: #fff;
+	text-decoration: none;
+}
+
+@media screen and (min-width: 600px) {
+	#call a {
+		font-size: 1.6rem;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	#call a {
+		font-size: 2rem;
+	}
+}
