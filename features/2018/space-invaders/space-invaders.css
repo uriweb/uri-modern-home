@@ -86,6 +86,18 @@
 	100% { background-position: -304px; }
 }
 
+@keyframes tunicate-1-slow {
+	0% { background-position: left center }
+	79% { background-position: left center }
+	100% { background-position: -304px; }
+}
+
+@keyframes tunicate-1-fast {
+	0% { background-position: left center }
+	48% { background-position: left center }
+	100% { background-position: -304px; }
+}
+
 .tunicate-1 {
 	width: 76px;
 	height: 72px;
@@ -97,10 +109,12 @@
 }
 
 .tunicate-1.slow {
+	animation-name: tunicate-1-slow;
 	animation-duration: 5s;
 }
 
 .tunicate-1.fast {
+	animation-name: tunicate-1-fast;
 	animation-duration: 2s;
 }
 
@@ -109,6 +123,18 @@
 @keyframes tunicate-2 {
 	0% { background-position: left center }
 	70% { background-position: left center }
+	100% { background-position: -256px; }
+}
+
+@keyframes tunicate-2-slow {
+	0% { background-position: left center }
+	75% { background-position: left center }
+	100% { background-position: -256px; }
+}
+
+@keyframes tunicate-2-fast {
+	0% { background-position: left center }
+	62% { background-position: left center }
 	100% { background-position: -256px; }
 }
 
@@ -123,10 +149,12 @@
 }
 
 .tunicate-2.slow {
+	animation-name: tunicate-2-slow;
 	animation-duration: 4s;
 }
 
 .tunicate-2.fast {
+	animation-name: tunicate-2-fast;
 	animation-duration: 2.6s;
 }
 
@@ -200,9 +228,9 @@
 #story-deck {
 	font-size: 1.2rem;
 	line-height: 2rem;
-	font-family: "Titillium Web", "Roboto Mono", "Hind", sans-serif;
+	font-family: "Roboto Mono", "Hind", sans-serif;
 	padding-bottom: 3rem;
-	width: 70%;
+	width: 80%;
 	margin: 0 auto;
 	color: #fff;
 }
@@ -234,6 +262,7 @@
 	
 	#story-deck {
 		font-size: 1.8rem;
+		width: 70%;
 	}
 	
 }
