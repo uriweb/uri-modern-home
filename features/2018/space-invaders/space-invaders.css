@@ -236,35 +236,35 @@
 }
 
 @media screen and (min-width: 500px) {
-	
+
 	#story-header h1 {
 		font-size: 3rem;
 	}
-	
+
 	#story-deck {
 		font-size: 1.5rem;
 	}
-	
+
 }
 
 @media screen and (min-width: 700px) {
-	
+
 	#story-header {
 		left: 0;
 		width: 100%;
 		max-width: 800px;
 		margin: 2rem auto 0;
 	}
-	
+
 	#story-header h1 {
 		font-size: 4rem;
 	}
-	
+
 	#story-deck {
 		font-size: 1.8rem;
 		width: 70%;
 	}
-	
+
 }
 
 .content-body {
