@@ -2,21 +2,72 @@
    SPACE INVADERS
    ============================== */
 
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web|Press+Start+2P");
+
 #page {
-	background: #e8f6ff;
+	background: #fff;
 }
 
 .entry-content {
-	padding: 5rem;
+	padding: 0 0 5rem;
 }
 
 /* === HABITATS === */
 
 .habitat {
+	position: relative;
+	left: calc(-40.909vw - 25px);
 	font-size: 0;
+	margin: 3rem auto;
+	transform: scale(.55) translate(0,-40.909%);
+	width: 181.818vw;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
+.habitat.marine {
+	background-color: #d1fffd;
+	background-image: url(i/landscape-marine-1.png);
+	background-position: center bottom;
+	background-repeat: repeat-x;
+	background-size: 512px auto;
+}
+
+@media screen and (min-width: 350px) {
+	.habitat {
+		left: calc(-26.923vw - 25px);
+		transform: scale(.65) translate(0,-26.923%);
+		width: 153.846vw;
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.habitat {
+		left: calc(-12.5vw - 25px);
+		transform: scale(.8) translate(0,-12.5%);
+		width: 125vw;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.habitat {
+		left: 0;
+		transform: scale(1);
+		width: 100%;
+		max-width: 800px;
+	}
+}
+
+
 /* === CREATURES === */
+
+.creatures {
+	position: relative;
+	width: 800px;
+	left: 50%;
+	margin-left: -400px;
+	text-align: center;
+}
 
 .creature {
 	display: inline-block;
@@ -35,7 +86,7 @@
 	100% { background-position: -304px; }
 }
 
-.creature-tunicate-1 {
+.tunicate-1 {
 	width: 76px;
 	height: 72px;
 	background-image: url(i/creature-tunicate-1.png);
@@ -45,11 +96,11 @@
 	animation-iteration-count: infinite;
 }
 
-.creature-tunicate-1.slow {
+.tunicate-1.slow {
 	animation-duration: 5s;
 }
 
-.creature-tunicate-1.fast {
+.tunicate-1.fast {
 	animation-duration: 2s;
 }
 
@@ -61,7 +112,7 @@
 	100% { background-position: -256px; }
 }
 
-.creature-tunicate-2 {
+.tunicate-2 {
 	width: 64px;
 	height: 56px;
 	background-image: url(i/creature-tunicate-2.png);
@@ -71,11 +122,11 @@
 	animation-iteration-count: infinite;
 }
 
-.creature-tunicate-2.slow {
+.tunicate-2.slow {
 	animation-duration: 4s;
 }
 
-.creature-tunicate-2.fast {
+.tunicate-2.fast {
 	animation-duration: 2.6s;
 }
 
@@ -85,7 +136,7 @@
 	to { background-position: -288px; }
 }
 
-.creature-seaweed-1 {
+.seaweed-1 {
 	width: 48px;
 	height: 128px;
 	background-image: url(i/creature-seaweed-1.png);
@@ -95,11 +146,11 @@
 	animation-iteration-count: infinite;
 }
 
-.creature-seaweed-1.slow {
+.seaweed-1.slow {
 	animation-duration: 4s;
 }
 
-.creature-seaweed-1.fast {
+.seaweed-1.fast {
 	animation-duration: 2s;
 }
 
@@ -117,7 +168,7 @@
 	100%	{ transform: translate(0,0) }
 }
 
-.creature-crab {
+.crab {
 	width: 72px;
 	height: 40px;
 	transform: translate(0,0);
@@ -126,4 +177,82 @@
 	animation-duration: 5s, 10s;
 	animation-timing-function: steps(12), steps(6, start);
 	animation-iteration-count: infinite;
+}
+
+
+/* === STORY === */
+
+#story-header {
+	background: linear-gradient(to bottom, #000, #36281e);
+	text-align: center;
+	position: relative;
+	left: -25px;
+	width: 100vw;
+}
+
+#story-header h1 {
+	font-size: 2.2rem;
+	font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+	padding: 5rem 0 2rem;
+	color: #fff;
+}
+
+#story-deck {
+	font-size: 1.2rem;
+	line-height: 2rem;
+	font-family: "Titillium Web", "Roboto Mono", "Hind", sans-serif;
+	padding-bottom: 3rem;
+	width: 70%;
+	margin: 0 auto;
+	color: #fff;
+}
+
+@media screen and (min-width: 500px) {
+	
+	#story-header h1 {
+		font-size: 3rem;
+	}
+	
+	#story-deck {
+		font-size: 1.5rem;
+	}
+	
+}
+
+@media screen and (min-width: 700px) {
+	
+	#story-header {
+		left: 0;
+		width: 100%;
+		max-width: 800px;
+		margin: 2rem auto 0;
+	}
+	
+	#story-header h1 {
+		font-size: 4rem;
+	}
+	
+	#story-deck {
+		font-size: 1.8rem;
+	}
+	
+}
+
+.content-body {
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+	font-family: "Titillium Web", "Roboto Mono", "Hind", sans-serif;
+	font-size: 1.1rem;
+}
+
+.artboard {
+	margin-bottom: 4rem;
+	text-align: center;
+}
+
+.artboard:after {
+	display: block;
+	content: '';
+	clear: both;
 }
