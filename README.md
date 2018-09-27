@@ -2,14 +2,15 @@
 
 URI Modern Home is a WordPress theme designed for the University of Rhode Island homepage site. It is a child theme of URI Modern.
 
-## What's new in 1.3.1
+## What's new in 1.3.2
 
-URI Modern Home 1.3.1 is a bug fix release for the "Designing for the Sea and Stars" feature.
+URI Modern Home 1.3.2 is a bug fix release.
 
-* Fixes a display issue with the progress bar on browsers with vertical scroll bars
-* Adds styles for the feature CTA
+* Updates styles for URI: A User's Guide feature story
+* Reorganizes file structure of feature story assets
+	- **WARNING:** This is a breaking change. All longform feature story stylesheets and scripts must be repointed.
 
-For complete details, see the [commit history](https://github.com/uriweb/uri-modern-home/pull/23/commits) and the [issue tracker](https://github.com/uriweb/uri-modern-home/issues). 
+For complete details, see the [commit history](https://github.com/uriweb/uri-modern-home/pull/25/commits) and the [issue tracker](https://github.com/uriweb/uri-modern-home/issues). 
 
 ## How do I get set up?
 
