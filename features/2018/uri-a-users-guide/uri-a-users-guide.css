@@ -68,15 +68,22 @@
 	background: #fff6af;
 }
 
+.section-cheer-on-the-rams {
+	background: #3b64bd;
+	color: #fff;
+}
+
 .section-make-yourself-at-home a,
 .section-eat-really-well a,
 .section-cheer-on-the-rams a,
-.section-find-your-people a:not(.cl-card) {
+.section-find-your-people a,
+.section-cheer-on-the-rams a {
 	color: #fffc85;
 }
 
 .section-make-yourself-at-home h1,
 .section-eat-really-well h1,
-.section-find-your-people h1 {
+.section-find-your-people h1,
+.section-cheer-on-the-rams h1 {
 	color: #fff;
 }

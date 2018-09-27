@@ -147,6 +147,7 @@
 	width: 100%;
 	height: 20px;
 	margin-bottom: 2rem;
+	background-image: url(i/designing-sea-and-stars-squiggle.png);
 	background-repeat: repeat-x;
 	background-position: 0 center;
 	background-size: auto 10px;
@@ -287,6 +288,7 @@
 }
 
 #indicator .indicator-rocket {
+	background-image: url(i/designing-sea-and-stars-rocket-icon.png);
 	transform: rotate(0);
 	animation: wobble 10s infinite alternate ease-in-out;
 }
@@ -296,6 +298,7 @@
 }
 
 #indicator .indicator-titan {
+	background-image: url(i/designing-sea-and-stars-titan-icon.png);
 	opacity: 0;
 }
 
@@ -319,6 +322,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
+	background: url(i/designing-sea-and-stars-rocket-chute.png);
 	background-position: center top;
 	background-repeat: no-repeat;
 	background-size: 80% auto;
@@ -333,6 +337,7 @@
 	left: 35%;
 	width: 30%;
 	height: 100%;
+	background-image: url(i/designing-sea-and-stars-rocket-flame.png);
 	background-position: 0 top;
 	background-repeat: no-repeat;
 	background-size: 200% auto;

@@ -30,7 +30,8 @@
 		frames = document.querySelectorAll( '.parallax' );
 
 		window.addEventListener(
-			 'scroll', function() {
+			 'scroll',
+			function() {
 
 			top = this.pageYOffset;
 			vh = this.innerHeight;
@@ -88,7 +89,8 @@
 
 		// Update measurements, scale, and indicator on window resize
 		window.addEventListener(
-			 'resize', function() {
+			 'resize',
+			function() {
 
 			data.vh = window.innerHeight;
 			data.vw = window.innerWidth;
@@ -98,7 +100,8 @@
 			setProgressScale( data );
 			updateProgress( data );
 
-		}, false
+		},
+			false
 			);
 
 	}

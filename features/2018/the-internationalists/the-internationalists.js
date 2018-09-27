@@ -11,7 +11,8 @@
 	var els, l;
 
 	window.addEventListener(
-		 'load', function() {
+		 'load',
+		function() {
 
 		var i;
 
