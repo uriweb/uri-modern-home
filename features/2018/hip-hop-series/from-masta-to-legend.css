@@ -170,7 +170,7 @@
 		background-size: cover;
 	}
 }
-	
+
 .passage {
 	max-width: 600px;
 	font-family: "Averia Serif Libre", "Lato", "Hind", "Arial", sans-serif;
@@ -194,7 +194,7 @@
 		font-size: 1.1rem;
 	}
 }
-		
+
 .passage .part,
 .passage .attribution {
 	color: #528b98; /* #3d5f67 */
@@ -235,7 +235,7 @@
 .image:hover .caption {
 	opacity: 1;
 }
-	
+
 .image .credit {
 	padding-top: 10px;
 	margin-top: 10px;
@@ -249,5 +249,4 @@
 .image .credit a:focus {
 	color: inherit;
 	text-decoration: underline;
-	
 }
