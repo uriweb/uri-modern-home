@@ -2,8 +2,8 @@
    FROM MASTA TO LEGEND
    ============================== */
 
-@import url("https://fonts.googleapis.com/css?family=Lobster|Oswald:300|Averia+Serif+Libre:300");
-
+@import url("https://fonts.googleapis.com/css?family=Bungee|Oswald:300|Averia+Serif+Libre:300");
+/* Bevan */
 
 #page {
 	-webkit-font-smoothing: antialiased;
@@ -11,6 +11,7 @@
 
 #story-hero {
 	display: block;
+	margin-bottom: 2px;
 }
 
 #story-hero>div:nth-child(1) {
@@ -26,6 +27,7 @@
 	flex-basis: 35%;
 	box-sizing: border-box;
 	padding: 2rem 2rem 0;
+	background: #fff;
 }
 
 #story-hero img {
@@ -34,7 +36,7 @@
 
 #story-hero h1 {
 	max-width: 500px;
-	font-family: "Lobster", "Lato", "Hind", "Arial", sans-serif;
+	font-family: "Bungee", "Lato", "Hind", "Arial", sans-serif;
 	font-size: 4rem;
 	margin-bottom: 3rem;
 }
@@ -105,9 +107,10 @@
 }
 
 .section p:first-child:first-letter {
-	color: #990033;
+	color: #000; /* #990033 */
 	float: left;
 	font-size: 4rem;
+	font-family: "Bungee";
 	line-height: 3rem;
 	padding-top: 4px;
 	padding-right: 8px;
@@ -118,10 +121,13 @@
 }
 
 .passage-wrapper {
-	top: 20px;
-	margin-bottom: 4rem;
+	margin-bottom: 6rem;
 	padding: 3rem 0;
-	background: #000;
+	background-color: #000;
+	/*background-image: url(i/black_paper.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;*/
 }
 
 @keyframes rotate-hue {
@@ -132,9 +138,9 @@
 	to { background-position: center bottom };
 }
 
-.passage-wrapper:before {
+.passage-wrapper:after {
 	position: absolute;
-	top: -20px;
+	bottom: -20px;
 	display: block;
 	content: '';
 	width: 100%;
@@ -174,7 +180,16 @@
 	line-height: 1.3rem;
 }
 
-@media screen and (min-width: 350px) {
+.passage p {
+	padding-left: 1rem;
+	text-indent: -1rem;
+}
+
+.passage p:not(:last-of-type) {
+	margin-bottom: 0;
+}
+
+@media screen and (min-width: 400px) {
 	.passage {
 		font-size: 1.1rem;
 	}
@@ -189,4 +204,50 @@
 .passage .part {
 	text-transform: uppercase;
 	margin-bottom: .5rem;
+}
+
+.image {
+	position: relative;
+}
+
+.image img {
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin-bottom: 2px;
+}
+
+.image .caption {
+	position: absolute;
+	bottom: 1rem;
+	left: 1rem;
+	padding: 1rem;
+	max-width: calc( 100% - 2rem );
+	box-sizing: border-box;
+	background: rgba(0,0,0,.8);
+	font-family: "Oswald", "Hind", "Arial", sans-serif;
+	font-size: .9rem;
+	color: #fff;
+	opacity: 0;
+	transition: opacity .3s ease-in-out;
+}
+
+.image:hover .caption {
+	opacity: 1;
+}
+	
+.image .credit {
+	padding-top: 10px;
+	margin-top: 10px;
+	border-top: 1px solid rgba(255,255,255,.3);
+	color: rgba(255,255,255,.7);
+	font-size: .7rem;
+}
+
+.image .credit a,
+.image .credit a:hover,
+.image .credit a:focus {
+	color: inherit;
+	text-decoration: underline;
+	
 }
