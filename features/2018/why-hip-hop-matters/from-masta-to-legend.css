@@ -9,6 +9,14 @@
 	-webkit-font-smoothing: antialiased;
 }
 
+.oembed {
+	margin: 3rem 0;
+}
+
+.oembed iframe {
+	margin: 0 auto;
+}
+
 #story-hero {
 	display: block;
 	margin-bottom: 2px;
@@ -26,7 +34,7 @@
 #story-hero>div:nth-child(2) {
 	flex-basis: 35%;
 	box-sizing: border-box;
-	padding: 2rem 2rem 0;
+	padding: 1.5rem 2rem 0;
 	background: #fff;
 }
 
@@ -34,11 +42,45 @@
 	padding: 0;
 }
 
+#story-hero .superhead {
+	margin-bottom: 24px;
+}
+
+#story-hero .superhead a {
+	position: relative;
+	font-family: "Oswald", "Hind", "Arial", sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 1rem;
+	padding-bottom: 10px;
+}
+
+#story-hero .superhead a,
+#story-hero .superhead a:hover,
+#story-hero .superhead a:focus {
+	color: #37a588;
+}
+
+#story-hero .superhead a:after {
+	position: absolute;
+	display: block;
+	content: '';
+	bottom: 0;
+	background: #37a588;
+	width: 60px;
+	height: 1px;
+	transition: width .2s ease-in-out;
+}
+
+#story-hero .superhead a:hover:after {
+	width: 100%;
+}
+
 #story-hero h1 {
 	max-width: 500px;
 	font-family: "Bungee", "Lato", "Hind", "Arial", sans-serif;
 	font-size: 4rem;
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 }
 
 #story-hero .deck {
@@ -55,6 +97,12 @@
 		width: initial;
 		height: initial;
 	}
+	#story-hero .superhead a {
+		font-size: .9rem;
+	}
+	#story-hero .superhead a:after {
+		width: 50px;
+	}
 	#story-hero h1 {
 		font-size: 3rem;
 	}
@@ -66,6 +114,7 @@
 @media screen and (min-width: 800px) {
 	#story-hero h1 {
 		font-size: 4rem;
+		margin-bottom: 3rem;
 	}
 	#story-hero .deck {
 		font-size: 1.2rem;
@@ -74,7 +123,13 @@
 
 @media screen and (min-width: 1000px) {
 	#story-hero>div:nth-child(2) {
-		padding: 2rem 3rem 1rem;
+		padding: 1.5rem 3rem 1rem;
+	}
+	#story-hero .superhead a {
+		font-size: 1rem;
+	}
+	#story-hero .superhead a:after {
+		width: 60px;
 	}
 	#story-hero h1 {
 		font-size: 5rem;
@@ -86,7 +141,13 @@
 
 @media screen and (min-width: 1400px) {
 	#story-hero>div:nth-child(2) {
-		padding: 3rem 4rem 2rem;
+		padding: 2.5rem 4rem 2rem;
+	}
+	#story-hero .superhead a {
+		font-size: 1.2rem;
+	}
+	#story-hero .superhead a:after {
+		width: 80px;
 	}
 	#story-hero h1 {
 		font-size: 6rem;
@@ -232,7 +293,8 @@
 	transition: opacity .3s ease-in-out;
 }
 
-.image:hover .caption {
+.image:hover .caption,
+.image:focus .caption {
 	opacity: 1;
 }
 
