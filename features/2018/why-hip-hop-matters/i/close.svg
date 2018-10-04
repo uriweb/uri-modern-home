@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 75 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="Plus-Icon" serif:id="Plus Icon" transform="matrix(1,0,0,1,0.000145906,-148.981)">
+        <path d="M63.398,221.683L37.265,195.551L11.134,221.683C9.918,222.857 8.293,223.514 6.603,223.514C3.024,223.514 0.08,220.569 0.08,216.991C0.08,215.301 0.736,213.676 1.91,212.46L28.042,186.328L1.91,160.195C0.687,158.972 0,157.312 0,155.583C0,152.006 2.944,149.062 6.521,149.062C8.25,149.062 9.91,149.749 11.133,150.972L37.266,177.105L63.397,150.973C64.626,149.701 66.321,148.981 68.089,148.981C71.668,148.981 74.612,151.926 74.612,155.504C74.612,157.273 73.893,158.968 72.62,160.197L46.489,186.328L72.621,212.46C73.814,213.679 74.483,215.318 74.483,217.023C74.483,220.601 71.539,223.545 67.961,223.545C66.256,223.545 64.617,222.876 63.398,221.683Z" style="fill:white;"/>
+    </g>
+</svg>

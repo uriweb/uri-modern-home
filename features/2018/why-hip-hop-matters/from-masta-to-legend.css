@@ -3,10 +3,13 @@
    ============================== */
 
 @import url("https://fonts.googleapis.com/css?family=Bungee|Oswald:300|Averia+Serif+Libre:300");
-/* Bevan */
 
 #page {
 	-webkit-font-smoothing: antialiased;
+}
+
+.globalnav {
+	display: none;
 }
 
 .oembed {
@@ -34,7 +37,7 @@
 #story-hero>div:nth-child(2) {
 	flex-basis: 35%;
 	box-sizing: border-box;
-	padding: 1.5rem 2rem 0;
+	padding: 2rem 2rem 0;
 	background: #fff;
 }
 
@@ -43,37 +46,7 @@
 }
 
 #story-hero .superhead {
-	margin-bottom: 24px;
-}
-
-#story-hero .superhead a {
-	position: relative;
-	font-family: "Oswald", "Hind", "Arial", sans-serif;
-	font-weight: 300;
-	text-transform: uppercase;
-	font-size: 1rem;
-	padding-bottom: 10px;
-}
-
-#story-hero .superhead a,
-#story-hero .superhead a:hover,
-#story-hero .superhead a:focus {
-	color: #37a588;
-}
-
-#story-hero .superhead a:after {
-	position: absolute;
-	display: block;
-	content: '';
-	bottom: 0;
-	background: #37a588;
-	width: 60px;
-	height: 1px;
-	transition: width .2s ease-in-out;
-}
-
-#story-hero .superhead a:hover:after {
-	width: 100%;
+	 display: none;
 }
 
 #story-hero h1 {
@@ -97,12 +70,6 @@
 		width: initial;
 		height: initial;
 	}
-	#story-hero .superhead a {
-		font-size: .9rem;
-	}
-	#story-hero .superhead a:after {
-		width: 50px;
-	}
 	#story-hero h1 {
 		font-size: 3rem;
 	}
@@ -125,10 +92,29 @@
 	#story-hero>div:nth-child(2) {
 		padding: 1.5rem 3rem 1rem;
 	}
-	#story-hero .superhead a {
+	#story-hero .superhead {
+		position: relative;
+		display: block;
+		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-weight: 300;
+		text-transform: uppercase;
 		font-size: 1rem;
+		color: #37a588;
+		margin-bottom: 14px;
+		padding-bottom: 10px;
 	}
-	#story-hero .superhead a:after {
+
+	#story-hero .superhead:after {
+		position: absolute;
+		display: block;
+		content: '';
+		bottom: 0;
+		background: #37a588;
+		width: 60px;
+		height: 1px;
+		transition: width .2s ease-in-out;
+	}
+	#story-hero .superhead:after {
 		width: 60px;
 	}
 	#story-hero h1 {
@@ -143,10 +129,10 @@
 	#story-hero>div:nth-child(2) {
 		padding: 2.5rem 4rem 2rem;
 	}
-	#story-hero .superhead a {
+	#story-hero .superhead {
 		font-size: 1.2rem;
 	}
-	#story-hero .superhead a:after {
+	#story-hero .superhead:after {
 		width: 80px;
 	}
 	#story-hero h1 {
@@ -168,7 +154,7 @@
 }
 
 .section p:first-child:first-letter {
-	color: #000; /* #990033 */
+	color: #000;
 	float: left;
 	font-size: 4.5rem;
 	font-family: "Bungee";
@@ -185,10 +171,6 @@
 	margin-bottom: 6rem;
 	padding: 3rem 0;
 	background-color: #000;
-	/*background-image: url(i/black_paper.jpg);
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;*/
 }
 
 @keyframes rotate-hue {
@@ -258,7 +240,7 @@
 
 .passage .part,
 .passage .attribution {
-	color: #528b98; /* #3d5f67 */
+	color: #37a588; /* #528b98 */
 	font-size: .9rem;
 }
 
