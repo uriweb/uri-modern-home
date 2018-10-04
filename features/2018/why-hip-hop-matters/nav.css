@@ -34,10 +34,11 @@
 	right: 0;
 	width: 9px;
 	height: 9px;
-	background-image: url('i/close.svg');
+	overflow: hidden;
+	background-image: url('i/close.png');
 	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: 9px auto;
+	background-position: left center;
+	background-size: auto 9px;
 	transform: rotate(-45deg);
 	transition: transform .2s ease-in-out;
 }
@@ -99,7 +100,8 @@ nav.hip-hop .nav-track {
 		display: none;
 	}
 
-	nav.hip-hop {
+	nav.hip-hop,
+	.nav-hip-hop-wrapper input:checked ~ nav.hip-hop {
 		display: flex;
 	}
 
@@ -202,6 +204,10 @@ body.ln-hip-hop-track-4 nav.hip-hop a:hover {
 
 body.ln-hip-hop-finding-a-voice .nav-hip-hop-wrapper label {
 	background: #fad556;
+}
+
+body.ln-hip-hop-finding-a-voice .nav-hip-hop-wrapper label span:after {
+	background-position: right center;
 }
 
 body.ln-hip-hop-finding-a-voice nav.hip-hop div.nav-hip-hop-finding-a-voice a {
