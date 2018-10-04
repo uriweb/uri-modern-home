@@ -1,0 +1,31 @@
+/* ==============================
+   WHY HIP HOP MATTERS: GETTING TO THE TRUTH
+   ============================== */
+
+@import url(base.css);
+@import url(nav.css);
+
+#story-hero {
+	border-bottom: 20px solid #000;
+	margin-bottom: 4rem;
+}
+
+@media screen and (min-width:600px) {
+	#story-hero {
+		border-bottom: none;
+	}
+}
+
+@media screen and (min-width:1000px) {
+	#story-hero {
+		margin-bottom: 6rem;
+	}
+}
+
+#story-hero .superhead {
+	color: #bc3833;
+}
+
+#story-hero .superhead:after {
+	background: #bc3833;
+}

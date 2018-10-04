@@ -136,42 +136,44 @@ body.ln-hip-hop-from-masta-to-legend nav.hip-hop a:hover {
 /* Track 2: Hip Hop is Getting to the Truth */
 
 body.ln-hip-hop-getting-to-the-truth .nav-hip-hop-wrapper label {
-	background: #c62d44;
+	color: #fff;
+	background: #bc3833; /* #c62d44 */
 }
 
 body.ln-hip-hop-getting-to-the-truth nav.hip-hop div.nav-hip-hop-getting-to-the-truth a {
-	color: #000;
-	background: #c62d44;
+	color: #fff;
+	background: #bc3833;
 }
 
 body.ln-hip-hop-getting-to-the-truth nav.hip-hop a {
-	color: #c62d44;
+	color: #bc3833;
 }
 
-body.ln-james-haile-iii nav.hip-hop a:hover {
-	color: #000;
-	background: #c62d44;
+body.ln-hip-hop-getting-to-the-truth nav.hip-hop a:hover {
+	color: #fff;
+	background: #bc3833;
 }
 
 
 /* Track 3: Hip Hop is Making a Stand */
 
 body.ln-hip-hop-making-a-stand .nav-hip-hop-wrapper label {
-	background: #fad556;
+	color: #fff;
+	background: #db6ce0;
 }
 
 body.ln-hip-hop-making-a-stand nav.hip-hop div.nav-hip-hop-making-a-stand a {
-	color: #000;
-	background: #fad556;
+	color: #fff;
+	background: #db6ce0;
 }
 
 body.ln-hip-hop-making-a-stand nav.hip-hop a {
-	color: #fad556;
+	color: #db6ce0;
 }
 
 body.ln-hip-hop-making-a-stand nav.hip-hop a:hover {
-	color: #000;
-	background: #fad556;
+	color: #fff;
+	background: #db6ce0;
 }
 
 
@@ -196,22 +198,22 @@ body.ln-hip-hop-track-4 nav.hip-hop a:hover {
 }
 
 
-/* Track 3: Hip Hop is Not Letting Up */
+/* Track 5: Hip Hop is Finding A Voice */
 
-body.ln-hip-hop-not-letting-up .nav-hip-hop-wrapper label {
+body.ln-hip-hop-finding-a-voice .nav-hip-hop-wrapper label {
 	background: #fad556;
 }
 
-body.ln-hip-hop-not-letting-up nav.hip-hop div.nav-hip-hop-not-letting-up a {
+body.ln-hip-hop-finding-a-voice nav.hip-hop div.nav-hip-hop-finding-a-voice a {
 	color: #000;
 	background: #fad556;
 }
 
-body.ln-hip-hop-not-letting-up nav.hip-hop a {
+body.ln-hip-hop-finding-a-voice nav.hip-hop a {
 	color: #fad556;
 }
 
-body.ln-hip-hop-not-letting-up nav.hip-hop a:hover {
+body.ln-hip-hop-finding-a-voice nav.hip-hop a:hover {
 	color: #000;
 	background: #fad556;
 }
