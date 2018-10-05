@@ -61,6 +61,16 @@ nav.hip-hop {
 	background: #000;
 }
 
+#feature-hero nav.hip-hop {
+	margin-bottom: 3rem;
+	display: block;
+}
+
+#feature-hero .nav-hip-hop-wrapper input,
+#feature-hero .nav-hip-hop-wrapper label {
+	display: none;
+}
+
 nav.hip-hop a {
 	display: block;
 	width: 100%;
@@ -92,6 +102,13 @@ nav.hip-hop .nav-track {
 	text-transform: uppercase;
 }
 
+#feature-hero.hip-hop-from-masta-to-legend nav.hip-hop div.nav-hip-hop-from-masta-to-legend .nav-title,
+#feature-hero.hip-hop-getting-to-the-truth nav.hip-hop div.nav-hip-hop-getting-to-the-truth .nav-title,
+#feature-hero.hip-hop-making-a-stand nav.hip-hop div.nav-hip-hop-making-a-stand .nav-title,
+#feature-hero.hip-hop-track-4 nav.hip-hop div.nav-hip-hop-track-4 .nav-title,
+#feature-hero.hip-hop-finding-a-voice nav.hip-hop div.nav-hip-hop-finding-a-voice .nav-title {
+	display: none;
+}
 
 @media screen and (min-width: 1000px) {
 
@@ -101,7 +118,9 @@ nav.hip-hop .nav-track {
 	}
 
 	nav.hip-hop,
-	.nav-hip-hop-wrapper input:checked ~ nav.hip-hop {
+	#feature-hero nav.hip-hop,
+	.nav-hip-hop-wrapper input:checked ~ nav.hip-hop,
+	#feature-hero .nav-hip-hop-wrapper input:checked ~ #feature-hero nav.hip-hop {
 		display: flex;
 	}
 
@@ -121,16 +140,19 @@ body.ln-hip-hop-from-masta-to-legend .nav-hip-hop-wrapper label {
 	background: #37a588;
 }
 
-body.ln-hip-hop-from-masta-to-legend nav.hip-hop div.nav-hip-hop-from-masta-to-legend a {
+body.ln-hip-hop-from-masta-to-legend nav.hip-hop div.nav-hip-hop-from-masta-to-legend a,
+#feature-hero.hip-hop-from-masta-to-legend nav.hip-hop div.nav-hip-hop-from-masta-to-legend a {
 	color: #fff;
 	background: #37a588;
 }
 
-body.ln-hip-hop-from-masta-to-legend nav.hip-hop a {
+body.ln-hip-hop-from-masta-to-legend nav.hip-hop a,
+#feature-hero.hip-hop-from-masta-to-legend nav.hip-hop a {
 	color: #37a588;
 }
 
-body.ln-hip-hop-from-masta-to-legend nav.hip-hop a:hover {
+body.ln-hip-hop-from-masta-to-legend nav.hip-hop a:hover,
+#feature-hero.hip-hop-from-masta-to-legend nav.hip-hop a:hover {
 	color: #fff;
 	background: #37a588;
 }
@@ -142,16 +164,19 @@ body.ln-hip-hop-getting-to-the-truth .nav-hip-hop-wrapper label {
 	background: #bc3833; /* #c62d44 */
 }
 
-body.ln-hip-hop-getting-to-the-truth nav.hip-hop div.nav-hip-hop-getting-to-the-truth a {
+body.ln-hip-hop-getting-to-the-truth nav.hip-hop div.nav-hip-hop-getting-to-the-truth a,
+#feature-hero.hip-hop-getting-to-the-truth nav.hip-hop div.nav-hip-hop-getting-to-the-truth a {
 	color: #fff;
 	background: #bc3833;
 }
 
-body.ln-hip-hop-getting-to-the-truth nav.hip-hop a {
+body.ln-hip-hop-getting-to-the-truth nav.hip-hop a,
+#feature-hero.hip-hop-getting-to-the-truth nav.hip-hop a {
 	color: #bc3833;
 }
 
-body.ln-hip-hop-getting-to-the-truth nav.hip-hop a:hover {
+body.ln-hip-hop-getting-to-the-truth nav.hip-hop a:hover,
+#feature-hero.hip-hop-getting-to-the-truth nav.hip-hop a:hover {
 	color: #fff;
 	background: #bc3833;
 }
@@ -164,16 +189,19 @@ body.ln-hip-hop-making-a-stand .nav-hip-hop-wrapper label {
 	background: #db6ce0;
 }
 
-body.ln-hip-hop-making-a-stand nav.hip-hop div.nav-hip-hop-making-a-stand a {
+body.ln-hip-hop-making-a-stand nav.hip-hop div.nav-hip-hop-making-a-stand a,
+#feature-hero.hip-hop-making-a-stand nav.hip-hop div.nav-hip-hop-making-a-stand a {
 	color: #fff;
 	background: #db6ce0;
 }
 
-body.ln-hip-hop-making-a-stand nav.hip-hop a {
+body.ln-hip-hop-making-a-stand nav.hip-hop a,
+#feature-hero.hip-hop-making-a-stand nav.hip-hop a {
 	color: #db6ce0;
 }
 
-body.ln-hip-hop-making-a-stand nav.hip-hop a:hover {
+body.ln-hip-hop-making-a-stand nav.hip-hop a:hover,
+#feature-hero.hip-hop-making-a-stand nav.hip-hop a:hover {
 	color: #fff;
 	background: #db6ce0;
 }
@@ -185,16 +213,19 @@ body.ln-hip-hop-track-4 .nav-hip-hop-wrapper label {
 	background: #fad556;
 }
 
-body.ln-hip-hop-track-4 nav.hip-hop div.nav-hip-hop-track-4 a {
+body.ln-hip-hop-track-4 nav.hip-hop div.nav-hip-hop-track-4 a,
+#feature-hero.hip-hop-track-4 nav.hip-hop div.nav-hip-hop-track-4 a {
 	color: #000;
 	background: #fad556;
 }
 
-body.ln-hip-hop-track-4 nav.hip-hop a {
+body.ln-hip-hop-track-4 nav.hip-hop a,
+#feature-hero.hip-hop-track-4 nav.hip-hop a {
 	color: #fad556;
 }
 
-body.ln-hip-hop-track-4 nav.hip-hop a:hover {
+body.ln-hip-hop-track-4 nav.hip-hop a:hover,
+#feature-hero.hip-hop-track-4 nav.hip-hop a:hover {
 	color: #000;
 	background: #fad556;
 }
@@ -210,16 +241,19 @@ body.ln-hip-hop-finding-a-voice .nav-hip-hop-wrapper label span:after {
 	background-position: right center;
 }
 
-body.ln-hip-hop-finding-a-voice nav.hip-hop div.nav-hip-hop-finding-a-voice a {
+body.ln-hip-hop-finding-a-voice nav.hip-hop div.nav-hip-hop-finding-a-voice a,
+#feature-hero.hip-hop-finding-a-voice nav.hip-hop div.nav-hip-hop-finding-a-voice a {
 	color: #000;
 	background: #fad556;
 }
 
-body.ln-hip-hop-finding-a-voice nav.hip-hop a {
+body.ln-hip-hop-finding-a-voice nav.hip-hop a,
+#feature-hero.hip-hop-finding-a-voice nav.hip-hop a {
 	color: #fad556;
 }
 
-body.ln-hip-hop-finding-a-voice nav.hip-hop a:hover {
+body.ln-hip-hop-finding-a-voice nav.hip-hop a:hover,
+#feature-hero.hip-hop-finding-a-voice nav.hip-hop a:hover {
 	color: #000;
 	background: #fad556;
 }

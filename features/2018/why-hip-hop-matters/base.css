@@ -44,11 +44,32 @@
 	padding: 0;
 }
 
-#story-hero .superhead {
-	 display: none;
+#story-hero .superhead,
+#feature-hero .superhead {
+	position: relative;
+	display: none;
+	font-family: "Oswald", "Hind", "Arial", sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 1rem;
+	color: #000;
+	margin-bottom: 14px;
+	padding-bottom: 10px;
 }
 
-#story-hero h1 {
+#story-hero .superhead:after {
+	position: absolute;
+	display: block;
+	content: '';
+	bottom: 0;
+	background: #000;
+	width: 60px;
+	height: 1px;
+	transition: width .2s ease-in-out;
+}
+
+#story-hero h1,
+#feature-hero h1 {
 	max-width: 500px;
 	font-family: "Bungee", "Lato", "Hind", "Arial", sans-serif;
 	font-size: 4rem;
@@ -93,26 +114,7 @@
 		padding: 1.5rem 3rem 1rem;
 	}
 	#story-hero .superhead {
-		position: relative;
 		display: block;
-		font-family: "Oswald", "Hind", "Arial", sans-serif;
-		font-weight: 300;
-		text-transform: uppercase;
-		font-size: 1rem;
-		color: #000;
-		margin-bottom: 14px;
-		padding-bottom: 10px;
-	}
-
-	#story-hero .superhead:after {
-		position: absolute;
-		display: block;
-		content: '';
-		bottom: 0;
-		background: #000;
-		width: 60px;
-		height: 1px;
-		transition: width .2s ease-in-out;
 	}
 	#story-hero h1 {
 		font-size: 5rem;
@@ -126,7 +128,8 @@
 	#story-hero>div:nth-child(2) {
 		padding: 2.5rem 4rem 2rem;
 	}
-	#story-hero .superhead {
+	#story-hero .superhead,
+	#feature-hero .superhead {
 		font-size: 1.2rem;
 	}
 	#story-hero .superhead:after {

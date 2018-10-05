@@ -1,0 +1,178 @@
+/* ==============================
+   WHY HIP HOP MATTERS - HOMEPAGE
+   ============================== */
+
+@import url(base.css);
+@import url(nav.css);
+
+#feature-hero .block {
+	text-align: left;
+}
+
+#feature-hero h1 {
+	text-align: left;
+	text-shadow: none;
+	font-size: 2rem;
+	padding-left: 0;
+	padding-bottom: 1rem;
+	max-width: 400px;
+}
+
+#feature-hero .superhead {
+	display: inline-block;
+	background: #fff;
+	padding: .5rem;
+	text-shadow: none;
+	font-size: .8rem;
+	border-bottom-width: 4px;
+	border-bottom-style: solid;
+}
+
+#feature-hero .title {
+	display: block;
+}
+
+#feature-hero .cl-button {
+	position: relative;
+	margin-left: 0rem;
+	margin-bottom: 1rem;
+	max-width: 50%;
+	padding-left: 2.1rem;
+}
+
+#feature-hero .cl-button:before {
+	position: absolute;
+	display: block;
+	content: '';
+	width: 0;
+	height: 0;
+	top: calc(50% - 6px);
+	left: calc(50% - 2.6rem);
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 9px solid #fff;
+}
+
+#feature-hero .cl-button:after {
+	position: absolute;
+	display: block;
+	content: '';
+	width: 18px;
+	height: 18px;
+	top: calc(50% - 11px);
+	left: calc(50% - 2.6rem - 7px);
+	border: 1px solid #fff;
+	border-radius: 50%;
+}
+
+@media screen and (min-width:350px) {
+	#feature-hero h1 {
+		font-size: 3rem;
+	}
+}
+
+@media screen and (min-width:600px) {
+	#feature-hero h1 {
+		font-size: 4rem;
+		max-width: 500px;
+	}
+	#feature-hero .superhead {
+		font-size: 1rem;
+	}
+}
+
+@media screen and (min-width:800px) {
+	#feature-hero .cl-button {
+		max-width: 250px;
+	}
+}
+
+@media screen and (min-width:1000px) {
+	#feature-hero h1 {
+		margin-left: 3rem;
+		font-size: 5rem;
+	}
+	#feature-hero .superhead {
+		font-size: 1.1rem;
+		border-bottom-width: 5px;
+	}
+	#feature-hero .cl-button {
+		max-width: 300px;
+		margin-left: 3rem;
+	}
+}
+
+@media screen and (min-width:1400px) {
+	#feature-hero h1 {
+		font-size: 6rem;
+	}
+	#feature-hero .superhead {
+		font-size: 1.4rem;
+		border-bottom-width: 6px;
+	}
+	#feature-hero .cl-button {
+		max-width: 400px;
+	}
+}
+
+/* COLORS */
+
+/* From Masta to Legend */
+
+#feature-hero.hip-hop-from-masta-to-legend .superhead {
+	color: #37a588;
+	border-bottom-color: #37a588;
+}
+
+#feature-hero.hip-hop-from-masta-to-legend .cl-button {
+	background: #37a588;
+	color: #fff;
+}
+
+/* Getting to the Truth */
+
+#feature-hero.hip-hop-getting-to-the-truth .superhead {
+	color: #bc3833;
+	border-bottom-color: #bc3833;
+}
+
+#feature-hero.hip-hop-getting-to-the-truth .cl-button {
+	background: #bc3833;
+	color: #fff;
+}
+
+/* Making a Stand */
+
+#feature-hero.hip-hop-making-a-stand .superhead {
+	color: #db6ce0;
+	border-bottom-color: #db6ce0;
+}
+
+#feature-hero.hip-hop-making-a-stand .cl-button {
+	background: #db6ce0;
+	color: #fff;
+}
+
+/* Track 4 */
+
+#feature-hero.hip-hop-track-4 .superhead {
+	color: #fad556;
+	border-bottom-color: #fad556;
+}
+
+#feature-hero.hip-hop-track-4 .cl-button {
+	background: #fad556;
+	color: #000;
+}
+
+/* Finding a Voice */
+
+#feature-hero.hip-hop-finding-a-voice .superhead {
+	color: #edbf1f;
+	border-bottom-color: #fad556;
+}
+
+#feature-hero.hip-hop-finding-a-voice .cl-button {
+	background: #fad556;
+	color: #000;
+}
