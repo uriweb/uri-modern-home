@@ -4,32 +4,40 @@
 
 @import url("https://fonts.googleapis.com/css?family=Julius+Sans+One|Economica");
 
-#feature-hero .still {
-	background-position: center bottom;
-}
+#feature-hero {
+	
+	.still {
+		background-position: center bottom;
+	}
 
-#feature-hero h1 {
-	max-width: 600px;
-	margin: 0 auto 2rem;
-	font-family: 'Julius Sans One', 'Lato', cursive, sans-serif;
-	font-size: 4rem;
-	color: #fff;
-}
+	h1 {
 
-#feature-hero h1 span {
-	display: block;
-	font-size: 1.5rem;
-	margin-bottom: 1rem;
+		max-width: 600px;
+		margin: 0 auto 2rem;
+		font-family: 'Julius Sans One', 'Lato', cursive, sans-serif;
+		font-size: 4rem;
+		color: #fff;
+
+		span {
+			display: block;
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+		}
+
+	}
+	
 }
 
 @media screen and (min-width: 360px) {
 
 	#feature-hero h1 {
+		
 		font-size: 5rem;
-	}
-
-	#feature-hero h1 span {
-		font-size: 2rem;
+		
+		span {
+			font-size: 2rem;
+		}
+		
 	}
 
 }
@@ -37,11 +45,13 @@
 @media screen and (min-width: 420px) {
 
 	#feature-hero h1 {
+		
 		font-size: 7rem;
-	}
 
-	#feature-hero h1 span {
-		font-size: 3rem;
+		span {
+			font-size: 3rem;
+		}
+		
 	}
 
 }
