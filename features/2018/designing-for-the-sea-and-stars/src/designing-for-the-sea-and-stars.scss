@@ -1,0 +1,473 @@
+/* ==============================
+   DESIGNING FOR THE SEA AND STARS
+   ============================== */
+
+@import url("https://fonts.googleapis.com/css?family=Julius+Sans+One|Economica");
+
+
+/**
+ * TEMPLATE ADJUSTMENTS
+ */
+
+#page {
+	background: #000;
+}
+
+#content {
+	background: linear-gradient(to bottom, #010B28 50%, #000 80%);
+	color: #fff;
+}
+
+.entry-content {
+	position: relative;
+	padding-bottom: 50vw;
+}
+
+
+/**
+ * PARALLAX
+ */
+
+#keyframes {
+	position: absolute;
+	z-index: 0;
+	width: 100%;
+}
+
+.keyframe {
+	
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	margin-left: -50vw;
+	z-index: 0;
+
+	img {
+		width: 100%;
+		height: auto;
+		padding: 0;
+	}
+	
+}
+
+#keyframe-backdrop-sky {
+	
+	top: 0;
+
+	img {
+		min-width: 1000px;
+	}
+	
+}
+
+#keyframe-mountain-1 {
+	top: -17vw;
+}
+
+#keyframe-mountain-2 {
+	top: -26vw;
+}
+
+#keyframe-mountain-3 {
+	top: -37vw;
+}
+
+#keyframe-mountain-4 {
+	top: -46vw;
+}
+
+#keyframe-top-layer {
+	z-index: 3;
+	top: -67vw;
+}
+
+#keyframe-backdrop-underwater {
+	z-index: 2;
+	top: -101vw;
+}
+
+
+/**
+ * STORY
+ */
+
+#story {
+	
+	position: relative;
+	z-index: 10;
+	max-width: 600px;
+	margin: 0 auto 5rem;
+	text-shadow: 0 0 .5rem rgba(0,0,0,.5);
+		
+	h2 {
+		font-family: 'Economica', 'Hind', sans-serif;
+		font-size: 2.2rem;
+		color: #c7f2ff;
+		padding: 2rem 0 1rem;
+		margin-bottom: 0;
+	}
+
+	a {
+		
+		color: #b9ef92;
+		
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+		
+	}
+	
+}
+
+#story-header {
+	padding: 6rem 0 4rem;
+	text-align: center;
+}
+
+#story-deck {
+	font-family: 'Economica', 'Hind', sans-serif;
+	text-align: center;
+	font-size: 2rem;
+	padding-bottom: 2rem;
+	text-shadow: 0 0 1rem rgba(0,0,0,.5);
+}
+
+.story-title {
+	
+	max-width: 100%;
+	font-family: 'Julius Sans One', 'Lato', cursive, sans-serif;
+	font-size: 7rem;
+	color: #fff;
+
+	span {
+		display: block;
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+	
+}
+
+@keyframes squiggle {
+	from { background-position: 0 center }
+	to { background-position: 175.5px center }
+}
+
+.squiggle {
+	width: 100%;
+	height: 20px;
+	margin-bottom: 2rem;
+	background-image: url(i/designing-sea-and-stars-squiggle.png);
+	background-repeat: repeat-x;
+	background-position: 0 center;
+	background-size: auto 10px;
+	animation: squiggle 7s infinite linear;
+}
+
+.artboard {
+	
+	margin-bottom: 4rem;
+	text-align: center;
+	
+	&:after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+	
+}
+
+.caption {
+	
+	font-family: 'Economica', 'Hind', sans-serif;
+	font-size: .9rem;
+	color: rgba(255,255,255,.5);
+	
+	&:after {
+		display: block;
+		position: relative;
+		top: 1rem;
+		content: '';
+		width: 50px;
+		height: 0;
+		border-bottom: 1px dotted rgba(255,255,255,.5);
+		margin-left: calc( 50% - 25px );
+	}
+	
+}
+
+#titanic {
+	width: 100vw;
+	position: absolute;
+	left: 50%;
+	margin-left: -50vw;
+	z-index: 0;
+	bottom: 0;
+}
+
+
+/**
+ * PROGRESS BAR
+ */
+
+@keyframes rocket-flame {
+	from { background-position: 0 top }
+	to { background-position: 200% top }
+}
+
+@keyframes wobble {
+	0% { transform: rotate(0) }
+	20% { transform: rotate(10deg) }
+	60% { transform: rotate(-10deg) }
+	100% { transform: rotate(10deg) }
+}
+
+
+#progress {
+	
+	z-index: 10;
+	display: none;
+	width: 15px;
+	height: 100vh;
+	position: absolute;
+	left: 50%;
+	margin-left: -50vw;
+	border-right: 1px solid rgba(255,255,255,.1);
+	border-bottom-right-radius: 4px;
+	top: 0;
+	
+	&.has-js {
+		display: block;
+	}
+
+	&.sticky {
+		position: fixed;
+	}
+
+	&.end {
+		position: absolute;
+		top: initial;
+		bottom: 0;
+	}
+
+	.progress-label {
+		
+		position: absolute;
+		left: 8px;
+		font-size: .7rem;
+		text-shadow: 1px 1px 0 rgba(0,0,0,.5);
+		color: rgba(255,255,255,.8);
+		font-family: 'Economica', 'Hind', sans-serif;
+		transform: rotate(-90deg) translate(5px, 0);
+		transform-origin: 0 50%;
+		
+		&:before {
+			display: block;
+			height: 15px;
+			width: 1px;
+			content: '';
+			position: absolute;
+			left: -6px;
+			bottom: -1.5px;
+			background: rgba(255,255,255,.5);
+		}
+		
+	}
+
+}
+
+@supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)) {
+	#progress {
+		-webkit-backdrop-filter: saturate(200%) blur(10px);
+		backdrop-filter: saturate(200%) blur(10px);
+	}
+}
+
+#indicator {
+	
+	display: block;
+	position: relative;
+	top: 0;
+	height: 20px;
+	width: 100%;
+	
+	&>div {
+		display: block;
+		opacity: 1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		transition: opacity .2s;
+	}
+
+	.indicator-rocket {
+		background-image: url(i/designing-sea-and-stars-rocket-icon.png);
+		transform: rotate(0);
+		animation: wobble 10s infinite alternate ease-in-out;
+	}
+	
+	.indicator-titan {
+		background-image: url(i/designing-sea-and-stars-titan-icon.png);
+		opacity: 0;
+	}
+	
+	.rocket-chute {
+		position: absolute;
+		top: -13px;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: url(i/designing-sea-and-stars-rocket-chute.png);
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: 80% auto;
+		transform: scale(1);
+		transform-origin: 50% 100%;
+		transition: transform .2s ease-in;
+	}
+
+	.rocket-flame {
+		position: absolute;
+		top: 18px;
+		left: 35%;
+		width: 30%;
+		height: 100%;
+		background-image: url(i/designing-sea-and-stars-rocket-flame.png);
+		background-position: 0 top;
+		background-repeat: no-repeat;
+		background-size: 200% auto;
+		animation: rocket-flame .5s steps(2, end) infinite;
+		transform: scale(1, 0);
+		transform-origin: 50% 0;
+		transition: transform .1s ease-out;
+	}
+
+	&.flame {
+		
+		.indicator-rocket {
+			animation: none;
+		}
+		
+		.rocket-chute {
+			transform: scale(0, 0.5);
+			transition: transform 0.5s ease-out;
+		}
+
+		.rocket-flame {
+			transform: scale(1);
+		}
+		
+	}
+
+	&.titan {
+		
+		.indicator-titan {
+			opacity: 1;
+			transform: rotate(0);
+			animation: wobble 5s infinite alternate ease-in-out;
+		}
+	
+		.indicator-rocket {
+			opacity: 0;
+		}
+		
+	}
+	
+}
+
+#progress.end #indicator.titan .indicator-titan {
+	animation: none;
+}
+
+@media screen and (min-width: 600px) {
+
+	#progress {
+		
+		width: 20px;
+		
+		.progress-label {
+			
+			left: 10px;
+			
+			&:before {
+				height: 20px;
+				bottom: -5px;
+			}
+			
+		}
+		
+	}
+
+}
+
+@media screen and (min-width: 800px) {
+
+	#progress .progress-label {
+		
+		left: 30px;
+		font-size: .8rem;
+		transform: rotate(0) translate(0, 0);
+		color: rgba(255,255,255,.5);
+		
+		&:before {
+			width: 20px;
+			height: 2px;
+			left: -30px;
+			top: 5px;
+			bottom: initial;
+		}
+		
+	}
+
+}
+
+#call {
+	
+	position: relative;
+	width: 100%;
+	max-width: 400px;
+	margin: 0 auto;
+
+	a {
+		
+		text-align: center;
+		display: block;
+		font-family: "Lato", "Hind", san-serif;
+		font-weight: 900;
+		font-size: 1.3rem;
+		background-image: url(https://www.uri.edu/wp-content/uploads/home/2018/09/designing-sea-and-stars-call-text-bg.jpg);
+		background-position: center 60%;
+		background-size: 100% auto;
+		background-repeat: no-repeat;
+		background-color: #32c1f9;
+		-webkit-background-clip: text;
+		color: transparent;
+		text-shadow: none;
+		transition: color .4s ease-in-out;
+		
+		&:hover,
+		&:focus {
+			color: #fff;
+			text-decoration: none;
+		}
+		
+	}
+
+}
+
+@media screen and (min-width: 600px) {
+	#call a {
+		font-size: 1.6rem;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	#call a {
+		font-size: 2rem;
+	}
+}

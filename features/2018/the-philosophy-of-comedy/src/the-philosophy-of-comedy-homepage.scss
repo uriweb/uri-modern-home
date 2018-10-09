@@ -1,0 +1,39 @@
+/* ==============================
+   PHILOSOPHY OF COMEDY HOMEPAGE HERO
+   ============================== */
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab:400,700');
+
+#feature-hero {
+	
+	.block {
+		background: none;
+	}
+	
+	h1 {
+		font-family: "Josefin Slab", "Hind", serif;
+		font-weight: 700;
+		font-size: 2.5rem;
+		color: #fff;
+		text-shadow: 3px 3px 0 #ff6872;
+	}
+	
+}
+
+@media screen and (min-width: 350px) {
+	#feature-hero h1 {
+		font-size: 3rem;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	#feature-hero h1 {
+		font-size: 4.5rem;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	#feature-hero h1 {
+		font-size: 6rem;
+	}
+}
