@@ -10,19 +10,21 @@
 }
 
 .content-body {
+	
 	max-width: 700px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 4rem;
-}
+	
+	h1 {
+		font-family: "Gochi Hand", "Lato", "Hind", sans-serif;
+		font-size: 3rem;
+	}
 
-.content-body h1 {
-	font-family: "Gochi Hand", "Lato", "Hind", sans-serif;
-	font-size: 3rem;
-}
-
-.content-body a:not(.cl-card) {
-	text-decoration: underline;
+	a:not(.cl-card) {
+		text-decoration: underline;
+	}
+	
 }
 
 .cl-card {
@@ -30,21 +32,22 @@
 }
 
 .section-header {
+	
 	padding: 20% 0 18%;
 	background: #f8f8f8;
-}
-
-.section-header h1 {
-	font-size: 4rem;
-	color: #002147;
-	font-weight: 900;
+	
+	h1 {
+		font-size: 4rem;
+		color: #002147;
+		font-weight: 900;
+	}
+	
 }
 
 .section-make-yourself-at-home {
 	background: #1ba5ff;
 	color: #fff;
 }
-
 
 .section-find-your-people {
 	background: #153e50;
@@ -73,17 +76,25 @@
 	color: #fff;
 }
 
-.section-make-yourself-at-home a,
-.section-eat-really-well a,
-.section-cheer-on-the-rams a,
-.section-find-your-people a,
-.section-cheer-on-the-rams a {
-	color: #fffc85;
+.section-make-yourself-at-home,
+.section-eat-really-well,
+.section-cheer-on-the-rams,
+.section-find-your-people,
+.section-cheer-on-the-rams {
+	
+	a {
+		color: #fffc85;
+	}
+	
 }
 
-.section-make-yourself-at-home h1,
-.section-eat-really-well h1,
-.section-find-your-people h1,
-.section-cheer-on-the-rams h1 {
-	color: #fff;
+.section-make-yourself-at-home,
+.section-eat-really-well,
+.section-find-your-people,
+.section-cheer-on-the-rams {
+	
+	h1 {
+		color: #fff;
+	}
+	
 }
