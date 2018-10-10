@@ -11,10 +11,10 @@
 	
 	.superhead {
 	
-		color: #37a588;
+		color: $theme-color-track-1;
 
 		&:after {
-			background: #37a588;
+			background: $theme-color-track-1;
 		}
 
 	}
@@ -84,7 +84,7 @@
 	
 	.part,
 	.attribution {
-		color: #37a588; /* #528b98 */
+		color: $theme-color-track-1; /* #528b98 */
 		font-size: .9rem;
 	}
 

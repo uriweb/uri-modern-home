@@ -12,10 +12,10 @@
 	
 	.superhead {
 	
-		color: #e251e8;
+		color: $theme-color-track-3-text;
 
 		&:after {
-			background: #e251e8;
+			background: $theme-color-track-3-text;
 		}
 
 	}

@@ -151,12 +151,12 @@
 #feature-hero.hip-hop-from-masta-to-legend {
 	
 	.superhead {
-		color: #37a588;
-		border-bottom-color: #37a588;
+		color: $theme-color-track-1;
+		border-bottom-color: $theme-color-track-1;
 	}
 
 	.cl-button {
-		background: #37a588;
+		background: $theme-color-track-1;
 		color: #fff;
 	}
 	
@@ -167,12 +167,12 @@
 #feature-hero.hip-hop-getting-to-the-truth {
 	
 	.superhead {
-		color: #bc3833;
-		border-bottom-color: #bc3833;
+		color: $theme-color-track-2;
+		border-bottom-color: $theme-color-track-2;
 	}
 
 	.cl-button {
-		background: #bc3833;
+		background: $theme-color-track-2;
 		color: #fff;
 	}
 	
@@ -183,12 +183,12 @@
 #feature-hero.hip-hop-making-a-stand {
 	
 	.superhead {
-		color: #db6ce0;
-		border-bottom-color: #db6ce0;
+		color: $theme-color-track-3-text;
+		border-bottom-color: $theme-color-track-3;
 	}
 
 	.cl-button {
-		background: #db6ce0;
+		background: $theme-color-track-3;
 		color: #fff;
 	}
 	
@@ -199,12 +199,12 @@
 #feature-hero.hip-hop-track-4 {
 	
 	.superhead {
-		color: #fad556;
-		border-bottom-color: #fad556;
+		color: $theme-color-track-5;
+		border-bottom-color: $theme-color-track-5;
 	}
 
 	.cl-button {
-		background: #fad556;
+		background: $theme-color-track-5;
 		color: #000;
 	}
 	
@@ -215,12 +215,12 @@
 #feature-hero.hip-hop-finding-a-voice {
 	
 	.superhead {
-		color: #edbf1f;
-		border-bottom-color: #fad556;
+		color: $theme-color-track-5-text;
+		border-bottom-color: $theme-color-track-5;
 	}
 
 	.cl-button {
-		background: #fad556;
+		background: $theme-color-track-5;
 		color: #000;
 	}
 	

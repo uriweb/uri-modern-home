@@ -2,7 +2,22 @@
    WHY HIP HOP MATTERS - BASE STYLES
    ============================== */
 
+/* COLORS */
+
+$theme-color-track-1: #37a588;
+$theme-color-track-2: #bc3833;
+$theme-color-track-3: #db6ce0;
+$theme-color-track-3-text: #e251e8;
+$theme-color-track-4: #82ac24;
+$theme-color-track-5: #fad556;
+$theme-color-track-5-text: #edbf1f;
+
+/* FAWNTS */
+
 @import url(https://fonts.googleapis.com/css?family=Bungee|Oswald:300|Averia+Serif+Libre:300);
+
+
+/* STYLES */
 
 #page {
 	-webkit-font-smoothing: antialiased;

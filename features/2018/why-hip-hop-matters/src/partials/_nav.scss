@@ -169,7 +169,7 @@ nav.hip-hop {
 
 body.ln-hip-hop-from-masta-to-legend .nav-hip-hop-wrapper label {
 	color: #fff;
-	background: #37a588;
+	background: $theme-color-track-1;
 }
 
 body.ln-hip-hop-from-masta-to-legend,
@@ -179,18 +179,18 @@ body.ln-hip-hop-from-masta-to-legend,
 		
 		a {
 		
-			color: #37a588;
+			color: $theme-color-track-1;
 
 			&:hover {
 				color: #fff;
-				background: #37a588;
+				background: $theme-color-track-1;
 			}
 
 		}
 	
 		div.nav-hip-hop-from-masta-to-legend a {
 			color: #fff;
-			background: #37a588;
+			background: $theme-color-track-1;
 		}
 		
 	}
@@ -202,7 +202,7 @@ body.ln-hip-hop-from-masta-to-legend,
 
 body.ln-hip-hop-getting-to-the-truth .nav-hip-hop-wrapper label {
 	color: #fff;
-	background: #bc3833; /* #c62d44 */
+	background: $theme-color-track-2; /* #c62d44 */
 }
 
 body.ln-hip-hop-getting-to-the-truth,
@@ -211,18 +211,18 @@ body.ln-hip-hop-getting-to-the-truth,
 	nav.hip-hop {
 		
 		a {
-			color: #bc3833;
+			color: $theme-color-track-2;
 			
 			&:hover {
 				color: #fff;
-				background: #bc3833;
+				background: $theme-color-track-2;
 			}
 			
 		}
 		
 		div.nav-hip-hop-getting-to-the-truth a {
 			color: #fff;
-			background: #bc3833;
+			background: $theme-color-track-2;
 		}
 		
 	}
@@ -234,7 +234,7 @@ body.ln-hip-hop-getting-to-the-truth,
 
 body.ln-hip-hop-making-a-stand .nav-hip-hop-wrapper label {
 	color: #fff;
-	background: #db6ce0;
+	background: $theme-color-track-3;
 }
 
 body.ln-hip-hop-making-a-stand,
@@ -243,18 +243,18 @@ body.ln-hip-hop-making-a-stand,
 	nav.hip-hop {
 		
 		a {
-			color: #db6ce0;
+			color: $theme-color-track-3;
 			
 			&:hover {
 				color: #fff;
-				background: #db6ce0;
+				background: $theme-color-track-3;
 			}
 			
 		}
 		
 		div.nav-hip-hop-making-a-stand a {
 			color: #fff;
-			background: #db6ce0;
+			background: $theme-color-track-3;
 		}
 		
 	}
@@ -265,7 +265,7 @@ body.ln-hip-hop-making-a-stand,
 /* Track 4:  */
 
 body.ln-hip-hop-track-4 .nav-hip-hop-wrapper label {
-	background: #fad556;
+	background: $theme-color-track-4;
 }
 
 body.ln-hip-hop-track-4,
@@ -274,18 +274,18 @@ body.ln-hip-hop-track-4,
 	nav.hip-hop {
 		
 		a {
-			color: #fad556;
+			color: $theme-color-track-4;
 			
 			&:hover {
 				color: #000;
-				background: #fad556;
+				background: $theme-color-track-4;
 			}
 			
 		}
 		
 		div.nav-hip-hop-track-4 a {
 			color: #000;
-			background: #fad556;
+			background: $theme-color-track-4;
 		}
 		
 	}
@@ -297,7 +297,7 @@ body.ln-hip-hop-track-4,
 
 body.ln-hip-hop-finding-a-voice .nav-hip-hop-wrapper label {
 	
-	background: #fad556;
+	background: $theme-color-track-5;
 	
 	span:after {
 		background-position: right center;
@@ -311,18 +311,18 @@ body.ln-hip-hop-finding-a-voice,
 	nav.hip-hop {
 		
 		a {
-			color: #fad556;
+			color: $theme-color-track-5;
 			
 			&:hover {
 				color: #000;
-				background: #fad556;
+				background: $theme-color-track-5;
 			}
 			
 		}
 		
 		div.nav-hip-hop-finding-a-voice a {
 			color: #000;
-			background: #fad556;
+			background: $theme-color-track-5;
 		}
 		
 	}
