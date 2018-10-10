@@ -6,8 +6,20 @@
 @import 'partials/nav';
 
 #story-hero {
+	
 	border-bottom: 20px solid #000;
 	margin-bottom: 4rem;
+	
+	.superhead {
+
+		color: #bc3833;
+
+		&:after {
+			background: #bc3833;
+		}
+
+	}
+	
 }
 
 @media screen and (min-width:600px) {
@@ -20,12 +32,4 @@
 	#story-hero {
 		margin-bottom: 6rem;
 	}
-}
-
-#story-hero .superhead {
-	color: #bc3833;
-}
-
-#story-hero .superhead:after {
-	background: #bc3833;
 }
