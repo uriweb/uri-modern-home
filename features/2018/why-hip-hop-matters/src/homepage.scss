@@ -148,7 +148,7 @@
 
 /* From Masta to Legend */
 
-#feature-hero.hip-hop-from-masta-to-legend {
+#feature-hero.#{nth($tracks, 1)} {
 	
 	.superhead {
 		color: $theme-color-track-1;
@@ -164,7 +164,7 @@
 
 /* Getting to the Truth */
 
-#feature-hero.hip-hop-getting-to-the-truth {
+#feature-hero.#{nth($tracks, 2)} {
 	
 	.superhead {
 		color: $theme-color-track-2;
@@ -180,7 +180,7 @@
 
 /* Making a Stand */
 
-#feature-hero.hip-hop-making-a-stand {
+#feature-hero.#{nth($tracks, 3)} {
 	
 	.superhead {
 		color: $theme-color-track-3-text;
@@ -196,7 +196,7 @@
 
 /* Track 4 */
 
-#feature-hero.hip-hop-track-4 {
+#feature-hero.#{nth($tracks, 4)} {
 	
 	.superhead {
 		color: $theme-color-track-5;
@@ -212,7 +212,7 @@
 
 /* Finding a Voice */
 
-#feature-hero.hip-hop-finding-a-voice {
+#feature-hero.#{nth($tracks, 5)} {
 	
 	.superhead {
 		color: $theme-color-track-5-text;

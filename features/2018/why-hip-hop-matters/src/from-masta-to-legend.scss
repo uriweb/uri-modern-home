@@ -29,37 +29,28 @@
 	background-color: #000;
 	
 	&:after {
+		
+		@include graffiti();
+		
 		position: absolute;
 		bottom: -20px;
-		display: block;
-		content: '';
 		width: 100%;
 		height: 20px;
-		background-image: url(i/graffiti_bg.jpg);
-		background-position: center top;
-		background-repeat: no-repeat;
-		background-size: 400% auto;
-		filter: hue-rotate(0);
-		animation: rotate-hue 10s linear infinite, move-background 30s linear infinite alternate;
+		background-size: 600% auto;
+		
 	}
 	
 }
 
 @media screen and (min-width: 600px) {
-	.passage-wrapper:before {
-		background-size: 300% auto;
+	.passage-wrapper:after {
+		background-size: 400% auto;
 	}
 }
 
 @media screen and (min-width: 900px) {
-	.passage-wrapper:before {
-		background-size: 200% auto;
-	}
-}
-
-@media screen and (min-width: 1200px) {
-	.passage-wrapper:before {
-		background-size: cover;
+	.passage-wrapper:after {
+		background-size: 300% auto;
 	}
 }
 
