@@ -40,6 +40,8 @@ $theme-color-track-5-text: #edbf1f;
 #story-hero {
 	
 	display: block;
+	border-bottom-width: 20px;
+	border-bottom-style: solid;
 	
 	&>div:nth-child(1) {
 		flex-basis: 65%;
@@ -110,6 +112,7 @@ $theme-color-track-5-text: #edbf1f;
 	#story-hero {
 		
 		display: flex;
+		border-bottom-width: 10px;
 		
 		&>div:nth-child(1) {
 			width: initial;
@@ -132,6 +135,8 @@ $theme-color-track-5-text: #edbf1f;
 	
 	#story-hero {
 		
+		border-bottom-width: 20px;
+		
 		h1 {
 			font-size: 4rem;
 			margin-bottom: 3rem;
@@ -148,6 +153,8 @@ $theme-color-track-5-text: #edbf1f;
 @media screen and (min-width: 1000px) {
 	
 	#story-hero {
+		
+		border-bottom-width: 40px;
 		
 		&>div:nth-child(2) {
 			padding: 1.5rem 3rem 1rem;

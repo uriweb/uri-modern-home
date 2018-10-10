@@ -7,7 +7,7 @@
 
 #story-hero {
 	
-	border-bottom: 20px solid #000;
+	border-bottom-color: $theme-color-track-2;
 	margin-bottom: 4rem;
 	
 	.superhead {
@@ -20,12 +20,6 @@
 
 	}
 	
-}
-
-@media screen and (min-width:600px) {
-	#story-hero {
-		border-bottom: none;
-	}
 }
 
 @media screen and (min-width:1000px) {
