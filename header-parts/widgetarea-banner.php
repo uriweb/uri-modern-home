@@ -2,7 +2,7 @@
 /**
  * Template part for displaying the banner widget area.
  *
- * @package uri-modern
+ * @package uri-modern-home
  */
 
 if ( is_active_sidebar( 'banner' ) ) : ?>
