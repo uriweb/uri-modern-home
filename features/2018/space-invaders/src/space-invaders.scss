@@ -19,7 +19,7 @@
 	position: relative;
 	left: calc(-40.909vw - 25px);
 	font-size: 0;
-	margin: 3rem auto;
+	margin: 0 auto;
 	transform: scale(.55) translate(0,-40.909%);
 	width: 181.818vw;
 	overflow: hidden;
@@ -60,20 +60,37 @@
 	}
 }
 
+#clear-creatures {
+	width: 100%;
+	text-align: center;
+	margin: 1rem auto 4rem;
+	font-size: .9rem;
+	font-family: "Hind", Arial, sans-serif;
+	color: #2488de;
+	
+	&:hover {
+		cursor: pointer;
+		text-decoration: underline;
+	}
+	
+}
+
 
 /* === CREATURES === */
 
 .creatures {
 	position: relative;
 	width: 800px;
+	height: 128px;
 	left: 50%;
 	margin-left: -400px;
 	text-align: center;
 }
 
 .creature {
-	display: inline-block;
-	position: relative;
+	display: block;
+	position: absolute;
+	bottom: 0;
 	font-size: 0rem;
 	background-position: left center;
 	background-repeat: no-repeat;
