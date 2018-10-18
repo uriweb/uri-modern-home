@@ -97,6 +97,25 @@
 	background-size: auto 100%;
 }
 
+@keyframes grow {
+	to { opacity: 1; }
+}
+
+.creature-wrapper {
+	
+	position: absolute;
+	opacity: 0;
+	animation-name: grow;
+	animation-duration: 5s;
+	animation-timing-function: steps(10);
+	animation-fill-mode: forwards;
+	
+	&:hover {
+		cursor: pointer;
+	}
+	
+}
+
 /* Tunicate 1 */
 
 @keyframes tunicate-1 {
@@ -234,6 +253,10 @@
 
 
 /* === STORY === */
+
+#story {
+	position: relative;
+}
 
 #story-header {
 	
