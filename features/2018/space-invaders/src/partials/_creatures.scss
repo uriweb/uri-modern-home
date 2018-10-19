@@ -1,0 +1,180 @@
+/* === CREATURES === */
+
+.creatures {
+	position: relative;
+	width: 800px;
+	height: 128px;
+	left: 50%;
+	margin-left: -400px;
+	text-align: center;
+}
+
+.creature {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	font-size: 0rem;
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+}
+
+@keyframes appear {
+	to { opacity: 1; }
+}
+
+.creature-wrapper {
+	
+	position: absolute;
+	opacity: 0.5;
+	animation-name: appear;
+	animation-duration: 3s;
+	animation-timing-function: steps(10);
+	animation-fill-mode: forwards;
+	
+	&:hover {
+		cursor: pointer;
+	}
+	
+}
+
+#creature-container.endgame .creature-wrapper {
+	animation: none;
+	opacity: 1;
+	pointer-events: none;
+}
+
+/* Tunicate 1 */
+
+@keyframes tunicate-1 {
+	0% { background-position: left center }
+	70% { background-position: left center }
+	100% { background-position: -304px; }
+}
+
+@keyframes tunicate-1-slow {
+	0% { background-position: left center }
+	79% { background-position: left center }
+	100% { background-position: -304px; }
+}
+
+@keyframes tunicate-1-fast {
+	0% { background-position: left center }
+	48% { background-position: left center }
+	100% { background-position: -304px; }
+}
+
+.tunicate-1 {
+	
+	width: 76px;
+	height: 72px;
+	background-image: url(i/creature-tunicate-1.png);
+	animation-name: tunicate-1;
+	animation-duration: 3.5s;
+	animation-timing-function: steps(4);
+	animation-iteration-count: infinite;
+	
+	&.slow {
+		animation-name: tunicate-1-slow;
+		animation-duration: 5s;
+	}
+
+	&.fast {
+		animation-name: tunicate-1-fast;
+		animation-duration: 2s;
+	}
+	
+}
+
+/* Tunicate 2 */
+
+@keyframes tunicate-2 {
+	0% { background-position: left center }
+	70% { background-position: left center }
+	100% { background-position: -256px; }
+}
+
+@keyframes tunicate-2-slow {
+	0% { background-position: left center }
+	75% { background-position: left center }
+	100% { background-position: -256px; }
+}
+
+@keyframes tunicate-2-fast {
+	0% { background-position: left center }
+	62% { background-position: left center }
+	100% { background-position: -256px; }
+}
+
+.tunicate-2 {
+	
+	width: 64px;
+	height: 56px;
+	background-image: url(i/creature-tunicate-2.png);
+	animation-name: tunicate-2;
+	animation-duration: 3.3s;
+	animation-timing-function: steps(4);
+	animation-iteration-count: infinite;
+	
+	&.slow {
+		animation-name: tunicate-2-slow;
+		animation-duration: 4s;
+	}
+
+	&.fast {
+		animation-name: tunicate-2-fast;
+		animation-duration: 2.6s;
+	}
+	
+}
+
+/* Seaweed 1 */
+
+@keyframes seaweed-1 {
+	to { background-position: -288px; }
+}
+
+.seaweed-1 {
+	
+	width: 48px;
+	height: 128px;
+	background-image: url(i/creature-seaweed-1.png);
+	animation-name: seaweed-1;
+	animation-duration: 3s;
+	animation-timing-function: steps(6);
+	animation-iteration-count: infinite;
+	
+	&.slow {
+		animation-duration: 4s;
+	}
+
+	&.fast {
+		animation-duration: 2s;
+	}
+	
+}
+
+/* Crab */
+
+@keyframes crab {
+	to { background-position: -864px; }
+}
+
+@keyframes crab-walk {
+	0%		{ transform: translate(0,0) }
+	25%		{ transform: translate(0,0) }
+	50%		{ transform: translate(96px,0) }
+	75%		{ transform: translate(96px,0) }
+	100%	{ transform: translate(0,0) }
+}
+
+.crab {
+	width: 72px;
+	height: 40px;
+	transform: translate(0,0);
+	background-image: url(i/creature-crab.png);
+	animation-name: crab, crab-walk;
+	animation-duration: 5s, 10s;
+	animation-timing-function: steps(12), steps(6, start);
+	animation-iteration-count: infinite;
+}

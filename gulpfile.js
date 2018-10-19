@@ -159,7 +159,7 @@ function watcher(done) {
 	gulp.watch('./src/sass/**/*', styles);
 	
 	// watch for Features CSS changes
-	gulp.watch('./features/**/src/*.scss', featuresCSS);
+	gulp.watch('./features/**/src/**/*.scss', featuresCSS);
 	
 	// watch for Features JS changes
 	gulp.watch('./features/**/src/*.js', featuresJS);

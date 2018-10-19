@@ -17,6 +17,7 @@
 		data = {
 			'unit': 16, // Increment by which creatures should be placed
 			'status': 0, // 0 = not started, 1 = running, 2 = game over
+			'pointcap': 20, // Game over threshold
 			'creatures': {},
 			'container': {},
 			'score': {
@@ -24,9 +25,12 @@
 				'removed': 0
 			}
 		};
-		
+
 		// Get the habitat habitat el
 		data.habitat = document.getElementById( 'creature-box' ).querySelector( '.creatures' );
+
+		// Get the startscreen wrapper
+		data.startscreen = document.getElementById( 'startscreen' );
 
 		// Get the creature container el and specs
 		data.container.el = document.getElementById( 'creature-container' );
@@ -42,11 +46,22 @@
 		}
 
 		data.score.board.top = data.score.board.el.getBoundingClientRect().top;
-			
-		console.log( data);
-		
+
 		populateCreatureBox();
-		//startGame();
+
+		// Get the play button
+		data.play = document.getElementById( 'play-game' );
+		data.play.addEventListener( 'click', startGame, false );
+		
+		// Get the reset button
+		data.reset = document.getElementById( 'reset-game' );
+		data.reset.addEventListener( 'click', resetGame, false );
+
+		// Get the progress bar
+		data.progress = document.getElementById( 'progress-bar' );
+
+		// Get the end screen
+		data.endscreen = document.getElementById( 'endscreen' );
 
 		window.addEventListener( 'scroll', handleScroll, false );
 		window.addEventListener( 'resize', handleResize, false );
@@ -54,38 +69,74 @@
 	}
 
 	function startGame() {
+
+		data.startscreen.classList.add( 'hidden' );
 		data.status = 1;
-		data.timer = setInterval( addCreature, 3000 );
+		updateScore();
+		data.starttimer = setInterval( addCreature, 3000 );
+		
+	}
+
+	function endGame() {
+
+		var x;
+
+		window.clearInterval( data.starttimer );
+		data.status = 2;
+
+		data.container.el.classList.add( 'endgame' );
+		data.endscreen.classList.add( 'visible' );
+
+		x = 0;
+
+		data.endtimer = window.setInterval(
+			 function() {
+
+					 addCreature();
+
+					 if ( ++x === 500 ) {
+					   window.clearInterval( data.endtimer );
+						}
+
+		},
+			50
+			);
+
 	}
 	
-	function endGame() {
+	function resetGame() {
 		
-		window.clearInterval( data.timer );
-		data.status = 2;
+		// Clear any existing gameplay
+		window.clearInterval( data.endtimer );
+		data.container.el.innerHTML = '';
 		
-		data.container.el.classList.add( 'endgame' );
-		data.score.board.el.classList.add( 'endgame' );
+		data.container.el.classList.remove( 'endgame' );
+		data.endscreen.classList.remove( 'visible' );
+		data.score.spawned = 0;
+		data.score.removed = 0;
 		
-		setInterval( addCreature, 50 );
+		startGame();
 		
 	}
 
 	function updateScore() {
 
 		var remaining;
-		
+
 		if ( 1 == data.status ) {
-			
+
 			remaining = data.score.spawned - data.score.removed;
 
 			data.score.board.spawned.innerHTML = data.score.spawned;
 			data.score.board.removed.innerHTML = data.score.removed;
 			data.score.board.remaining.innerHTML = remaining;
-			
-			if ( 20 == remaining ) {
+
+			data.progress.style.width = 100 / data.pointcap * remaining + '%';
+
+			if ( data.pointcap == remaining ) {
 				endGame();
 			}
-			
+
 		}
 
 	}
@@ -152,11 +203,11 @@
 		// 70% of the time, position the new creature near another same-type creature, unless it's a crab
 		// Otherwise, position it randomly
 		if ( 700 > p && null != target && 'crab' != creature.type) {
-			x = Math.min( data.container.x, Math.max( 0, data.creatures[target].x + ( data.unit * Math.floor( Math.random() * ( 17 ) - 8 ) ) ) );
-			y = Math.min( data.container.y, Math.max( 0, data.creatures[target].y + ( data.unit * Math.floor( Math.random() * ( 17 ) - 8 ) ) ) );
+			x = Math.min( data.container.x, Math.max( data.creatures[target].x + ( data.unit * Math.floor( Math.random() * 17 - 8 ) ) ) );
+			y = Math.min( data.container.y, Math.max( 256, data.creatures[target].y + ( data.unit * Math.floor( Math.random() * 17 - 8 ) ) ) );
 		} else {
 			x = data.unit * Math.floor( Math.random() * ( data.container.x / data.unit ) );
-			y = data.unit * Math.floor( Math.random() * ( data.container.y / data.unit ) );
+			y = Math.max( 256, data.unit * Math.floor( Math.random() * ( data.container.y / data.unit ) ) );
 		}
 
 		// Get a random value for z-index
@@ -168,7 +219,7 @@
 		div.className = 'creature-wrapper';
 		div.style = 'top:' + y + 'px; left:' + x + 'px; z-index:' + z;
 		div.appendChild( creature.div );
-		
+
 		if ( 1 == data.status ) {
 			div.addEventListener( 'click', removeCreature.bind( null, id ), false );
 		}
@@ -199,7 +250,7 @@
 		updateScore();
 
 	}
-	
+
 	function handleScroll() {
 
 		var yPos = window.pageYOffset;
@@ -211,30 +262,33 @@
 		}
 
 	}
-	
+
 	function handleResize() {
 		data.container.x = data.container.el.offsetWidth;
 		data.container.y = data.container.el.offsetHeight;
 	}
-	
+
 	function populateCreatureBox() {
-		
+
 		var x, timer;
-		
+
 		x = 0;
 
-		timer = window.setInterval( function() {
-			
-			addHabitatCreature();
+		timer = window.setInterval(
+			 function() {
 
-			if ( ++x === 15 ) {
-				window.clearInterval( timer );
-			}
-			
-		}, 50 );
-		
+					 addHabitatCreature();
+
+					 if ( ++x === 15 ) {
+					   window.clearInterval( timer );
+						}
+
+		},
+			50
+			);
+
 	}
-	
+
 	function addHabitatCreature() {
 
 		var creature, x, z;
