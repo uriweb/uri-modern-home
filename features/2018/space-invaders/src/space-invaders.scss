@@ -7,6 +7,10 @@
 @import 'partials/habitats';
 @import 'partials/story';
 
+.globalnav {
+	display: none;
+}
+
 #page {
 	background: #fff;
 }
@@ -94,8 +98,20 @@
 		left: 0;
 		width: 0;
 		height: 30px;
-		background: #ff8c38;
+		background: #a4d842;
 		
+		&.alert {
+			background: #ffff38;
+		}
+		
+		&.warning {
+			background: #ff8c38;
+		}
+		
+		&.danger {
+			background: #d95858;
+		}
+
 	}
 	
 	.score {

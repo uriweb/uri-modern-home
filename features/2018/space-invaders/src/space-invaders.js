@@ -14,16 +14,24 @@
 
 	function initInvaders() {
 
+		var baseURL = '../../wp-content/themes/uri-modern-home/features/2018/space-invaders/';
+		
 		data = {
 			'unit': 16, // Increment by which creatures should be placed
 			'status': 0, // 0 = not started, 1 = running, 2 = game over
-			'pointcap': 20, // Game over threshold
+			'pointcap': 50, // Game over threshold
 			'creatures': {},
 			'container': {},
 			'score': {
 				'spawned': 0,
 				'removed': 0
-			}
+			},
+			'audio': {
+				'bounce': new Audio( baseURL + 'mp3/bounce.mp3' ),
+				'elevate': new Audio( baseURL + 'mp3/elevate.mp3' ),
+				'shoot': new Audio( baseURL + 'mp3/shoot.mp3' ),
+				'end': new Audio( baseURL + 'mp3/end.mp3' )
+			}	
 		};
 
 		// Get the habitat habitat el
@@ -70,10 +78,31 @@
 
 	function startGame() {
 
+		var t;
+		
 		data.startscreen.classList.add( 'hidden' );
 		data.status = 1;
 		updateScore();
-		data.starttimer = setInterval( addCreature, 3000 );
+				
+		t = 3000;
+		
+		data.starttimer = function( tick, factor ) {
+			return function() {
+				if ( --tick >= 0 ) {
+					
+					window.setTimeout( data.starttimer, t - factor );
+					addCreature();
+					
+					if ( t - factor > 300 ) {
+						factor += 50;
+					}
+					
+				}
+				
+			}
+		}( 5000, 0 );
+		
+		window.setTimeout( data.starttimer, t );
 		
 	}
 
@@ -81,11 +110,13 @@
 
 		var x;
 
-		window.clearInterval( data.starttimer );
+		data.starttimer = false;
 		data.status = 2;
 
 		data.container.el.classList.add( 'endgame' );
 		data.endscreen.classList.add( 'visible' );
+		
+		data.audio.end.play();
 
 		x = 0;
 
@@ -121,7 +152,7 @@
 
 	function updateScore() {
 
-		var remaining;
+		var remaining, percent;
 
 		if ( 1 == data.status ) {
 
@@ -130,8 +161,23 @@
 			data.score.board.spawned.innerHTML = data.score.spawned;
 			data.score.board.removed.innerHTML = data.score.removed;
 			data.score.board.remaining.innerHTML = remaining;
+			
+			percent = 100 / data.pointcap * remaining;
 
-			data.progress.style.width = 100 / data.pointcap * remaining + '%';
+			data.progress.style.width = percent + '%';
+			
+			if ( 50 > percent ) {
+				data.progress.classList.remove( 'alert' );
+			} else if ( 75 > percent ) {
+				data.progress.classList.remove( 'warning' );
+				data.progress.classList.add( 'alert' );
+			} else if ( 90 > percent ) {
+				data.progress.classList.remove( 'alert', 'danger' );
+				data.progress.classList.add( 'warning' );
+			} else if ( 100 > percent ) {
+				data.progress.classList.remove( 'warning' );
+				data.progress.classList.add( 'danger' );
+			}
 
 			if ( data.pointcap == remaining ) {
 				endGame();
@@ -181,7 +227,7 @@
 
 		var list, n;
 
-		list = data.container.el.querySelectorAll( '.' + type );
+		list = data.container.el.querySelectorAll( '.' + type + ':not(.destroyed)' );
 		n = Math.floor( ( Math.random() * list.length ) );
 
 		return list.length > 0 ? list[n].parentNode.getAttribute( 'id' ) : null;
@@ -203,7 +249,7 @@
 		// 70% of the time, position the new creature near another same-type creature, unless it's a crab
 		// Otherwise, position it randomly
 		if ( 700 > p && null != target && 'crab' != creature.type) {
-			x = Math.min( data.container.x, Math.max( data.creatures[target].x + ( data.unit * Math.floor( Math.random() * 17 - 8 ) ) ) );
+			x = Math.min( data.container.x - 128, Math.max( data.creatures[target].x + ( data.unit * Math.floor( Math.random() * 17 - 8 ) ) ) );
 			y = Math.min( data.container.y, Math.max( 256, data.creatures[target].y + ( data.unit * Math.floor( Math.random() * 17 - 8 ) ) ) );
 		} else {
 			x = data.unit * Math.floor( Math.random() * ( data.container.x / data.unit ) );
@@ -227,7 +273,9 @@
 		// Add it to the database
 		data.creatures[id] = {
 			'x': x,
-			'y': y
+			'y': y,
+			'type': creature.type,
+			'status': 1
 		};
 
 		// Put the creature on the page
@@ -241,11 +289,26 @@
 	function removeCreature( id ) {
 
 		var creature;
-
+		
+		switch ( data.creatures[id].type ) {
+			case 'crab':
+				data.audio.elevate.play();
+				break;
+			case 'tunicate-1':
+			case 'tunicate-2':
+				data.audio.bounce.play();
+				break;
+			case 'seaweed-1':
+				data.audio.shoot.play();
+				break;
+			default:
+				data.audio.shoot.play();
+		}
+		
 		creature = document.getElementById( id );
-		creature.parentNode.removeChild( creature );
+		creature.classList.add( 'destroyed' );
 
-		delete data.creatures[id];
+		data.creatures[id].status = 0;
 		data.score.removed++;
 		updateScore();
 
@@ -270,38 +333,25 @@
 
 	function populateCreatureBox() {
 
-		var x, timer;
+		var i, creatures, creature, x, z;
+		
+		creatures = document.createElement( 'div' );
+		
+		for ( i = 0; i < 15; i++ ) {
+			
+			creature = getCreature();
 
-		x = 0;
+			x = data.unit * Math.floor( ( Math.random() * 48 ) + 1 );
+			z = Math.floor( ( Math.random() * 10 ) + 1 );
 
-		timer = window.setInterval(
-			 function() {
-
-					 addHabitatCreature();
-
-					 if ( ++x === 15 ) {
-					   window.clearInterval( timer );
-						}
-
-		},
-			50
-			);
-
-	}
-
-	function addHabitatCreature() {
-
-		var creature, x, z;
-
-		creature = getCreature();
-
-		x = data.unit * Math.floor( ( Math.random() * 48 ) + 1 );
-		z = Math.floor( ( Math.random() * 10 ) + 1 );
-
-		creature.div.style = 'left:' + x + 'px; z-index:' + z;
-
-		data.habitat.appendChild( creature.div );
-
+			creature.div.style = 'left:' + x + 'px; z-index:' + z;
+						
+			creatures.appendChild( creature.div );
+			
+		}
+				
+		data.habitat.appendChild( creatures );
+	
 	}
 
 })();

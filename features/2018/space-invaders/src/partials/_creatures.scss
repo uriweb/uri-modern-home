@@ -29,11 +29,17 @@
 	opacity: 0.5;
 	animation-name: appear;
 	animation-duration: 3s;
-	animation-timing-function: steps(10);
+	animation-timing-function: steps(5);
 	animation-fill-mode: forwards;
+	transform: scale(1,1);
+	transition: transform .3s linear;
 	
 	&:hover {
 		cursor: pointer;
+	}
+	
+	&.destroyed {
+		transform: scale(1,0);
 	}
 	
 }

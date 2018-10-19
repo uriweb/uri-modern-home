@@ -1,44 +1,41 @@
 /* === HABITATS === */
 
-.habitat {
+#creature-box {
 	
 	position: relative;
-	left: calc(-40.909vw - 25px);
+	left: calc(-40.909vw);
 	font-size: 0;
 	margin: 0 auto;
 	transform: scale(.55) translate(0,-40.909%);
 	width: 181.818vw;
 	overflow: hidden;
 	white-space: nowrap;
-	
-	&.marine {
-		background-color: #d1fffd;
-		background-image: url(i/landscape-marine-1.png);
-		background-position: center bottom;
-		background-repeat: repeat-x;
-		background-size: 512px auto;
-	}
-	
+	background-color: #d1fffd;
+	background-image: url(i/landscape-marine-1.png);
+	background-position: center bottom;
+	background-repeat: repeat-x;
+	background-size: 512px auto;
+	border-bottom: 2rem solid #024761;
 }
 
 @media screen and (min-width: 350px) {
-	.habitat {
-		left: calc(-26.923vw - 25px);
+	#creature-box {
+		left: calc(-26.923vw);
 		transform: scale(.65) translate(0,-26.923%);
 		width: 153.846vw;
 	}
 }
 
 @media screen and (min-width: 500px) {
-	.habitat {
-		left: calc(-12.5vw - 25px);
+	#creature-box {
+		left: calc(-12.5vw);
 		transform: scale(.8) translate(0,-12.5%);
 		width: 125vw;
 	}
 }
 
 @media screen and (min-width: 700px) {
-	.habitat {
+	#creature-box {
 		left: 0;
 		transform: scale(1);
 		width: 100%;
