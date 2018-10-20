@@ -3,6 +3,11 @@
    ============================== */
 
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web|Press+Start+2P");
+@font-face {
+	font-family: "VCR Mono";
+	src: url(fonts/vcr_osd_mono.ttf);
+}
+
 @import 'partials/creatures';
 @import 'partials/habitats';
 @import 'partials/story';
@@ -40,7 +45,8 @@
 	margin: 0 auto 4rem;
 	background: #000;
 	color: #fff;
-	font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+	font-family: "VCR Mono", "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+	text-transform: uppercase;
 	transition: all .2s ease-in-out;
 	
 	&.fixed {

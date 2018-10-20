@@ -15,7 +15,7 @@
 	function initInvaders() {
 
 		var baseURL = '../../wp-content/themes/uri-modern-home/features/2018/space-invaders/';
-		
+
 		data = {
 			'unit': 16, // Increment by which creatures should be placed
 			'status': 0, // 0 = not started, 1 = running, 2 = game over
@@ -30,8 +30,9 @@
 				'bounce': new Audio( baseURL + 'mp3/bounce.mp3' ),
 				'elevate': new Audio( baseURL + 'mp3/elevate.mp3' ),
 				'shoot': new Audio( baseURL + 'mp3/shoot.mp3' ),
-				'end': new Audio( baseURL + 'mp3/end.mp3' )
-			}	
+				'end': new Audio( baseURL + 'mp3/end.mp3' ),
+				'menu': new Audio( baseURL + 'mp3/menu.mp3' )
+			}
 		};
 
 		// Get the habitat habitat el
@@ -59,11 +60,25 @@
 
 		// Get the play button
 		data.play = document.getElementById( 'play-game' );
-		data.play.addEventListener( 'click', startGame, false );
-		
+		data.play.addEventListener(
+			 'click',
+			function() {
+			playAudio( data.audio.menu );
+			setTimeout( startGame, 1000 );
+		},
+			false
+			);
+
 		// Get the reset button
 		data.reset = document.getElementById( 'reset-game' );
-		data.reset.addEventListener( 'click', resetGame, false );
+		data.reset.addEventListener(
+			 'click',
+			function() {
+			playAudio( data.audio.menu );
+			setTimeout( resetGame, 1000 );
+		},
+			false
+			);
 
 		// Get the progress bar
 		data.progress = document.getElementById( 'progress-bar' );
@@ -79,31 +94,31 @@
 	function startGame() {
 
 		var t;
-		
+
 		data.startscreen.classList.add( 'hidden' );
 		data.status = 1;
 		updateScore();
-				
+
 		t = 3000;
-		
+
 		data.starttimer = function( tick, factor ) {
 			return function() {
 				if ( --tick >= 0 ) {
-					
+
 					window.setTimeout( data.starttimer, t - factor );
 					addCreature();
-					
+
 					if ( t - factor > 300 ) {
 						factor += 50;
 					}
-					
+
 				}
-				
+
 			}
 		}( 5000, 0 );
-		
+
 		window.setTimeout( data.starttimer, t );
-		
+
 	}
 
 	function endGame() {
@@ -115,7 +130,7 @@
 
 		data.container.el.classList.add( 'endgame' );
 		data.endscreen.classList.add( 'visible' );
-		
+
 		data.audio.end.play();
 
 		x = 0;
@@ -134,20 +149,20 @@
 			);
 
 	}
-	
+
 	function resetGame() {
-		
+
 		// Clear any existing gameplay
 		window.clearInterval( data.endtimer );
 		data.container.el.innerHTML = '';
-		
+
 		data.container.el.classList.remove( 'endgame' );
 		data.endscreen.classList.remove( 'visible' );
 		data.score.spawned = 0;
 		data.score.removed = 0;
-		
+
 		startGame();
-		
+
 	}
 
 	function updateScore() {
@@ -161,11 +176,11 @@
 			data.score.board.spawned.innerHTML = data.score.spawned;
 			data.score.board.removed.innerHTML = data.score.removed;
 			data.score.board.remaining.innerHTML = remaining;
-			
+
 			percent = 100 / data.pointcap * remaining;
 
 			data.progress.style.width = percent + '%';
-			
+
 			if ( 50 > percent ) {
 				data.progress.classList.remove( 'alert' );
 			} else if ( 75 > percent ) {
@@ -289,28 +304,38 @@
 	function removeCreature( id ) {
 
 		var creature;
-		
+
 		switch ( data.creatures[id].type ) {
 			case 'crab':
-				data.audio.elevate.play();
+				playAudio( data.audio.elevate );
 				break;
 			case 'tunicate-1':
 			case 'tunicate-2':
-				data.audio.bounce.play();
+				playAudio( data.audio.bounce );
 				break;
 			case 'seaweed-1':
-				data.audio.shoot.play();
+				playAudio( data.audio.shoot );
 				break;
 			default:
-				data.audio.shoot.play();
+				playAudio( data.audio.shoot );
 		}
-		
+
 		creature = document.getElementById( id );
 		creature.classList.add( 'destroyed' );
 
 		data.creatures[id].status = 0;
 		data.score.removed++;
 		updateScore();
+
+	}
+
+	function playAudio( clip ) {
+
+		if ( clip.paused ) {
+			clip.play();
+		} else {
+			clip.currentTime = 0
+		}
 
 	}
 
@@ -334,24 +359,24 @@
 	function populateCreatureBox() {
 
 		var i, creatures, creature, x, z;
-		
+
 		creatures = document.createElement( 'div' );
-		
+
 		for ( i = 0; i < 15; i++ ) {
-			
+
 			creature = getCreature();
 
 			x = data.unit * Math.floor( ( Math.random() * 48 ) + 1 );
 			z = Math.floor( ( Math.random() * 10 ) + 1 );
 
 			creature.div.style = 'left:' + x + 'px; z-index:' + z;
-						
+
 			creatures.appendChild( creature.div );
-			
+
 		}
-				
+
 		data.habitat.appendChild( creatures );
-	
+
 	}
 
 })();
