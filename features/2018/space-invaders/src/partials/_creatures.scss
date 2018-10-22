@@ -42,6 +42,17 @@
 		transform: scale(1,0);
 	}
 	
+	.creature {
+		transform: scale(.8);
+		transform-origin: left bottom;
+	}
+	
+}
+
+@media screen and (min-width: 600px) {
+	.creature-wrapper .creature {
+		transform: scale(1);
+	}
 }
 
 #creature-container.endgame .creature-wrapper {

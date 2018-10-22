@@ -45,7 +45,7 @@
 	background: #7da1ff;
 	color: #fff;
 	font-family: "VCR Mono", "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
-	font-size: 1rem;
+	font-size: .8rem;
 	text-transform: uppercase;
 	transition: all .2s ease-in-out;
 	
@@ -55,12 +55,14 @@
 		position: absolute;
 		top: -100px;
 		left: 0;
-		width: 100%;
+		width: 125%;
 		height: 100px;
 		background-image: url(i/landscape-marine-1.png);
-		background-position: center bottom;
+		background-position: left bottom;
 		background-repeat: repeat-x;
 		background-size: 512px auto;
+		transform: scale(.8);
+		transform-origin: left bottom;
 	}
 	
 	&.fluid {
@@ -71,7 +73,7 @@
 		
 		display: flex;
 		width: 100%;
-		padding: 1rem;
+		padding: .7rem;
 		box-sizing: border-box;
 		
 		&>div {
@@ -120,7 +122,6 @@
 	
 	.score {
 		display: inline-block;
-		margin-bottom: .5rem;
 		margin-left: .5rem;
 	}
 	
@@ -142,4 +143,20 @@
 	}
 	*/
 	
+}
+
+@media screen and (min-width: 600px) {
+	#scoreboard {
+		
+		font-size: 1rem;
+		
+		&:before {
+			width: 100%;
+			transform: scale(1);
+		}
+		
+		#scores {
+			padding: 1rem;
+		}
+	}
 }
