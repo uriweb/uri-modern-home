@@ -13,13 +13,20 @@
 	window.addEventListener( 'load', initInvaders, false );
 
 	function initInvaders() {
+		
+		var baseURL;
 
-		var baseURL = '../../wp-content/themes/uri-modern-home/features/2018/space-invaders/';
+		baseURL = '../../wp-content/themes/uri-modern-home/features/2018/space-invaders/';
 
 		data = {
 			'unit': 16, // Increment by which creatures should be placed
 			'status': 0, // 0 = not started, 1 = running, 2 = game over
 			'pointcap': 50, // Game over threshold
+			'n': 0,
+			'story': {
+				'h': document.getElementById( 'story' ).offsetHeight,
+				'top': document.getElementById( 'story' ).getBoundingClientRect().top
+			},
 			'creatures': {},
 			'container': {},
 			'score': {
@@ -53,8 +60,8 @@
 			'removed': document.getElementById( 'removed' ).querySelector( '.score' ),
 			'remaining': document.getElementById( 'remaining' ).querySelector( '.score' )
 		}
-
-		data.score.board.top = data.score.board.el.getBoundingClientRect().top;
+		
+		data.score.board.h = data.score.board.el.offsetHeight;
 
 		populateCreatureBox();
 
@@ -107,9 +114,10 @@
 
 					window.setTimeout( data.starttimer, t - factor );
 					addCreature();
+					data.n++;
 
 					if ( t - factor > 300 ) {
-						factor += 50;
+						factor += 30;
 					}
 
 				}
@@ -145,7 +153,7 @@
 						}
 
 		},
-			50
+			20
 			);
 
 	}
@@ -158,8 +166,10 @@
 
 		data.container.el.classList.remove( 'endgame' );
 		data.endscreen.classList.remove( 'visible' );
+		data.progress.className = '';
 		data.score.spawned = 0;
 		data.score.removed = 0;
+		data.n = 0;
 
 		startGame();
 
@@ -251,24 +261,31 @@
 
 	function addCreature() {
 
-		var creature, target, p, div, x, y, z, id;
+		var creature, target, p, boundary, div, x, y, z, id;
 
 		creature = getCreature();
 		target = getRandomExistingCreatureID( creature.type );
 
 		// Generate a random ID
 		id = 'c_' + Math.random().toString( 36 ).substr( 2, 9 );
+		
+		boundary = {
+			'left': 0,
+			'right': data.container.x - 128,
+			'top': Math.max( 128, data.container.y - data.score.board.h - data.n * 16 ),
+			'bottom': data.container.y - data.score.board.h
+		}
 
 		p = Math.floor( ( Math.random() * 1000 ) );
 
 		// 70% of the time, position the new creature near another same-type creature, unless it's a crab
 		// Otherwise, position it randomly
 		if ( 700 > p && null != target && 'crab' != creature.type) {
-			x = Math.min( data.container.x - 128, Math.max( data.creatures[target].x + ( data.unit * Math.floor( Math.random() * 17 - 8 ) ) ) );
-			y = Math.min( data.container.y, Math.max( 256, data.creatures[target].y + ( data.unit * Math.floor( Math.random() * 17 - 8 ) ) ) );
+			x = Math.min( boundary.right, Math.max( 128, data.creatures[target].x + ( data.unit * Math.floor( Math.random() * 17 - 8 ) ) ) );
+			y = Math.min( boundary.bottom, Math.max( 128, data.creatures[target].y + ( data.unit * Math.floor( Math.random() * 17 - 8 ) ) ) );
 		} else {
-			x = data.unit * Math.floor( Math.random() * ( data.container.x / data.unit ) );
-			y = Math.max( 256, data.unit * Math.floor( Math.random() * ( data.container.y / data.unit ) ) );
+			x = Math.max( boundary.left, data.unit * Math.floor( Math.random() * ( boundary.right / data.unit ) ) );
+			y = Math.max( boundary.top, data.unit * Math.floor( Math.random() * ( boundary.bottom / data.unit ) ) );
 		}
 
 		// Get a random value for z-index
@@ -343,10 +360,10 @@
 
 		var yPos = window.pageYOffset;
 
-		if ( yPos > data.score.board.top ) {
-			data.score.board.el.classList.add( 'fixed' );
+		if ( yPos > data.story.top + data.story.h + data.score.board.h - data.container.y ) {
+			data.score.board.el.classList.add( 'fluid' );
 		} else {
-			data.score.board.el.classList.remove( 'fixed' );
+			data.score.board.el.classList.remove( 'fluid' );
 		}
 
 	}
