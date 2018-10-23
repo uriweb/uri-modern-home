@@ -34,6 +34,7 @@
 				'points': 0,
 				'spawned': 0,
 				'removed': 0,
+				'high': getHighScore(),
 				'board': {}
 			},
 			'timing': {
@@ -141,7 +142,7 @@
 
 	function makeScoreBoard() {
 
-		var scores, points, remaining, progress, progressLabel;
+		var scores, points, high, remaining, progress, progressLabel;
 
 		// Controls
 		data.buttons.controls = document.createElement( 'div' );
@@ -166,7 +167,7 @@
 		points.innerHTML = '<div class="label">score</div>';
 		data.score.board.points = document.createElement( 'div' );
 		data.score.board.points.className = 'score';
-		data.score.board.points.innerHTML = 0;
+		data.score.board.points.innerHTML = pad( data.score.points );
 		points.appendChild( data.score.board.points );
 		scores.appendChild( points );
 
@@ -175,9 +176,18 @@
 		remaining.innerHTML = '<div class="label">invaders</div>';
 		data.score.board.remaining = document.createElement( 'div' );
 		data.score.board.remaining.className = 'score';
-		data.score.board.remaining.innerHTML = 0;
+		data.score.board.remaining.innerHTML = pad( 0 );
 		remaining.appendChild( data.score.board.remaining );
 		scores.appendChild( remaining );
+		
+		high = document.createElement( 'div' );
+		high.id = 'high';
+		high.innerHTML = '<div class="label">high</div>';
+		data.score.board.high = document.createElement( 'div' );
+		data.score.board.high.className = 'score';
+		data.score.board.high.innerHTML = pad( data.score.high );
+		high.appendChild( data.score.board.high );
+		scores.appendChild( high );
 
 		// Progress Bar
 		progress = document.createElement( 'div' );
@@ -323,6 +333,10 @@
 		data.container.el.classList.add( 'endgame' );
 		data.endscreen.classList.add( 'visible' );
 		data.score.board.remaining.innerHTML = '>' + data.pointcap;
+		
+		if ( data.score.points > getHighScore() ) {
+			setHighScore( data.score.points );
+		}
 
 		data.audio.end.play();
 
@@ -353,9 +367,12 @@
 		data.endscreen.classList.remove( 'visible' );
 		data.progress.className = '';
 		data.score.points = 0;
+		data.score.high = getHighScore();
 		data.score.spawned = 0;
 		data.score.removed = 0;
 		data.n = 0;
+		
+		data.score.board.high.innerHTML = pad( data.score.high );
 
 		startGame();
 
@@ -369,7 +386,7 @@
 
 			remaining = data.score.spawned - data.score.removed;
 
-			data.score.board.points.innerHTML = data.score.points;
+			data.score.board.points.innerHTML = pad( data.score.points );
 			data.score.board.remaining.innerHTML = remaining;
 
 			percent = 100 / data.pointcap * remaining;
@@ -548,6 +565,11 @@
 		}
 
 	}
+	
+	function pad( num ) {
+		var s = "00000" + num;
+    	return s.substr( s.length - 5 );
+	}
 
 	function ease( x, duration ) {
 		var y = ( x * ( x / duration ) );
@@ -633,6 +655,64 @@
 		window.ontouchmove = null;
 		document.onkeydown = null;
 
+	}
+	
+	function getHighScore() {
+		
+		var high;
+		
+		high = getCookie( 'uri-space-invaders-high-score' );
+		
+		if ( '' == high ) {
+			setHighScore( 0 );
+			return 0;
+		} else {
+			return high;
+		}
+		
+	}
+	
+	function setHighScore( n ) {
+		
+		setCookie( 'uri-space-invaders-high-score', n, 365 );
+		
+	}
+	
+	function setCookie( cname, cvalue, exdays ) {
+		
+		var d, expires;
+		
+		d = new Date();
+		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+		expires = 'expires='+d.toUTCString();
+		
+		document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+		
+	}
+
+	function getCookie( cname ) {
+		
+		var name, ca, i, c;
+		
+		name = cname + '=';
+		ca = document.cookie.split(';');
+		
+		for( i = 0; i < ca.length; i++ ) {
+			
+			c = ca[i];
+			
+			while ( ' ' == c.charAt( 0 ) ) {
+				c = c.substring( 1 );
+			}
+			
+			if ( 0 == c.indexOf( name ) ) {
+				return c.substring( name.length, c.length );
+			}
+			
+		}
+		
+		return '';
+		
 	}
 
 })();

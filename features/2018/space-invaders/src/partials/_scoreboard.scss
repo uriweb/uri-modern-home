@@ -131,6 +131,10 @@
 	}
 	
 	#remaining {
+		display: none;
+	}
+	
+	#high {
 		text-align: right;
 	}
 	
@@ -157,6 +161,10 @@
 		
 		#points {
 			padding-left: 5rem;
+		}
+		
+		#remaining {
+			display: block;
 		}
 	}
 }
