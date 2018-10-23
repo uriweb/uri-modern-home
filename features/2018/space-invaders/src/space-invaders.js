@@ -151,8 +151,6 @@
 		y = ease( (millis / data.timing.duration ) * 100 , data.timing.duration );
 		min = Math.max( 120, Math.min( 350, ( data.container.x * data.container.y / 1000000 ) * 300 ) );
 		interval = Math.max( min, data.timing.init - ( data.timing.init * y ) );
-
-		console.log(interval);
 		
 		addCreature()
 		data.n++;
