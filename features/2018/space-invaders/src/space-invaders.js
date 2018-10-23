@@ -130,16 +130,23 @@
 		var init, duration, start;
 
 		data.startscreen.classList.add( 'hidden' );
-		data.status = 1;
-		updateScore();
-
-		data.timing = {
-			'init': 2000, // Initial interval between spawns
-			'duration': 60000, // Time until max spawn rate (approx)
-			'start': Date.now()
-		}
 		
-		ticker();
+		// Don't restart the game if it's already playing
+		// (prevents multiple instances)
+		if ( 1 != data.status ) {
+						
+			data.status = 1;
+			updateScore();
+
+			data.timing = {
+				'init': 2000, // Initial interval between spawns
+				'duration': 45000, // Time until max spawn rate (approx)
+				'start': Date.now()
+			}
+
+			ticker();
+			
+		}
 
 	}
 	
