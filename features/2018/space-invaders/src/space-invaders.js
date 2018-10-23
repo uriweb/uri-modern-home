@@ -48,103 +48,119 @@
 				'menu': new Audio( baseURL + 'mp3/menu.mp3' )
 			}
 		};
-		
+
+		// Create the game
 		game = document.createElement( 'div' );
 		game.id = 'game';
+		game.appendChild( makeStartScreen() );
+		game.appendChild( makeEndScreen() );
+		game.appendChild( makeCreatureContainer() );
+		game.appendChild( makeScoreBoard() );
 
-		
-		/**
-		 * Make the creature box habitat
-		 */
-		var habitat;
-		
+		// Put the game on the page
+		document.getElementById( 'main' ).appendChild( game );
+
+		// Get some specs once everything's on the page
+		data.score.board.h = data.score.board.el.offsetHeight;
+		data.container.el.style.height = 'calc( 100vh - ' + data.score.board.h + 'px)';
+		data.container.x = data.container.el.offsetWidth;
+		data.container.y = data.container.el.offsetHeight;
+
+		// Set up a few things
+		addButtonEvents();
+		disableScroll();
+		populateCreatureBox();
+
+		window.addEventListener( 'resize', handleResize, false );
+
+	}
+
+	function makeStartScreen() {
+
+		var habitat, modal, header;
+
+		// Header
+		header = document.createElement( 'div' );
+		header.id = 'story-header';
+		header.innerHTML = '<h1>Space <br> Invaders</h1>';
+
+		data.buttons.play = document.createElement( 'div' );
+		data.buttons.play.id = 'play-game';
+		data.buttons.play.className = 'retro-button';
+		data.buttons.play.innerHTML = 'play';
+		header.appendChild( data.buttons.play );
+
+		// Habitat
 		habitat = document.createElement( 'div' );
 		habitat.id = 'creature-box';
 		data.habitat = document.createElement( 'div' );
 		data.habitat.className = 'creatures';
 		habitat.appendChild( data.habitat );
 
-		
-		/**
-		 * Make the startscreen
-		 */
-		data.startscreen = document.createElement( 'div' );
-		data.startscreen.id = 'startscreen';
-		
-		var modal, header;
-		
+		// Modal
 		modal = document.createElement( 'div' );
 		modal.className = 'modal';
-		
-		header = document.createElement( 'div' );
-		header.id = 'story-header';
-		header.innerHTML = '<h1>Space <br> Invaders</h1>';
-		
-		data.buttons.play = document.createElement( 'div' );
-		data.buttons.play.id = 'play-game';
-		data.buttons.play.className = 'retro-button';
-		data.buttons.play.innerHTML = 'play';
-		header.appendChild( data.buttons.play );
-		
 		modal.appendChild( header );
 		modal.appendChild( habitat );
-		
-		data.startscreen.appendChild( modal );
-		
-		game.appendChild( data.startscreen );
 
-		
-		/**
-		 * Make the end screen
-		 */
+		// Startscreen
+		data.startscreen = document.createElement( 'div' );
+		data.startscreen.id = 'startscreen';
+		data.startscreen.appendChild( modal );
+
+		return data.startscreen;
+
+	}
+
+	function makeEndScreen() {
+
 		data.endscreen = document.createElement( 'div' );
 		data.endscreen.id = 'endscreen';
 		data.endscreen.className = 'modal';
 		data.endscreen.innerHTML = '<h1>Game <br> Over</h1>';
-		
+
 		data.buttons.reset = document.createElement( 'div' );
 		data.buttons.reset.id = 'reset-game';
 		data.buttons.reset.className = 'retro-button';
 		data.buttons.reset.innerHTML = 'play again';
+
 		data.endscreen.appendChild( data.buttons.reset );
-		
-		game.appendChild( data.endscreen );
-		
-		
-		/**
-		 * Make the creature container
-		 */
+
+		return data.endscreen;
+
+	}
+
+	function makeCreatureContainer() {
+
 		data.container.el = document.createElement( 'div' );
 		data.container.el.id = 'creature-container';
-		game.appendChild( data.container.el );
-		
-		
-		/**
-		 * Make the scoreboard
-		 */
-		data.score.board.el = document.createElement( 'div' );
-		data.score.board.el.id = 'scoreboard';
-		
+
+		return data.container.el;
+
+	}
+
+	function makeScoreBoard() {
+
+		var scores, points, remaining, progress, progressLabel;
+
+		// Controls
 		data.buttons.controls = document.createElement( 'div' );
 		data.buttons.controls.id = 'controls';
-		data.score.board.el.appendChild( data.buttons.controls );
-		
-		// Add buttons to the scoreboard
+
 		data.buttons.pause = document.createElement( 'div' );
 		data.buttons.pause.id = 'pause-game';
 		data.buttons.pause.innerHTML = 'pause';
 		data.buttons.controls.appendChild( data.buttons.pause );
-		
+
 		data.buttons.resume = document.createElement( 'div' );
 		data.buttons.resume.id = 'resume-game';
 		data.buttons.resume.innerHTML = 'resume';
 		data.buttons.controls.appendChild( data.buttons.resume );
-		
-		var scores, points, remaining, progress;
-		
+
+		// Scores
 		scores = document.createElement( 'div' );
 		scores.id = 'scores';
-		
+
 		points = document.createElement( 'div' );
 		points.id = 'points';
 		points.innerHTML = '<div class="label">score</div>';
@@ -153,48 +169,43 @@
 		data.score.board.points.innerHTML = 0;
 		points.appendChild( data.score.board.points );
 		scores.appendChild( points );
-		
+
 		remaining = document.createElement( 'div' );
 		remaining.id = 'remaining';
 		remaining.innerHTML = '<div class="label">invaders</div>';
 		data.score.board.remaining = document.createElement( 'div' );
 		data.score.board.remaining.className = 'score';
 		data.score.board.remaining.innerHTML = 0;
-		points.appendChild( data.score.board.remaining );
+		remaining.appendChild( data.score.board.remaining );
 		scores.appendChild( remaining );
-		
-		data.score.board.el.appendChild( scores );
-		
+
+		// Progress Bar
 		progress = document.createElement( 'div' );
 		progress.id = 'progress';
+
 		data.progress = document.createElement( 'div' );
 		data.progress.id = 'progress-bar';
 		progress.appendChild( data.progress );
-		progress.innerHTML += '<div id="progress-label">Complete Invasion! --></div>';
-		
+
+		progressLabel = document.createElement( 'div' );
+		progressLabel.id = 'progress-label';
+		progressLabel.innerHTML = 'Complete Invasion! -->';
+		progress.appendChild( progressLabel );
+
+		// Scoreboard
+		data.score.board.el = document.createElement( 'div' );
+		data.score.board.el.id = 'scoreboard';
+		data.score.board.el.appendChild( data.buttons.controls );
+		data.score.board.el.appendChild( scores );
 		data.score.board.el.appendChild( progress );
-		
-		game.appendChild( data.score.board.el );
-		
-		/**
-		 * Put the game on the page
-		 */
-		document.getElementById( 'main' ).appendChild( game );		
-		
-		
-		
-		
-		
-		// Get some specs once everything's on the page
-		data.score.board.h = data.score.board.el.offsetHeight;
-		data.container.el.style.height = 'calc( 100vh - ' + data.score.board.h + 'px)';
-		data.container.x = data.container.el.offsetWidth;
-		data.container.y = data.container.el.offsetHeight;
 
-		disableScroll();
-		populateCreatureBox();
+		return data.score.board.el;
 
-		// Get the play button
+	}
+
+	function addButtonEvents() {
+
+		// Play button
 		data.buttons.play.addEventListener(
 			 'click',
 			function() {
@@ -204,7 +215,7 @@
 			false
 			);
 
-		// Get the reset button
+		// Reset button
 		data.buttons.reset.addEventListener(
 			 'click',
 			function() {
@@ -214,7 +225,7 @@
 			false
 			);
 
-		// Get the pause button
+		// Pause button
 		data.buttons.pause.addEventListener(
 			 'click',
 			function() {
@@ -226,7 +237,7 @@
 			false
 			);
 
-		// Get the resume button
+		// Resume button
 		data.buttons.resume.addEventListener(
 			 'click',
 			function() {
@@ -237,8 +248,6 @@
 		},
 			false
 			);
-
-		window.addEventListener( 'resize', handleResize, false );
 
 	}
 
