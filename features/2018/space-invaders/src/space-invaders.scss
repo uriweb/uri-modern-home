@@ -79,6 +79,36 @@
 		position: relative;
 	}
 	
+	#controls {
+		
+		position: absolute;
+		padding: .35rem;
+		margin: .35rem;
+		border: 1px solid #fff;
+		box-sizing: border-box;
+		
+		&:hover {
+			cursor: pointer;
+		}
+		
+		#resume-game {
+			display: none;
+		}
+		
+		&.paused {
+			
+			#pause-game {
+				display: none;
+			}
+			
+			#resume-game {
+				display: block;
+			}
+			
+		}
+		
+	}
+	
 	#scores {
 		
 		display: flex;
@@ -88,7 +118,6 @@
 		
 		&>div {
 			flex: 1;
-			text-align: center;
 		}
 		
 	}
@@ -117,7 +146,7 @@
 		background: #a4d842;
 		
 		&.alert {
-			background: #ffff38;
+			background: #ffc605;
 		}
 		
 		&.warning {
@@ -139,19 +168,14 @@
 		display: inline-block;
 	}
 	
-	/*
-	#spawned .score {
-		color: #4bbed3;
+	#points {
+		text-align: left;
+		padding-left: 5rem;
 	}
 	
-	#removed .score {
-		color: #a4d842;
+	#remaining {
+		text-align: right;
 	}
-	
-	#remaining .score {
-		color: #d95858;
-	}
-	*/
 	
 }
 
@@ -163,6 +187,11 @@
 		&:before {
 			width: 100%;
 			transform: scale(1);
+		}
+		
+		#controls {
+			padding: .5rem;
+			margin: .5rem;
 		}
 		
 		#scores {

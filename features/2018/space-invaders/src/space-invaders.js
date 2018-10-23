@@ -27,7 +27,9 @@
 				'h': document.getElementById( 'story' ).offsetHeight,
 				'top': document.getElementById( 'story' ).getBoundingClientRect().top
 			},
-			'buttons': {},
+			'buttons': {
+				'controls': document.getElementById( 'controls' )
+			},
 			'creatures': {},
 			'container': {},
 			'score': {
@@ -60,13 +62,13 @@
 		data.score.board.points = document.getElementById( 'points' ).querySelector( '.score' );
 		data.score.board.remaining = document.getElementById( 'remaining' ).querySelector( '.score' );
 		data.score.board.h = data.score.board.el.offsetHeight;
-		
+
 		// Get the creature container el and specs
 		data.container.el = document.getElementById( 'creature-container' );
 		data.container.el.style.height = 'calc( 100vh - ' + data.score.board.h + 'px)';
 		data.container.x = data.container.el.offsetWidth;
 		data.container.y = data.container.el.offsetHeight;
-		
+
 		disableScroll();
 		populateCreatureBox();
 
@@ -91,7 +93,7 @@
 		},
 			false
 			);
-		
+
 		// Get the pause button
 		data.buttons.pause = document.getElementById( 'pause-game' );
 		data.buttons.pause.addEventListener(
@@ -104,7 +106,7 @@
 		},
 			false
 			);
-		
+
 		// Get the resume button
 		data.buttons.resume = document.getElementById( 'resume-game' );
 		data.buttons.resume.addEventListener(
@@ -134,59 +136,61 @@
 
 		data.startscreen.classList.add( 'hidden' );
 		enableScroll();
-		
+
 		// Don't restart the game if it's already playing
 		// (prevents multiple instances)
 		if ( 1 != data.status ) {
-						
+
 			data.status = 1;
 			updateScore();
 
 			data.timing.start = Date.now();
-			
+
 			setTimeout( ticker, data.timing.init );
-			
+
 		}
 
 	}
-	
+
 	function ticker() {
-			
+
 		var millis, y, min;
-			
+
 		if ( 1 == data.status ) {
-			
+
 			millis = Date.now() - data.timing.start;
 			y = ease( (millis / data.timing.duration ) * 100 , data.timing.duration );
 			min = Math.max( 120, Math.min( 350, ( data.container.x * data.container.y / 1000000 ) * 300 ) );
 			data.timing.interval = Math.max( min, data.timing.init - ( data.timing.init * y ) );
-			
+
 			addCreature()
 			data.n++;
 			setTimeout( ticker, data.timing.interval );
-			
+
 		}
 
 	}
-	
+
 	function pauseGame() {
-		
+
 		data.status = 3;
 		data.timing.paused = Date.now();
 		data.container.el.classList.add( 'paused' );
-		
+		data.buttons.controls.classList.add( 'paused' );
+
 	}
-	
+
 	function resumeGame() {
-		
+
 		var resume = Date.now();
-		
+
 		data.status = 1;
 		data.timing.start += resume - data.timing.paused;
 		data.container.el.classList.remove( 'paused' );
-		
+		data.buttons.controls.classList.remove( 'paused' );
+
 		setTimeout( ticker, data.timing.interval );
-		
+
 	}
 
 	function endGame() {
@@ -460,54 +464,54 @@
 	}
 
 	function preventDefault(e) {
-		
+
 		e = e || window.event;
-		
+
 		if ( e.preventDefault ) {
 			e.preventDefault();
 		}
-		
-		e.returnValue = false;  
+
+		e.returnValue = false;
 
 	}
 
 	function preventDefaultForScrollKeys( e ) {
-		
+
 		var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
-		
+
 		if ( keys[e.keyCode] ) {
-			
+
 			preventDefault( e );
 			return false;
-			
+
 		}
-		
+
 	}
 
 	function disableScroll() {
-		
+
 		if ( window.addEventListener ) { // older FF
 			window.addEventListener( 'DOMMouseScroll', preventDefault, false );
 		}
-		
+
 		window.onwheel = preventDefault; // modern standard
 		window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
 		window.ontouchmove  = preventDefault; // mobile
 		document.onkeydown  = preventDefaultForScrollKeys;
-		
+
 	}
 
 	function enableScroll() {
-		
+
 		if ( window.removeEventListener ) {
 			window.removeEventListener( 'DOMMouseScroll', preventDefault, false );
 		}
-		
-		window.onmousewheel = document.onmousewheel = null; 
-		window.onwheel = null; 
-		window.ontouchmove = null;  
-		document.onkeydown = null; 
-		
+
+		window.onmousewheel = document.onmousewheel = null;
+		window.onwheel = null;
+		window.ontouchmove = null;
+		document.onkeydown = null;
+
 	}
 
 })();
