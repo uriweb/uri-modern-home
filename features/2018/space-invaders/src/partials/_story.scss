@@ -27,11 +27,10 @@
 
 #endscreen {
 	
-	background: #a01010;
+	background: #000;
 	text-align: center;
 	display: none;
 	padding-bottom: 3rem;
-	box-shadow: 10px 10px 0 #000;
 	
 	&.visible {
 		display: block;
@@ -53,7 +52,7 @@
 
 #story-header {
 	
-	background: #024761;
+	background: #020850;
 	text-align: center;
 	position: relative;
 	padding-bottom: 3rem;
@@ -120,6 +119,8 @@
 	color: #fff;
 	font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
 	font-size: 1rem;
+	background: #4704ca;
+	border: 4px solid #fff;
 	
 	&:hover {
 		cursor: pointer;
@@ -127,18 +128,7 @@
 	}
 	
 }
-
-#play-game.retro-button {
-	background: #7da1ff;
-	box-shadow: 4px 4px 0 #5064ff;
-}
-
-#reset-game.retro-button {
-	background: #814920;
-	box-shadow: 4px 4px 0 #532d11;
-}
 	
-
 .content-body {
 	width: 100%;
 	max-width: 600px;

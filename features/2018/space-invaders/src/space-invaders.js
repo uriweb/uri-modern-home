@@ -31,8 +31,14 @@
 			'creatures': {},
 			'container': {},
 			'score': {
+				'points': 0,
 				'spawned': 0,
-				'removed': 0
+				'removed': 0,
+				'board': {}
+			},
+			'timing': {
+				'init': 2000, // Initial interval between spawns
+				'duration': 60000 // Time until max spawn rate (approx)
 			},
 			'audio': {
 				'bounce': new Audio( baseURL + 'mp3/bounce.mp3' ),
@@ -55,13 +61,9 @@
 		data.container.y = data.container.el.offsetHeight;
 
 		// Get the scoreboard els and specs
-		data.score.board = {
-			'el': document.getElementById( 'scoreboard' ),
-			'spawned': document.getElementById( 'spawned' ).querySelector( '.score' ),
-			'removed': document.getElementById( 'removed' ).querySelector( '.score' ),
-			'remaining': document.getElementById( 'remaining' ).querySelector( '.score' )
-		}
-
+		data.score.board.el = document.getElementById( 'scoreboard' );
+		data.score.board.points = document.getElementById( 'points' ).querySelector( '.score' );
+		data.score.board.remaining = document.getElementById( 'remaining' ).querySelector( '.score' );
 		data.score.board.h = data.score.board.el.offsetHeight;
 
 		populateCreatureBox();
@@ -120,7 +122,6 @@
 		// Get the end screen
 		data.endscreen = document.getElementById( 'endscreen' );
 
-		window.addEventListener( 'scroll', handleScroll, false );
 		window.addEventListener( 'resize', handleResize, false );
 
 	}
@@ -138,11 +139,7 @@
 			data.status = 1;
 			updateScore();
 
-			data.timing = {
-				'init': 2000, // Initial interval between spawns
-				'duration': 45000, // Time until max spawn rate (approx)
-				'start': Date.now()
-			}
+			data.timing.start = Date.now();
 
 			ticker();
 			
@@ -196,6 +193,7 @@
 
 		data.container.el.classList.add( 'endgame' );
 		data.endscreen.classList.add( 'visible' );
+		data.score.board.remaining.innerHTML = '>' + data.pointcap;
 
 		data.audio.end.play();
 
@@ -225,6 +223,7 @@
 		data.container.el.classList.remove( 'endgame' );
 		data.endscreen.classList.remove( 'visible' );
 		data.progress.className = '';
+		data.score.points = 0;
 		data.score.spawned = 0;
 		data.score.removed = 0;
 		data.n = 0;
@@ -241,8 +240,7 @@
 
 			remaining = data.score.spawned - data.score.removed;
 
-			data.score.board.spawned.innerHTML = data.score.spawned;
-			data.score.board.removed.innerHTML = data.score.removed;
+			data.score.board.points.innerHTML = data.score.points;
 			data.score.board.remaining.innerHTML = remaining;
 
 			percent = 100 / data.pointcap * remaining;
@@ -378,21 +376,28 @@
 
 	function removeCreature( id ) {
 
-		var creature;
+		var creature, pointValue;
 
 		switch ( data.creatures[id].type ) {
 			case 'crab':
 				playAudio( data.audio.elevate );
+				pointValue = 30;
 				break;
 			case 'tunicate-1':
+				playAudio( data.audio.bounce );
+				pointValue = 10;
+				break;
 			case 'tunicate-2':
 				playAudio( data.audio.bounce );
+				pointValue = 30;
 				break;
 			case 'seaweed-1':
 				playAudio( data.audio.shoot );
+				pointValue = 20;
 				break;
 			default:
 				playAudio( data.audio.shoot );
+				pointValue = 10;
 		}
 
 		creature = document.getElementById( id );
@@ -400,6 +405,7 @@
 
 		data.creatures[id].status = 0;
 		data.score.removed++;
+		data.score.points += pointValue;
 		updateScore();
 
 	}
@@ -417,18 +423,6 @@
 	function ease( x, duration ) {
 		var y = ( x * ( x / duration ) );
 		return Math.round( y * 1000 ) / 1000
-	}
-
-	function handleScroll() {
-
-		var yPos = window.pageYOffset;
-
-		if ( yPos > data.story.top + data.story.h + data.score.board.h - data.container.y ) {
-			data.score.board.el.classList.add( 'fluid' );
-		} else {
-			data.score.board.el.classList.remove( 'fluid' );
-		}
-
 	}
 
 	function handleResize() {
