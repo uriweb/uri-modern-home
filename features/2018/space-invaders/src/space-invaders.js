@@ -55,17 +55,19 @@
 		// Get the startscreen wrapper
 		data.startscreen = document.getElementById( 'startscreen' );
 
-		// Get the creature container el and specs
-		data.container.el = document.getElementById( 'creature-container' );
-		data.container.x = data.container.el.offsetWidth;
-		data.container.y = data.container.el.offsetHeight;
-
 		// Get the scoreboard els and specs
 		data.score.board.el = document.getElementById( 'scoreboard' );
 		data.score.board.points = document.getElementById( 'points' ).querySelector( '.score' );
 		data.score.board.remaining = document.getElementById( 'remaining' ).querySelector( '.score' );
 		data.score.board.h = data.score.board.el.offsetHeight;
-
+		
+		// Get the creature container el and specs
+		data.container.el = document.getElementById( 'creature-container' );
+		data.container.el.style.height = 'calc( 100vh - ' + data.score.board.h + 'px)';
+		data.container.x = data.container.el.offsetWidth;
+		data.container.y = data.container.el.offsetHeight;
+		
+		disableScroll();
 		populateCreatureBox();
 
 		// Get the play button
@@ -131,6 +133,7 @@
 		var init, duration, start;
 
 		data.startscreen.classList.add( 'hidden' );
+		enableScroll();
 		
 		// Don't restart the game if it's already playing
 		// (prevents multiple instances)
@@ -140,8 +143,8 @@
 			updateScore();
 
 			data.timing.start = Date.now();
-
-			ticker();
+			
+			setTimeout( ticker, data.timing.init );
 			
 		}
 
@@ -149,18 +152,19 @@
 	
 	function ticker() {
 			
-		var millis, y, interval, min;
-
-		millis = Date.now() - data.timing.start;
-		y = ease( (millis / data.timing.duration ) * 100 , data.timing.duration );
-		min = Math.max( 120, Math.min( 350, ( data.container.x * data.container.y / 1000000 ) * 300 ) );
-		interval = Math.max( min, data.timing.init - ( data.timing.init * y ) );
-		
-		addCreature()
-		data.n++;
-
+		var millis, y, min;
+			
 		if ( 1 == data.status ) {
-			setTimeout( ticker, interval );
+			
+			millis = Date.now() - data.timing.start;
+			y = ease( (millis / data.timing.duration ) * 100 , data.timing.duration );
+			min = Math.max( 120, Math.min( 350, ( data.container.x * data.container.y / 1000000 ) * 300 ) );
+			data.timing.interval = Math.max( min, data.timing.init - ( data.timing.init * y ) );
+			
+			addCreature()
+			data.n++;
+			setTimeout( ticker, data.timing.interval );
+			
 		}
 
 	}
@@ -181,7 +185,7 @@
 		data.timing.start += resume - data.timing.paused;
 		data.container.el.classList.remove( 'paused' );
 		
-		ticker();
+		setTimeout( ticker, data.timing.interval );
 		
 	}
 
@@ -328,7 +332,7 @@
 		boundary = {
 			'left': 0,
 			'right': data.container.x - 128,
-			'top': Math.max( 128, data.container.y - data.score.board.h - data.n * 16 ),
+			'top': Math.max( 128, data.container.y - data.n * 16 ),
 			'bottom': data.container.y - data.score.board.h
 		}
 
@@ -426,6 +430,8 @@
 	}
 
 	function handleResize() {
+		data.score.board.h = data.score.board.el.offsetHeight;
+		data.container.el.style.height = 'calc( 100vh - ' + data.score.board.h + 'px)';
 		data.container.x = data.container.el.offsetWidth;
 		data.container.y = data.container.el.offsetHeight;
 	}
@@ -451,6 +457,57 @@
 
 		data.habitat.appendChild( creatures );
 
+	}
+
+	function preventDefault(e) {
+		
+		e = e || window.event;
+		
+		if ( e.preventDefault ) {
+			e.preventDefault();
+		}
+		
+		e.returnValue = false;  
+
+	}
+
+	function preventDefaultForScrollKeys( e ) {
+		
+		var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
+		
+		if ( keys[e.keyCode] ) {
+			
+			preventDefault( e );
+			return false;
+			
+		}
+		
+	}
+
+	function disableScroll() {
+		
+		if ( window.addEventListener ) { // older FF
+			window.addEventListener( 'DOMMouseScroll', preventDefault, false );
+		}
+		
+		window.onwheel = preventDefault; // modern standard
+		window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+		window.ontouchmove  = preventDefault; // mobile
+		document.onkeydown  = preventDefaultForScrollKeys;
+		
+	}
+
+	function enableScroll() {
+		
+		if ( window.removeEventListener ) {
+			window.removeEventListener( 'DOMMouseScroll', preventDefault, false );
+		}
+		
+		window.onmousewheel = document.onmousewheel = null; 
+		window.onwheel = null; 
+		window.ontouchmove = null;  
+		document.onkeydown = null; 
+		
 	}
 
 })();
