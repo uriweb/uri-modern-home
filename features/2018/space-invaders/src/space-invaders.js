@@ -14,7 +14,7 @@
 
 	function initInvaders() {
 
-		var baseURL;
+		var baseURL, game;
 
 		baseURL = '../../wp-content/themes/uri-modern-home/features/2018/space-invaders/';
 
@@ -27,9 +27,7 @@
 				'h': document.getElementById( 'story' ).offsetHeight,
 				'top': document.getElementById( 'story' ).getBoundingClientRect().top
 			},
-			'buttons': {
-				'controls': document.getElementById( 'controls' )
-			},
+			'buttons': {},
 			'creatures': {},
 			'container': {},
 			'score': {
@@ -50,21 +48,145 @@
 				'menu': new Audio( baseURL + 'mp3/menu.mp3' )
 			}
 		};
+		
+		game = document.createElement( 'div' );
+		game.id = 'game';
 
-		// Get the habitat habitat el
-		data.habitat = document.getElementById( 'creature-box' ).querySelector( '.creatures' );
+		
+		/**
+		 * Make the creature box habitat
+		 */
+		var habitat;
+		
+		habitat = document.createElement( 'div' );
+		habitat.id = 'creature-box';
+		data.habitat = document.createElement( 'div' );
+		data.habitat.className = 'creatures';
+		habitat.appendChild( data.habitat );
 
-		// Get the startscreen wrapper
-		data.startscreen = document.getElementById( 'startscreen' );
+		
+		/**
+		 * Make the startscreen
+		 */
+		data.startscreen = document.createElement( 'div' );
+		data.startscreen.id = 'startscreen';
+		
+		var modal, header;
+		
+		modal = document.createElement( 'div' );
+		modal.className = 'modal';
+		
+		header = document.createElement( 'div' );
+		header.id = 'story-header';
+		header.innerHTML = '<h1>Space <br> Invaders</h1>';
+		
+		data.buttons.play = document.createElement( 'div' );
+		data.buttons.play.id = 'play-game';
+		data.buttons.play.className = 'retro-button';
+		data.buttons.play.innerHTML = 'play';
+		header.appendChild( data.buttons.play );
+		
+		modal.appendChild( header );
+		modal.appendChild( habitat );
+		
+		data.startscreen.appendChild( modal );
+		
+		game.appendChild( data.startscreen );
 
-		// Get the scoreboard els and specs
-		data.score.board.el = document.getElementById( 'scoreboard' );
-		data.score.board.points = document.getElementById( 'points' ).querySelector( '.score' );
-		data.score.board.remaining = document.getElementById( 'remaining' ).querySelector( '.score' );
+		
+		/**
+		 * Make the end screen
+		 */
+		data.endscreen = document.createElement( 'div' );
+		data.endscreen.id = 'endscreen';
+		data.endscreen.className = 'modal';
+		data.endscreen.innerHTML = '<h1>Game <br> Over</h1>';
+		
+		data.buttons.reset = document.createElement( 'div' );
+		data.buttons.reset.id = 'reset-game';
+		data.buttons.reset.className = 'retro-button';
+		data.buttons.reset.innerHTML = 'play again';
+		data.endscreen.appendChild( data.buttons.reset );
+		
+		game.appendChild( data.endscreen );
+		
+		
+		/**
+		 * Make the creature container
+		 */
+		data.container.el = document.createElement( 'div' );
+		data.container.el.id = 'creature-container';
+		game.appendChild( data.container.el );
+		
+		
+		/**
+		 * Make the scoreboard
+		 */
+		data.score.board.el = document.createElement( 'div' );
+		data.score.board.el.id = 'scoreboard';
+		
+		data.buttons.controls = document.createElement( 'div' );
+		data.buttons.controls.id = 'controls';
+		data.score.board.el.appendChild( data.buttons.controls );
+		
+		// Add buttons to the scoreboard
+		data.buttons.pause = document.createElement( 'div' );
+		data.buttons.pause.id = 'pause-game';
+		data.buttons.pause.innerHTML = 'pause';
+		data.buttons.controls.appendChild( data.buttons.pause );
+		
+		data.buttons.resume = document.createElement( 'div' );
+		data.buttons.resume.id = 'resume-game';
+		data.buttons.resume.innerHTML = 'resume';
+		data.buttons.controls.appendChild( data.buttons.resume );
+		
+		var scores, points, remaining, progress;
+		
+		scores = document.createElement( 'div' );
+		scores.id = 'scores';
+		
+		points = document.createElement( 'div' );
+		points.id = 'points';
+		points.innerHTML = '<div class="label">score</div>';
+		data.score.board.points = document.createElement( 'div' );
+		data.score.board.points.className = 'score';
+		data.score.board.points.innerHTML = 0;
+		points.appendChild( data.score.board.points );
+		scores.appendChild( points );
+		
+		remaining = document.createElement( 'div' );
+		remaining.id = 'remaining';
+		remaining.innerHTML = '<div class="label">invaders</div>';
+		data.score.board.remaining = document.createElement( 'div' );
+		data.score.board.remaining.className = 'score';
+		data.score.board.remaining.innerHTML = 0;
+		points.appendChild( data.score.board.remaining );
+		scores.appendChild( remaining );
+		
+		data.score.board.el.appendChild( scores );
+		
+		progress = document.createElement( 'div' );
+		progress.id = 'progress';
+		data.progress = document.createElement( 'div' );
+		data.progress.id = 'progress-bar';
+		progress.appendChild( data.progress );
+		progress.innerHTML += '<div id="progress-label">Complete Invasion! --></div>';
+		
+		data.score.board.el.appendChild( progress );
+		
+		game.appendChild( data.score.board.el );
+		
+		/**
+		 * Put the game on the page
+		 */
+		document.getElementById( 'main' ).appendChild( game );		
+		
+		
+		
+		
+		
+		// Get some specs once everything's on the page
 		data.score.board.h = data.score.board.el.offsetHeight;
-
-		// Get the creature container el and specs
-		data.container.el = document.getElementById( 'creature-container' );
 		data.container.el.style.height = 'calc( 100vh - ' + data.score.board.h + 'px)';
 		data.container.x = data.container.el.offsetWidth;
 		data.container.y = data.container.el.offsetHeight;
@@ -73,7 +195,6 @@
 		populateCreatureBox();
 
 		// Get the play button
-		data.buttons.play = document.getElementById( 'play-game' );
 		data.buttons.play.addEventListener(
 			 'click',
 			function() {
@@ -84,7 +205,6 @@
 			);
 
 		// Get the reset button
-		data.buttons.reset = document.getElementById( 'reset-game' );
 		data.buttons.reset.addEventListener(
 			 'click',
 			function() {
@@ -95,7 +215,6 @@
 			);
 
 		// Get the pause button
-		data.buttons.pause = document.getElementById( 'pause-game' );
 		data.buttons.pause.addEventListener(
 			 'click',
 			function() {
@@ -108,7 +227,6 @@
 			);
 
 		// Get the resume button
-		data.buttons.resume = document.getElementById( 'resume-game' );
 		data.buttons.resume.addEventListener(
 			 'click',
 			function() {
@@ -119,12 +237,6 @@
 		},
 			false
 			);
-
-		// Get the progress bar
-		data.progress = document.getElementById( 'progress-bar' );
-
-		// Get the end screen
-		data.endscreen = document.getElementById( 'endscreen' );
 
 		window.addEventListener( 'resize', handleResize, false );
 
@@ -160,7 +272,7 @@
 
 			millis = Date.now() - data.timing.start;
 			y = ease( (millis / data.timing.duration ) * 100 , data.timing.duration );
-			min = Math.max( 120, Math.min( 350, ( data.container.x * data.container.y / 1000000 ) * 300 ) );
+			min = Math.max( 200, Math.min( 350, ( data.container.x * data.container.y / 1000000 ) * 300 ) );
 			data.timing.interval = Math.max( min, data.timing.init - ( data.timing.init * y ) );
 
 			addCreature()

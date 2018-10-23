@@ -1,4 +1,4 @@
-/* === STORY === */
+/* === INTERFACE === */
 
 #startscreen {
 	
@@ -125,27 +125,6 @@
 	&:hover {
 		cursor: pointer;
 		top: -4px;
-	}
-	
-}
-	
-.content-body {
-	width: 100%;
-	max-width: 600px;
-	margin: 0 auto;
-	font-family: "Titillium Web", "Roboto Mono", "Hind", sans-serif;
-	font-size: 1.1rem;
-}
-
-.artboard {
-	
-	margin-bottom: 4rem;
-	text-align: center;
-
-	&:after {
-		display: block;
-		content: '';
-		clear: both;
 	}
 	
 }

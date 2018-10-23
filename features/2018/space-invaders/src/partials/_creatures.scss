@@ -1,5 +1,20 @@
 /* === CREATURES === */
 
+#creature-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 15;
+	transition: opacity .2s ease-in-out;
+}
+
+#creature-container.paused {
+	z-index: 0;
+	opacity: .2;
+}
+
 .creatures {
 	position: relative;
 	width: 800px;
