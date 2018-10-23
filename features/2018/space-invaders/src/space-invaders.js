@@ -13,20 +13,21 @@
 	window.addEventListener( 'load', initInvaders, false );
 
 	function initInvaders() {
-		
+
 		var baseURL;
 
 		baseURL = '../../wp-content/themes/uri-modern-home/features/2018/space-invaders/';
 
 		data = {
 			'unit': 16, // Increment by which creatures should be placed
-			'status': 0, // 0 = not started, 1 = running, 2 = game over
+			'status': 0, // 0 = not started, 1 = running, 2 = game over, 3 = paused
 			'pointcap': 50, // Game over threshold
 			'n': 0,
 			'story': {
 				'h': document.getElementById( 'story' ).offsetHeight,
 				'top': document.getElementById( 'story' ).getBoundingClientRect().top
 			},
+			'buttons': {},
 			'creatures': {},
 			'container': {},
 			'score': {
@@ -60,14 +61,14 @@
 			'removed': document.getElementById( 'removed' ).querySelector( '.score' ),
 			'remaining': document.getElementById( 'remaining' ).querySelector( '.score' )
 		}
-		
+
 		data.score.board.h = data.score.board.el.offsetHeight;
 
 		populateCreatureBox();
 
 		// Get the play button
-		data.play = document.getElementById( 'play-game' );
-		data.play.addEventListener(
+		data.buttons.play = document.getElementById( 'play-game' );
+		data.buttons.play.addEventListener(
 			 'click',
 			function() {
 			playAudio( data.audio.menu );
@@ -77,12 +78,38 @@
 			);
 
 		// Get the reset button
-		data.reset = document.getElementById( 'reset-game' );
-		data.reset.addEventListener(
+		data.buttons.reset = document.getElementById( 'reset-game' );
+		data.buttons.reset.addEventListener(
 			 'click',
 			function() {
 			playAudio( data.audio.menu );
 			setTimeout( resetGame, 1000 );
+		},
+			false
+			);
+		
+		// Get the pause button
+		data.buttons.pause = document.getElementById( 'pause-game' );
+		data.buttons.pause.addEventListener(
+			 'click',
+			function() {
+				if ( 1 == data.status ) {
+					playAudio( data.audio.menu );
+					pauseGame();
+				}
+		},
+			false
+			);
+		
+		// Get the resume button
+		data.buttons.resume = document.getElementById( 'resume-game' );
+		data.buttons.resume.addEventListener(
+			 'click',
+			function() {
+				if ( 3 == data.status ) {
+					playAudio( data.audio.menu );
+					resumeGame();
+				}
 		},
 			false
 			);
@@ -100,40 +127,66 @@
 
 	function startGame() {
 
-		var t;
+		var init, duration, start;
 
 		data.startscreen.classList.add( 'hidden' );
 		data.status = 1;
 		updateScore();
 
-		t = 3000;
+		data.timing = {
+			'init': 2000, // Initial interval between spawns
+			'duration': 60000, // Time until max spawn rate (approx)
+			'start': Date.now()
+		}
+		
+		ticker();
 
-		data.starttimer = function( tick, factor ) {
-			return function() {
-				if ( --tick >= 0 ) {
+	}
+	
+	function ticker() {
+			
+		var millis, y, interval, min;
 
-					window.setTimeout( data.starttimer, t - factor );
-					addCreature();
-					data.n++;
+		millis = Date.now() - data.timing.start;
+		y = ease( (millis / data.timing.duration ) * 100 , data.timing.duration );
+		min = Math.max( 120, Math.min( 350, ( data.container.x * data.container.y / 1000000 ) * 300 ) );
+		interval = Math.max( min, data.timing.init - ( data.timing.init * y ) );
 
-					if ( t - factor > 300 ) {
-						factor += 30;
-					}
+		console.log(interval);
+		
+		addCreature()
+		data.n++;
 
-				}
+		if ( 1 == data.status ) {
+			setTimeout( ticker, interval );
+		}
 
-			}
-		}( 5000, 0 );
-
-		window.setTimeout( data.starttimer, t );
-
+	}
+	
+	function pauseGame() {
+		
+		data.status = 3;
+		data.timing.paused = Date.now();
+		data.container.el.classList.add( 'paused' );
+		
+	}
+	
+	function resumeGame() {
+		
+		var resume = Date.now();
+		
+		data.status = 1;
+		data.timing.start += resume - data.timing.paused;
+		data.container.el.classList.remove( 'paused' );
+		
+		ticker();
+		
 	}
 
 	function endGame() {
 
 		var x;
 
-		data.starttimer = false;
 		data.status = 2;
 
 		data.container.el.classList.add( 'endgame' );
@@ -268,7 +321,7 @@
 
 		// Generate a random ID
 		id = 'c_' + Math.random().toString( 36 ).substr( 2, 9 );
-		
+
 		boundary = {
 			'left': 0,
 			'right': data.container.x - 128,
@@ -354,6 +407,11 @@
 			clip.currentTime = 0
 		}
 
+	}
+
+	function ease( x, duration ) {
+		var y = ( x * ( x / duration ) );
+		return Math.round( y * 1000 ) / 1000
 	}
 
 	function handleScroll() {

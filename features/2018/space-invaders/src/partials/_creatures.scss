@@ -55,6 +55,10 @@
 	}
 }
 
+#creature-container.paused .creature {
+	animation: none;
+}
+
 #creature-container.endgame .creature-wrapper {
 	animation: none;
 	opacity: 1;

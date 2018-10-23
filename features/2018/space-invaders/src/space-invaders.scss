@@ -31,6 +31,12 @@
 	width: 100vw;
 	height: 100vh;
 	z-index: 15;
+	transition: opacity .2s ease-in-out;
+}
+
+#creature-container.paused {
+	z-index: 0;
+	opacity: .2;
 }
 
 #scoreboard {
