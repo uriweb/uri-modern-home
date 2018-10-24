@@ -16,7 +16,7 @@
 
 		var baseURL, game;
 
-		baseURL = '../../wp-content/themes/uri-modern-home/features/2018/space-invaders/';
+		baseURL = URIMODERN.path.theme + '/features/2018/space-invaders/';
 
 		data = {
 			'unit': 16, // Increment by which creatures should be placed
@@ -524,7 +524,7 @@
 	function removeCreature( id ) {
 
 		var creature, pointValue;
-		
+
 		data.creatures[id].el.classList.add( 'destroyed' );
 		data.creatures[id].status = 0;
 
