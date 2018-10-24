@@ -179,7 +179,7 @@
 		data.score.board.remaining.innerHTML = pad( 0 );
 		remaining.appendChild( data.score.board.remaining );
 		scores.appendChild( remaining );
-		
+
 		high = document.createElement( 'div' );
 		high.id = 'high';
 		high.innerHTML = '<div class="label">high</div>';
@@ -291,7 +291,7 @@
 
 			millis = Date.now() - data.timing.start;
 			y = ease( (millis / data.timing.duration ) * 100 , data.timing.duration );
-			min = Math.max( 200, Math.min( 350, ( data.container.x * data.container.y / 1000000 ) * 300 ) );
+			min = Math.max( 120, Math.min( 380, ( data.container.x * data.container.y / 1000000 ) * 300 ) );
 			data.timing.interval = Math.max( min, data.timing.init - ( data.timing.init * y ) );
 
 			addCreature()
@@ -333,7 +333,7 @@
 		data.container.el.classList.add( 'endgame' );
 		data.endscreen.classList.add( 'visible' );
 		data.score.board.remaining.innerHTML = '>' + data.pointcap;
-		
+
 		if ( data.score.points > getHighScore() ) {
 			setHighScore( data.score.points );
 		}
@@ -371,7 +371,7 @@
 		data.score.spawned = 0;
 		data.score.removed = 0;
 		data.n = 0;
-		
+
 		data.score.board.high.innerHTML = pad( data.score.high );
 
 		startGame();
@@ -506,6 +506,7 @@
 
 		// Add it to the database
 		data.creatures[id] = {
+			'el': div,
 			'x': x,
 			'y': y,
 			'type': creature.type,
@@ -523,6 +524,9 @@
 	function removeCreature( id ) {
 
 		var creature, pointValue;
+		
+		data.creatures[id].el.classList.add( 'destroyed' );
+		data.creatures[id].status = 0;
 
 		switch ( data.creatures[id].type ) {
 			case 'crab':
@@ -546,10 +550,6 @@
 				pointValue = 10;
 		}
 
-		creature = document.getElementById( id );
-		creature.classList.add( 'destroyed' );
-
-		data.creatures[id].status = 0;
 		data.score.removed++;
 		data.score.points += pointValue;
 		updateScore();
@@ -565,10 +565,10 @@
 		}
 
 	}
-	
+
 	function pad( num ) {
 		var s = "00000" + num;
-    	return s.substr( s.length - 5 );
+		return s.substr( s.length - 5 );
 	}
 
 	function ease( x, duration ) {
@@ -656,63 +656,63 @@
 		document.onkeydown = null;
 
 	}
-	
+
 	function getHighScore() {
-		
+
 		var high;
-		
+
 		high = getCookie( 'uri-space-invaders-high-score' );
-		
+
 		if ( '' == high ) {
 			setHighScore( 0 );
 			return 0;
 		} else {
 			return high;
 		}
-		
+
 	}
-	
+
 	function setHighScore( n ) {
-		
+
 		setCookie( 'uri-space-invaders-high-score', n, 365 );
-		
+
 	}
-	
+
 	function setCookie( cname, cvalue, exdays ) {
-		
+
 		var d, expires;
-		
+
 		d = new Date();
-		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-		expires = 'expires='+d.toUTCString();
-		
+		d.setTime( d.getTime() + (exdays * 24 * 60 * 60 * 1000) );
+		expires = 'expires=' + d.toUTCString();
+
 		document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
-		
+
 	}
 
 	function getCookie( cname ) {
-		
+
 		var name, ca, i, c;
-		
+
 		name = cname + '=';
-		ca = document.cookie.split(';');
-		
-		for( i = 0; i < ca.length; i++ ) {
-			
+		ca = document.cookie.split( ';' );
+
+		for ( i = 0; i < ca.length; i++ ) {
+
 			c = ca[i];
-			
+
 			while ( ' ' == c.charAt( 0 ) ) {
 				c = c.substring( 1 );
 			}
-			
+
 			if ( 0 == c.indexOf( name ) ) {
 				return c.substring( name.length, c.length );
 			}
-			
+
 		}
-		
+
 		return '';
-		
+
 	}
 
 })();
