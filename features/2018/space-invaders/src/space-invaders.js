@@ -72,6 +72,8 @@
 		disableScroll();
 		populateCreatureBox();
 
+		data.audio.menu.onended = audioDoneCallback;
+		
 		window.addEventListener( 'resize', handleResize, false );
 
 	}
@@ -220,7 +222,6 @@
 			 'click',
 			function() {
 			playAudio( data.audio.menu );
-			setTimeout( startGame, 1000 );
 		},
 			false
 			);
@@ -230,7 +231,6 @@
 			 'click',
 			function() {
 			playAudio( data.audio.menu );
-			setTimeout( resetGame, 1000 );
 		},
 			false
 			);
@@ -241,7 +241,6 @@
 			function() {
 				if ( 1 == data.status ) {
 					playAudio( data.audio.menu );
-					pauseGame();
 				}
 		},
 			false
@@ -253,7 +252,6 @@
 			function() {
 				if ( 3 == data.status ) {
 					playAudio( data.audio.menu );
-					resumeGame();
 				}
 		},
 			false
@@ -273,6 +271,7 @@
 		if ( 1 != data.status ) {
 
 			data.status = 1;
+			console.log('started');
 			updateScore();
 
 			data.timing.start = Date.now();
@@ -305,6 +304,7 @@
 	function pauseGame() {
 
 		data.status = 3;
+		console.log('paused');
 		data.timing.paused = Date.now();
 		data.container.el.classList.add( 'paused' );
 		data.buttons.controls.classList.add( 'paused' );
@@ -316,6 +316,7 @@
 		var resume = Date.now();
 
 		data.status = 1;
+		console.log('resumed');
 		data.timing.start += resume - data.timing.paused;
 		data.container.el.classList.remove( 'paused' );
 		data.buttons.controls.classList.remove( 'paused' );
@@ -562,6 +563,25 @@
 			clip.play();
 		} else {
 			clip.currentTime = 0
+		}
+
+	}
+	
+	function audioDoneCallback() {
+			
+		switch ( data.status ) {
+			case 0:
+				startGame();
+				break;
+			case 1:
+				pauseGame();
+				break;
+			case 2:
+				resetGame();
+				break;
+			case 3:
+				resumeGame();
+				break;
 		}
 
 	}
