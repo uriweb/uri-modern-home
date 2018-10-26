@@ -70,7 +70,6 @@
 		// Get some specs once everything's on the page
 		data.score.board.h = data.score.board.el.offsetHeight;
 		data.score.board.y = data.score.board.el.getBoundingClientRect().top;
-		console.log( data.score.board.y );
 		data.container.el.style.height = 'calc( 100vh - ' + data.score.board.h + 'px)';
 		data.container.x = data.container.el.offsetWidth;
 		data.container.y = data.container.el.offsetHeight;
@@ -596,17 +595,20 @@
 		position = ( Math.abs( current ) - Math.abs( min ) ) / range;
 
 		return Math.pow( position, 2 );
+		
 	}
 
 	function handleResize() {
+		
 		data.score.board.h = data.score.board.el.offsetHeight;
+		data.score.board.y = data.score.board.el.getBoundingClientRect().top;
 		data.container.el.style.height = 'calc( 100vh - ' + data.score.board.h + 'px)';
 		data.container.x = data.container.el.offsetWidth;
 		data.container.y = data.container.el.offsetHeight;
+		
 	}
 	
 	function handleScroll() {
-		
 		
 		var yPos = window.pageYOffset;
 		

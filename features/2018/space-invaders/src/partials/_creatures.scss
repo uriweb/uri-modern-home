@@ -34,6 +34,11 @@
 	background-size: auto 100%;
 }
 
+.bubbles {
+	transform: scale(.8);
+	transform-origin: left bottom;
+}
+
 @keyframes appear {
 	to { opacity: 1; }
 }
@@ -70,6 +75,10 @@
 			transform: scale(1,0);
 		}
 		
+	}
+	
+	.bubbles {
+		transform: scale(1);
 	}
 }
 
