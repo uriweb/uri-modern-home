@@ -531,7 +531,7 @@
 		max = 4000; // Max time between bubbles
 		duration = Math.floor( Math.random() * ( max - min + 1 ) + min );
 		
-		id = 'c_' + Math.random().toString( 36 ).substr( 2, 9 );
+		id = 'b_' + Math.random().toString( 36 ).substr( 2, 9 );
 		x = data.unit * Math.floor( Math.random() * ( data.container.x / data.unit ) );
 		y = data.unit * Math.floor( Math.random() * ( data.container.y / data.unit ) );
 
