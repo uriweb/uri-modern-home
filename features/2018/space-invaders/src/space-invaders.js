@@ -346,6 +346,10 @@
 		if ( 1 == data.status ) {
 
 			data.score.board.points.innerHTML = padNum( data.score.points );
+			
+			if ( data.score.points >= data.score.high ) {
+				data.score.board.high.innerHTML = padNum( data.score.points );
+			}
 
 			remaining = data.score.spawned - data.score.removed;
 			percent = 100 / data.pointcap * remaining;
@@ -486,6 +490,11 @@
 
 		data.creatures[id].el.classList.add( 'destroyed' );
 		data.creatures[id].status = 0;
+		
+		// Remove div after 5 seconds
+		setTimeout( function() {
+			data.container.el.removeChild( data.creatures[id].el );
+		}, 5000 );
 
 		switch ( data.creatures[id].type ) {
 			case 'crab':
@@ -535,6 +544,11 @@
 
 		// Put the bubbles on the page
 		data.bubbles.appendChild( div );
+		
+		// Remove div after 5 seconds
+		setTimeout( function() {
+			data.bubbles.removeChild( div );
+		}, 5000 );
 		
 		setTimeout( makeBubbles, duration );
 		
