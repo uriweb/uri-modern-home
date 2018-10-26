@@ -73,7 +73,7 @@
 		populateCreatureBox();
 
 		data.audio.menu.onended = audioDoneCallback;
-		
+
 		window.addEventListener( 'resize', handleResize, false );
 
 	}
@@ -169,28 +169,19 @@
 		points.innerHTML = '<div class="label">score</div>';
 		data.score.board.points = document.createElement( 'div' );
 		data.score.board.points.className = 'score';
-		data.score.board.points.innerHTML = pad( data.score.points );
+		data.score.board.points.innerHTML = padNum( data.score.points );
 		points.appendChild( data.score.board.points );
 		scores.appendChild( points );
-
-		remaining = document.createElement( 'div' );
-		remaining.id = 'remaining';
-		remaining.innerHTML = '<div class="label">invaders</div>';
-		data.score.board.remaining = document.createElement( 'div' );
-		data.score.board.remaining.className = 'score';
-		data.score.board.remaining.innerHTML = pad( 0 );
-		remaining.appendChild( data.score.board.remaining );
-		scores.appendChild( remaining );
 
 		high = document.createElement( 'div' );
 		high.id = 'high';
 		high.innerHTML = '<div class="label">high</div>';
 		data.score.board.high = document.createElement( 'div' );
 		data.score.board.high.className = 'score';
-		data.score.board.high.innerHTML = pad( data.score.high );
+		data.score.board.high.innerHTML = padNum( data.score.high );
 		high.appendChild( data.score.board.high );
 		scores.appendChild( high );
-
+		
 		// Progress Bar
 		progress = document.createElement( 'div' );
 		progress.id = 'progress';
@@ -271,7 +262,7 @@
 		if ( 1 != data.status ) {
 
 			data.status = 1;
-			console.log('started');
+			console.log( 'started' );
 			updateScore();
 
 			data.timing.start = Date.now();
@@ -304,7 +295,7 @@
 	function pauseGame() {
 
 		data.status = 3;
-		console.log('paused');
+		console.log( 'paused' );
 		data.timing.paused = Date.now();
 		data.container.el.classList.add( 'paused' );
 		data.buttons.controls.classList.add( 'paused' );
@@ -316,7 +307,7 @@
 		var resume = Date.now();
 
 		data.status = 1;
-		console.log('resumed');
+		console.log( 'resumed' );
 		data.timing.start += resume - data.timing.paused;
 		data.container.el.classList.remove( 'paused' );
 		data.buttons.controls.classList.remove( 'paused' );
@@ -373,7 +364,7 @@
 		data.score.removed = 0;
 		data.n = 0;
 
-		data.score.board.high.innerHTML = pad( data.score.high );
+		data.score.board.high.innerHTML = padNum( data.score.high );
 
 		startGame();
 
@@ -385,11 +376,9 @@
 
 		if ( 1 == data.status ) {
 
+			data.score.board.points.innerHTML = padNum( data.score.points );
+
 			remaining = data.score.spawned - data.score.removed;
-
-			data.score.board.points.innerHTML = pad( data.score.points );
-			data.score.board.remaining.innerHTML = remaining;
-
 			percent = 100 / data.pointcap * remaining;
 
 			data.progress.style.width = percent + '%';
@@ -566,9 +555,9 @@
 		}
 
 	}
-	
+
 	function audioDoneCallback() {
-			
+
 		switch ( data.status ) {
 			case 0:
 				startGame();
@@ -586,7 +575,7 @@
 
 	}
 
-	function pad( num ) {
+	function padNum( num ) {
 		var s = "00000" + num;
 		return s.substr( s.length - 5 );
 	}

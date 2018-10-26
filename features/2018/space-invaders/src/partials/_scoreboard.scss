@@ -127,11 +127,7 @@
 	
 	#points {
 		text-align: left;
-		padding-left: 4rem;
-	}
-	
-	#remaining {
-		display: none;
+		margin-left: 4rem;
 	}
 	
 	#high {
@@ -156,15 +152,18 @@
 		}
 		
 		#scores {
+			
 			padding: 1rem;
+			
+			&>div {
+				text-align: center;
+			}
+			
 		}
 		
 		#points {
-			padding-left: 5rem;
+			margin-left: 0;
 		}
 		
-		#remaining {
-			display: block;
-		}
 	}
 }
