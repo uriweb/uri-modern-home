@@ -262,7 +262,6 @@
 		if ( 1 != data.status ) {
 
 			data.status = 1;
-			console.log( 'started' );
 			updateScore();
 
 			data.timing.start = Date.now();
@@ -295,7 +294,6 @@
 	function pauseGame() {
 
 		data.status = 3;
-		console.log( 'paused' );
 		data.timing.paused = Date.now();
 		data.container.el.classList.add( 'paused' );
 		data.buttons.controls.classList.add( 'paused' );
@@ -307,7 +305,6 @@
 		var resume = Date.now();
 
 		data.status = 1;
-		console.log( 'resumed' );
 		data.timing.start += resume - data.timing.paused;
 		data.container.el.classList.remove( 'paused' );
 		data.buttons.controls.classList.remove( 'paused' );
