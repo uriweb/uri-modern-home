@@ -324,7 +324,6 @@
 
 		data.container.el.classList.add( 'endgame' );
 		data.endscreen.classList.add( 'visible' );
-		data.score.board.remaining.innerHTML = '>' + data.pointcap;
 
 		if ( data.score.points > getHighScore() ) {
 			setHighScore( data.score.points );
