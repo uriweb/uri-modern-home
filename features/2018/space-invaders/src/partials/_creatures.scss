@@ -10,21 +10,21 @@
 	transition: opacity .2s ease-in-out;
 }
 
+#bubbles-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10;
+}
+
 #creature-container.paused {
 	z-index: 0;
 	opacity: .2;
 }
 
-.creatures {
-	position: relative;
-	width: 800px;
-	height: 128px;
-	left: 50%;
-	margin-left: -400px;
-	text-align: center;
-}
-
-.creature {
+.creature, .bubbles {
 	display: block;
 	position: absolute;
 	bottom: 0;
@@ -216,4 +216,22 @@
 	animation-duration: 5s, 10s;
 	animation-timing-function: steps(12), steps(6, start);
 	animation-iteration-count: infinite;
+}
+
+/* Bubbles 1 */
+
+@keyframes bubbles-1 {
+	to { background-position: -768px; }
+}
+
+.bubbles-1 {
+	
+	width: 64px;
+	height: 128px;
+	background-image: url(i/bubbles-1.png);
+	animation-name: bubbles-1;
+	animation-duration: 2s;
+	animation-timing-function: steps(12);
+	animation-fill-mode: forwards;
+	
 }

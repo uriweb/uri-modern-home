@@ -23,6 +23,10 @@
 			'status': 0, // 0 = not started, 1 = running, 2 = game over, 3 = paused
 			'pointcap': 50, // Game over threshold
 			'n': 0,
+			'els': {
+				'page': document.getElementById( 'page' ),
+				'habitat': document.getElementById( 'habitat-creatures' ),
+			},
 			'story': {
 				'h': document.getElementById( 'story' ).offsetHeight,
 				'top': document.getElementById( 'story' ).getBoundingClientRect().top
@@ -35,7 +39,9 @@
 				'spawned': 0,
 				'removed': 0,
 				'high': getHighScore(),
-				'board': {}
+				'board': {
+					'wrapper': document.getElementById( 'scoreboard-wrapper' ),
+				}
 			},
 			'timing': {
 				'init': 2000, // Initial interval between spawns
@@ -53,65 +59,31 @@
 		// Create the game
 		game = document.createElement( 'div' );
 		game.id = 'game';
-		game.appendChild( makeStartScreen() );
 		game.appendChild( makeEndScreen() );
 		game.appendChild( makeCreatureContainer() );
-		game.appendChild( makeScoreBoard() );
+		game.appendChild( makeBubblesContainer() );
+		data.score.board.wrapper.appendChild( makeScoreBoard() );
 
 		// Put the game on the page
 		document.getElementById( 'main' ).appendChild( game );
 
 		// Get some specs once everything's on the page
 		data.score.board.h = data.score.board.el.offsetHeight;
+		data.score.board.y = data.score.board.el.getBoundingClientRect().top;
+		console.log( data.score.board.y );
 		data.container.el.style.height = 'calc( 100vh - ' + data.score.board.h + 'px)';
 		data.container.x = data.container.el.offsetWidth;
 		data.container.y = data.container.el.offsetHeight;
 
 		// Set up a few things
 		addButtonEvents();
-		disableScroll();
 		populateCreatureBox();
+		makeBubbles();
 
 		data.audio.menu.onended = audioDoneCallback;
 
 		window.addEventListener( 'resize', handleResize, false );
-
-	}
-
-	function makeStartScreen() {
-
-		var habitat, modal, header;
-
-		// Header
-		header = document.createElement( 'div' );
-		header.id = 'story-header';
-		header.innerHTML = '<h1>Space <br> Invaders</h1>';
-
-		data.buttons.play = document.createElement( 'div' );
-		data.buttons.play.id = 'play-game';
-		data.buttons.play.className = 'retro-button';
-		data.buttons.play.innerHTML = 'play';
-		header.appendChild( data.buttons.play );
-
-		// Habitat
-		habitat = document.createElement( 'div' );
-		habitat.id = 'creature-box';
-		data.habitat = document.createElement( 'div' );
-		data.habitat.className = 'creatures';
-		habitat.appendChild( data.habitat );
-
-		// Modal
-		modal = document.createElement( 'div' );
-		modal.className = 'modal';
-		modal.appendChild( header );
-		modal.appendChild( habitat );
-
-		// Startscreen
-		data.startscreen = document.createElement( 'div' );
-		data.startscreen.id = 'startscreen';
-		data.startscreen.appendChild( modal );
-
-		return data.startscreen;
+		window.addEventListener( 'scroll', handleScroll, false );
 
 	}
 
@@ -140,6 +112,15 @@
 
 		return data.container.el;
 
+	}
+	
+	function makeBubblesContainer() {
+		
+		data.bubbles = document.createElement( 'div' );
+		data.bubbles.id = 'bubbles-container';
+		
+		return data.bubbles;
+		
 	}
 
 	function makeScoreBoard() {
@@ -208,15 +189,6 @@
 
 	function addButtonEvents() {
 
-		// Play button
-		data.buttons.play.addEventListener(
-			 'click',
-			function() {
-			playAudio( data.audio.menu );
-		},
-			false
-			);
-
 		// Reset button
 		data.buttons.reset.addEventListener(
 			 'click',
@@ -254,8 +226,7 @@
 
 		var init, duration, start;
 
-		data.startscreen.classList.add( 'hidden' );
-		enableScroll();
+		data.els.page.classList.add( 'gameplay' );
 
 		// Don't restart the game if it's already playing
 		// (prevents multiple instances)
@@ -279,7 +250,7 @@
 		if ( 1 == data.status ) {
 
 			millis = Date.now() - data.timing.start;
-			y = ease( (millis / data.timing.duration ) * 100 , data.timing.duration );
+			y = ease( 0, data.timing.duration, millis );
 			min = Math.max( 120, Math.min( 380, ( data.container.x * data.container.y / 1000000 ) * 300 ) );
 			data.timing.interval = Math.max( min, data.timing.init - ( data.timing.init * y ) );
 
@@ -297,6 +268,7 @@
 		data.timing.paused = Date.now();
 		data.container.el.classList.add( 'paused' );
 		data.buttons.controls.classList.add( 'paused' );
+		data.els.page.classList.remove( 'gameplay' );
 
 	}
 
@@ -308,6 +280,7 @@
 		data.timing.start += resume - data.timing.paused;
 		data.container.el.classList.remove( 'paused' );
 		data.buttons.controls.classList.remove( 'paused' );
+		data.els.page.classList.add( 'gameplay' );
 
 		setTimeout( ticker, data.timing.interval );
 
@@ -541,6 +514,31 @@
 		updateScore();
 
 	}
+	
+	function makeBubbles() {
+		
+		var duration, min, max, id, boundary, x, y, div;
+		
+		min = 50; // Min time between bubbles
+		max = 4000; // Max time between bubbles
+		duration = Math.floor( Math.random() * ( max - min + 1 ) + min );
+		
+		id = 'c_' + Math.random().toString( 36 ).substr( 2, 9 );
+		x = data.unit * Math.floor( Math.random() * ( data.container.x / data.unit ) );
+		y = data.unit * Math.floor( Math.random() * ( data.container.y / data.unit ) );
+
+		// Make the creature wrapper and creature
+		div = document.createElement( 'div' );
+		div.id = id;
+		div.className = 'bubbles bubbles-1';
+		div.style = 'top:' + y + 'px; left:' + x + 'px';
+
+		// Put the bubbles on the page
+		data.bubbles.appendChild( div );
+		
+		setTimeout( makeBubbles, duration );
+		
+	}
 
 	function playAudio( clip ) {
 
@@ -576,9 +574,14 @@
 		return s.substr( s.length - 5 );
 	}
 
-	function ease( x, duration ) {
-		var y = ( x * ( x / duration ) );
-		return Math.round( y * 1000 ) / 1000
+	function ease(min, max, current) {
+		
+		var range, position;
+		
+		range = Math.abs( max ) - Math.abs( min );
+		position = ( Math.abs( current ) - Math.abs( min ) ) / range;
+
+		return Math.pow( position, 2 );
 	}
 
 	function handleResize() {
@@ -586,6 +589,18 @@
 		data.container.el.style.height = 'calc( 100vh - ' + data.score.board.h + 'px)';
 		data.container.x = data.container.el.offsetWidth;
 		data.container.y = data.container.el.offsetHeight;
+	}
+	
+	function handleScroll() {
+		
+		
+		var yPos = window.pageYOffset;
+		
+		if ( yPos > data.score.board.y - data.container.y && 0 == data.status ) {
+			data.score.board.el.classList.add( 'fixed' );
+			startGame();
+		}
+		
 	}
 
 	function populateCreatureBox() {
@@ -607,58 +622,8 @@
 
 		}
 
-		data.habitat.appendChild( creatures );
-
-	}
-
-	function preventDefault(e) {
-
-		e = e || window.event;
-
-		if ( e.preventDefault ) {
-			e.preventDefault();
-		}
-
-		e.returnValue = false;
-
-	}
-
-	function preventDefaultForScrollKeys( e ) {
-
-		var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
-
-		if ( keys[e.keyCode] ) {
-
-			preventDefault( e );
-			return false;
-
-		}
-
-	}
-
-	function disableScroll() {
-
-		if ( window.addEventListener ) { // older FF
-			window.addEventListener( 'DOMMouseScroll', preventDefault, false );
-		}
-
-		window.onwheel = preventDefault; // modern standard
-		window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
-		window.ontouchmove  = preventDefault; // mobile
-		document.onkeydown  = preventDefaultForScrollKeys;
-
-	}
-
-	function enableScroll() {
-
-		if ( window.removeEventListener ) {
-			window.removeEventListener( 'DOMMouseScroll', preventDefault, false );
-		}
-
-		window.onmousewheel = document.onmousewheel = null;
-		window.onwheel = null;
-		window.ontouchmove = null;
-		document.onkeydown = null;
+		data.els.habitat.innerHTML = '';
+		data.els.habitat.appendChild( creatures );
 
 	}
 

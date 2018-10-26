@@ -1,6 +1,6 @@
 /* === HABITATS === */
 
-#creature-box {
+#habitat {
 	
 	position: relative;
 	left: calc(-40.909vw);
@@ -15,11 +15,20 @@
 	background-position: left bottom;
 	background-repeat: repeat-x;
 	background-size: 512px auto;
-	border-bottom: 2rem solid #333;
+	border-bottom: 2rem solid #0e0268;
+}
+
+#habitat-creatures {
+	position: relative;
+	width: 800px;
+	height: 128px;
+	left: 50%;
+	margin-left: -400px;
+	text-align: center;
 }
 
 @media screen and (min-width: 350px) {
-	#creature-box {
+	#habitat {
 		left: calc(-26.923vw);
 		transform: scale(.65) translate(0,-26.923%);
 		width: 153.846vw;
@@ -27,7 +36,7 @@
 }
 
 @media screen and (min-width: 500px) {
-	#creature-box {
+	#habitat {
 		left: calc(-12.5vw);
 		transform: scale(.8) translate(0,-12.5%);
 		width: 125vw;
@@ -35,7 +44,7 @@
 }
 
 @media screen and (min-width: 700px) {
-	#creature-box {
+	#habitat {
 		left: 0;
 		transform: scale(1);
 		width: 100%;
