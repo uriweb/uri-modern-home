@@ -112,14 +112,14 @@
 		return data.container.el;
 
 	}
-	
+
 	function makeBubblesContainer() {
-		
+
 		data.bubbles = document.createElement( 'div' );
 		data.bubbles.id = 'bubbles-container';
-		
+
 		return data.bubbles;
-		
+
 	}
 
 	function makeScoreBoard() {
@@ -161,7 +161,7 @@
 		data.score.board.high.innerHTML = padNum( data.score.high );
 		high.appendChild( data.score.board.high );
 		scores.appendChild( high );
-		
+
 		// Progress Bar
 		progress = document.createElement( 'div' );
 		progress.id = 'progress';
@@ -287,7 +287,7 @@
 
 	function endGame() {
 
-		var x;
+		var x, n;
 
 		data.status = 2;
 
@@ -301,13 +301,14 @@
 		data.audio.end.play();
 
 		x = 0;
+		n = Math.floor( Math.max( 200, Math.min( 600, ( data.container.x * data.container.y / 1000000 ) * 400 ) ) );
 
 		data.endtimer = window.setInterval(
 			 function() {
 
 					 addCreature();
 
-					 if ( ++x === 500 ) {
+					 if ( ++x === n ) {
 					   window.clearInterval( data.endtimer );
 						}
 
@@ -345,7 +346,7 @@
 		if ( 1 == data.status ) {
 
 			data.score.board.points.innerHTML = padNum( data.score.points );
-			
+
 			if ( data.score.points >= data.score.high ) {
 				data.score.board.high.innerHTML = padNum( data.score.points );
 			}
@@ -489,11 +490,14 @@
 
 		data.creatures[id].el.classList.add( 'destroyed' );
 		data.creatures[id].status = 0;
-		
+
 		// Remove div after 5 seconds
-		setTimeout( function() {
-			data.container.el.removeChild( data.creatures[id].el );
-		}, 5000 );
+		setTimeout(
+			 function() {
+					 data.container.el.removeChild( data.creatures[id].el );
+		},
+			5000
+			);
 
 		switch ( data.creatures[id].type ) {
 			case 'crab':
@@ -522,15 +526,15 @@
 		updateScore();
 
 	}
-	
+
 	function makeBubbles() {
-		
+
 		var duration, min, max, id, boundary, x, y, div;
-		
-		min = 50; // Min time between bubbles
-		max = 4000; // Max time between bubbles
+
+		min = 1000; // Min time between bubbles
+		max = 8000; // Max time between bubbles
 		duration = Math.floor( Math.random() * ( max - min + 1 ) + min );
-		
+
 		id = 'b_' + Math.random().toString( 36 ).substr( 2, 9 );
 		x = data.unit * Math.floor( Math.random() * ( data.container.x / data.unit ) );
 		y = data.unit * Math.floor( Math.random() * ( data.container.y / data.unit ) );
@@ -543,14 +547,17 @@
 
 		// Put the bubbles on the page
 		data.bubbles.appendChild( div );
-		
+
 		// Remove div after 5 seconds
-		setTimeout( function() {
-			data.bubbles.removeChild( div );
-		}, 5000 );
-		
+		setTimeout(
+			 function() {
+					 data.bubbles.removeChild( div );
+		},
+			5000
+			);
+
 		setTimeout( makeBubbles, duration );
-		
+
 	}
 
 	function playAudio( clip ) {
@@ -588,35 +595,35 @@
 	}
 
 	function ease(min, max, current) {
-		
+
 		var range, position;
-		
+
 		range = Math.abs( max ) - Math.abs( min );
 		position = ( Math.abs( current ) - Math.abs( min ) ) / range;
 
 		return Math.pow( position, 2 );
-		
+
 	}
 
 	function handleResize() {
-		
+
 		data.score.board.h = data.score.board.el.offsetHeight;
 		data.score.board.y = data.score.board.el.getBoundingClientRect().top;
 		data.container.el.style.height = 'calc( 100vh - ' + data.score.board.h + 'px)';
 		data.container.x = data.container.el.offsetWidth;
 		data.container.y = data.container.el.offsetHeight;
-		
+
 	}
-	
+
 	function handleScroll() {
-		
+
 		var yPos = window.pageYOffset;
-		
+
 		if ( yPos > data.score.board.y - data.container.y && 0 == data.status ) {
 			data.score.board.el.classList.add( 'fixed' );
 			startGame();
 		}
-		
+
 	}
 
 	function populateCreatureBox() {
