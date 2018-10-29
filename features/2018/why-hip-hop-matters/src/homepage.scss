@@ -40,32 +40,6 @@
 		margin-left: 0rem;
 		margin-bottom: 1rem;
 		max-width: 50%;
-		padding-left: 2.1rem;
-		
-		&:before {
-			position: absolute;
-			display: block;
-			content: '';
-			width: 0;
-			height: 0;
-			top: calc(50% - 6px);
-			left: calc(50% - 2.6rem);
-			border-top: 5px solid transparent;
-			border-bottom: 5px solid transparent;
-			border-left: 9px solid #fff;
-		}
-
-		&:after {
-			position: absolute;
-			display: block;
-			content: '';
-			width: 18px;
-			height: 18px;
-			top: calc(50% - 11px);
-			left: calc(50% - 2.6rem - 7px);
-			border: 1px solid #fff;
-			border-radius: 50%;
-		}
 		
 	}
 	
