@@ -85,7 +85,8 @@ nav.hip-hop {
 	overflow: hidden;
 	background: #000;
 	
-	a {
+	a,
+	span.disabled-link {
 		
 		position: relative;
 		display: block;
@@ -100,9 +101,8 @@ nav.hip-hop {
 		
 	}
 
-	&>div.disabled a {
+	span.disabled-link {
 		opacity: .4;
-		pointer-events: none;
 	}
 
 	.nav-content {
@@ -144,25 +144,29 @@ nav.hip-hop {
 	
 	background: transparent;
 	
-	a {
-
+	a,
+	span.disabled-link {
 		color: #000;
+	}
 
-		&:hover {
-			color: #fff;
-			background: #000;
-		}
-
+	a:hover {
+		color: #fff;
+		background: #000;
 	}
 	
 }
 
 @each $t in $tracks {
 	
-	body.ln-#{$t} .hip-hop-navigation-wrapper.footer nav.hip-hop div.nav-#{$t} a {
+	body.ln-#{$t} .hip-hop-navigation-wrapper.footer nav.hip-hop div.nav-#{$t} {
 		
-		color: #fff;
-		background: #000;
+		a,
+		span.disabled-link {
+		
+			color: #fff;
+			background: #000;
+
+		}
 		
 	}
 	
@@ -196,16 +200,21 @@ nav.hip-hop {
 	
 	@each $t in $tracks {
 		
-		body.ln-#{$t} .hip-hop-navigation-wrapper.footer nav.hip-hop div.nav-#{$t} a:before {
-			position: absolute;
-			left: calc( 50% - 15px );
-			top: -15px;
-			display: block;
-			content: '';
-			width: 30px;
-			height: 30px;
-			background: #fafafa;
-			transform: rotate(45deg);
+		body.ln-#{$t} .hip-hop-navigation-wrapper.footer nav.hip-hop div.nav-#{$t} {
+			
+			a:before
+			span.disabled-link:before {
+				position: absolute;
+				left: calc( 50% - 15px );
+				top: -15px;
+				display: block;
+				content: '';
+				width: 30px;
+				height: 30px;
+				background: #fafafa;
+				transform: rotate(45deg);
+			}
+			
 		}
 		
 	}
@@ -227,15 +236,14 @@ body.ln-#{nth($tracks, 1)},
 	
 	nav.hip-hop {
 		
-		a {
-		
+		a,
+		span.disabled-link {
 			color: $theme-color-track-1;
+		}
 
-			&:hover {
-				color: #fff;
-				background: $theme-color-track-1;
-			}
-
+		a:hover {
+			color: #fff;
+			background: $theme-color-track-1;
 		}
 	
 		div.nav-#{nth($tracks, 1)} a {
@@ -260,21 +268,21 @@ body.ln-#{nth($tracks, 2)},
 	
 	nav.hip-hop {
 		
-		a {
+		a,
+		span.disabled-link {
 			color: $theme-color-track-2;
+		}
 			
-			&:hover {
-				color: #fff;
-				background: $theme-color-track-2;
-			}
-			
+		a:hover {
+			color: #fff;
+			background: $theme-color-track-2;
 		}
 		
 		div.nav-#{nth($tracks, 2)} a {
 			color: #fff;
 			background: $theme-color-track-2;
 		}
-		
+
 	}
 	
 }
@@ -292,21 +300,21 @@ body.ln-#{nth($tracks, 3)},
 	
 	nav.hip-hop {
 		
-		a {
+		a,
+		span.disabled-link {
 			color: $theme-color-track-3;
+		}
 			
-			&:hover {
-				color: #fff;
-				background: $theme-color-track-3;
-			}
-			
+		a:hover {
+			color: #fff;
+			background: $theme-color-track-3;
 		}
 		
 		div.nav-#{nth($tracks, 3)} a {
 			color: #fff;
 			background: $theme-color-track-3;
 		}
-		
+
 	}
 	
 }
@@ -323,21 +331,21 @@ body.ln-#{nth($tracks, 4)},
 	
 	nav.hip-hop {
 		
-		a {
+		a,
+		span.disabled-link {
 			color: $theme-color-track-4;
+		}
 			
-			&:hover {
-				color: #000;
-				background: $theme-color-track-4;
-			}
-			
+		a:hover {
+			color: #000;
+			background: $theme-color-track-4;
 		}
 		
 		div.nav-#{nth($tracks, 4)} a {
 			color: #000;
 			background: $theme-color-track-4;
 		}
-		
+
 	}
 	
 }
@@ -360,21 +368,21 @@ body.ln-#{nth($tracks, 5)},
 	
 	nav.hip-hop {
 		
-		a {
+		a,
+		span.disabled-link {
 			color: $theme-color-track-5;
+		}
 			
-			&:hover {
-				color: #000;
-				background: $theme-color-track-5;
-			}
-			
+		a:hover {
+			color: #000;
+			background: $theme-color-track-5;
 		}
 		
 		div.nav-#{nth($tracks, 5)} a {
 			color: #000;
 			background: $theme-color-track-5;
 		}
-		
+
 	}
 	
 }
