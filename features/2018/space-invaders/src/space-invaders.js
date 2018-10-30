@@ -33,15 +33,23 @@
 			},
 			'buttons': {},
 			'creatures': {},
+			'types': {
+				'tunicate1': 'tunicate-1',
+				'tunicate2': 'tunicate-2',
+				'seaweed1': 'seaweed-1',
+				'crab': 'crab'
+			},
 			'container': {},
+			'endscreen': {},
 			'score': {
 				'points': 0,
 				'spawned': 0,
 				'removed': 0,
+				'types': {},
 				'high': getHighScore(),
 				'board': {
 					'wrapper': document.getElementById( 'scoreboard-wrapper' ),
-				}
+					},
 			},
 			'timing': {
 				'init': 2000, // Initial interval between spawns
@@ -88,19 +96,48 @@
 
 	function makeEndScreen() {
 
-		data.endscreen = document.createElement( 'div' );
-		data.endscreen.id = 'endscreen';
-		data.endscreen.className = 'modal';
-		data.endscreen.innerHTML = '<h1>Game <br> Over</h1>';
+		var stats, div, span, x, type;
+
+		data.endscreen.el = document.createElement( 'div' );
+		data.endscreen.el.id = 'endscreen';
+		data.endscreen.el.className = 'modal';
+		data.endscreen.el.innerHTML = '<h1>Game <br> Over</h1>';
+
+		stats = document.createElement( 'div' );
+		stats.id = 'game-stats';
+
+		data.endscreen.stats = {};
+
+		for ( x in data.types ) {
+
+			type = data.types[x];
+
+			div = document.createElement( 'div' );
+			div.className = 'stat-wrapper';
+
+			span = document.createElement( 'span' );
+			span.className = 'stat-creature ' + type;
+			div.appendChild( span );
+
+			data.endscreen.stats[type] = document.createElement( 'span' );
+			data.endscreen.stats[type].className = 'stat-label';
+			data.endscreen.stats[type].innerHTML = 0;
+			div.appendChild( data.endscreen.stats[type] );
+
+			stats.appendChild( div );
+
+		}
+
+		data.endscreen.el.appendChild( stats );
 
 		data.buttons.reset = document.createElement( 'div' );
 		data.buttons.reset.id = 'reset-game';
 		data.buttons.reset.className = 'retro-button';
 		data.buttons.reset.innerHTML = 'play again';
 
-		data.endscreen.appendChild( data.buttons.reset );
+		data.endscreen.el.appendChild( data.buttons.reset );
 
-		return data.endscreen;
+		return data.endscreen.el;
 
 	}
 
@@ -287,18 +324,25 @@
 
 	function endGame() {
 
-		var x, n;
+		var type, score, x, n;
 
 		data.status = 2;
-
+		
+		for ( type in data.endscreen.stats ) {
+			score = 0
+			if ( null != data.score.types[type] ) {
+				score = data.score.types[type];
+			}
+			data.endscreen.stats[type].innerHTML = score;
+		}
+		
+		data.audio.end.play();
 		data.container.el.classList.add( 'endgame' );
-		data.endscreen.classList.add( 'visible' );
+		data.endscreen.el.classList.add( 'visible' );
 
 		if ( data.score.points > getHighScore() ) {
 			setHighScore( data.score.points );
 		}
-
-		data.audio.end.play();
 
 		x = 0;
 		n = Math.floor( Math.max( 200, Math.min( 600, ( data.container.x * data.container.y / 1000000 ) * 400 ) ) );
@@ -325,12 +369,13 @@
 		data.container.el.innerHTML = '';
 
 		data.container.el.classList.remove( 'endgame' );
-		data.endscreen.classList.remove( 'visible' );
+		data.endscreen.el.classList.remove( 'visible' );
 		data.progress.className = '';
 		data.score.points = 0;
 		data.score.high = getHighScore();
 		data.score.spawned = 0;
 		data.score.removed = 0;
+		data.score.types = {};
 		data.n = 0;
 
 		data.score.board.high.innerHTML = padNum( data.score.high );
@@ -385,13 +430,13 @@
 		s = Math.floor( ( Math.random() * 3 ) + 1 );
 
 		if ( 350 > n ) {
-			creature.type = 'tunicate-1';
+			creature.type = data.types.tunicate1;
 		} else if ( 700 > n ) {
-			creature.type = 'tunicate-2';
+			creature.type = data.types.tunicate2;
 		} else if ( 900 > n ) {
-			creature.type = 'seaweed-1';
+			creature.type = data.types.seaweed1;
 		} else if ( 1000 > n ) {
-			creature.type = 'crab';
+			creature.type = data.types.crab;
 		}
 
 		switch ( s ) {
@@ -488,31 +533,35 @@
 
 		var creature, pointValue;
 
-		data.creatures[id].el.classList.add( 'destroyed' );
-		data.creatures[id].status = 0;
+		creature = data.creatures[id];
+		
+		creature.el.classList.add( 'destroyed' );
+		creature.status = 0;
+		
+		null == data.score.types[creature.type] ? data.score.types[creature.type] = 1 : data.score.types[creature.type]++;
 
 		// Remove div after 5 seconds
 		setTimeout(
 			 function() {
-					 data.container.el.removeChild( data.creatures[id].el );
+					 data.container.el.removeChild( creature.el );
 		},
 			5000
 			);
 
-		switch ( data.creatures[id].type ) {
-			case 'crab':
+		switch ( creature.type ) {
+			case data.types.crab:
 				playAudio( data.audio.elevate );
 				pointValue = 30;
 				break;
-			case 'tunicate-1':
+			case data.types.tunicate1:
 				playAudio( data.audio.bounce );
 				pointValue = 10;
 				break;
-			case 'tunicate-2':
+			case data.types.tunicate2:
 				playAudio( data.audio.bounce );
 				pointValue = 30;
 				break;
-			case 'seaweed-1':
+			case data.types.seaweed1:
 				playAudio( data.audio.shoot );
 				pointValue = 20;
 				break;

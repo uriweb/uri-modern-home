@@ -22,17 +22,82 @@
 	}
 	
 	h1 {
-		font-size: 3rem;
 		font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
-		padding: 5rem 0 2rem;
+		font-size: 3rem;
+		padding-top: 5rem;
 		color: #fff;
 	}
 	
 }
 
+#game-stats {
+		
+	display: flex;
+	box-sizing: border-box;
+	align-items: baseline;
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto 2rem;
+	padding: 0 1rem;
+	transform: scale( .8 );
+
+	.stat-wrapper {
+		flex: 1;
+		text-align: center;
+	}
+
+	.stat-creature {
+
+		display: block;
+		margin: 0 auto;
+		height: 128px;
+		background-image: url(i/creature-sprite.png);
+		background-repeat: no-repeat;
+		background-size: auto 128px;
+		animation: none;
+
+		&.tunicate-1 {
+			width: 76px;
+			background-position: 0 0;
+		}
+
+		&.tunicate-2 {
+			width: 64px;
+			background-position: -76px 0;
+		}
+
+		&.seaweed-1 {
+			width: 44px;
+			background-position: -140px 0;
+		}
+
+		&.crab {
+			width: 68px;
+			background-position: -184px 0;
+		}
+
+
+	}
+
+	.stat-label {
+		display: block;
+		font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+		margin-top: 1rem;
+	}
+
+}
+
 #story {
 	position: relative;
 	margin-bottom: 6rem;
+}
+
+@media screen and (min-width: 600px) {
+	
+	#game-stats {
+		transform: scale(1);
+	}
+	
 }
 
 @media screen and (min-width: 700px) {
