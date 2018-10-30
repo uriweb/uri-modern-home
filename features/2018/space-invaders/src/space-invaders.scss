@@ -34,12 +34,16 @@
 	width: 100vw;
 	position: relative;
 	left: -25px;
-	margin: 0 auto;
+	margin: 0 auto 3rem;
+	background: linear-gradient( to bottom, #0e0268, #313996 );
+	box-sizing: border-box;
+	border-width: 10px 0;
+	border-style: solid;
+	border-color: #fff;
 }
 
 #story-header {
 	
-	background: #0e0268;
 	text-align: center;
 	position: relative;
 	
@@ -56,7 +60,7 @@
 	font-size: 1.2rem;
 	line-height: 2rem;
 	font-family: "Bitter", "Hind", sans-serif;
-	padding-bottom: 3rem;
+	padding-bottom: 2rem;
 	width: 80%;
 	margin: 0 auto;
 	color: #fff;
@@ -81,6 +85,7 @@
 		max-width: 800px;
 		left: 0;
 		margin: 3rem auto 5rem;
+		border-width: 10px;
 	}
 	
 }

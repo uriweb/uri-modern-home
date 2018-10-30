@@ -13,9 +13,13 @@
 #endscreen {
 	
 	background: #000;
+	box-sizing: border-box;
 	text-align: center;
 	display: none;
 	padding-bottom: 3rem;
+	border-width: 10px 0;
+	border-style: solid;
+	border-color: #fff;
 	
 	&.visible {
 		display: block;
@@ -24,7 +28,7 @@
 	h1 {
 		font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
 		font-size: 3rem;
-		padding-top: 5rem;
+		padding-top: 4rem;
 		color: #fff;
 	}
 	
@@ -96,6 +100,10 @@
 	
 	#game-stats {
 		transform: scale(1);
+	}
+	
+	#endscreen {
+		border-width: 10px;
 	}
 	
 }

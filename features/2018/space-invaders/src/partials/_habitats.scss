@@ -1,21 +1,20 @@
 /* === HABITATS === */
 
 #habitat {
-	
 	position: relative;
-	left: calc(-40.909vw);
+	left: calc(-12.5vw);
+	top: calc( ( 128px - 128px * .8 ) / 2 );
 	font-size: 0;
-	margin: 0 auto;
-	transform: scale(.55) translate(0,-40.909%);
-	width: 181.818vw;
+	margin: calc( 0px - ( 128px - 128px * .8 ) ) auto 0;
+	transform: scale(.8) translate(0,-12.5%);
+	transform-origin: center bottom;
+	width: 125vw;
 	overflow: hidden;
 	white-space: nowrap;
-	background-color: #d1fffd;
 	background-image: url(i/landscape-marine-1.png);
 	background-position: left bottom;
 	background-repeat: repeat-x;
 	background-size: 512px auto;
-	border-bottom: 2rem solid #0e0268;
 }
 
 #habitat-creatures {
@@ -27,25 +26,11 @@
 	text-align: center;
 }
 
-@media screen and (min-width: 350px) {
-	#habitat {
-		left: calc(-26.923vw);
-		transform: scale(.65) translate(0,-26.923%);
-		width: 153.846vw;
-	}
-}
-
-@media screen and (min-width: 500px) {
-	#habitat {
-		left: calc(-12.5vw);
-		transform: scale(.8) translate(0,-12.5%);
-		width: 125vw;
-	}
-}
-
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
 	#habitat {
 		left: 0;
+		top: 0;
+		margin: 0 auto;
 		transform: scale(1);
 		width: 100%;
 		max-width: 800px;
