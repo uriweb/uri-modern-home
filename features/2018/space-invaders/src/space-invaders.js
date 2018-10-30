@@ -20,7 +20,7 @@
 
 		data = {
 			'unit': 16, // Increment by which creatures should be placed
-			'status': 0, // 0 = not started, 1 = running, 2 = game over, 3 = paused
+			'status': 0, // 0 = not started, 1 = running, 2 = game over, 3 = paused, 4 = initiate
 			'pointcap': 50, // Game over threshold
 			'n': 0,
 			'els': {
@@ -68,6 +68,7 @@
 		game = document.createElement( 'div' );
 		game.id = 'game';
 		game.appendChild( makeEndScreen() );
+		game.appendChild( makeCountDown() );
 		game.appendChild( makeCreatureContainer() );
 		game.appendChild( makeBubblesContainer() );
 		data.score.board.wrapper.appendChild( makeScoreBoard() );
@@ -139,6 +140,17 @@
 
 		return data.endscreen.el;
 
+	}
+	
+	function makeCountDown() {
+		
+		data.countdown = document.createElement( 'div' );
+		data.countdown.id = 'countdown';
+		data.countdown.className = 'modal';
+		data.countdown.innerHTML = 3;
+		
+		return data.countdown;
+		
 	}
 
 	function makeCreatureContainer() {
@@ -257,11 +269,33 @@
 			);
 
 	}
+	
+	function initiateCountdown() {
+		
+		var n, counter;
+		
+		data.status = 4;
+		
+		n = 4;
+		data.countdown.classList.add( 'visible' );
+		
+		counter = function() {		
+
+			n--;
+			data.countdown.innerHTML = n;
+			0 < n ? setTimeout( counter, 1000 ) : startGame();
+			
+		}
+		
+		counter();
+		
+	}
 
 	function startGame() {
 
 		var init, duration, start;
 
+		data.countdown.classList.remove( 'visible' );
 		data.els.page.classList.add( 'gameplay' );
 
 		// Don't restart the game if it's already playing
@@ -670,7 +704,7 @@
 
 		if ( yPos > data.score.board.y - data.container.y && 0 == data.status ) {
 			data.score.board.el.classList.add( 'fixed' );
-			startGame();
+			initiateCountdown();
 		}
 
 	}

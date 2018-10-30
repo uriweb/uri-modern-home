@@ -12,12 +12,12 @@
 
 #endscreen {
 	
-	background: #000;
+	background: #0b0f37;
 	box-sizing: border-box;
 	text-align: center;
 	display: none;
 	padding-bottom: 3rem;
-	border-width: 10px 0;
+	border-width: 8px 0;
 	border-style: solid;
 	border-color: #fff;
 	
@@ -91,6 +91,28 @@
 
 }
 
+#countdown {
+	
+	left: 50%;
+	transform: translate( -50%, -50% );
+	background: #0b0f37;
+	box-sizing: border-box;
+	text-align: center;
+	display: none;
+	width: 100%;
+	max-width: 200px;
+	box-sizing: border-box;
+	padding: 3rem;
+	border: 8px solid #fff;
+	font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+	font-size: 3rem;
+	
+	&.visible {
+		display: block;
+	}
+	
+}
+
 #story {
 	position: relative;
 	margin-bottom: 6rem;
@@ -102,8 +124,13 @@
 		transform: scale(1);
 	}
 	
+	#countdown {
+		max-width: 300px;
+		font-size: 4rem;
+	}
+	
 	#endscreen {
-		border-width: 10px;
+		border-width: 8px;
 	}
 	
 }
