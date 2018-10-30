@@ -42,6 +42,7 @@
 		background-size: 512px auto;
 		transform: scale(.8);
 		transform-origin: left bottom;
+		pointer-events: none;
 	}
 	
 	&.fluid {

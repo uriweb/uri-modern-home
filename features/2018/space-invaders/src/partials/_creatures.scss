@@ -8,6 +8,7 @@
 	height: 100vh;
 	z-index: 15;
 	transition: opacity .2s ease-in-out;
+	pointer-events: none;
 }
 
 #bubbles-container {
@@ -17,6 +18,7 @@
 	width: 100vw;
 	height: 100vh;
 	z-index: 10;
+	pointer-events: none;
 }
 
 #creature-container.paused {
@@ -54,6 +56,7 @@
 	transform: scale(.8);
 	transform-origin: left bottom;
 	transition: transform .3s linear;
+	pointer-events: all;
 	
 	&:hover {
 		cursor: pointer;
