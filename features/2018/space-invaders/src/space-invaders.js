@@ -141,16 +141,16 @@
 		return data.endscreen.el;
 
 	}
-	
+
 	function makeCountDown() {
-		
+
 		data.countdown = document.createElement( 'div' );
 		data.countdown.id = 'countdown';
 		data.countdown.className = 'modal';
 		data.countdown.innerHTML = 3;
-		
+
 		return data.countdown;
-		
+
 	}
 
 	function makeCreatureContainer() {
@@ -269,26 +269,26 @@
 			);
 
 	}
-	
+
 	function initiateCountdown() {
-		
+
 		var n, counter;
-		
+
 		data.status = 4;
-		
+
 		n = 4;
 		data.countdown.classList.add( 'visible' );
-		
-		counter = function() {		
+
+		counter = function() {
 
 			n--;
 			data.countdown.innerHTML = n;
 			0 < n ? setTimeout( counter, 1000 ) : startGame();
-			
+
 		}
-		
+
 		counter();
-		
+
 	}
 
 	function startGame() {
@@ -305,8 +305,9 @@
 			data.status = 1;
 			updateScore();
 
-			data.timing.start = Date.now();
+			setIntervalX( addCreature, 50, 10 );
 
+			data.timing.start = Date.now();
 			setTimeout( ticker, data.timing.init );
 
 		}
@@ -361,7 +362,7 @@
 		var type, score, x, n;
 
 		data.status = 2;
-		
+
 		for ( type in data.endscreen.stats ) {
 			score = 0
 			if ( null != data.score.types[type] ) {
@@ -369,7 +370,7 @@
 			}
 			data.endscreen.stats[type].innerHTML = score;
 		}
-		
+
 		data.audio.end.play();
 		data.container.el.classList.add( 'endgame' );
 		data.endscreen.el.classList.add( 'visible' );
@@ -380,19 +381,8 @@
 
 		x = 0;
 		n = Math.floor( Math.max( 200, Math.min( 600, ( data.container.x * data.container.y / 1000000 ) * 400 ) ) );
-
-		data.endtimer = window.setInterval(
-			 function() {
-
-					 addCreature();
-
-					 if ( ++x === n ) {
-					   window.clearInterval( data.endtimer );
-						}
-
-		},
-			20
-			);
+		
+		setIntervalX( addCreature, 20, n )
 
 	}
 
@@ -568,10 +558,10 @@
 		var creature, pointValue;
 
 		creature = data.creatures[id];
-		
+
 		creature.el.classList.add( 'destroyed' );
 		creature.status = 0;
-		
+
 		null == data.score.types[creature.type] ? data.score.types[creature.type] = 1 : data.score.types[creature.type]++;
 
 		// Remove div after 5 seconds
@@ -709,13 +699,35 @@
 
 	}
 
+	function setIntervalX( callback, delay, reps ) {
+
+		var x, intervalID;
+
+		x = 0;
+		intervalID = window.setInterval(
+			 function () {
+
+					callback();
+
+					if ( ++x === reps ) {
+						 window.clearInterval( intervalID );
+						  }
+
+		},
+			delay
+			);
+
+	}
+
 	function populateCreatureBox() {
 
 		var i, creatures, creature, x, z;
 
+		data.els.habitat.innerHTML = '';
 		creatures = document.createElement( 'div' );
-
-		for ( i = 0; i < 15; i++ ) {
+		data.els.habitat.appendChild( creatures );
+		
+		setIntervalX( function() {
 
 			creature = getCreature();
 
@@ -726,10 +738,7 @@
 
 			creatures.appendChild( creature.div );
 
-		}
-
-		data.els.habitat.innerHTML = '';
-		data.els.habitat.appendChild( creatures );
+		}, 50, 15 );
 
 	}
 
