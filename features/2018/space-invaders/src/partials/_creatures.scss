@@ -57,14 +57,18 @@
 	transform-origin: left bottom;
 	transition: transform .3s linear;
 	pointer-events: all;
+	filter: drop-shadow( 4px 4px 0 rgba(0,0,0,0.3) );
 	
 	&:hover {
 		cursor: pointer;
 	}
 	
 	&.destroyed {
+		
 		transform: scale(.8,0);
 		pointer-events: none;
+		filter: none;
+		
 	}
 	
 }

@@ -53,7 +53,8 @@
 			},
 			'timing': {
 				'init': 2000, // Initial interval between spawns
-				'duration': 60000 // Time until max spawn rate (approx)
+				'duration': 60000, // Time until max spawn rate (approx)
+				'timers': {},
 			},
 			'audio': {
 				'bounce': new Audio( baseURL + 'mp3/bounce.mp3' ),
@@ -293,8 +294,6 @@
 
 	function startGame() {
 
-		var init, duration, start;
-
 		data.countdown.classList.remove( 'visible' );
 		data.els.page.classList.add( 'gameplay' );
 
@@ -305,7 +304,7 @@
 			data.status = 1;
 			updateScore();
 
-			setIntervalX( addCreature, 50, 10 );
+			setIntervalX( 'initialCreatures', addCreature, 50, 10 );
 
 			data.timing.start = Date.now();
 			setTimeout( ticker, data.timing.init );
@@ -381,15 +380,15 @@
 
 		x = 0;
 		n = Math.floor( Math.max( 200, Math.min( 600, ( data.container.x * data.container.y / 1000000 ) * 400 ) ) );
-		
-		setIntervalX( addCreature, 20, n )
+
+		setIntervalX( 'endGame', addCreature, 20, n )
 
 	}
 
 	function resetGame() {
 
 		// Clear any existing gameplay
-		window.clearInterval( data.endtimer );
+		window.clearInterval( data.timing.timers.endGame );
 		data.container.el.innerHTML = '';
 
 		data.container.el.classList.remove( 'endgame' );
@@ -514,7 +513,7 @@
 
 		// 70% of the time, position the new creature near another same-type creature, unless it's a crab
 		// Otherwise, position it randomly
-		if ( 700 > p && null != target && 'crab' != creature.type) {
+		if ( 700 > p && null != target && 'crab' != creature.type && 0 < data.n) {
 			x = Math.min( boundary.right, Math.max( 128, data.creatures[target].x + ( data.unit * Math.floor( Math.random() * 17 - 8 ) ) ) );
 			y = Math.min( boundary.bottom, Math.max( 128, data.creatures[target].y + ( data.unit * Math.floor( Math.random() * 17 - 8 ) ) ) );
 		} else {
@@ -699,18 +698,18 @@
 
 	}
 
-	function setIntervalX( callback, delay, reps ) {
+	function setIntervalX( name, callback, delay, reps ) {
 
 		var x, intervalID;
 
 		x = 0;
-		intervalID = window.setInterval(
+		data.timing.timers[name] = window.setInterval(
 			 function () {
 
 					callback();
 
 					if ( ++x === reps ) {
-						 window.clearInterval( intervalID );
+						 window.clearInterval( data.timing.timers[name] );
 						  }
 
 		},
@@ -721,24 +720,28 @@
 
 	function populateCreatureBox() {
 
-		var i, creatures, creature, x, z;
+		var creatures, creature, x, z;
 
 		data.els.habitat.innerHTML = '';
 		creatures = document.createElement( 'div' );
 		data.els.habitat.appendChild( creatures );
-		
-		setIntervalX( function() {
 
-			creature = getCreature();
+		setIntervalX( 'populateCreatureBox',
+			 function() {
 
-			x = data.unit * Math.floor( ( Math.random() * 48 ) + 1 );
-			z = Math.floor( ( Math.random() * 10 ) + 1 );
+					 creature = getCreature();
 
-			creature.div.style = 'left:' + x + 'px; z-index:' + z;
+					 x = data.unit * Math.floor( ( Math.random() * 48 ) + 1 );
+					 z = Math.floor( ( Math.random() * 10 ) + 1 );
 
-			creatures.appendChild( creature.div );
+					 creature.div.style = 'left:' + x + 'px; z-index:' + z;
 
-		}, 50, 15 );
+					 creatures.appendChild( creature.div );
+
+		},
+			50,
+			15
+			);
 
 	}
 
