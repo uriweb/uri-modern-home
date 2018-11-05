@@ -537,8 +537,14 @@
 		div = document.createElement( 'div' );
 		div.id = id;
 		div.className = 'creature-wrapper';
+		
+		if ( 500 > p ) {
+			div.classList.add( 'flipped' );
+		}
+		
 		div.style = 'top:' + y + 'px; left:' + x + 'px; z-index:' + z;
 		div.appendChild( creature.div );
+		
 
 		if ( 1 == data.status ) {
 			div.addEventListener( 'click', removeCreature.bind( null, id ), false );

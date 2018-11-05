@@ -67,15 +67,31 @@
 		pointer-events: none;
 	}
 	
+	&.flipped {
+		transform: scale(-.8);
+	}
+	
+	&.flipped.destroyed {
+		transform: scale(-.8,0);
+	}
+	
 }
 
 @media screen and (min-width: 600px) {
 	.creature-wrapper {
 		
-		transform: scale(1,1);
+		transform: scale(1);
 		
 		&.destroyed {
 			transform: scale(1,0);
+		}
+		
+		&.flipped {
+			transform: scale(-1,1);
+		}
+		
+		&.flipped.destroyed {
+			transform: scale(-1,0);
 		}
 		
 	}
