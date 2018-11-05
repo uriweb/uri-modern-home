@@ -37,16 +37,17 @@
 #game-stats {
 		
 	display: flex;
+	justify-content: space-between;
 	box-sizing: border-box;
 	align-items: baseline;
 	width: 100%;
 	max-width: 500px;
 	margin: 0 auto 2rem;
-	padding: 0 1rem;
-	transform: scale( .8 );
+	padding: 0 .5rem;
 
 	.stat-wrapper {
 		flex: 1;
+		transform: scale( .8 );
 		text-align: center;
 	}
 
@@ -74,10 +75,15 @@
 			width: 44px;
 			background-position: -140px 0;
 		}
+		
+		&.seaweed-2 {
+			width: 36px;
+			background-position: -184px 0;
+		}
 
 		&.crab {
 			width: 68px;
-			background-position: -184px 0;
+			background-position: -220px 0;
 		}
 
 
@@ -131,7 +137,7 @@
 
 @media screen and (min-width: 600px) {
 	
-	#game-stats {
+	#game-stats .stat-wrapper {
 		transform: scale(1);
 	}
 	

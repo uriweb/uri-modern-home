@@ -37,6 +37,7 @@
 				'tunicate1': 'tunicate-1',
 				'tunicate2': 'tunicate-2',
 				'seaweed1': 'seaweed-1',
+				'seaweed2': 'seaweed-2',
 				'crab': 'crab'
 			},
 			'container': {},
@@ -458,12 +459,14 @@
 		n = Math.floor( Math.random() * 1000 );
 		s = Math.floor( ( Math.random() * 3 ) + 1 );
 
-		if ( 350 > n ) {
+		if ( 300 > n ) {
 			creature.type = data.types.tunicate1;
-		} else if ( 700 > n ) {
+		} else if ( 600 > n ) {
 			creature.type = data.types.tunicate2;
-		} else if ( 900 > n ) {
+		} else if ( 750 > n ) {
 			creature.type = data.types.seaweed1;
+		} else if ( 900 > n ) {
+			creature.type = data.types.seaweed2;
 		} else if ( 1000 > n ) {
 			creature.type = data.types.crab;
 		}
@@ -591,6 +594,10 @@
 				pointValue = 30;
 				break;
 			case data.types.seaweed1:
+				playAudio( data.audio.shoot );
+				pointValue = 20;
+				break;
+			case data.types.seaweed2:
 				playAudio( data.audio.shoot );
 				pointValue = 20;
 				break;

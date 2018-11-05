@@ -63,10 +63,8 @@
 	}
 	
 	&.destroyed {
-		
 		transform: scale(.8,0);
 		pointer-events: none;
-		
 	}
 	
 }
@@ -203,6 +201,32 @@
 
 	&.fast {
 		animation-duration: 2s;
+	}
+	
+}
+
+/* Seaweed 2 */
+
+@keyframes seaweed-2 {
+	to { background-position: -216px; }
+}
+
+.seaweed-2 {
+	
+	width: 36px;
+	height: 72px;
+	background-image: url(i/creature-seaweed-2.png);
+	animation-name: seaweed-2;
+	animation-duration: 2.5s;
+	animation-timing-function: steps(6);
+	animation-iteration-count: infinite;
+	
+	&.slow {
+		animation-duration: 3.5s;
+	}
+
+	&.fast {
+		animation-duration: 1.5s;
 	}
 	
 }
