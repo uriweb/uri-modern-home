@@ -98,12 +98,17 @@
 
 	function makeEndScreen() {
 
-		var stats, div, span, x, type;
+		var stats, high, div, span, x, type;
 
 		data.endscreen.el = document.createElement( 'div' );
 		data.endscreen.el.id = 'endscreen';
 		data.endscreen.el.className = 'modal';
 		data.endscreen.el.innerHTML = '<h1>Game <br> Over</h1>';
+		
+		high = document.createElement( 'div' );
+		high.id = 'new-high-score';
+		high.innerHTML = 'New High Score';
+		data.endscreen.el.appendChild( high );
 
 		stats = document.createElement( 'div' );
 		stats.id = 'game-stats';
@@ -376,6 +381,7 @@
 
 		if ( data.score.points > getHighScore() ) {
 			setHighScore( data.score.points );
+			data.endscreen.el.classList.add( 'new-high' );
 		}
 
 		x = 0;
@@ -392,7 +398,7 @@
 		data.container.el.innerHTML = '';
 
 		data.container.el.classList.remove( 'endgame' );
-		data.endscreen.el.classList.remove( 'visible' );
+		data.endscreen.el.classList.remove( 'visible', 'new-high' );
 		data.progress.className = '';
 		data.score.points = 0;
 		data.score.high = getHighScore();
@@ -726,7 +732,8 @@
 		creatures = document.createElement( 'div' );
 		data.els.habitat.appendChild( creatures );
 
-		setIntervalX( 'populateCreatureBox',
+		setIntervalX(
+			 'populateCreatureBox',
 			 function() {
 
 					 creature = getCreature();
