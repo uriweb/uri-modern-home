@@ -105,7 +105,7 @@
 		data.endscreen.el.id = 'endscreen';
 		data.endscreen.el.className = 'modal';
 		data.endscreen.el.innerHTML = '<h1>Game <br> Over</h1>';
-		
+
 		high = document.createElement( 'div' );
 		high.id = 'new-high-score';
 		high.innerHTML = 'New High Score';
@@ -327,7 +327,7 @@
 
 			millis = Date.now() - data.timing.start;
 			y = ease( 0, data.timing.duration, millis );
-			min = Math.max( 120, Math.min( 380, ( data.container.x * data.container.y / 1000000 ) * 300 ) );
+			min = Math.max( 120, Math.min( 300, ( data.container.x * data.container.y / 1000000 ) * 300 ) );
 			data.timing.interval = Math.max( min, data.timing.init - ( data.timing.init * y ) );
 
 			addCreature()
@@ -537,14 +537,13 @@
 		div = document.createElement( 'div' );
 		div.id = id;
 		div.className = 'creature-wrapper';
-		
+
 		if ( 500 > p ) {
 			div.classList.add( 'flipped' );
 		}
-		
+
 		div.style = 'top:' + y + 'px; left:' + x + 'px; z-index:' + z;
 		div.appendChild( creature.div );
-		
 
 		if ( 1 == data.status ) {
 			div.addEventListener( 'click', removeCreature.bind( null, id ), false );
