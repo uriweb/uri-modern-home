@@ -234,7 +234,7 @@ $tracks:
 
 #story {
 	max-width: 600px;
-	margin: 0 auto 3rem;
+	margin: 0 auto;
 	font-size: 1.1rem;
 }
 
@@ -256,6 +256,13 @@ $tracks:
 
 .nowrap {
 	white-space: nowrap;
+}
+
+.oembed>div,
+.oembed>twitter-widget,
+.oembed>iframe {
+	margin-left: auto !important;
+	margin-right: auto !important;
 }
 
 /* Keyframes */
