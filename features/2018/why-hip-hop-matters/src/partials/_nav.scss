@@ -321,9 +321,10 @@ body.ln-#{nth($tracks, 3)},
 }
 
 
-/* Track 4:  */
+/* Track 4: Hip Hop is Staking Its Claim */
 
 body.ln-#{nth($tracks, 4)} .nav-hip-hop-wrapper label {
+	color: #fff;
 	background: $theme-color-track-4;
 }
 
@@ -338,12 +339,12 @@ body.ln-#{nth($tracks, 4)},
 		}
 			
 		a:hover {
-			color: #000;
+			color: #fff;
 			background: $theme-color-track-4;
 		}
 		
 		div.nav-#{nth($tracks, 4)} a {
-			color: #000;
+			color: #fff;
 			background: $theme-color-track-4;
 		}
 
