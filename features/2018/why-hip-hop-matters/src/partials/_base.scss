@@ -49,7 +49,7 @@ $tracks:
 	margin-bottom: 0;
 }
 
-.globalnav {
+body:not(.home) .globalnav {
 	display: none;
 }
 
