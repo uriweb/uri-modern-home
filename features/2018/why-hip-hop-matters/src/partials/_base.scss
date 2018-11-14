@@ -44,6 +44,11 @@ $tracks:
 	-webkit-font-smoothing: antialiased;
 }
 
+#main {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
 .globalnav {
 	display: none;
 }
@@ -263,6 +268,63 @@ $tracks:
 .oembed>iframe {
 	margin-left: auto !important;
 	margin-right: auto !important;
+}
+
+/* Fullscreen Images */
+
+.image {
+	
+	position: relative;
+	margin-bottom: 3rem;
+	
+	&.fitted {
+		margin-bottom: 0;
+	}
+	
+	img {
+		width: 100%;
+		height: auto;
+		padding: 0;
+		margin-bottom: 2px;
+	}
+
+	.caption {
+		position: absolute;
+		bottom: 1rem;
+		left: 1rem;
+		padding: 1rem;
+		max-width: calc( 100% - 2rem );
+		box-sizing: border-box;
+		background: rgba(0,0,0,.8);
+		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-size: .9rem;
+		color: #fff;
+		opacity: 0;
+		transition: opacity .3s ease-in-out;
+	}
+
+	&:hover .caption,
+	&:focus .caption {
+		opacity: 1;
+	}
+
+	.credit {
+		
+		padding-top: 10px;
+		margin-top: 10px;
+		border-top: 1px solid rgba(255,255,255,.3);
+		color: rgba(255,255,255,.7);
+		font-size: .7rem;
+		
+		a,
+		a:hover,
+		a:focus {
+			color: inherit;
+			text-decoration: underline;
+		}
+		
+	}
+	
 }
 
 /* Keyframes */
