@@ -31,4 +31,4 @@ Contributors: Brandon Fuller
 Tags: themes  
 Requires at least: 4.0  
 Tested up to: 4.9  
-Stable tag: 1.3.3  
+Stable tag: 1.4.0  
