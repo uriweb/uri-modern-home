@@ -81,6 +81,7 @@
 		h1 {
 			margin-left: 3rem;
 			font-size: 5rem;
+			max-width: 600px;
 		}
 		
 		.superhead {
@@ -173,13 +174,17 @@
 #feature-hero.#{nth($tracks, 4)} {
 	
 	.superhead {
-		color: $theme-color-track-5;
-		border-bottom-color: $theme-color-track-5;
+		color: $theme-color-track-4;
+		border-bottom-color: $theme-color-track-4;
+	}
+	
+	.title {
+		text-shadow: 0 0 .5rem rgba(0,0,0,.4);
 	}
 
 	.cl-button {
-		background: $theme-color-track-5;
-		color: #000;
+		background: $theme-color-track-4;
+		color: #fff;
 	}
 	
 }
