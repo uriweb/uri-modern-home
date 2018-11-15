@@ -394,3 +394,30 @@ body:not(.home) .globalnav {
 	border-radius: 50%;
 	background: #fafafa;
 }
+
+.teaser {
+	
+	border-left: 20px solid #000;
+	padding-left: 20px;
+	
+	.teaser-track {
+		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-weight: 300;
+		text-transform: uppercase;
+	}
+	
+	.teaser-day,
+	.teaser-title {
+		font-family: "Bungee", "Lato", "Hind", "Arial", sans-serif;
+		font-size: 1.3rem;
+	}
+		
+	.teaser-body {
+		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-weight: 300;
+		font-size: 1.1rem;
+		padding-top: 1rem;
+		max-width: 500px;
+	}
+	
+}
