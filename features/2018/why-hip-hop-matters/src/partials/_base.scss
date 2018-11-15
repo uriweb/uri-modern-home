@@ -169,7 +169,7 @@ body:not(.home) .globalnav {
 		
 		h1 {
 			font-size: 4rem;
-			margin-bottom: 3rem;
+			margin-bottom: 1rem;
 		}
 		
 		.deck {
@@ -188,6 +188,10 @@ body:not(.home) .globalnav {
 		
 		&>div:nth-child(2) {
 			padding: 1.5rem 3rem 1rem;
+		}
+		
+		h1 {
+			margin-bottom: 2rem;
 		}
 		
 		.superhead {
