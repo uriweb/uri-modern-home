@@ -137,6 +137,18 @@
 	
 }
 
+@media screen and (min-width:1000px) {
+	
+	#feature-hero.#{nth($tracks, 1)} {
+
+		h1 {
+			max-width: 500px;
+		}
+		
+	}
+	
+}
+
 /* Getting to the Truth */
 
 #feature-hero.#{nth($tracks, 2)} {
