@@ -4,7 +4,7 @@ URI Modern Home is a WordPress theme designed for the University of Rhode Island
 
 ## What's new in 1.4.0
 
-URI Modern Home 1.4.0 is a minor release coincinding with the release of the Why Hip-Hop Matters feature story series.
+URI Modern Home 1.4.0 is a minor release.
 
 * Adds styles and assets for the Why Hip-Hop Matters feature story series
 * Updates development tools
