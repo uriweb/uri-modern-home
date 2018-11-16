@@ -10,7 +10,7 @@
 	foreach ( $posts_array as $post ) {
 	setup_postdata( $post );
 
-	$excerpt = get_field( 'hero_excerpt', $post->ID, false );
+	$excerpt = uri_modern_home_get_field( 'hero_excerpt', $post->ID, false );
 
 	if ( ! empty( $excerpt ) ) {
 		$html .= do_shortcode( $excerpt );

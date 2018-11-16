@@ -13,13 +13,13 @@
 	<?php
 	if ( is_single() ) {
 
-		if ( get_field( 'pagetitle' ) === false ) {
+		if ( uri_modern_home_get_field( 'pagetitle' ) === false ) {
 		?>
 		<header class="entry-header">
 		   <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		</header><!-- .entry-header -->
 		<?php
-		if ( ! has_post_format( 'video' ) && ! get_field( 'uri_modern_hide_featured_image' ) ) {
+		if ( ! has_post_format( 'video' ) && ! uri_modern_home_get_field( 'uri_modern_hide_featured_image' ) ) {
 			get_template_part( 'template-parts/featured-image' );
 		}
 		}

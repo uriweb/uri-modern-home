@@ -23,6 +23,22 @@ add_action( 'wp_enqueue_scripts', 'uri_modern_home_enqueues' );
 
 
 /**
+ * Wrapper for Advanced Custom Fields get_field()
+ */
+function uri_modern_home_get_field() {
+
+	$r = false;
+
+	if ( function_exists( 'get_field' ) ) {
+		$r = call_user_func_array( 'get_field', func_get_args() );
+	}
+
+	return $r;
+
+}
+
+
+/**
  * Custom fields
  */
 require get_stylesheet_directory() . '/inc/custom-fields.php';
