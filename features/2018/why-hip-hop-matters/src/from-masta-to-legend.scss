@@ -1,0 +1,94 @@
+/* ==============================
+   WHY HIP HOP MATTERS: FROM MASTA TO LEGEND
+   ============================== */
+
+@import 'partials/base';
+@import 'partials/nav';
+
+#story-hero {
+	
+	border-bottom: none;
+	margin-bottom: 2px;
+	
+	.superhead {
+	
+		color: $theme-color-track-1;
+
+		&:after {
+			background: $theme-color-track-1;
+		}
+
+	}
+	
+}
+
+.passage-wrapper {
+	
+	margin-bottom: 6rem;
+	padding: 3rem 0;
+	background-color: #000;
+	
+	&:after {
+		
+		@include graffiti();
+		
+		position: absolute;
+		bottom: -20px;
+		width: 100%;
+		height: 20px;
+		background-size: 600% auto;
+		
+	}
+	
+}
+
+@media screen and (min-width: 600px) {
+	.passage-wrapper:after {
+		background-size: 400% auto;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.passage-wrapper:after {
+		background-size: 300% auto;
+	}
+}
+
+.passage {
+	
+	max-width: 600px;
+	font-family: "Averia Serif Libre", "Lato", "Hind", "Arial", sans-serif;
+	font-weight: 300;
+	font-size: .9rem;
+	color: #fff;
+	line-height: 1.3rem;
+	
+	p {
+
+		padding-left: 1rem;
+		text-indent: -1rem;
+
+		&:not(:last-of-type) {
+			margin-bottom: 0;
+		}
+
+	}
+	
+	.part,
+	.attribution {
+		color: $theme-color-track-1; /* #528b98 */
+		font-size: .9rem;
+	}
+
+	.part {
+		text-transform: uppercase;
+		margin-bottom: .5rem;
+	}
+	
+}
+
+@media screen and (min-width: 400px) {
+	.passage {
+		font-size: 1.1rem;
+	}
+}

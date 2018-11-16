@@ -1,0 +1,427 @@
+/* ==============================
+   WHY HIP HOP MATTERS - BASE STYLES
+   ============================== */
+
+/* COLORS */
+
+$theme-color-track-1: #37a588;
+$theme-color-track-2: #bc3833;
+$theme-color-track-3: #db6ce0;
+$theme-color-track-3-text: #e251e8;
+$theme-color-track-4: #94af00; //239ee0
+$theme-color-track-5: #fad556;
+$theme-color-track-5-text: #d89704;
+
+/* FAWNTS */
+
+@import url(https://fonts.googleapis.com/css?family=Bungee|Oswald:300|Averia+Serif+Libre:300);
+
+/* CLASSES */
+
+$tracks: 
+	hip-hop-from-masta-to-legend
+	hip-hop-getting-to-the-truth
+	hip-hop-making-a-stand
+	hip-hop-staking-its-claim
+	hip-hop-finding-a-voice;
+
+/* MIXINS */
+
+@mixin graffiti() {
+	position: relative;
+	display: block;
+	content: '';
+	background-image: url(i/graffiti_bg.jpg);
+	background-position: center top;
+	background-repeat: no-repeat;
+	filter: hue-rotate(0);
+	animation: rotate-hue 10s linear infinite, move-background 30s linear infinite alternate;
+}
+
+/* STYLES */
+
+#page {
+	-webkit-font-smoothing: antialiased;
+}
+
+#main {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+body:not(.home) .globalnav {
+	display: none;
+}
+
+.oembed {
+	
+	margin: 3rem 0;
+	
+	iframe {
+		margin: 0 auto;
+	}
+	
+}
+
+.post-navigation {
+	display: none;
+}
+
+#story-hero {
+	
+	display: block;
+	border-bottom-width: 20px;
+	border-bottom-style: solid;
+	
+	&>div:nth-child(1) {
+		flex-basis: 65%;
+		width: 100%;
+		height: 40vh;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	&>div:nth-child(2) {
+		flex-basis: 35%;
+		box-sizing: border-box;
+		padding: 2rem 2rem 0;
+		background: #fff;
+	}
+
+	img {
+		padding: 0;
+	}
+	
+	.superhead:after {
+		position: absolute;
+		display: block;
+		content: '';
+		bottom: 0;
+		background: #000;
+		width: 60px;
+		height: 1px;
+		transition: width .2s ease-in-out;
+	}
+	
+	.deck {
+		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-weight: 300;
+		font-size: 1.5rem;
+	}
+	
+}
+
+#story-hero,
+#feature-hero {
+	
+	.superhead {
+		position: relative;
+		display: none;
+		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-weight: 300;
+		text-transform: uppercase;
+		font-size: 1rem;
+		color: #000;
+		margin-bottom: 14px;
+		padding-bottom: 10px;
+	}
+
+	h1 {
+		max-width: 500px;
+		font-family: "Bungee", "Lato", "Hind", "Arial", sans-serif;
+		font-size: 4rem;
+		margin-bottom: 0;
+		padding-bottom: 2rem;
+	}
+	
+}
+
+@media screen and (min-width: 600px) {
+	
+	#story-hero {
+		
+		display: flex;
+		border-bottom-width: 10px;
+		
+		&>div:nth-child(1) {
+			width: initial;
+			height: initial;
+		}
+		
+		h1 {
+			font-size: 3rem;
+		}
+		
+		.deck {
+			font-size: 1rem;
+		}
+		
+	}
+	
+}
+
+@media screen and (min-width: 800px) {
+	
+	#story-hero {
+		
+		border-bottom-width: 20px;
+		
+		h1 {
+			font-size: 4rem;
+			margin-bottom: 1rem;
+		}
+		
+		.deck {
+			font-size: 1.2rem;
+		}
+		
+	}
+	
+}
+
+@media screen and (min-width: 1000px) {
+	
+	#story-hero {
+		
+		border-bottom-width: 40px;
+		
+		&>div:nth-child(2) {
+			padding: 1.5rem 3rem 1rem;
+		}
+		
+		h1 {
+			margin-bottom: 2rem;
+		}
+		
+		.superhead {
+			display: block;
+		}
+		
+		h1 {
+			font-size: 5rem;
+		}
+		
+		.deck {
+			font-size: 1.5rem;
+		}
+		
+	}
+	
+}
+
+@media screen and (min-width: 1400px) {
+	
+	#story-hero  {
+		
+		&>div:nth-child(2) {
+			padding: 2.5rem 4rem 2rem;
+		}
+
+		.superhead:after {
+			width: 80px;
+		}
+		
+		h1 {
+			font-size: 6rem;
+		}
+		
+		.deck {
+			font-size: 2rem;
+		}
+		
+	}
+	
+	#story-hero,
+	#feature-hero {
+		.superhead {
+			font-size: 1.2rem;
+		}
+	}
+	
+}
+
+#story {
+	max-width: 600px;
+	margin: 0 auto;
+	font-size: 1.1rem;
+}
+
+.section {
+	
+	padding-bottom: 3rem;
+	
+	p:first-child:first-letter {
+		color: #000;
+		float: left;
+		font-size: 4.5rem;
+		font-family: "Bungee";
+		line-height: 3rem;
+		padding-top: 7px;
+		padding-right: 8px;
+	}
+	
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.oembed>div,
+.oembed>twitter-widget,
+.oembed>iframe {
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+/* Fullscreen Images */
+
+.image {
+	
+	position: relative;
+	margin-bottom: 3rem;
+	
+	&.fitted {
+		margin-bottom: 0;
+	}
+	
+	img {
+		width: 100%;
+		height: auto;
+		padding: 0;
+		margin-bottom: 2px;
+	}
+
+	.caption {
+		position: absolute;
+		bottom: 1rem;
+		left: 1rem;
+		padding: 1rem;
+		max-width: calc( 100% - 2rem );
+		box-sizing: border-box;
+		background: rgba(0,0,0,.8);
+		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-size: .9rem;
+		color: #fff;
+		opacity: 0;
+		transition: opacity .3s ease-in-out;
+	}
+
+	&:hover .caption,
+	&:focus .caption {
+		opacity: 1;
+	}
+
+	.credit {
+		
+		padding-top: 10px;
+		margin-top: 10px;
+		border-top: 1px solid rgba(255,255,255,.3);
+		color: rgba(255,255,255,.7);
+		font-size: .7rem;
+		
+		a,
+		a:hover,
+		a:focus {
+			color: inherit;
+			text-decoration: underline;
+		}
+		
+	}
+	
+}
+
+/* Keyframes */
+
+@keyframes rotate-hue {
+	to { filter: hue-rotate(360deg) };
+}
+
+@keyframes move-background {
+	to { background-position: center bottom };
+}
+
+/* Graffiti Bar */
+
+.graffiti-bar {
+	
+	@include graffiti();
+	
+	width: 100%;
+	height: 20px;
+	background-size: 600% auto;
+	
+}
+
+.graffiti-bar.homepage {
+	margin-bottom: 4rem;
+}
+
+.graffiti-bar.section-break {
+	margin-bottom: 6rem;
+}
+
+@media screen and (min-width: 600px) {
+	.graffiti-bar {
+		background-size: 400% auto;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.graffiti-bar {
+		background-size: 300% auto;
+	}
+}
+
+.end-mark {
+	
+	@include graffiti();
+	
+	position: relative;
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	margin-left: .5rem;
+	background-size: 800px auto;
+	
+}
+
+.end-mark:after {
+	display: block;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	content: '';
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #fafafa;
+}
+
+.teaser {
+	
+	border-left: 20px solid #000;
+	padding-left: 20px;
+	
+	.teaser-track {
+		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-weight: 300;
+		text-transform: uppercase;
+	}
+	
+	.teaser-day,
+	.teaser-title {
+		font-family: "Bungee", "Lato", "Hind", "Arial", sans-serif;
+		font-size: 1.3rem;
+	}
+		
+	.teaser-body {
+		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-weight: 300;
+		font-size: 1.1rem;
+		padding-top: 1rem;
+		max-width: 500px;
+	}
+	
+}

@@ -1,0 +1,218 @@
+/* ==============================
+   WHY HIP HOP MATTERS - HOMEPAGE
+   ============================== */
+
+@import 'partials/base';
+@import 'partials/nav';
+
+#feature-hero {
+	
+	.block {
+		text-align: left;
+	}
+
+	h1 {
+		text-align: left;
+		text-shadow: none;
+		font-size: 2rem;
+		padding-left: 0;
+		padding-bottom: 1rem;
+		max-width: 400px;
+	}
+
+	.superhead {
+		display: inline-block;
+		background: #fff;
+		padding: .5rem;
+		text-shadow: none;
+		font-size: .8rem;
+		border-bottom-width: 4px;
+		border-bottom-style: solid;
+	}
+
+	.title {
+		display: block;
+	}
+
+	.cl-button {
+		
+		position: relative;
+		margin-left: 0rem;
+		margin-bottom: 1rem;
+		max-width: 50%;
+		
+	}
+	
+}
+
+@media screen and (min-width:350px) {
+	#feature-hero h1 {
+		font-size: 3rem;
+	}
+}
+
+@media screen and (min-width:600px) {
+	
+	#feature-hero {
+		
+		h1 {
+			font-size: 4rem;
+			max-width: 500px;
+		}
+		
+		.superhead {
+			font-size: 1rem;
+		}
+		
+	}
+	
+}
+
+@media screen and (min-width:800px) {
+	#feature-hero .cl-button {
+		max-width: 250px;
+	}
+}
+
+@media screen and (min-width:1000px) {
+	
+	#feature-hero {
+		
+		h1 {
+			margin-left: 3rem;
+			font-size: 5rem;
+			max-width: 600px;
+		}
+		
+		.superhead {
+			font-size: 1.1rem;
+			border-bottom-width: 5px;
+		}
+		
+		.cl-button {
+			max-width: 300px;
+			margin-left: 3rem;
+		}
+		
+	}
+	
+}
+
+@media screen and (min-width:1400px) {
+	
+	#feature-hero {
+		
+		h1 {
+			font-size: 6rem;
+		}
+		
+		.superhead {
+			font-size: 1.4rem;
+			border-bottom-width: 6px;
+		}
+		
+		.cl-button {
+			max-width: 400px;
+		}
+		
+	}
+	
+}
+
+/* COLORS */
+
+/* From Masta to Legend */
+
+#feature-hero.#{nth($tracks, 1)} {
+	
+	.superhead {
+		color: $theme-color-track-1;
+		border-bottom-color: $theme-color-track-1;
+	}
+
+	.cl-button {
+		background: $theme-color-track-1;
+		color: #fff;
+	}
+	
+}
+
+@media screen and (min-width:1000px) {
+	
+	#feature-hero.#{nth($tracks, 1)} {
+
+		h1 {
+			max-width: 500px;
+		}
+		
+	}
+	
+}
+
+/* Getting to the Truth */
+
+#feature-hero.#{nth($tracks, 2)} {
+	
+	.superhead {
+		color: $theme-color-track-2;
+		border-bottom-color: $theme-color-track-2;
+	}
+
+	.cl-button {
+		background: $theme-color-track-2;
+		color: #fff;
+	}
+	
+}
+
+/* Making a Stand */
+
+#feature-hero.#{nth($tracks, 3)} {
+	
+	.superhead {
+		color: $theme-color-track-3-text;
+		border-bottom-color: $theme-color-track-3;
+	}
+
+	.cl-button {
+		background: $theme-color-track-3;
+		color: #fff;
+	}
+	
+}
+
+/* Track 4 */
+
+#feature-hero.#{nth($tracks, 4)} {
+	
+	.superhead {
+		color: $theme-color-track-4;
+		border-bottom-color: $theme-color-track-4;
+	}
+	
+	.title {
+		text-shadow: 0 0 .5rem rgba(0,0,0,.4);
+	}
+
+	.cl-button {
+		background: $theme-color-track-4;
+		color: #fff;
+	}
+	
+}
+
+/* Finding a Voice */
+
+#feature-hero.#{nth($tracks, 5)} {
+	
+	.superhead {
+		color: $theme-color-track-5-text;
+		border-bottom-color: $theme-color-track-5;
+	}
+
+	.cl-button {
+		background: $theme-color-track-5;
+		color: #000;
+	}
+	
+}
