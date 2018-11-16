@@ -10,7 +10,7 @@ $theme-color-track-3: #db6ce0;
 $theme-color-track-3-text: #e251e8;
 $theme-color-track-4: #94af00; //239ee0
 $theme-color-track-5: #fad556;
-$theme-color-track-5-text: #edbf1f;
+$theme-color-track-5-text: #d89704;
 
 /* FAWNTS */
 
@@ -169,7 +169,7 @@ body:not(.home) .globalnav {
 		
 		h1 {
 			font-size: 4rem;
-			margin-bottom: 3rem;
+			margin-bottom: 1rem;
 		}
 		
 		.deck {
@@ -188,6 +188,10 @@ body:not(.home) .globalnav {
 		
 		&>div:nth-child(2) {
 			padding: 1.5rem 3rem 1rem;
+		}
+		
+		h1 {
+			margin-bottom: 2rem;
 		}
 		
 		.superhead {
@@ -393,4 +397,31 @@ body:not(.home) .globalnav {
 	height: 8px;
 	border-radius: 50%;
 	background: #fafafa;
+}
+
+.teaser {
+	
+	border-left: 20px solid #000;
+	padding-left: 20px;
+	
+	.teaser-track {
+		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-weight: 300;
+		text-transform: uppercase;
+	}
+	
+	.teaser-day,
+	.teaser-title {
+		font-family: "Bungee", "Lato", "Hind", "Arial", sans-serif;
+		font-size: 1.3rem;
+	}
+		
+	.teaser-body {
+		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-weight: 300;
+		font-size: 1.1rem;
+		padding-top: 1rem;
+		max-width: 500px;
+	}
+	
 }
