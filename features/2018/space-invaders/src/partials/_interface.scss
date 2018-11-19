@@ -55,35 +55,38 @@
 
 		display: block;
 		margin: 0 auto;
-		height: 128px;
-		background-image: url(i/creature-sprite.png);
 		background-repeat: no-repeat;
-		background-size: auto 128px;
+		background-size: auto 100%;
 		animation: none;
 
 		&.tunicate-1 {
 			width: 76px;
-			background-position: 0 0;
+			height: 72px;
+			background-position: -152px 0;
 		}
 
 		&.tunicate-2 {
 			width: 64px;
-			background-position: -76px 0;
+			height: 56px;
+			background-position: -128px 0;
 		}
 
 		&.seaweed-1 {
 			width: 44px;
-			background-position: -140px 0;
+			height: 128px;
+			background-position: 0 0;
 		}
 		
 		&.seaweed-2 {
 			width: 36px;
-			background-position: -184px 0;
+			height: 72px;
+			background-position: 0 0;
 		}
 
 		&.crab {
 			width: 68px;
-			background-position: -220px 0;
+			height: 40px;
+			background-position: -148px 0;
 		}
 
 

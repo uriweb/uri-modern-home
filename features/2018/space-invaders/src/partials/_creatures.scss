@@ -116,19 +116,19 @@
 @keyframes tunicate-1 {
 	0% { background-position: left center }
 	70% { background-position: left center }
-	100% { background-position: -304px; }
+	100% { background-position: -304px center; }
 }
 
 @keyframes tunicate-1-slow {
 	0% { background-position: left center }
 	79% { background-position: left center }
-	100% { background-position: -304px; }
+	100% { background-position: -304px center; }
 }
 
 @keyframes tunicate-1-fast {
 	0% { background-position: left center }
 	48% { background-position: left center }
-	100% { background-position: -304px; }
+	100% { background-position: -304px center; }
 }
 
 .tunicate-1 {
@@ -158,19 +158,19 @@
 @keyframes tunicate-2 {
 	0% { background-position: left center }
 	70% { background-position: left center }
-	100% { background-position: -256px; }
+	100% { background-position: -256px center; }
 }
 
 @keyframes tunicate-2-slow {
 	0% { background-position: left center }
 	75% { background-position: left center }
-	100% { background-position: -256px; }
+	100% { background-position: -256px center; }
 }
 
 @keyframes tunicate-2-fast {
 	0% { background-position: left center }
 	62% { background-position: left center }
-	100% { background-position: -256px; }
+	100% { background-position: -256px center; }
 }
 
 .tunicate-2 {
@@ -198,7 +198,7 @@
 /* Seaweed 1 */
 
 @keyframes seaweed-1 {
-	to { background-position: -288px; }
+	to { background-position: -288px center; }
 }
 
 .seaweed-1 {
@@ -224,7 +224,7 @@
 /* Seaweed 2 */
 
 @keyframes seaweed-2 {
-	to { background-position: -216px; }
+	to { background-position: -216px center; }
 }
 
 .seaweed-2 {
@@ -250,7 +250,7 @@
 /* Crab */
 
 @keyframes crab {
-	to { background-position: -864px; }
+	to { background-position: -864px center; }
 }
 
 @keyframes crab-walk {
@@ -275,7 +275,7 @@
 /* Bubbles 1 */
 
 @keyframes bubbles-1 {
-	to { background-position: -768px; }
+	to { background-position: -768px center; }
 }
 
 .bubbles-1 {
