@@ -67,20 +67,21 @@
 		};
 
 		// Create the game
-		game = document.createElement( 'div' );
-		game.id = 'game';
-		game.appendChild( makeEndScreen() );
-		game.appendChild( makeCountDown() );
-		game.appendChild( makeCreatureContainer() );
-		game.appendChild( makeBubblesContainer() );
+		data.game = document.createElement( 'div' );
+		data.game.id = 'game';
+		data.game.appendChild( makeEndScreen() );
+		data.game.appendChild( makeCountDown() );
+		data.game.appendChild( makeCreatureContainer() );
+		data.game.appendChild( makeBubblesContainer() );
 		data.score.board.wrapper.appendChild( makeScoreBoard() );
 
 		// Put the game on the page
-		document.getElementById( 'main' ).appendChild( game );
+		document.getElementById( 'main' ).appendChild( data.game );
 
 		// Get some specs once everything's on the page
 		data.score.board.h = data.score.board.el.offsetHeight;
 		data.score.board.y = data.score.board.el.getBoundingClientRect().top;
+		data.score.board.parent = data.score.board.wrapper.parentElement;
 		data.container.el.style.height = 'calc( 100vh - ' + data.score.board.h + 'px)';
 		data.container.x = data.container.el.offsetWidth;
 		data.container.y = data.container.el.offsetHeight;
@@ -89,8 +90,6 @@
 		addButtonEvents();
 		populateCreatureBox();
 		makeBubbles();
-
-		data.audio.menu.onended = audioDoneCallback;
 
 		window.addEventListener( 'resize', handleResize, false );
 		window.addEventListener( 'scroll', handleScroll, false );
@@ -144,6 +143,13 @@
 		data.buttons.reset.innerHTML = 'play again';
 
 		data.endscreen.el.appendChild( data.buttons.reset );
+
+		div = document.createElement( 'div' );
+		div.id = 'remove-game';
+		div.innerHTML = 'or, just read the story';
+		div.addEventListener( 'click', removeGame, false );
+
+		data.endscreen.el.appendChild( div );
 
 		return data.endscreen.el;
 
@@ -376,7 +382,7 @@
 			data.endscreen.stats[type].innerHTML = score;
 		}
 
-		data.audio.end.play();
+		playAudio( data.audio.end );
 		data.container.el.classList.add( 'endgame' );
 		data.endscreen.el.classList.add( 'visible' );
 
@@ -411,6 +417,16 @@
 		data.score.board.high.innerHTML = padNum( data.score.high );
 
 		startGame();
+
+	}
+
+	function removeGame() {
+
+		// Clear any existing gameplay
+		window.clearInterval( data.timing.timers.endGame );
+
+		data.score.board.parent.removeChild( data.score.board.wrapper );
+		document.getElementById( 'main' ).removeChild( data.game );
 
 	}
 
@@ -652,15 +668,43 @@
 
 	function playAudio( clip ) {
 
+		var promise, success, failure;
+
+		success = audioSuccess;
+		failure = audioFailure;
+
+		if ( data.audio.menu == clip ) {
+			success = function() {
+				clip.onended = menuButtonCallback;
+			};
+			failure = menuButtonCallback;
+		}
+
 		if ( clip.paused ) {
-			clip.play();
+
+			promise = clip.play();
+
+			if ( undefined !== promise ) {
+				promise.then( success ).catch( failure );
+			}
+
 		} else {
-			clip.currentTime = 0
+
+			clip.currentTime = 0;
+
 		}
 
 	}
 
-	function audioDoneCallback() {
+	function audioSuccess() {
+		// console.log( 'playback ok' );
+	}
+
+	function audioFailure() {
+		// console.log( 'playback failed' );
+	}
+
+	function menuButtonCallback() {
 
 		switch ( data.status ) {
 			case 0:

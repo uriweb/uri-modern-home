@@ -12,7 +12,7 @@
 
 #endscreen {
 	
-	background: #0b0f37;
+	background: #1f494d;
 	box-sizing: border-box;
 	text-align: center;
 	display: none;
@@ -111,11 +111,25 @@
 	display: block;
 }
 
+#remove-game {
+	
+	margin-top: 1rem;
+	font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+	font-size: .5rem;
+	text-decoration: underline;
+	
+	&:hover,
+	&:focus {
+		cursor: pointer;
+	}
+	
+}
+
 #countdown {
 	
 	left: 50%;
 	transform: translate( -50%, -50% );
-	background: #0b0f37;
+	background: #1f494d;
 	box-sizing: border-box;
 	text-align: center;
 	display: none;
