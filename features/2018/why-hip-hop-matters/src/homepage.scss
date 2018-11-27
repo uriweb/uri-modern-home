@@ -32,6 +32,7 @@
 
 	.title {
 		display: block;
+		text-shadow: 0 0 1rem rgba(0,0,0,.3);
 	}
 
 	.cl-button {
@@ -42,7 +43,7 @@
 		max-width: 50%;
 		
 	}
-	
+		
 }
 
 @media screen and (min-width:350px) {
@@ -126,6 +127,10 @@
 
 #feature-hero.#{nth($tracks, 1)} {
 	
+	.block {
+		background: none;
+	}
+	
 	.superhead {
 		color: $theme-color-track-1;
 		border-bottom-color: $theme-color-track-1;
@@ -154,6 +159,14 @@
 
 #feature-hero.#{nth($tracks, 2)} {
 	
+	.block {
+		background: none;
+	}
+	
+	.still {
+		background-position: center top;
+	}
+	
 	.superhead {
 		color: $theme-color-track-2;
 		border-bottom-color: $theme-color-track-2;
@@ -169,6 +182,10 @@
 /* Making a Stand */
 
 #feature-hero.#{nth($tracks, 3)} {
+	
+	.block {
+		background: none;
+	}
 	
 	.superhead {
 		color: $theme-color-track-3-text;
@@ -205,6 +222,14 @@
 /* Finding a Voice */
 
 #feature-hero.#{nth($tracks, 5)} {
+	
+	.block {
+		background: none;
+	}
+	
+	.still {
+		background-position: 80% center;
+	}
 	
 	.superhead {
 		color: $theme-color-track-5-text;
