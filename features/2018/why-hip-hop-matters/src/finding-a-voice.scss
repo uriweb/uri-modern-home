@@ -20,6 +20,10 @@
 
 	}
 	
+	&>div:nth-child(1) {
+		background-position: 80% center;
+	}
+	
 }
 
 @media screen and (min-width:1000px) {
