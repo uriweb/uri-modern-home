@@ -61,6 +61,10 @@
 			cursor: pointer;
 		}
 		
+		&:active {
+			background: #333;
+		}
+		
 		#resume-game {
 			display: none;
 		}

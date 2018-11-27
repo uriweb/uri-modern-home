@@ -7,7 +7,8 @@
 	width: 100vw;
 	height: 100vh;
 	z-index: 15;
-	transition: opacity .2s ease-in-out;
+	filter: saturate(1);
+	transition: opacity .2s ease-in-out, filter .2s ease-in-out;
 	pointer-events: none;
 }
 
@@ -24,6 +25,7 @@
 #creature-container.paused {
 	z-index: 0;
 	opacity: .2;
+	filter: saturate(0);
 }
 
 .creature, .bubbles {
