@@ -425,6 +425,7 @@
 		// Clear any existing gameplay
 		window.clearInterval( data.timing.timers.endGame );
 
+		data.els.page.classList.remove( 'gameplay' );
 		data.score.board.parent.removeChild( data.score.board.wrapper );
 		document.getElementById( 'main' ).removeChild( data.game );
 
