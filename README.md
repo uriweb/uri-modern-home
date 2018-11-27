@@ -36,7 +36,7 @@ For complete details, see the [commit history](https://github.com/uriweb/uri-mod
 [![Codacy Badge](https://img.shields.io/codacy/grade/e0a03abdc4344cf79f92384a7ca76f27.svg)](https://www.codacy.com/app/uriweb/uri-modern-home?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=uriweb/uri-modern-home&amp;utm_campaign=Badge_Grade)
 [![devDependencies Status](https://david-dm.org/uriweb/uri-modern-home/dev-status.svg "devDependencies status")](https://david-dm.org/uriweb/uri-modern-home?type=dev)
 
-Contributors: Brandon Fuller  
+Contributors: Brandon Fuller, John Pennypacker  
 Tags: themes  
 Requires at least: 4.0  
 Tested up to: 4.9  
