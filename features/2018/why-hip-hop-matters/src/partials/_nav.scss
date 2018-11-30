@@ -225,6 +225,26 @@ nav.hip-hop {
 
 /* TRACKS */
 
+/* Generic */
+
+#feature-hero.hip-hop-generic {
+	
+	nav.hip-hop {
+		
+		a,
+		span.disabled-link {
+			color: #fff;
+		}
+
+		a:hover {
+			color: #fff;
+			background: $theme-color-generic;
+		}
+		
+	}
+	
+}
+
 /* Track 1: From Masta to Legend */
 
 body.ln-#{nth($tracks, 1)} .nav-hip-hop-wrapper label {
