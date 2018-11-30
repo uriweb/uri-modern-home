@@ -8,13 +8,13 @@
  */
 
 $template = null;
-if ( get_field( 'template' ) ) {
-	$template = get_field( 'template' );
+if ( uri_modern_home_get_field( 'template' ) ) {
+	$template = uri_modern_home_get_field( 'template' );
 }
 
 get_header( $template );
 
-if ( get_field( 'stylesheet' ) ) : ?>
+if ( uri_modern_home_get_field( 'stylesheet' ) ) : ?>
 	<style>@import url( <?php the_field( 'stylesheet' ); ?> )</style>
 <?php endif; ?>
 

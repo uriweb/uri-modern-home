@@ -31,8 +31,28 @@
 	}
 
 	.title {
+		
 		display: block;
 		text-shadow: 0 0 1rem rgba(0,0,0,.3);
+		
+		&.knockout {
+		
+			padding: 2rem;
+			background: #000;
+			text-shadow: none;
+			border-bottom: 6px solid $theme-color-generic;
+
+			span {
+				display: block;
+				font-family: "Oswald", "Hind", "Arial", sans-serif;
+				font-weight: 300;
+				text-transform: uppercase;
+				font-size: 1.5rem;
+				color: #fff;
+			}
+
+		}
+		
 	}
 
 	.cl-button {
@@ -65,6 +85,10 @@
 			font-size: 1rem;
 		}
 		
+		.title.knockout span {
+			font-size: 2rem;
+		}
+		
 	}
 	
 }
@@ -95,6 +119,10 @@
 			margin-left: 3rem;
 		}
 		
+		.title.knockout span {
+			font-size: 2.5rem;
+		}
+		
 	}
 	
 }
@@ -115,6 +143,10 @@
 		
 		.cl-button {
 			max-width: 400px;
+		}
+		
+		.title.knockout span {
+			font-size: 3rem;
 		}
 		
 	}
