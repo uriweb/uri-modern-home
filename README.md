@@ -2,22 +2,21 @@
 
 URI Modern Home is a WordPress theme designed for the University of Rhode Island homepage site. It is a child theme of URI Modern.
 
-## What's new in 1.4.1
+## What's new in 1.4.2
+
+URI Modern Home 1.4.2 is a bug fix release.
+
+* Adds generic homepage styles for the Why Hip-Hop Matters feature story series
+
+For complete details, see the [commit history](https://github.com/uriweb/uri-modern-home/pull/37/commits) and the [issue tracker](https://github.com/uriweb/uri-modern-home/issues). 
+
+## New in 1.4.1
 
 URI Modern Home 1.4.1 is a bug fix release.
 
 * Fixes style issues for the Why Hip-Hop Matters feature story series
 
 For complete details, see the [commit history](https://github.com/uriweb/uri-modern-home/pull/35/commits) and the [issue tracker](https://github.com/uriweb/uri-modern-home/issues). 
-
-## New in 1.4.0
-
-URI Modern Home 1.4.0 is a minor release.
-
-* Adds styles and assets for the Why Hip-Hop Matters feature story series
-* Updates development tools
-
-For complete details, see the [commit history](https://github.com/uriweb/uri-modern-home/pull/33/commits) and the [issue tracker](https://github.com/uriweb/uri-modern-home/issues). 
 
 ## How do I get set up?
 
