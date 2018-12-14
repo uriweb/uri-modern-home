@@ -1,0 +1,85 @@
+/* ==============================
+   URI FINALS GUIDE FALL 2018
+   ============================== */
+
+@import url(https://fonts.googleapis.com/css?family=Gochi+Hand);
+
+.content-canvas {
+	padding-top: 5rem;
+	padding-bottom: 3rem;
+}
+
+.content-body {
+	
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 4rem;
+	
+	h1 {
+		font-family: "Gochi Hand", "Lato", "Hind", sans-serif;
+		font-size: 3rem;
+	}
+
+	a:not(.cl-card) {
+		text-decoration: underline;
+	}
+	
+}
+
+.cl-card {
+	z-index: 10;
+}
+
+.section-header {
+	
+	padding: 20% 0 18%;
+	background: #333;
+	color: #fff;
+	
+	h1 {
+		font-size: 4rem;
+		color: #c28dff;
+		font-weight: 900;
+	}
+	
+}
+
+.section-take-a-wellness-break {
+	background: #1ba5ff;
+	color: #fff;
+}
+
+.section-write-with-a-plan {
+	background: #153e50;
+	color: #fff;
+}
+
+.section-read-like-a-professor {
+	background: #dfacff;
+}
+
+.section-ditch-the-phone {
+	background: #2b57dd;
+	color: #fff;
+}
+
+.section-take-a-wellness-break,
+.section-write-with-a-plan,
+.section-ditch-the-phone {
+	
+	a {
+		color: #fffc85;
+	}
+	
+}
+
+.section-take-a-wellness-break,
+.section-write-with-a-plan,
+.section-ditch-the-phone {
+	
+	h1 {
+		color: #fff;
+	}
+	
+}
