@@ -2,15 +2,14 @@
 
 URI Modern Home is a WordPress theme designed for the University of Rhode Island homepage site. It is a child theme of URI Modern.
 
-## What's new in 1.3.2
+## What's new in 1.5.0
 
-URI Modern Home 1.3.2 is a bug fix release.
+URI Modern Home 1.5.0 is a minor release.
 
-* Updates styles for URI: A User's Guide feature story
-* Reorganizes file structure of feature story assets
-	- **WARNING:** This is a breaking change. All longform feature story stylesheets and scripts must be repointed.
+* Adds styles for the URI Finals Guide feature story
+* Updates development tools
 
-For complete details, see the [commit history](https://github.com/uriweb/uri-modern-home/pull/25/commits) and the [issue tracker](https://github.com/uriweb/uri-modern-home/issues). 
+For complete details, see the [commit history](https://github.com/uriweb/uri-modern-home/pull/39/commits) and the [issue tracker](https://github.com/uriweb/uri-modern-home/issues). 
 
 ## How do I get set up?
 
@@ -22,13 +21,15 @@ For complete details, see the [commit history](https://github.com/uriweb/uri-mod
 
 ## Theme details
 
+[![GitHub release](https://img.shields.io/github/release/uriweb/uri-modern-home.svg)](https://github.com/uriweb/uri-modern-home/releases/latest)
+[![GitHub Release Date](https://img.shields.io/github/release-date/uriweb/uri-modern-home.svg)](https://github.com/uriweb/uri-modern-home/releases/latest)
 [![Master Build Status](https://travis-ci.org/uriweb/uri-modern-home.svg?branch=master "Master build status")](https://travis-ci.org/uriweb/uri-modern-home)
 [![CodeFactor](https://www.codefactor.io/repository/github/uriweb/uri-modern-home/badge/master)](https://www.codefactor.io/repository/github/uriweb/uri-modern-home/overview/master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e0a03abdc4344cf79f92384a7ca76f27?branch=master)](https://www.codacy.com/app/uriweb/uri-modern-home?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=uriweb/uri-modern-home&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://img.shields.io/codacy/grade/e0a03abdc4344cf79f92384a7ca76f27.svg)](https://www.codacy.com/app/uriweb/uri-modern-home?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=uriweb/uri-modern-home&amp;utm_campaign=Badge_Grade)
 [![devDependencies Status](https://david-dm.org/uriweb/uri-modern-home/dev-status.svg "devDependencies status")](https://david-dm.org/uriweb/uri-modern-home?type=dev)
 
-Contributors: Brandon Fuller  
+Contributors: Brandon Fuller, John Pennypacker  
 Tags: themes  
 Requires at least: 4.0  
 Tested up to: 4.9  
-Stable tag: 1.3.2  
+Stable tag: 1.5.0  

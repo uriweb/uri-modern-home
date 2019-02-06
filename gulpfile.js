@@ -15,7 +15,8 @@ var banner = ['/*',
   'Tags: education, theme-options',
   '',
   '@version v<%= pkg.version %>',
-  '@author <%= pkg.authorHuman %>',
+  '@author Brandon Fuller <bjcfuller@uri.edu>',
+  '@author John Pennypacker <jpennypacker@uri.edu>',
   '',
   '*/',
   ''].join('\n');
@@ -159,7 +160,7 @@ function watcher(done) {
 	gulp.watch('./src/sass/**/*', styles);
 	
 	// watch for Features CSS changes
-	gulp.watch('./features/**/src/**/*.scss', featuresCSS);
+	gulp.watch('./features/**/*.scss', featuresCSS);
 	
 	// watch for Features JS changes
 	gulp.watch('./features/**/src/*.js', featuresJS);
