@@ -7,30 +7,48 @@
 
 ( function () {
 
-	window.addEventListener( 'load', init, false );
+	window.addEventListener( 'load', checkDevice, false );
+
+	var data = {};
+	
+	function checkDevice() {
+		if ( window.innerWidth >= 600 ) {
+			init();
+		}
+	}
 
 	function init() {
 
-		var canvas = document.getElementById( "specks" );
-		var ctx = canvas.getContext( "2d" );
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
-		var particles = [];
-		var num_particles = 300;
+		data.canvas = document.getElementById( "specks" );
+		data.ctx = data.canvas.getContext( "2d" );
+		data.canvas.width = window.innerWidth;
+		data.canvas.height = window.innerHeight;
+		data.particles = [];
+		data.num_particles = 150;
+
+		data.curtains = document.querySelectorAll( '.story-direction-wrapper' );
+		data.triggers = getTriggerPoints();
+		data.state = false;
+
+		window.addEventListener( 'resize', getTriggerPoints(), false );
+		window.addEventListener( 'scroll', function() {
+			if ( getAnimationState() && false === data.state ) {
+					loop();
+			}
+		}, false );
 
 		// start with random starting position
 		var Particle = function () {
-			this.x = canvas.width * Math.random();
-			this.y = canvas.height * Math.random();
+			this.x = data.canvas.width * Math.random();
+			this.y = data.canvas.height * Math.random();
 			this.vx = -.2;
 			this.vy = Math.random() / 5;
 		}
-		// Ading two methods
-		Particle.prototype.Draw = function (ctx) {
-			ctx.beginPath();
-			ctx.fillStyle = "rgba(255,255,255,.5)";
-			ctx.arc( this.x, this.y, Math.random(), 0, 2 * Math.PI );
-			ctx.fill();
+
+		// Adding two methods
+		Particle.prototype.Draw = function ( ctx ) {
+			ctx.fillStyle = "rgba(255,255,255,.4)";
+			ctx.fillRect( this.x, this.y, 2, 2 );
 		}
 
 		Particle.prototype.Update = function () {
@@ -39,26 +57,71 @@
 			this.y += this.vy;
 
 			if (this.x < 0) {
-				this.x = canvas.width; // resets back to begining
+				this.x = data.canvas.width; // resets back to begining
 			}
-			if ( this.y < -20 || this.y > canvas.height + 20 ) { // when it hits the top or bottom bounce
+			if ( this.y < -20 || this.y > data.canvas.height + 20 ) { // when it hits the top or bottom bounce
 				this.vy = - this.vy * Math.random();
 			}
 		}
-		function loop() {
-			ctx.clearRect( 0, 0, canvas.width, canvas.height );
 
-			for (var i = 0; i < num_particles; i++) {
-				particles[i].Update();
-				particles[i].Draw( ctx );
+		// Create particles
+		for (var i = 0; i < data.num_particles; i++) {
+			data.particles.push( new Particle() );
+		}
+
+		loop();
+
+	}
+
+	function getTriggerPoints() {
+
+		var t = [], i, y;
+
+		y = window.pageYOffset;
+
+		for ( i = 0; i < data.curtains.length; i++ ) {
+			t.push( [ data.curtains[i].getBoundingClientRect().top + y, data.curtains[i].getBoundingClientRect().bottom + y ] );
+		}
+
+		return t;
+
+	}
+
+	function getAnimationState() {
+
+		var y, h, i, state;
+
+		y = window.pageYOffset;
+		h = window.innerHeight;
+
+		state = false;
+
+		for ( i = 0; i < data.triggers.length; i++ ) {
+			if ( y + h > data.triggers[i][0] && y < data.triggers[i][1] ) {
+				state = true;
+				break;
 			}
+		}
+
+		return state;
+
+	}
+
+	function loop() {
+
+		data.ctx.clearRect( 0, 0, data.canvas.width, data.canvas.height );
+
+		for (var i = 0; i < data.num_particles; i++) {
+			data.particles[i].Update();
+			data.particles[i].Draw( data.ctx );
+		}
+
+		data.state = false;
+		
+		if ( getAnimationState() ) {
+			data.state = true;
 			requestAnimationFrame( loop );
 		}
-		// Create particles
-		for (var i = 0; i < num_particles; i++) {
-			particles.push( new Particle() );
-		}
-		loop();
 
 	}
 
