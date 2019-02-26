@@ -1,3 +1,108 @@
 /* ==============================
    THEATRE - BASE STYLES
    ============================== */
+
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab:400|Special+Elite|Limelight|Josefin+Sans');
+
+.globalnav {
+	display: none;
+}
+
+body {
+	position: relative;
+	background: #000;
+}
+
+#main {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.post-navigation {
+	display: none;
+}
+
+.story-direction-wrapper {
+	padding-top: 90vh;
+	padding-bottom: 90vh;
+	background: linear-gradient( to bottom, rgba(0,0,0,1), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 90%);
+}
+
+.story-direction {	
+	font-family: "Special Elite", "Charter", serif;
+	font-size: 1rem;
+	max-width: 500px;
+	color: #fff;
+}
+
+.scene-header {
+	text-transform: uppercase;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+#story-hero {
+	
+	position: relative;
+	
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	h1 {
+		position: absolute;
+		font-family: "Limelight", serif;
+		font-size: 6vw;
+		top: 20%;
+		left: 10%;
+		max-width: 40%;
+		color: #fff;
+	}
+	
+}
+
+#deck-wrapper {
+	background: #000;
+}
+
+#deck {
+
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+	
+	p {
+		font-family: "Josefin Sans", "Hind", Arial, sans-serif;
+		color: #fff;
+		max-width: 600px;
+		margin: 0 auto 2rem;
+		font-size: 1.5rem;
+		text-align: center;
+	}
+	
+}
+
+.story-content-wrapper {
+	background: #fafafa;
+}
+
+.story-content {
+	
+	font-family: "Zilla Slab", "Charter", serif;
+	font-size: 1.1rem;
+	max-width: 650px;
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+	
+	p:first-child:first-letter {
+		color: #000;
+		float: left;
+		font-size: 4.5rem;
+		font-family: "Limelight";
+		line-height: 3rem;
+		padding-top: 10px;
+		padding-right: 8px;
+	}
+	
+}
