@@ -24,7 +24,7 @@
 		data.canvas.width = window.innerWidth;
 		data.canvas.height = window.innerHeight;
 		data.particles = [];
-		data.num_particles = 150;
+		data.num_particles = 200;
 
 		data.curtains = document.querySelectorAll( '.story-direction-wrapper' );
 		data.triggers = getTriggerPoints();
@@ -47,7 +47,7 @@
 
 		// Adding two methods
 		Particle.prototype.Draw = function ( ctx ) {
-			ctx.fillStyle = "rgba(255,255,255,.4)";
+			ctx.fillStyle = "rgba(255,255,255,.5)";
 			ctx.fillRect( this.x, this.y, 2, 2 );
 		}
 
@@ -75,12 +75,16 @@
 
 	function getTriggerPoints() {
 
-		var t = [], i, y;
+		var t = [], i, y, h;
 
 		y = window.pageYOffset;
+		h = window.innerHeight;
 
 		for ( i = 0; i < data.curtains.length; i++ ) {
-			t.push( [ data.curtains[i].getBoundingClientRect().top + y, data.curtains[i].getBoundingClientRect().bottom + y ] );
+			t.push([
+				data.curtains[i].getBoundingClientRect().top + y + ( h * .1 ),
+				data.curtains[i].getBoundingClientRect().bottom + y - ( h * .5 )
+			]);
 		}
 
 		return t;

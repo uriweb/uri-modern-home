@@ -22,19 +22,6 @@ body {
 	display: none;
 }
 
-.story-direction-wrapper {
-	padding-top: 90vh;
-	padding-bottom: 90vh;
-	background: linear-gradient( to bottom, rgba(0,0,0,1), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 90%);
-}
-
-.story-direction {	
-	font-family: "Special Elite", "Charter", serif;
-	font-size: 1rem;
-	max-width: 500px;
-	color: #fff;
-}
-
 .scene-header {
 	text-transform: uppercase;
 	margin-bottom: 1rem;
@@ -93,16 +80,27 @@ body {
 	font-size: 1.1rem;
 	max-width: 650px;
 	padding-top: 4rem;
-	padding-bottom: 4rem;
+	padding-bottom: 8rem;
 	
 	p:first-child:first-letter {
-		color: #000;
 		float: left;
 		font-size: 4.5rem;
 		font-family: "Limelight";
 		line-height: 3rem;
 		padding-top: 10px;
 		padding-right: 8px;
+	}
+	
+}
+
+.artboard {
+	
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+	
+	img {
+		margin: 0;
+		padding: 0;
 	}
 	
 }

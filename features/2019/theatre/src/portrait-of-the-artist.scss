@@ -5,3 +5,27 @@
 @import 'partials/base';
 @import 'partials/nav';
 @import 'partials/specks';
+
+.story-direction-wrapper {
+	padding-top: 90vh;
+	padding-bottom: 120vh;
+	background: linear-gradient( to bottom, rgba(0,0,0,1), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 80%);
+}
+
+.story-direction {	
+	font-family: "Special Elite", "Charter", serif;
+	font-size: 1rem;
+	max-width: 500px;
+	color: #fff;
+}
+
+/*
+.scene-1 {
+	background: linear-gradient( #6a000c calc( 100% - 12rem ), #000 );
+	color: #fff;
+}
+
+.scene-2 {
+	background: linear-gradient( #9cffd5 calc( 100% - 12rem ), #000 );
+}
+*/
