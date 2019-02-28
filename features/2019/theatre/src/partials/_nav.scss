@@ -1,3 +1,205 @@
 /* ==============================
    THEATRE - NAVIGATION
    ============================== */
+
+@import url('https://fonts.googleapis.com/css?family=Spectral+SC:700');
+
+.theatre-series-navigation-wrapper {
+	position: relative;
+	z-index: 10;
+}
+
+.theatre-series-navigation {
+	background: $playbill;
+}
+
+.playbill {
+	
+	width: 100%;
+	position: relative;
+	border-bottom: 4px solid #000;
+
+	label {
+		
+		position: relative;
+		background: #fff;
+		z-index: 20;
+		font-family: "Spectral SC", "Charter", serif;
+		font-size: 1.5vw;
+		text-transform: uppercase;
+		padding: .5rem 0;
+		display: block;
+		text-align: center;
+		transition: all .2s ease-in-out;
+		
+		span {
+			
+			position: relative;
+			
+			&:after {
+				position: absolute;
+				right: -20px;
+				top: calc( 50% - 4px );
+				display: block;
+				content: '';
+				width: 0;
+				height: 0;
+				border-top: 6px solid #000;
+				border-left: 6px solid transparent;
+				border-right: 6px solid transparent;
+				transition: all .2s ease-in-out;
+			}
+			
+		}
+		
+		&:hover {
+			cursor: pointer;
+			background: $playbill;
+		}
+		
+	}
+	
+	input {
+		
+		display: none;
+		
+		&:checked {
+			
+			& ~ .nav-acts-wrapper .nav-acts {
+				transform: translateY( 0 );
+				box-shadow: 0 1rem 2rem rgba(0,0,0,.6);
+			}
+			
+			& ~ label {
+				
+				font-size: 5vw;
+				padding: 1rem 0;
+				background: $playbill;
+				
+				span:after {
+					top: calc( 50% - 10px );
+					right: -60px;
+					border-top: none;
+					border-bottom: 20px solid #000;
+					border-left: 20px solid transparent;
+					border-right: 20px solid transparent;
+				}
+				
+			}
+			
+			& ~ .nav-theatre {
+				display: block;
+			}
+			
+		}
+		
+	}
+	
+}
+
+.nav-theatre {
+	font-size: 1.3rem;
+	font-family: "Hind", sans-serif;
+	display: none;
+	text-align: center;
+	text-transform: uppercase;
+	padding-bottom: 1rem;
+}
+
+.nav-acts-wrapper {
+	position: relative;
+	z-index: 10;
+}
+
+.nav-acts {
+	
+	position: absolute;
+	background: #fff;
+	border-top: 4px solid #000;
+	border-bottom: 10px solid #000;
+	left: 0;
+	top: 0;
+	transform: translateY( -100% );
+	transition: transform .2s ease-in-out;
+	
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+	}
+	
+	ul:after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+	
+	li {
+		
+		display: block;
+		margin: 0;
+		padding: 0;
+		border-left: 2px solid #000;
+		border-right: 2px solid #000;
+		background: #fff;
+		transition: background .2s ease-in-out;
+		
+		&:hover,
+		&:focus {
+			background: $playbill;
+		}
+		
+		&:first-child {
+			border-left: none;
+		}
+		
+		&:last-child {
+			border-right: none;
+		}
+		
+		a, span.disabled {
+			padding: 2rem;
+			display: block;
+		}
+		
+		a {
+			color: #000;
+		}
+		
+		span.disabled {
+			color: #999;
+			background: #fff;
+		}
+		
+		.date {
+			display: block;
+			font-family: "Hind", sans-serif;
+			font-size: 1rem;
+			margin-bottom: 1rem;
+			text-transform: uppercase;
+		}
+		
+		.title {
+			display: block;
+			font-family: "Coolvetica", sans-serif;
+			font-size: 2rem;
+			line-height: 1.8rem;
+		}
+		
+	}
+	
+}
+
+@each $s in $stories {
+	
+	body.ln-#{$s} .nav-acts li.nav-#{$s} {
+		background: #000;
+		
+		a {
+			color: #fff;
+		}
+		
+	}
+	
+}

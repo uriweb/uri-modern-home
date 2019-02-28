@@ -2,7 +2,27 @@
    THEATRE - BASE STYLES
    ============================== */
 
-@import url('https://fonts.googleapis.com/css?family=Zilla+Slab:400|Special+Elite|Limelight|Josefin+Sans');
+/* VARS */
+
+$stories: 
+	theatre-series-portrait-of-the-artist
+	theatre-series-two
+	theatre-series-three
+	theatre-series-four
+	theatre-series-five;
+
+$playbill: #ffe200;
+
+/* FONTS */
+
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Zilla+Slab');
+
+@font-face {
+	font-family: "Coolvetica";
+	src: url( f/coolvetica_rg.ttf );
+}
+
+/* STYLES */
 
 .globalnav {
 	display: none;
@@ -40,12 +60,13 @@ body {
 
 	h1 {
 		position: absolute;
-		font-family: "Limelight", serif;
-		font-size: 6vw;
-		top: 20%;
-		left: 10%;
-		max-width: 40%;
-		color: #fff;
+		font-family: "Coolvetica", serif;
+		font-size: 11.5vw;
+		top: 10vw;
+		left: 0;
+		max-width: 60%;
+		color: #ff223b;
+		line-height: 9.5vw;
 	}
 	
 }
@@ -60,12 +81,18 @@ body {
 	padding-bottom: 4rem;
 	
 	p {
-		font-family: "Josefin Sans", "Hind", Arial, sans-serif;
+		font-family: "Zilla Slab", "Charter", serif;
 		color: #fff;
-		max-width: 600px;
+		max-width: 650px;
 		margin: 0 auto 2rem;
 		font-size: 1.5rem;
+		font-weight: 600;
 		text-align: center;
+		letter-spacing: 2px;
+	}
+	
+	p:nth-child(2) {
+		color: #ff223b;
 	}
 	
 }
@@ -85,10 +112,11 @@ body {
 	p:first-child:first-letter {
 		float: left;
 		font-size: 4.5rem;
-		font-family: "Limelight";
+		font-family: "Coolvetica";
 		line-height: 3rem;
 		padding-top: 10px;
 		padding-right: 8px;
+		color: #ff223b;
 	}
 	
 }

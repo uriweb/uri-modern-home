@@ -10,7 +10,7 @@
 	window.addEventListener( 'load', checkDevice, false );
 
 	var data = {};
-	
+
 	function checkDevice() {
 		if ( window.innerWidth >= 600 ) {
 			init();
@@ -31,11 +31,15 @@
 		data.state = false;
 
 		window.addEventListener( 'resize', getTriggerPoints(), false );
-		window.addEventListener( 'scroll', function() {
+		window.addEventListener(
+			 'scroll',
+			function() {
 			if ( getAnimationState() && false === data.state ) {
 					loop();
 			}
-		}, false );
+		},
+			false
+			);
 
 		// start with random starting position
 		var Particle = function () {
@@ -81,10 +85,12 @@
 		h = window.innerHeight;
 
 		for ( i = 0; i < data.curtains.length; i++ ) {
-			t.push([
+			t.push(
+				[
 				data.curtains[i].getBoundingClientRect().top + y + ( h * .1 ),
 				data.curtains[i].getBoundingClientRect().bottom + y - ( h * .5 )
-			]);
+			]
+				);
 		}
 
 		return t;
@@ -121,7 +127,7 @@
 		}
 
 		data.state = false;
-		
+
 		if ( getAnimationState() ) {
 			data.state = true;
 			requestAnimationFrame( loop );
