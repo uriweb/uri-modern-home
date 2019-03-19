@@ -1,0 +1,72 @@
+/* ==============================
+   THEATRE - TAKING CENTER STAGE
+   ============================== */
+
+@import 'partials/base';
+@import 'partials/nav';
+@import 'partials/specks';
+
+#story-hero {
+	
+	position: relative;
+	
+	h1 {
+		top: 8vw;
+		max-width: 100%;
+		width: 100vw;
+		font-size: 11vw;
+		color: #ffca25;
+		text-align: center;
+	}
+	
+	#hero-slice {
+		display: none;
+	}
+	
+}
+
+#deck-wrapper {
+	background: #ffca25;
+}
+
+#deck {
+
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+	
+	p {
+		font-family: "Zilla Slab", "Charter", serif;
+		color: #000;
+		max-width: 650px;
+		margin: 0 auto 2rem;
+		font-size: 1.5rem;
+		font-weight: 600;
+		text-align: center;
+		letter-spacing: 2px;
+	}
+	
+	p:nth-child(2) {
+		color: #ff223b;
+	}
+	
+}
+
+#story-hero.has-js {
+	
+	position: fixed !important;
+	
+	#hero-slice {
+		display: block;
+		position: absolute;
+		top: 25.5%;
+		left: 0;
+	}
+
+	h1 {
+		position: absolute;
+		top: 50%;
+		opacity: 0;
+	}
+
+}
+

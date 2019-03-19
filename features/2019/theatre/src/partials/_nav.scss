@@ -25,7 +25,7 @@
 		background: #fff;
 		z-index: 20;
 		font-family: "Spectral SC", "Charter", serif;
-		font-size: 1.5vw;
+		font-size: .9rem;
 		text-transform: uppercase;
 		padding: .5rem 0;
 		display: block;
@@ -48,6 +48,7 @@
 				border-left: 6px solid transparent;
 				border-right: 6px solid transparent;
 				transition: all .2s ease-in-out;
+				transform: scale(1) translatex(0);
 			}
 			
 		}
@@ -72,17 +73,12 @@
 			
 			& ~ label {
 				
-				font-size: 5vw;
+				font-size: 2rem;
 				padding: 1rem 0;
 				background: $playbill;
 				
 				span:after {
-					top: calc( 50% - 10px );
-					right: -60px;
-					border-top: none;
-					border-bottom: 20px solid #000;
-					border-left: 20px solid transparent;
-					border-right: 20px solid transparent;
+					transform: scale(2) translatex(30%);
 				}
 				
 			}
@@ -98,7 +94,7 @@
 }
 
 .nav-theatre {
-	font-size: 1.3rem;
+	font-size: 1rem;
 	font-family: "Hind", sans-serif;
 	display: none;
 	text-align: center;
@@ -112,7 +108,7 @@
 }
 
 .nav-acts {
-	
+
 	position: absolute;
 	background: #fff;
 	border-top: 4px solid #000;
@@ -121,72 +117,253 @@
 	top: 0;
 	transform: translateY( -100% );
 	transition: transform .2s ease-in-out;
-	
+	width: 100%;
+
 	ul {
 		margin: 0;
 		padding: 0;
 		list-style: none;
-		display: flex;
+		display: block;
 	}
-	
+
 	ul:after {
 		display: block;
 		content: '';
 		clear: both;
 	}
-	
+
 	li {
-		
+
 		display: block;
 		margin: 0;
 		padding: 0;
-		border-left: 2px solid #000;
-		border-right: 2px solid #000;
 		background: #fff;
+		border-bottom: 2px solid #000;
 		transition: background .2s ease-in-out;
-		
-		&:hover,
-		&:focus {
+		max-width: initial;
+
+		&:not(.disabled):hover,
+		&:not(.disabled):focus {
 			background: $playbill;
 		}
-		
-		&:first-child {
-			border-left: none;
-		}
-		
-		&:last-child {
-			border-right: none;
-		}
-		
-		a, span.disabled {
-			padding: 2rem;
+
+		a, span.link {
+			padding: 1rem;
 			display: block;
 		}
-		
+
 		a {
 			color: #000;
 		}
-		
-		span.disabled {
+
+		span.link {
 			color: #999;
 			background: #fff;
 		}
-		
+
 		.date {
 			display: block;
 			font-family: "Hind", sans-serif;
-			font-size: 1rem;
-			margin-bottom: 1rem;
+			font-size: .9rem;
+			margin-bottom: .5rem;
 			text-transform: uppercase;
 		}
-		
+
 		.title {
 			display: block;
 			font-family: "Coolvetica", sans-serif;
-			font-size: 2rem;
+			font-size: 1.8rem;
 			line-height: 1.8rem;
 		}
+
+	}
+
+}
+
+@media screen and (min-width: 800px) {
+	
+	.playbill {
 		
+		label {
+			
+			font-size: 1.1rem;
+			padding: .8rem;
+			
+			span:after {
+				transform: scale(1.1) translatex(5%);
+			}
+			
+		}
+		
+		input:checked ~ label {
+				
+			font-size: 2.8rem;
+
+			span:after {
+				transform: scale(2.2) translatex(35%);
+			}
+
+		}
+
+	}
+	
+	.nav-theatre {
+		font-size: 1.3rem;
+	}
+	
+	.nav-acts {
+
+		ul {
+			display: flex;
+		}
+
+		li {
+
+			flex-basis: 20%;
+			display: block;
+			border-bottom: none;
+			border-left: 2px solid #000;
+			border-right: 2px solid #000;
+
+			&:first-child {
+				border-left: none;
+			}
+
+			&:last-child {
+				border-right: none;
+			}
+			
+			a, span.link {
+				padding: 1rem;
+			}
+
+			.date {
+				font-size: .9rem;
+				margin-bottom: .8rem;
+			}
+
+			.title {
+				font-size: 1.3rem;
+				line-height: 1.3rem;
+			}
+
+		}
+
+	}
+	
+}
+
+@media screen and (min-width: 900px) {
+	
+	.nav-acts {
+		
+		li {
+			
+			a, span.link {
+				padding: 1.2rem;
+			}
+			
+			.date {
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+			
+			.title {
+				font-size: 1.5rem;
+				line-height: 1.5rem;
+			}
+			
+		}
+		
+	}
+	
+}
+
+
+@media screen and (min-width: 1000px) {
+	
+	.playbill {
+		
+		label {
+			
+			font-size: 1.3rem;
+			padding: .9rem;
+			
+			span:after {
+				transform: scale(1.2) translatex(10%);
+			}
+			
+		}
+		
+		input:checked ~ label {
+				
+			font-size: 3.5rem;
+
+			span:after {
+				transform: scale(2.8) translatex(45%);
+			}
+
+		}
+
+	}
+	
+	.nav-theatre {
+		font-size: 1.5rem;
+	}
+	
+	.nav-acts {
+		
+		li {
+			
+			a, span.link {
+				padding: 2rem;
+			}
+			
+			.date {
+				font-size: 1rem;
+				margin-bottom: 1rem;
+			}
+			
+			.title {
+				font-size: 2rem;
+				line-height: 1.8rem;
+			}
+			
+		}
+		
+	}
+	
+}
+
+@media screen and (min-width: 1400px) {
+	
+	.playbill {
+		
+		label {
+			
+			font-size: 1.5rem;
+			padding: 1.1rem;
+			
+			span:after {
+				transform: scale(1.4) translatex(15%);
+			}
+			
+		}
+		
+		input:checked ~ label {
+				
+			font-size: 4rem;
+
+			span:after {
+				transform: scale(3.2) translatex(60%);
+			}
+
+		}
+
+	}
+	
+	.nav-theatre {
+		font-size: 1.8rem;
 	}
 	
 }

@@ -7,7 +7,7 @@
 $stories: 
 	theatre-series-portrait-of-the-artist
 	theatre-series-taking-center-stage
-	theatre-series-anatomy-of-a-production
+	theatre-series-backstage-pass
 	theatre-series-rising-stars
 	theatre-series-uri-theatre-coast-to-coast;
 
@@ -53,46 +53,18 @@ body {
 	position: relative;
 	
 	img {
-		width: 100%;
+		width: 100vw;
 		height: auto;
 		display: block;
+		padding: 0;
 	}
 
 	h1 {
 		position: absolute;
 		font-family: "Coolvetica", serif;
 		font-size: 11.5vw;
-		top: 10vw;
 		left: 0;
-		max-width: 60%;
-		color: #ff223b;
 		line-height: 9.5vw;
-	}
-	
-}
-
-#deck-wrapper {
-	background: #000;
-}
-
-#deck {
-
-	padding-top: 4rem;
-	padding-bottom: 4rem;
-	
-	p {
-		font-family: "Zilla Slab", "Charter", serif;
-		color: #fff;
-		max-width: 650px;
-		margin: 0 auto 2rem;
-		font-size: 1.5rem;
-		font-weight: 600;
-		text-align: center;
-		letter-spacing: 2px;
-	}
-	
-	p:nth-child(2) {
-		color: #ff223b;
 	}
 	
 }
