@@ -34,7 +34,7 @@
 
 		var heroH = data.hero.offsetHeight;
 		var ypos = window.pageYOffset;
-				
+
 		data.deck.style.marginTop = heroH * 1.2 + 'px';
 
 		data.title.setAttribute( 'style', 'transform: translatey(' + ( -ypos / 1.5 ) + 'px); opacity: ' + Math.min( 1, ypos / 200 ) );

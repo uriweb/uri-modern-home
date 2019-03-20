@@ -6,6 +6,10 @@
 @import 'partials/nav';
 @import 'partials/specks';
 
+body {
+	background: #000;
+}
+
 #story-hero h1 {
 	top: 10vw;
 	max-width: 60%;

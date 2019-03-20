@@ -6,6 +6,10 @@
 @import 'partials/nav';
 @import 'partials/specks';
 
+body {
+	background: #000;
+}
+
 #story-hero {
 	
 	position: relative;
@@ -45,10 +49,6 @@
 		letter-spacing: 2px;
 	}
 	
-	p:nth-child(2) {
-		color: #ff223b;
-	}
-	
 }
 
 #story-hero.has-js {
@@ -68,5 +68,40 @@
 		opacity: 0;
 	}
 
+}
+
+#intro-wrapper,
+.profile-wrapper {
+	background: #fafafa;
+}
+
+#intro,
+.profile {
+	padding-top: 5rem;
+	padding-bottom: 3rem;
+	max-width: 650px;
+	margin: 0 auto;
+	font-family: "Zilla Slab", "Charter", serif;
+	font-size: 1.1rem;
+}
+
+.name,
+.role,
+.other {
+	font-family: "Cutive Mono", "Special Elite", "Charter", serif;
+	font-size: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.name {
+	display: inline-block;
+	font-weight: 900;
+	padding: .5rem;
+	margin-left: -.5rem;
+	background: #ffca25;
+}
+
+.profile>div:last-of-type {
+	margin-bottom: 3rem;
 }
 
