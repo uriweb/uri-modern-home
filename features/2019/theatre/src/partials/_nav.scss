@@ -180,6 +180,42 @@
 
 }
 
+.theatre-series-navigation-wrapper.footer {
+	
+	.playbill {
+		
+		border-top: 4px solid #000;
+		
+		label,
+		input {
+			pointer-events: none;
+		}
+		
+		label {
+				
+			font-size: 2rem;
+			padding: 1rem 0;
+			background: $playbill;
+
+			span:after {
+				display: none;
+			}
+
+		}
+		
+	}
+	
+	.nav-acts {
+		position: relative;
+		transform: none;
+	}
+	
+	.nav-theatre {
+		display: block;
+	}
+	
+}
+
 @media screen and (min-width: 800px) {
 	
 	.playbill {
@@ -205,6 +241,10 @@
 
 		}
 
+	}
+	
+	.theatre-series-navigation-wrapper.footer .playbill label {
+		font-size: 2.8rem;
 	}
 	
 	.nav-theatre {
@@ -307,6 +347,10 @@
 
 	}
 	
+	.theatre-series-navigation-wrapper.footer .playbill label {
+		font-size: 3.5rem;
+	}
+	
 	.nav-theatre {
 		font-size: 1.5rem;
 	}
@@ -360,6 +404,10 @@
 
 		}
 
+	}
+	
+	.theatre-series-navigation-wrapper.footer .playbill label {
+			font-size: 4rem;		
 	}
 	
 	.nav-theatre {

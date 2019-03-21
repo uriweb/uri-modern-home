@@ -6,10 +6,14 @@
 @import 'partials/nav';
 @import 'partials/specks';
 
+body {
+	background: #00202e;
+}
+
 #story-hero h1 {
 	top: 10vw;
 	max-width: 60%;
-	color: #ff223b;
+	color: #e0cddb;
 }
 
 #deck-wrapper {
@@ -25,22 +29,22 @@
 		font-family: "Zilla Slab", "Charter", serif;
 		color: #fff;
 		max-width: 650px;
-		margin: 0 auto 2rem;
-		font-size: 1.5rem;
+		margin: 0 auto 4rem;
+		font-size: 1.2rem;
 		font-weight: 600;
 		text-align: center;
 		letter-spacing: 2px;
 	}
 	
-	p:nth-child(2) {
-		color: #ff223b;
+	p:last-child {
+		color: #48c8e0;
 	}
 	
 }
 
 .story-direction-wrapper {
-	padding-top: 90vh;
-	padding-bottom: 120vh;
+	padding-top: 60vh;
+	padding-bottom: 60vh;
 	background: linear-gradient( to bottom, rgba(0,0,0,1), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 80%);
 }
 
@@ -51,4 +55,9 @@
 	max-width: 450px;
 	color: #fff;
 	
+}
+
+.story-content-wrapper img {
+	margin: 0;
+	padding: 0;
 }
