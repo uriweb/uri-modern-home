@@ -19,7 +19,7 @@ body {
 		max-width: 100%;
 		width: 100vw;
 		font-size: 11vw;
-		color: #ffca25;
+		color: $story-2-color;
 		text-align: center;
 	}
 	
@@ -30,7 +30,7 @@ body {
 }
 
 #deck-wrapper {
-	background: #ffca25;
+	background: $story-2-color;
 }
 
 #deck {
@@ -102,7 +102,7 @@ body {
 	font-weight: 900;
 	padding: .5rem;
 	margin-left: -.5rem;
-	background: #ffca25;
+	background: $story-2-color;
 }
 
 .profile>div:last-of-type {

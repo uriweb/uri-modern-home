@@ -418,7 +418,8 @@
 
 @each $s in $stories {
 	
-	body.ln-#{$s} .nav-acts li.nav-#{$s} {
+	body.ln-#{$s} .nav-acts li.nav-#{$s},
+	#feature-hero.#{$s} .nav-acts li.nav-#{$s} {
 		background: #000;
 		
 		a {

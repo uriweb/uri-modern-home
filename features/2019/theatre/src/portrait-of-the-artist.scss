@@ -13,7 +13,7 @@ body {
 #story-hero h1 {
 	top: 10vw;
 	max-width: 60%;
-	color: #ff223b;
+	color: $story-1-color;
 }
 
 #deck-wrapper {
@@ -37,7 +37,7 @@ body {
 	}
 	
 	p:nth-child(2) {
-		color: #ff223b;
+		color: $story-1-color;
 	}
 	
 }
@@ -58,7 +58,7 @@ body {
 }
 
 .story-content p:first-child:first-letter {
-	color: #ff223b;
+	color: $story-1-color;
 }
 
 /*
