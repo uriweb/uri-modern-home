@@ -75,6 +75,10 @@ body {
 	background: #fafafa;
 }
 
+.profile-wrapper:nth-child(even) {
+	background: #e3e3e3;
+}
+
 #intro,
 .profile {
 	padding-top: 5rem;

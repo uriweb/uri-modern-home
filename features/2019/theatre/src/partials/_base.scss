@@ -73,14 +73,18 @@ body {
 }
 
 .story-content {
-	
 	font-family: "Zilla Slab", "Charter", serif;
 	font-size: 1.1rem;
 	max-width: 650px;
 	padding-top: 4rem;
 	padding-bottom: 8rem;
+}
+
+#intro p:first-child,
+.story-content p:first-child,
+.profile p:first-of-type {
 	
-	p:first-child:first-letter {
+	&:first-letter {
 		float: left;
 		font-size: 4.5rem;
 		font-family: "Coolvetica";
@@ -90,6 +94,7 @@ body {
 	}
 	
 }
+	
 
 .artboard {
 	

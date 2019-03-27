@@ -48,7 +48,7 @@
 	}
 	
 	p:first-child:first-letter {
-		color: inherit;
+		color: #ffd31c;
 	}
 	
 }
@@ -70,5 +70,11 @@
 	h2 {
 		color: #fff465;
 	}
+	
+}
+
+.story-content-wrapper:nth-of-type(odd) {
+	
+	background: #ff957a;
 	
 }
