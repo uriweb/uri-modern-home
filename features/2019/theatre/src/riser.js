@@ -33,9 +33,9 @@
 	function scroll() {
 
 		var ypos, heroH;
-		
+
 		ypos = window.pageYOffset;
-		
+
 		if ( ypos > window.innerHeight * 1.5 ) {
 			return;
 		}
