@@ -11,7 +11,7 @@ body {
 }
 
 #story-hero h1 {
-	top: 10vw;
+	top: 8vw;
 	max-width: 60%;
 	color: #e0cddb;
 }
@@ -45,16 +45,14 @@ body {
 .story-direction-wrapper {
 	padding-top: 60vh;
 	padding-bottom: 60vh;
-	background: linear-gradient( to bottom, rgba(0,0,0,1), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 80%);
+	background: linear-gradient( to bottom, rgba(0,0,0,1), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 90%);
 }
 
 .story-direction {	
-	
 	font-family: "Cutive Mono", "Special Elite", "Charter", serif;
 	font-size: 1rem;
 	max-width: 450px;
 	color: #fff;
-	
 }
 
 .story-content-wrapper img {

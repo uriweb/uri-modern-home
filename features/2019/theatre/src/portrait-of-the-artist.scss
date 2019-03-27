@@ -57,6 +57,10 @@ body {
 	
 }
 
+.story-content p:first-child:first-letter {
+	color: #ff223b;
+}
+
 /*
 .scene-1 {
 	background: linear-gradient( #6a000c calc( 100% - 12rem ), #000 );
