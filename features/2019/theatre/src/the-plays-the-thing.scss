@@ -1,0 +1,74 @@
+/* ==============================
+   THEATRE - THE PLAY'S THE THING
+   ============================== */
+
+@import 'partials/base';
+@import 'partials/nav';
+
+#story-hero h1 {
+	top: 10vw;
+	max-width: 40%;
+	color: #fff465;
+}
+
+#deck-wrapper {
+	background: #000;
+}
+
+#deck {
+
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+	
+	p {
+		font-family: "Zilla Slab", "Charter", serif;
+		color: #fff;
+		max-width: 650px;
+		margin: 0 auto 2rem;
+		font-size: 1.5rem;
+		font-weight: 600;
+		text-align: center;
+		letter-spacing: 2px;
+	}
+	
+	p:nth-child(2) {
+		color: #fff465;
+	}
+	
+}
+
+.story-content {
+	
+	h2 {
+		font-family: "Coolvetica", serif;
+		font-size: 3rem;
+		max-width: 500px;
+		line-height: 2.5rem;
+		color: #ffd31c;
+	}
+	
+	p:first-child:first-letter {
+		color: inherit;
+	}
+	
+}
+
+@media screen and (min-width: 600px) {
+	
+	.story-content h2 {
+		font-size: 4rem;
+		line-height: 3.5rem;
+	}
+	
+}
+
+.story-content-wrapper:nth-of-type(even) {
+	
+	background: #333;
+	color: #fff;
+	
+	h2 {
+		color: #fff465;
+	}
+	
+}
