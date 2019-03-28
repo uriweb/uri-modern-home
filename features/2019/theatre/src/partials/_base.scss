@@ -29,7 +29,7 @@ $story-5-color: #70ffda;
 
 /* STYLES */
 
-body:not(.home) .globalnav {
+body:not(.home):not(.ln-preview) .globalnav {
 	display: none;
 }
 
