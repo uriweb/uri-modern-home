@@ -37,6 +37,10 @@
 	
 }
 
+.story-content-wrapper {
+	background: #ff957a;
+}
+
 .story-content {
 	
 	h2 {
@@ -62,19 +66,20 @@
 	
 }
 
-.story-content-wrapper:nth-of-type(even) {
+.story-content-wrapper {
 	
-	background: #333;
-	color: #fff;
+	&.section-work-hard, 
+	&.section-learn-entertain-provoke, 
+	&.section-in-charge,
+	&.section-find-work {
 	
-	h2 {
-		color: $story-4-color;
-	}
-	
-}
+		background: #333;
+		color: #fff;
 
-.story-content-wrapper:nth-of-type(odd) {
-	
-	background: #ff957a;
+		h2 {
+			color: $story-4-color;
+		}
+
+	}
 	
 }
