@@ -105,10 +105,30 @@ body {
 	
 	margin-top: 4rem;
 	margin-bottom: 4rem;
+	font-family: "Coolvetica";
+	font-size: .9rem;
 	
 	img {
 		margin: 0;
-		padding: 0;
+		padding: 0 0 1rem;
 	}
 	
+	.feature-caption {
+		width: 100%;
+		max-width: 650px;
+		margin: 0 auto;
+	}
+	
+	&.breakout .feature-caption {
+		width: calc( 100% - 50px );
+		margin: 0 25px;
+	}
+	
+}
+
+@media screen and (min-width: 700px) {
+	.artboard.breakout .feature-caption {
+		width: 100%;
+		margin: 0 auto;
+	}
 }
