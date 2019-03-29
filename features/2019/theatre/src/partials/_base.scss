@@ -105,47 +105,50 @@ body {
 	
 	margin-top: 4rem;
 	margin-bottom: 4rem;
-	font-family: "Coolvetica";
-	font-size: .9rem;
 	
 	img {
 		margin: 0;
 		padding: 0 0 1rem;
 	}
 	
-	.feature-caption {
+}
+
+.feature-caption {
 		
-		width: 100%;
-		max-width: 650px;
-		margin: 0 auto;
-		color: rgba(0,0,0,.5);
-		
+	font-family: "Coolvetica";
+	font-size: .9rem;
+	width: 100%;
+	margin: 0 auto;
+	color: rgba(0,0,0,.5);
+
+	&:after {
+		background: rgba(0,0,0,.2);
+	}
+
+	&.light {
+
+		color: rgba(255,255,255,.5);
+
 		&:after {
-			background: rgba(0,0,0,.2);
+			background: rgba(255,255,255,.1);
 		}
-		
-		&.light {
-			
-			color: rgba(255,255,255,.5);
-			
-			&:after {
-				background: rgba(255,255,255,.1);
-			}
-			
-		}
+
 	}
+}
 	
-	&.breakout .feature-caption {
-		width: calc( 100% - 50px );
-		margin: 0 25px;
-	}
-	
+.artboard.breakout .feature-caption {
+	width: calc( 100% - 50px );
+	margin: 0 25px;
 }
 
 @media screen and (min-width: 700px) {
+	.feature-caption,
 	.artboard.breakout .feature-caption {
-		width: 100%;
-		margin: 0 auto;
+		width: 400px;
+		margin: 0;
+	}
+	.artboard.breakout .feature-caption {
+		margin-left: calc( 50vw - 325px );
 	}
 }
 
