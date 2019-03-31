@@ -1,0 +1,431 @@
+/* ==============================
+   THEATRE - NAVIGATION
+   ============================== */
+
+@import url('https://fonts.googleapis.com/css?family=Spectral+SC:700');
+
+.theatre-series-navigation-wrapper {
+	position: relative;
+	z-index: 10;
+}
+
+.theatre-series-navigation {
+	background: $playbill;
+}
+
+.playbill {
+	
+	width: 100%;
+	position: relative;
+	border-bottom: 4px solid #000;
+
+	label {
+		
+		position: relative;
+		background: #fff;
+		z-index: 20;
+		font-family: "Spectral SC", "Charter", serif;
+		font-size: .9rem;
+		text-transform: uppercase;
+		padding: .5rem 0;
+		display: block;
+		text-align: center;
+		transition: all .2s ease-in-out;
+		
+		span {
+			
+			position: relative;
+			
+			&:after {
+				position: absolute;
+				right: -20px;
+				top: calc( 50% - 4px );
+				display: block;
+				content: '';
+				width: 0;
+				height: 0;
+				border-top: 6px solid #000;
+				border-left: 6px solid transparent;
+				border-right: 6px solid transparent;
+				transition: all .2s ease-in-out;
+				transform: scale(1) translatex(0);
+			}
+			
+		}
+		
+		&:hover {
+			cursor: pointer;
+			background: $playbill;
+		}
+		
+	}
+	
+	input {
+		
+		display: none;
+		
+		&:checked {
+			
+			& ~ .nav-acts-wrapper .nav-acts {
+				transform: translateY( 0 );
+				box-shadow: 0 1rem 2rem rgba(0,0,0,.6);
+			}
+			
+			& ~ label {
+				
+				font-size: 2rem;
+				padding: 1rem 0;
+				background: $playbill;
+				
+				span:after {
+					transform: scale(2) translatex(30%);
+				}
+				
+			}
+			
+			& ~ .nav-theatre {
+				display: block;
+			}
+			
+		}
+		
+	}
+	
+}
+
+.nav-theatre {
+	font-size: 1rem;
+	font-family: "Hind", sans-serif;
+	display: none;
+	text-align: center;
+	text-transform: uppercase;
+	padding-bottom: 1rem;
+}
+
+.nav-acts-wrapper {
+	position: relative;
+	z-index: 10;
+}
+
+.nav-acts {
+
+	position: absolute;
+	background: #fff;
+	border-top: 4px solid #000;
+	border-bottom: 10px solid #000;
+	left: 0;
+	top: 0;
+	transform: translateY( -100% );
+	transition: transform .2s ease-in-out;
+	width: 100%;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: block;
+	}
+
+	ul:after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+
+	li {
+
+		display: block;
+		margin: 0;
+		padding: 0;
+		background: #fff;
+		border-bottom: 2px solid #000;
+		transition: background .2s ease-in-out;
+		max-width: initial;
+
+		&:not(.disabled):hover,
+		&:not(.disabled):focus {
+			background: $playbill;
+		}
+
+		a, span.link {
+			padding: 1rem;
+			display: block;
+		}
+
+		a {
+			color: #000;
+		}
+
+		span.link {
+			color: #999;
+			background: #fff;
+		}
+
+		.date {
+			display: block;
+			font-family: "Hind", sans-serif;
+			font-size: .9rem;
+			margin-bottom: .5rem;
+			text-transform: uppercase;
+		}
+
+		.title {
+			display: block;
+			font-family: "Coolvetica", sans-serif;
+			font-size: 1.8rem;
+			line-height: 1.8rem;
+		}
+
+	}
+
+}
+
+.theatre-series-navigation-wrapper.footer {
+	
+	.playbill {
+		
+		border-top: 4px solid #000;
+		
+		label,
+		input {
+			pointer-events: none;
+		}
+		
+		label {
+				
+			font-size: 2rem;
+			padding: 1rem 0;
+			background: $playbill;
+
+			span:after {
+				display: none;
+			}
+
+		}
+		
+	}
+	
+	.nav-acts {
+		position: relative;
+		transform: none;
+	}
+	
+	.nav-theatre {
+		display: block;
+	}
+	
+}
+
+@media screen and (min-width: 800px) {
+	
+	.playbill {
+		
+		label {
+			
+			font-size: 1.1rem;
+			padding: .8rem;
+			
+			span:after {
+				transform: scale(1.1) translatex(5%);
+			}
+			
+		}
+		
+		input:checked ~ label {
+				
+			font-size: 2.8rem;
+
+			span:after {
+				transform: scale(2.2) translatex(35%);
+			}
+
+		}
+
+	}
+	
+	.theatre-series-navigation-wrapper.footer .playbill label {
+		font-size: 2.8rem;
+	}
+	
+	.nav-theatre {
+		font-size: 1.3rem;
+	}
+	
+	.nav-acts {
+
+		ul {
+			display: flex;
+		}
+
+		li {
+
+			flex-basis: 20%;
+			display: block;
+			border-bottom: none;
+			border-left: 2px solid #000;
+			border-right: 2px solid #000;
+
+			&:first-child {
+				border-left: none;
+			}
+
+			&:last-child {
+				border-right: none;
+			}
+			
+			a, span.link {
+				padding: 1rem;
+			}
+
+			.date {
+				font-size: .9rem;
+				margin-bottom: .8rem;
+			}
+
+			.title {
+				font-size: 1.3rem;
+				line-height: 1.3rem;
+			}
+
+		}
+
+	}
+	
+}
+
+@media screen and (min-width: 900px) {
+	
+	.nav-acts {
+		
+		li {
+			
+			a, span.link {
+				padding: 1.2rem;
+			}
+			
+			.date {
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+			
+			.title {
+				font-size: 1.5rem;
+				line-height: 1.5rem;
+			}
+			
+		}
+		
+	}
+	
+}
+
+
+@media screen and (min-width: 1000px) {
+	
+	.playbill {
+		
+		label {
+			
+			font-size: 1.3rem;
+			padding: .9rem;
+			
+			span:after {
+				transform: scale(1.2) translatex(10%);
+			}
+			
+		}
+		
+		input:checked ~ label {
+				
+			font-size: 3.5rem;
+
+			span:after {
+				transform: scale(2.8) translatex(45%);
+			}
+
+		}
+
+	}
+	
+	.theatre-series-navigation-wrapper.footer .playbill label {
+		font-size: 3.5rem;
+	}
+	
+	.nav-theatre {
+		font-size: 1.5rem;
+	}
+	
+	.nav-acts {
+		
+		li {
+			
+			a, span.link {
+				padding: 2rem;
+			}
+			
+			.date {
+				font-size: 1rem;
+				margin-bottom: 1rem;
+			}
+			
+			.title {
+				font-size: 2rem;
+				line-height: 1.8rem;
+			}
+			
+		}
+		
+	}
+	
+}
+
+@media screen and (min-width: 1400px) {
+	
+	.playbill {
+		
+		label {
+			
+			font-size: 1.5rem;
+			padding: 1.1rem;
+			
+			span:after {
+				transform: scale(1.4) translatex(15%);
+			}
+			
+		}
+		
+		input:checked ~ label {
+				
+			font-size: 4rem;
+
+			span:after {
+				transform: scale(3.2) translatex(60%);
+			}
+
+		}
+
+	}
+	
+	.theatre-series-navigation-wrapper.footer .playbill label {
+			font-size: 4rem;		
+	}
+	
+	.nav-theatre {
+		font-size: 1.8rem;
+	}
+	
+}
+
+@each $s in $stories {
+	
+	body.ln-#{$s} .nav-acts li.nav-#{$s},
+	#feature-hero.#{$s} .nav-acts li.nav-#{$s} {
+		background: #000;
+		
+		a {
+			color: #fff;
+		}
+		
+	}
+	
+}

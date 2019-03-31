@@ -1,0 +1,191 @@
+/* ==============================
+   THEATRE - BASE STYLES
+   ============================== */
+
+/* VARS */
+
+$stories: 
+	theatre-series-portrait-of-the-artist
+	theatre-series-taking-center-stage
+	theatre-series-backstage-pass
+	theatre-series-the-plays-the-thing
+	theatre-series-amanda-downing-carney;
+
+$playbill: #ffe200;
+$story-1-color: #ff223b;
+$story-2-color: #ffca25;
+$story-3-color: #e0cddb;
+$story-4-color: #fff465;
+$story-5-color: #70ffda;
+
+/* FONTS */
+
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Zilla+Slab');
+
+@font-face {
+	font-family: "Coolvetica";
+	src: url( f/coolvetica_rg.ttf );
+}
+
+/* STYLES */
+
+body:not(.home):not(.ln-preview) .globalnav {
+	display: none;
+}
+
+body {
+	position: relative;
+}
+
+#main {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.post-navigation {
+	display: none;
+}
+
+.scene-header {
+	text-transform: uppercase;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+#story-hero {
+	
+	position: relative;
+	
+	img {
+		width: 100vw;
+		height: auto;
+		display: block;
+		padding: 0;
+	}
+
+	h1 {
+		position: absolute;
+		font-family: "Coolvetica", serif;
+		font-size: 11.5vw;
+		left: 0;
+		line-height: 9.5vw;
+	}
+	
+}
+
+.story-content-wrapper {
+	background: #fafafa;
+}
+
+.story-content {
+	font-family: "Zilla Slab", "Charter", serif;
+	font-size: 1.1rem;
+	max-width: 650px;
+	padding-top: 4rem;
+	padding-bottom: 8rem;
+}
+
+#intro p:first-child,
+.story-content p:first-child,
+.profile p:first-of-type {
+	
+	&:first-letter {
+		float: left;
+		font-size: 4.5rem;
+		font-family: "Coolvetica";
+		line-height: 3rem;
+		padding-top: 10px;
+		padding-right: 8px;
+	}
+	
+}
+	
+
+.artboard {
+	
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+	
+	img {
+		margin: 0;
+		padding: 0 0 1rem;
+	}
+	
+}
+
+.feature-caption {
+		
+	font-family: "Coolvetica";
+	font-size: .9rem;
+	width: 100%;
+	margin: 0 auto;
+	color: rgba(0,0,0,.5);
+
+	&:after {
+		background: rgba(0,0,0,.2);
+	}
+
+	&.light {
+
+		color: rgba(255,255,255,.5);
+
+		&:after {
+			background: rgba(255,255,255,.1);
+		}
+
+	}
+}
+	
+.artboard.breakout .feature-caption {
+	width: calc( 100% - 50px );
+	margin: 0 25px;
+}
+
+@media screen and (min-width: 700px) {
+	.feature-caption,
+	.artboard.breakout .feature-caption {
+		width: 400px;
+		margin: 0;
+	}
+	.artboard.breakout .feature-caption {
+		margin-left: calc( 50vw - 325px );
+	}
+}
+
+.ticket-wrapper {
+	background-color: #f1f1f1;
+}
+
+.ticket {
+	
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+	max-width: 650px;
+	box-sizing: border-box;
+	width: 100%;
+	
+	a {
+		
+		display: block;
+		width: 100%;
+		height: 0;
+		overflow: hidden;
+		padding-top: 35.4%;
+		margin: 0 auto;
+		background-image: url(i/ticket.jpg);
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		transform: rotate(-5deg);
+		box-shadow: 0 .1rem .3rem rgba(0,0,0,.5);
+		transition: all .1s ease-in-out;
+		
+		&:hover,
+		&:focus {
+			transform: rotate(-2deg);
+		}
+		
+	}
+	
+}
+		

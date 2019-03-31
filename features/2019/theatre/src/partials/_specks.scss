@@ -1,0 +1,20 @@
+/* ==============================
+   THEATRE - SPECKS STYLES
+   ============================== */
+
+#specks-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+
+#specks {
+	display: block;
+	width: 100vw;
+	height: 100vh;
+	background-image: url(i/lighting.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
