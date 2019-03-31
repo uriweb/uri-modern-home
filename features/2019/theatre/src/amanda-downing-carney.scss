@@ -1,0 +1,16 @@
+/* ==============================
+   THEATRE - BEHIND THE SCENES WITH AMANDA DOWNING CARNEY
+   ============================== */
+
+@import 'partials/base';
+@import 'partials/nav';
+
+#story-hero h1 {
+	top: 5vw;
+	max-width: 60%;
+	color: $story-5-color;
+}
+
+.story-content p:first-child:first-letter {
+	color: #33e3b6;
+}

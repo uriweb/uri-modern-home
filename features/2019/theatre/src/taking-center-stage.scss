@@ -1,0 +1,111 @@
+/* ==============================
+   THEATRE - TAKING CENTER STAGE
+   ============================== */
+
+@import 'partials/base';
+@import 'partials/nav';
+@import 'partials/specks';
+
+body {
+	background: #000;
+}
+
+#story-hero {
+	
+	position: relative;
+	
+	h1 {
+		top: 8vw;
+		max-width: 100%;
+		width: 100vw;
+		font-size: 11vw;
+		color: $story-2-color;
+		text-align: center;
+	}
+	
+	#hero-slice {
+		display: none;
+	}
+	
+}
+
+#deck-wrapper {
+	background: $story-2-color;
+}
+
+#deck {
+
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+	
+	p {
+		font-family: "Zilla Slab", "Charter", serif;
+		color: #000;
+		max-width: 650px;
+		margin: 0 auto 2rem;
+		font-size: 1.5rem;
+		font-weight: 600;
+		text-align: center;
+		letter-spacing: 2px;
+	}
+	
+}
+
+#story-hero.has-js {
+	
+	position: fixed !important;
+	
+	#hero-slice {
+		display: block;
+		position: absolute;
+		top: 25.5%;
+		left: 0;
+	}
+
+	h1 {
+		position: absolute;
+		top: 50%;
+		opacity: 0;
+	}
+
+}
+
+#intro-wrapper,
+.profile-wrapper {
+	background: #fafafa;
+}
+
+.profile-wrapper:nth-child(even) {
+	background: #e3e3e3;
+}
+
+#intro,
+.profile {
+	padding-top: 5rem;
+	padding-bottom: 3rem;
+	max-width: 650px;
+	margin: 0 auto;
+	font-family: "Zilla Slab", "Charter", serif;
+	font-size: 1.1rem;
+}
+
+.name,
+.role,
+.other {
+	font-family: "Cutive Mono", "Special Elite", "Charter", serif;
+	font-size: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.name {
+	display: inline-block;
+	font-weight: 900;
+	padding: .5rem;
+	margin-left: -.5rem;
+	background: $story-2-color;
+}
+
+.profile>div:last-of-type {
+	margin-bottom: 3rem;
+}
+
