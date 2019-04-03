@@ -1,0 +1,134 @@
+/* ==============================
+   SPACE INVADERS
+   ============================== */
+
+@import url("https://fonts.googleapis.com/css?family=Bitter|Press+Start+2P");
+@font-face {
+	font-family: "VCR Mono";
+	src: url(fonts/vcr_osd_mono.ttf);
+}
+
+@import 'partials/creatures';
+@import 'partials/habitats';
+@import 'partials/scoreboard';
+@import 'partials/interface';
+
+.globalnav {
+	display: none;
+}
+
+#globalfooter {
+	padding-bottom: 12rem;
+}
+
+#page {
+	background: #0e6164;
+	color: #fff;
+}
+
+.entry-content {
+	padding: 0 0 5rem;
+}
+
+#story-hero {
+	width: 100vw;
+	position: relative;
+	left: -25px;
+	margin: 0 auto 3rem;
+	background: linear-gradient( to bottom, #173038, #0e6164 );
+	box-sizing: border-box;
+	border-width: 8px 0;
+	border-style: solid;
+	border-color: #fff;
+}
+
+#story-header {
+	
+	text-align: center;
+	position: relative;
+	
+	h1 {
+		font-size: 2.2rem;
+		font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+		padding: 3rem 0 1rem;
+		color: #fff;
+	}
+	
+}
+
+#story-deck {
+	font-size: 1.2rem;
+	line-height: 2rem;
+	font-family: "Bitter", "Hind", sans-serif;
+	padding-bottom: 2rem;
+	width: 80%;
+	margin: 0 auto;
+	color: #fff;
+}
+
+@media screen and (min-width: 500px) {
+
+	#story-header h1 {
+		font-size: 3rem;
+	}
+
+	#story-deck {
+		font-size: 1.5rem;
+	}
+
+}
+
+@media screen and (min-width:600px) {
+	
+	#story-hero {
+		width: 100%;
+		max-width: 800px;
+		left: 0;
+		margin: 3rem auto 5rem;
+		border-width: 8px;
+	}
+	
+}
+
+@media screen and (min-width: 700px) {
+
+	.modal {
+		
+		left: 50%;
+		width: 100%;
+		max-width: 800px;
+		transform: translate( -50%, -50% );
+		
+		h1 {
+			font-size: 4rem;
+		}
+		
+	}
+
+	#story-deck {
+		font-size: 1.8rem;
+		width: 70%;
+	}
+
+}
+
+.content-body {
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+	font-family: "Bitter", "Roboto Mono", "Hind", sans-serif;
+	font-size: 1.1rem;
+}
+
+.artboard {
+	
+	margin-bottom: 4rem;
+	text-align: center;
+
+	&:after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+	
+}

@@ -1,0 +1,206 @@
+/* === INTERFACE === */
+
+
+.modal {
+	position: fixed;
+	top: 50%;
+	left: 0;	
+	width: 100vw;
+	z-index: 50;
+	transform: translate( 0, -50% );
+}
+
+#endscreen {
+	
+	background: #1f494d;
+	box-sizing: border-box;
+	text-align: center;
+	display: none;
+	padding-bottom: 3rem;
+	border-width: 8px 0;
+	border-style: solid;
+	border-color: #fff;
+	
+	&.visible {
+		display: block;
+	}
+	
+	h1 {
+		font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+		font-size: 3rem;
+		padding-top: 4rem;
+		color: #fff;
+	}
+	
+}
+
+#game-stats {
+		
+	display: flex;
+	justify-content: space-between;
+	box-sizing: border-box;
+	align-items: baseline;
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto 2rem;
+	padding: 0 .5rem;
+
+	.stat-wrapper {
+		flex: 1;
+		transform: scale( .8 );
+		text-align: center;
+	}
+
+	.stat-creature {
+
+		display: block;
+		margin: 0 auto;
+		background-repeat: no-repeat;
+		background-size: auto 100%;
+		animation: none;
+
+		&.tunicate-1 {
+			width: 76px;
+			height: 72px;
+			background-position: -152px 0;
+		}
+
+		&.tunicate-2 {
+			width: 64px;
+			height: 56px;
+			background-position: -128px 0;
+		}
+
+		&.seaweed-1 {
+			width: 44px;
+			height: 128px;
+			background-position: 0 0;
+		}
+		
+		&.seaweed-2 {
+			width: 36px;
+			height: 72px;
+			background-position: 0 0;
+		}
+
+		&.crab {
+			width: 68px;
+			height: 40px;
+			background-position: -148px 0;
+		}
+
+
+	}
+
+	.stat-label {
+		display: block;
+		font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+		margin-top: 1rem;
+	}
+
+}
+
+#new-high-score {
+	display: none;
+	font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+	font-size: 1rem;
+	margin: 1rem 0 2rem;
+}
+
+#endscreen.new-high #new-high-score {
+	display: block;
+}
+
+#remove-game {
+	
+	margin-top: 1rem;
+	font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+	font-size: .5rem;
+	text-decoration: underline;
+	
+	&:hover,
+	&:focus {
+		cursor: pointer;
+	}
+	
+}
+
+#countdown {
+	
+	left: 50%;
+	transform: translate( -50%, -50% );
+	background: #1f494d;
+	box-sizing: border-box;
+	text-align: center;
+	display: none;
+	width: 100%;
+	max-width: 200px;
+	box-sizing: border-box;
+	padding: 3rem;
+	border: 8px solid #fff;
+	font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+	font-size: 3rem;
+	
+	&.visible {
+		display: block;
+	}
+	
+}
+
+#story {
+	position: relative;
+	margin-bottom: 6rem;
+}
+
+@media screen and (min-width: 600px) {
+	
+	#game-stats .stat-wrapper {
+		transform: scale(1);
+	}
+	
+	#countdown {
+		max-width: 300px;
+		font-size: 4rem;
+	}
+	
+	#endscreen {
+		border-width: 8px;
+	}
+	
+}
+
+@media screen and (min-width: 700px) {
+
+	.modal {
+		
+		left: 50%;
+		width: 100%;
+		max-width: 800px;
+		transform: translate( -50%, -50% );
+		
+		h1 {
+			font-size: 4rem;
+		}
+		
+	}
+
+}
+
+.retro-button {
+	
+	position: relative;
+	top: 0;
+	display: inline-block;
+	padding: 1rem 2rem;
+	color: #fff;
+	font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+	font-size: 1rem;
+	background: #4704ca;
+	border: 4px solid #fff;
+	
+	&:hover {
+		cursor: pointer;
+		top: -4px;
+	}
+	
+}
