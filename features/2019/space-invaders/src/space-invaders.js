@@ -16,7 +16,7 @@
 
 		var baseURL, game;
 
-		baseURL = URIMODERN.path.theme + '/features/2018/space-invaders/';
+		baseURL = URIMODERN.path.theme + '/features/2019/space-invaders/';
 
 		data = {
 			'unit': 16, // Increment by which creatures should be placed
