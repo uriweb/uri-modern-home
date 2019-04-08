@@ -52,7 +52,6 @@
 	#controls {
 		
 		position: absolute;
-		padding: .35rem;
 		margin: .35rem;
 		border: 1px solid #fff;
 		box-sizing: border-box;
@@ -63,6 +62,10 @@
 		
 		&:active {
 			background: #333;
+		}
+		
+		&>div {
+			padding: .35rem;
 		}
 		
 		#resume-game {
@@ -164,8 +167,13 @@
 		}
 		
 		#controls {
-			padding: .5rem;
+			
 			margin: .5rem;
+			
+			&>div {
+				padding: .5rem;
+			}
+			
 		}
 		
 		#scores {
