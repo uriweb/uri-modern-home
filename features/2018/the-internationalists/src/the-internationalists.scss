@@ -157,9 +157,15 @@
 }
 
 .section-lead {
+	
 	background: linear-gradient(#000, #3a2b24);
 	color: #ccc;
 	padding-top: 0;
+	
+	a {
+		color: #ff965a;
+	}
+	
 }
 
 .content-deck {
@@ -198,6 +204,10 @@
 		color: #ab4506;
 	}
 	
+	a {
+		color: #eb1f05;
+	}
+	
 }
 
 .section-interwoven-cultures {
@@ -207,6 +217,10 @@
 	
 	h1 {
 		color: #8e5863;
+	}
+	
+	a {
+		color: #eb0f51;
 	}
 	
 }
@@ -238,7 +252,24 @@
 }
 
 .section-uniquely-prepared {
+	
 	background: linear-gradient(#efffff, rgba(239,255,255,0) );
+	
+	a {
+		color: #0487d1;
+	}
+	
+}
+
+.section-lead,
+.section-raising-the-bar,
+.section-interwoven-cultures,
+.section-uniquely-prepared {
+	
+	a:hover {
+		text-decoration: underline;
+	}
+	
 }
 
 .intl-programs {
