@@ -32,6 +32,10 @@
 	<rule ref="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing">
 		<severity>0</severity>
 	</rule>
+	
+	<rule ref="Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure">
+		<severity>4</severity>
+	</rule>
     
     <!-- Lowering the severity of non-escaped outputs to below the default threshold
     <rule ref="WordPress.XSS.EscapeOutput.OutputNotEscaped">
