@@ -142,15 +142,20 @@
 	text-align: center;
 	display: none;
 	width: 100%;
-	max-width: 200px;
+	max-width: 250px;
 	box-sizing: border-box;
 	padding: 3rem;
 	border: 8px solid #fff;
 	font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
-	font-size: 3rem;
+	font-size: .8rem;
 	
 	&.visible {
 		display: block;
+	}
+	
+	.counter {
+		margin-top: 1rem;
+		font-size: 3rem;
 	}
 	
 }
@@ -175,8 +180,14 @@
 	}
 	
 	#countdown {
+		
 		max-width: 300px;
-		font-size: 4rem;
+		font-size: 1rem;
+		
+		.counter {
+			font-size: 4rem;
+		}
+		
 	}
 	
 	#endscreen {

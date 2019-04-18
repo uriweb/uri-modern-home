@@ -180,7 +180,7 @@
 		data.countdown = document.createElement( 'div' );
 		data.countdown.id = 'countdown';
 		data.countdown.className = 'modal';
-		data.countdown.innerHTML = 3;
+		data.countdown.innerHTML = 'Invasives coming!<div class="counter">3</div>';
 
 		return data.countdown;
 
@@ -305,9 +305,10 @@
 
 	function initiateCountdown() {
 
-		var n, counter;
+		var n, counter, count;
 
 		data.status = 4;
+		count = data.countdown.querySelector( '.counter' );
 
 		n = 4;
 		data.countdown.classList.add( 'visible' );
@@ -315,7 +316,7 @@
 		counter = function() {
 
 			n--;
-			data.countdown.innerHTML = n;
+			count.innerHTML = n;
 			0 < n ? setTimeout( counter, 1000 ) : startGame();
 
 		}
