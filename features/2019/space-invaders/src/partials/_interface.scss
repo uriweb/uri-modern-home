@@ -97,6 +97,14 @@
 		font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
 		margin-top: 1rem;
 	}
+	
+	.stat-creature-name {
+		display: none;
+		font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+		margin-top: .5rem;
+		font-size: .5rem;
+		padding: 0 .2rem;
+	}
 
 }
 
@@ -154,8 +162,16 @@
 
 @media screen and (min-width: 600px) {
 	
-	#game-stats .stat-wrapper {
-		transform: scale(1);
+	#game-stats {
+		
+		.stat-wrapper {
+			transform: scale(1);
+		}
+		
+		.stat-creature-name {
+			display: block;
+		}
+		
 	}
 	
 	#countdown {

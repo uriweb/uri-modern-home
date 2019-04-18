@@ -34,11 +34,26 @@
 			'buttons': {},
 			'creatures': {},
 			'types': {
-				'tunicate1': 'tunicate-1',
-				'tunicate2': 'tunicate-2',
-				'seaweed1': 'seaweed-1',
-				'seaweed2': 'seaweed-2',
-				'crab': 'crab'
+				'tunicate1': {
+					'slug': 'tunicate-1',
+					'name': 'Styela clava'
+				},
+				'tunicate2': {
+					'slug': 'tunicate-2',
+					'name': 'Ciona intestinalis'
+				},
+				'seaweed1': {
+					'slug': 'seaweed-1',
+					'name': ''
+				},
+				'seaweed2': {
+					'slug': 'seaweed-2',
+					'name': ''
+				},
+				'crab': {
+					'slug': 'crab',
+					'name': 'Hemigrapsus sanguineus'
+				}
 			},
 			'container': {},
 			'endscreen': {},
@@ -117,7 +132,7 @@
 
 		for ( x in data.types ) {
 
-			type = data.types[x];
+			type = data.types[x].slug;
 
 			div = document.createElement( 'div' );
 			div.className = 'stat-wrapper';
@@ -130,6 +145,11 @@
 			data.endscreen.stats[type].className = 'stat-label';
 			data.endscreen.stats[type].innerHTML = 0;
 			div.appendChild( data.endscreen.stats[type] );
+			
+			span = document.createElement( 'span' );
+			span.className = 'stat-creature-name';
+			span.innerHTML = data.types[x].name;
+			div.appendChild( span );
 
 			stats.appendChild( div );
 
@@ -477,15 +497,15 @@
 		s = Math.floor( ( Math.random() * 3 ) + 1 );
 
 		if ( 300 > n ) {
-			creature.type = data.types.tunicate1;
+			creature.type = data.types.tunicate1.slug;
 		} else if ( 600 > n ) {
-			creature.type = data.types.tunicate2;
+			creature.type = data.types.tunicate2.slug;
 		} else if ( 750 > n ) {
-			creature.type = data.types.seaweed1;
+			creature.type = data.types.seaweed1.slug;
 		} else if ( 900 > n ) {
-			creature.type = data.types.seaweed2;
+			creature.type = data.types.seaweed2.slug;
 		} else if ( 1000 > n ) {
-			creature.type = data.types.crab;
+			creature.type = data.types.crab.slug;
 		}
 
 		switch ( s ) {
@@ -603,23 +623,23 @@
 			);
 
 		switch ( creature.type ) {
-			case data.types.crab:
+			case data.types.crab.slug:
 				playAudio( data.audio.elevate );
 				pointValue = 30;
 				break;
-			case data.types.tunicate1:
+			case data.types.tunicate1.slug:
 				playAudio( data.audio.bounce );
 				pointValue = 10;
 				break;
-			case data.types.tunicate2:
+			case data.types.tunicate2.slug:
 				playAudio( data.audio.bounce );
 				pointValue = 30;
 				break;
-			case data.types.seaweed1:
+			case data.types.seaweed1.slug:
 				playAudio( data.audio.shoot );
 				pointValue = 20;
 				break;
-			case data.types.seaweed2:
+			case data.types.seaweed2.slug:
 				playAudio( data.audio.shoot );
 				pointValue = 20;
 				break;
