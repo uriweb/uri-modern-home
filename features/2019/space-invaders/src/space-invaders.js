@@ -40,11 +40,11 @@
 				},
 				'seaweed1': {
 					'slug': 'seaweed-1',
-					'name': ''
+					'name': 'Grateloupia turuturu'
 				},
 				'seaweed2': {
 					'slug': 'seaweed-2',
-					'name': ''
+					'name': 'Codium fragile'
 				},
 				'crab': {
 					'slug': 'crab',

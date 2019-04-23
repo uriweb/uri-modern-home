@@ -166,6 +166,14 @@
 		clear: both;
 	}
 	
+	img {
+		box-sizing: border-box;
+		width: 95%;
+		padding: 0;
+		border: 8px solid #fff;
+		margin: 0 auto 1rem;
+	}
+	
 	.feature-caption {
 		
 		font-family: "VCR Mono", "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
