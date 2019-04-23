@@ -27,10 +27,6 @@
 				'page': document.getElementById( 'page' ),
 				'habitat': document.getElementById( 'habitat-creatures' ),
 			},
-			'story': {
-				'h': document.getElementById( 'story' ).offsetHeight,
-				'top': document.getElementById( 'story' ).getBoundingClientRect().top
-			},
 			'buttons': {},
 			'creatures': {},
 			'types': {
@@ -80,6 +76,18 @@
 				'menu': new Audio( baseURL + 'mp3/menu.mp3' )
 			}
 		};
+		
+		// If it's the homepage, do homepage specific stuff and skip everything else
+		if ( document.body.classList.contains( 'home' ) ) {
+			renderHomepageHero();
+			return;
+		}
+		
+		// Add some more data that's only available on the story page
+		data.story = {
+			'h': document.getElementById( 'story' ).offsetHeight,
+			'top': document.getElementById( 'story' ).getBoundingClientRect().top
+		};
 
 		// Create the game
 		data.game = document.createElement( 'div' );
@@ -109,6 +117,26 @@
 		window.addEventListener( 'resize', handleResize, false );
 		window.addEventListener( 'scroll', handleScroll, false );
 
+	}
+	
+	function renderHomepageHero() {
+		
+		var hero, still;
+		
+		hero = document.getElementById( 'feature-hero' ).querySelector( '.cl-hero' );
+		still = hero.querySelector( '.still' );
+
+		hero.insertBefore( makeCreatureContainer(), still );
+		hero.insertBefore( makeBubblesContainer(), still );
+
+		data.score.board.h = 0;
+		data.container.x = data.container.el.offsetWidth;
+		data.container.y = data.container.el.offsetHeight;
+		data.n = data.container.y / 16;
+		
+		makeBubbles();
+		setIntervalX( 'homepageCreatures', addCreature, 1000, 20 );
+		
 	}
 
 	function makeEndScreen() {
@@ -145,7 +173,7 @@
 			data.endscreen.stats[type].className = 'stat-label';
 			data.endscreen.stats[type].innerHTML = 0;
 			div.appendChild( data.endscreen.stats[type] );
-			
+
 			span = document.createElement( 'span' );
 			span.className = 'stat-creature-name';
 			span.innerHTML = data.types[x].name;
@@ -777,7 +805,7 @@
 
 		if ( yPos > data.score.board.y - data.container.y && 0 == data.status ) {
 			data.score.board.el.classList.add( 'fixed' );
-			initiateCountdown();
+			startGame();
 		}
 
 	}

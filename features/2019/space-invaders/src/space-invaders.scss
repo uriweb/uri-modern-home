@@ -113,11 +113,46 @@
 }
 
 .content-body {
+	
 	width: 100%;
 	max-width: 600px;
 	margin: 0 auto;
 	font-family: "Bitter", "Roboto Mono", "Hind", sans-serif;
 	font-size: 1.1rem;
+	
+	a {
+		
+		color: #5fffad;
+		
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+		
+	}
+	
+}
+
+.cl-quote {
+	
+	.cl-quote-image {
+		border: 8px solid #fff;
+	}
+	
+	blockquote {
+		color: #ffe1a5;
+	}
+	
+	cite {
+		
+		color: #cebfff;
+		
+		&:before {
+			background: #cebfff;
+		}
+		
+	}
+	
 }
 
 .artboard {

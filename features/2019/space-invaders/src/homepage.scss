@@ -1,0 +1,92 @@
+/* ==============================
+   SPACE INVADERS - HOMEPAGE
+   ============================== */
+
+@import url("https://fonts.googleapis.com/css?family=Bitter|Press+Start+2P");
+@font-face {
+	font-family: "VCR Mono";
+	src: url(fonts/vcr_osd_mono.ttf);
+}
+
+@import 'partials/creatures';
+@import 'partials/interface';
+
+#bubbles-container,
+#creature-container {
+	position: absolute;
+}
+
+#bubbles-container {
+	z-index: 20;
+}
+
+.creature-wrapper:hover {
+	cursor: initial;
+	pointer-events: none;
+}
+
+#feature-hero .cl-hero {
+	
+	.overlay {
+		z-index: 18;
+	}
+	
+	.block {
+		background: none;
+	}
+	
+	.prompter {
+		visibility: hidden;
+	}
+	
+	h1 {
+		font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+		font-size: 2rem;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	.cl-button {
+		
+		position: relative;
+		top: 0;
+		display: inline-block;
+		padding: 1rem 2rem;
+		color: #fff;
+		font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+		font-size: .8rem;
+		background: #4704ca;
+		border: 4px solid #fff;
+
+		&:hover {
+			cursor: pointer;
+			top: -4px;
+		}
+		
+	}
+
+}
+
+@media screen and (min-width: 600px) {
+	
+	#feature-hero .cl-hero {
+
+		h1 {
+			font-size: 2.5rem;
+		}
+
+	}
+	
+}
+
+@media screen and (min-width: 800px) {
+	
+	#feature-hero .cl-hero {
+
+		h1 {
+			font-size: 3.5rem;
+		}
+
+	}
+	
+}
