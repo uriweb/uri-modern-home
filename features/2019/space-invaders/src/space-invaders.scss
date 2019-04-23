@@ -166,4 +166,22 @@
 		clear: both;
 	}
 	
+	.feature-caption {
+		
+		font-family: "VCR Mono", "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+		margin: 0 auto;
+		color: #ffe1a5;
+		
+		.credit {
+			color: #cebfff;
+			font-size: .7rem;
+		}
+		
+		&:after {
+			background: #cebfff;
+			margin: 1rem auto 0;
+		}
+		
+	}
+	
 }

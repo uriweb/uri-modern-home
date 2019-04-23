@@ -78,7 +78,7 @@
 		};
 		
 		// If it's the homepage, do homepage specific stuff and skip everything else
-		if ( document.body.classList.contains( 'home' ) ) {
+		if ( document.body.classList.contains( 'home' ) || document.body.classList.contains( 'ln-preview' ) ) {
 			renderHomepageHero();
 			return;
 		}
