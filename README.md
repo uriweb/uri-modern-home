@@ -7,6 +7,7 @@ URI Modern Home is a WordPress theme designed for the University of Rhode Island
 URI Modern Home 1.7.0 is a minor release.
 
 * Adds styles for the Space Invaders feature story
+* Updates development tools
 
 For complete details, see the [commit history](https://github.com/uriweb/uri-modern-home/pull/46/commits) and the [issue tracker](https://github.com/uriweb/uri-modern-home/issues). 
 
