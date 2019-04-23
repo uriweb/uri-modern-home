@@ -82,6 +82,9 @@
 			renderHomepageHero();
 			return;
 		}
+		
+		// Add a class to the body
+		document.body.classList.add( 'si-gameplay-supported' );
 
 		// Add some more data that's only available on the story page
 		data.story = {
