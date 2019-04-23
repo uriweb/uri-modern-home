@@ -33,6 +33,7 @@
 	
 	.block {
 		background: none;
+		text-shadow: 4px 4px 0 #000;
 	}
 	
 	.prompter {
@@ -57,6 +58,7 @@
 		font-size: .8rem;
 		background: #4704ca;
 		border: 4px solid #fff;
+		box-shadow: 4px 4px 0 #000;
 
 		&:hover {
 			cursor: pointer;
