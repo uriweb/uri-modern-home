@@ -613,7 +613,7 @@
 			div.classList.add( 'flipped' );
 		}
 
-		div.style = 'top:' + y + 'px; left:' + x + 'px; z-index:' + z;
+		div.setAttribute( 'style', 'top:' + y + 'px; left:' + x + 'px; z-index:' + z );
 		div.appendChild( creature.div );
 
 		if ( 1 == data.status ) {
@@ -704,7 +704,7 @@
 		div = document.createElement( 'div' );
 		div.id = id;
 		div.className = 'bubbles bubbles-1';
-		div.style = 'top:' + y + 'px; left:' + x + 'px';
+		div.setAttribute( 'style', 'top:' + y + 'px; left:' + x + 'px' );
 
 		// Put the bubbles on the page
 		data.bubbles.appendChild( div );
@@ -852,7 +852,7 @@
 					 x = data.unit * Math.floor( ( Math.random() * 48 ) + 1 );
 					 z = Math.floor( ( Math.random() * 10 ) + 1 );
 
-					 creature.div.style = 'left:' + x + 'px; z-index:' + z;
+					 creature.div.setAttribute( 'style', 'left:' + x + 'px; z-index:' + z );
 
 					 creatures.appendChild( creature.div );
 
