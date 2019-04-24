@@ -82,7 +82,7 @@
 			renderHomepageHero();
 			return;
 		}
-		
+
 		// Add a class to the body
 		document.body.classList.add( 'si-gameplay-supported' );
 
@@ -480,7 +480,7 @@
 		data.els.page.classList.remove( 'gameplay' );
 		data.score.board.parent.removeChild( data.score.board.wrapper );
 		document.getElementById( 'main' ).removeChild( data.game );
-		
+
 		document.body.classList.remove( 'si-gameplay-supported' );
 
 	}
