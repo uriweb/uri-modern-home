@@ -17,7 +17,11 @@
 	display: none;
 }
 
-#globalfooter {
+.post-navigation {
+	display: none;
+}
+
+body.si-gameplay-supported #globalfooter {
 	padding-bottom: 12rem;
 }
 
@@ -28,6 +32,23 @@
 
 .entry-content {
 	padding: 0 0 5rem;
+}
+
+#story {
+	
+	position: relative;
+	margin-bottom: 6rem;
+	z-index: 1;
+	
+	p.first:first-letter {
+		float: left;
+		font-size: 3.5rem;
+		font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+		line-height: 3rem;
+		padding-top: 10px;
+		padding-right: 8px;
+	}
+		
 }
 
 #story-hero {
@@ -141,6 +162,8 @@
 	
 	blockquote {
 		color: #ffe1a5;
+		font-size: 2rem;
+		line-height: 2rem;
 	}
 	
 	cite {
@@ -157,6 +180,7 @@
 
 .artboard {
 	
+	margin-top: 4rem;
 	margin-bottom: 4rem;
 	text-align: center;
 

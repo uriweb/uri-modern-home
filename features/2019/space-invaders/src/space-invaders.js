@@ -76,13 +76,16 @@
 				'menu': new Audio( baseURL + 'mp3/menu.mp3' )
 			}
 		};
-		
+
 		// If it's the homepage, do homepage specific stuff and skip everything else
 		if ( document.body.classList.contains( 'home' ) || document.body.classList.contains( 'ln-preview' ) ) {
 			renderHomepageHero();
 			return;
 		}
-		
+
+		// Add a class to the body
+		document.body.classList.add( 'si-gameplay-supported' );
+
 		// Add some more data that's only available on the story page
 		data.story = {
 			'h': document.getElementById( 'story' ).offsetHeight,
@@ -118,11 +121,11 @@
 		window.addEventListener( 'scroll', handleScroll, false );
 
 	}
-	
+
 	function renderHomepageHero() {
-		
+
 		var hero, still;
-		
+
 		hero = document.getElementById( 'feature-hero' ).querySelector( '.cl-hero' );
 		still = hero.querySelector( '.still' );
 
@@ -133,10 +136,10 @@
 		data.container.x = data.container.el.offsetWidth;
 		data.container.y = data.container.el.offsetHeight;
 		data.n = data.container.y / 16;
-		
+
 		makeBubbles();
 		setIntervalX( 'homepageCreatures', addCreature, 1000, 20 );
-		
+
 	}
 
 	function makeEndScreen() {
@@ -477,6 +480,8 @@
 		data.els.page.classList.remove( 'gameplay' );
 		data.score.board.parent.removeChild( data.score.board.wrapper );
 		document.getElementById( 'main' ).removeChild( data.game );
+
+		document.body.classList.remove( 'si-gameplay-supported' );
 
 	}
 
