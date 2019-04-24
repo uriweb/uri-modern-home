@@ -34,6 +34,12 @@ body.si-gameplay-supported #globalfooter {
 	padding: 0 0 5rem;
 }
 
+#story {
+	position: relative;
+	margin-bottom: 6rem;
+	z-index: 1;
+}
+
 #story-hero {
 	width: 100vw;
 	position: relative;
