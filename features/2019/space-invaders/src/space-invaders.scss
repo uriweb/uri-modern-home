@@ -35,9 +35,20 @@ body.si-gameplay-supported #globalfooter {
 }
 
 #story {
+	
 	position: relative;
 	margin-bottom: 6rem;
 	z-index: 1;
+	
+	p.first:first-letter {
+		float: left;
+		font-size: 3.5rem;
+		font-family: "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+		line-height: 3rem;
+		padding-top: 10px;
+		padding-right: 8px;
+	}
+		
 }
 
 #story-hero {
@@ -151,6 +162,8 @@ body.si-gameplay-supported #globalfooter {
 	
 	blockquote {
 		color: #ffe1a5;
+		font-size: 2rem;
+		line-height: 2rem;
 	}
 	
 	cite {
