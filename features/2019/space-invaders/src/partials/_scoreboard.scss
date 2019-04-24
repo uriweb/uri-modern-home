@@ -1,0 +1,194 @@
+/* === SCOREBOARD === */
+
+#scoreboard-wrapper {
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	margin-left: -50vw;
+}
+
+#scoreboard {
+	
+	position: relative;
+	z-index: 12;
+	left: 0;
+	width: 100%;
+	box-sizing: border-box;
+	margin: 6rem auto 0;
+	background: #000;
+	color: #fff;
+	font-family: "VCR Mono", "Press Start 2P", "Roboto Mono", "Lato", sans-serif;
+	font-size: .8rem;
+	text-transform: uppercase;
+	transition: all .2s ease-in-out;
+	
+	&.fixed {
+		position: fixed;
+		bottom: 0;
+		margin: 0 auto;
+	}
+	
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: -200px;
+		left: 0;
+		width: 125%;
+		height: 200px;
+		background-image: url(i/landscape-marine-2.png);
+		background-position: left bottom;
+		background-repeat: repeat-x;
+		background-size: 512px auto;
+		transform: scale(.8);
+		transform-origin: left bottom;
+		pointer-events: none;
+	}
+	
+	&.fluid {
+		position: relative;
+	}
+	
+	#controls {
+		
+		position: absolute;
+		margin: .35rem;
+		border: 1px solid #fff;
+		box-sizing: border-box;
+		
+		&:hover {
+			cursor: pointer;
+		}
+		
+		&:active {
+			background: #333;
+		}
+		
+		&>div {
+			padding: .35rem;
+		}
+		
+		#resume-game {
+			display: none;
+		}
+		
+		&.paused {
+			
+			#pause-game {
+				display: none;
+			}
+			
+			#resume-game {
+				display: block;
+			}
+			
+		}
+		
+	}
+	
+	#scores {
+		
+		display: flex;
+		width: 100%;
+		padding: .7rem;
+		box-sizing: border-box;
+		
+		&>div {
+			flex: 1;
+		}
+		
+	}
+	
+	#progress {
+		position: relative;
+		width: 100%;
+		height: 30px;
+		background: #333;
+		line-height: 30px;
+	}
+	
+	#progress-label {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 30px;
+	}
+	
+	#progress-bar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 30px;
+		background: #a4d842;
+		
+		&.alert {
+			background: #ffc605;
+		}
+		
+		&.warning {
+			background: #ff8c38;
+		}
+		
+		&.danger {
+			background: #d95858;
+		}
+
+	}
+	
+	.score {
+		display: inline-block;
+		margin-left: .5rem;
+	}
+	
+	.label {
+		display: inline-block;
+	}
+	
+	#points {
+		text-align: left;
+		margin-left: 4rem;
+	}
+	
+	#high {
+		text-align: right;
+	}
+	
+}
+
+@media screen and (min-width: 600px) {
+	#scoreboard {
+		
+		font-size: 1rem;
+		
+		&:before {
+			width: 100%;
+			transform: scale(1);
+		}
+		
+		#controls {
+			
+			margin: .5rem;
+			
+			&>div {
+				padding: .5rem;
+			}
+			
+		}
+		
+		#scores {
+			
+			padding: 1rem;
+			
+			&>div {
+				text-align: center;
+			}
+			
+		}
+		
+		#points {
+			margin-left: 0;
+		}
+		
+	}
+}

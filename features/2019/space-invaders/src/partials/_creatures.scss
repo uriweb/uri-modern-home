@@ -1,0 +1,293 @@
+/* === CREATURES === */
+
+#creature-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 15;
+	filter: saturate(1);
+	transition: opacity .2s ease-in-out, filter .2s ease-in-out;
+	pointer-events: none;
+}
+
+#bubbles-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10;
+	pointer-events: none;
+}
+
+#creature-container.paused {
+	z-index: 0;
+	opacity: .2;
+	filter: saturate(0);
+}
+
+.creature, .bubbles {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	font-size: 0rem;
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+}
+
+.bubbles {
+	transform: scale(.8);
+	transform-origin: left bottom;
+}
+
+@keyframes appear {
+	to { opacity: 1; }
+}
+
+.creature-wrapper {
+	
+	position: absolute;
+	opacity: 0.5;
+	animation-name: appear;
+	animation-duration: 1s;
+	animation-timing-function: steps(5);
+	animation-fill-mode: forwards;
+	transform: scale(.8);
+	transform-origin: left bottom;
+	transition: transform .3s linear;
+	pointer-events: all;
+	
+	&:hover {
+		cursor: pointer;
+	}
+	
+	&.destroyed {
+		transform: scale(.8,0);
+		pointer-events: none;
+	}
+	
+	&.flipped {
+		transform: scale(-.8,.8);
+	}
+	
+	&.flipped.destroyed {
+		transform: scale(-.8,0);
+	}
+	
+}
+
+@media screen and (min-width: 600px) {
+	.creature-wrapper {
+		
+		transform: scale(1);
+		
+		&.destroyed {
+			transform: scale(1,0);
+		}
+		
+		&.flipped {
+			transform: scale(-1,1);
+		}
+		
+		&.flipped.destroyed {
+			transform: scale(-1,0);
+		}
+		
+	}
+	
+	.bubbles {
+		transform: scale(1);
+	}
+}
+
+#creature-container.paused .creature {
+	animation-play-state: paused;
+}
+
+#creature-container.endgame .creature-wrapper {
+	animation: none;
+	opacity: 1;
+	pointer-events: none;
+}
+
+/* Tunicate 1 */
+
+@keyframes tunicate-1 {
+	0% { background-position: left center }
+	70% { background-position: left center }
+	100% { background-position: -304px center; }
+}
+
+@keyframes tunicate-1-slow {
+	0% { background-position: left center }
+	79% { background-position: left center }
+	100% { background-position: -304px center; }
+}
+
+@keyframes tunicate-1-fast {
+	0% { background-position: left center }
+	48% { background-position: left center }
+	100% { background-position: -304px center; }
+}
+
+.tunicate-1 {
+	
+	width: 76px;
+	height: 72px;
+	background-image: url(i/creature-tunicate-1.png);
+	animation-name: tunicate-1;
+	animation-duration: 3.5s;
+	animation-timing-function: steps(4);
+	animation-iteration-count: infinite;
+	
+	&.slow {
+		animation-name: tunicate-1-slow;
+		animation-duration: 5s;
+	}
+
+	&.fast {
+		animation-name: tunicate-1-fast;
+		animation-duration: 2s;
+	}
+	
+}
+
+/* Tunicate 2 */
+
+@keyframes tunicate-2 {
+	0% { background-position: left center }
+	70% { background-position: left center }
+	100% { background-position: -256px center; }
+}
+
+@keyframes tunicate-2-slow {
+	0% { background-position: left center }
+	75% { background-position: left center }
+	100% { background-position: -256px center; }
+}
+
+@keyframes tunicate-2-fast {
+	0% { background-position: left center }
+	62% { background-position: left center }
+	100% { background-position: -256px center; }
+}
+
+.tunicate-2 {
+	
+	width: 64px;
+	height: 56px;
+	background-image: url(i/creature-tunicate-2.png);
+	animation-name: tunicate-2;
+	animation-duration: 3.3s;
+	animation-timing-function: steps(4);
+	animation-iteration-count: infinite;
+	
+	&.slow {
+		animation-name: tunicate-2-slow;
+		animation-duration: 4s;
+	}
+
+	&.fast {
+		animation-name: tunicate-2-fast;
+		animation-duration: 2.6s;
+	}
+	
+}
+
+/* Seaweed 1 */
+
+@keyframes seaweed-1 {
+	to { background-position: -288px center; }
+}
+
+.seaweed-1 {
+	
+	width: 48px;
+	height: 128px;
+	background-image: url(i/creature-seaweed-1.png);
+	animation-name: seaweed-1;
+	animation-duration: 3s;
+	animation-timing-function: steps(6);
+	animation-iteration-count: infinite;
+	
+	&.slow {
+		animation-duration: 4s;
+	}
+
+	&.fast {
+		animation-duration: 2s;
+	}
+	
+}
+
+/* Seaweed 2 */
+
+@keyframes seaweed-2 {
+	to { background-position: -216px center; }
+}
+
+.seaweed-2 {
+	
+	width: 36px;
+	height: 72px;
+	background-image: url(i/creature-seaweed-2.png);
+	animation-name: seaweed-2;
+	animation-duration: 2.5s;
+	animation-timing-function: steps(6);
+	animation-iteration-count: infinite;
+	
+	&.slow {
+		animation-duration: 3.5s;
+	}
+
+	&.fast {
+		animation-duration: 1.5s;
+	}
+	
+}
+
+/* Crab */
+
+@keyframes crab {
+	to { background-position: -864px center; }
+}
+
+@keyframes crab-walk {
+	0%		{ transform: translate(0,0) }
+	25%		{ transform: translate(0,0) }
+	50%		{ transform: translate(96px,0) }
+	75%		{ transform: translate(96px,0) }
+	100%	{ transform: translate(0,0) }
+}
+
+.crab {
+	width: 72px;
+	height: 40px;
+	transform: translate(0,0);
+	background-image: url(i/creature-crab.png);
+	animation-name: crab, crab-walk;
+	animation-duration: 5s, 10s;
+	animation-timing-function: steps(12), steps(6, start);
+	animation-iteration-count: infinite;
+}
+
+/* Bubbles 1 */
+
+@keyframes bubbles-1 {
+	to { background-position: -768px center; }
+}
+
+.bubbles-1 {
+	
+	width: 64px;
+	height: 128px;
+	background-image: url(i/bubbles-1.png);
+	animation-name: bubbles-1;
+	animation-duration: 2s;
+	animation-timing-function: steps(12);
+	animation-fill-mode: forwards;
+	
+}
