@@ -1,0 +1,64 @@
+/* ==============================
+   EARHART
+   ============================== */
+
+@import url('https://fonts.googleapis.com/css?family=Muli:900|Montserrat:300');
+
+@import 'partials/hero';
+
+body {
+	background: #c3d5da;
+}
+
+.globalnav {
+	display: none;
+}
+
+#story {
+
+	position: relative;
+
+	.content-width {
+		max-width: 700px;
+	}
+
+	.section {
+		padding-bottom: 6rem;
+	}
+
+	.section-header {
+
+		position: relative;
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		font-family: "Montserrat", "Roboto Mono", monospace;
+
+		p {
+			margin: 0;
+		}
+
+		&:after {
+			display: block;
+			content: '';
+			width: 200px;
+			height: 1px;
+			background: #fff;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+
+	}
+
+	.coords {
+		font-size: 3rem;
+	}
+
+}
+
+#story-section-1 {
+	padding-top: 50vh;
+	//margin-top: -80vh;
+	background: linear-gradient( to bottom, rgba(39,61,117,0), cubic-bezier(0.55, 0.055, 0.675, 0.19), #273d75 );
+	color: #fff;
+}

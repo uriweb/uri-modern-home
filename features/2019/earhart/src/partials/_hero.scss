@@ -1,0 +1,159 @@
+/* ==============================
+   HERO
+   ============================== */
+
+#feature-hero {
+
+   display: grid;
+   grid-template-columns: 100vw;
+   grid-template-rows: calc( 95vh - 80px ) auto;
+   justify-items: center;
+   align-items: center;
+
+   h1 {
+     font-family: "Muli", "Lato", "Hind", Arial, sans-serif;
+     font-size: 4rem;
+     max-width: 500px;
+     padding: 0 25px;
+     line-height: 4.5rem;
+     text-align: center;
+     color: rgba(0,0,0,.7); //6396c3
+   }
+
+   #deck {
+     font-family: "Muli", "Lato", "Hind", Arial, sans-serif;
+     font-size: 1.3rem;
+     color: #333;
+     max-width: 600px;
+     padding: 0 25px;
+     text-align: center;
+   }
+
+}
+
+@media screen and (min-width: 600px) {
+  #feature-hero {
+    h1 {
+      font-size: 5rem;
+      line-height: 5rem;
+    }
+    #deck {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  #feature-hero {
+    h1 {
+      font-size: 6rem;
+      line-height: 6rem;
+    }
+    #deck {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@keyframes cloud-scale {
+  from { transform: scale(.1) }
+  to { transform: scale(2) }
+}
+
+@keyframes cloud-opacity {
+  0% { opacity: 0 }
+  30% { opacity: 1 }
+  90% { opacity: 1 }
+  100% { opacity: 0 }
+}
+
+#hero-graphic {
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  margin-left: -50vw;
+  height: 100vh;
+  width: 100vw;
+
+  background: linear-gradient( to bottom, #d0e6f5, #c3d5da );
+
+  .cloud {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center center;
+    animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035), linear;
+    animation-iteration-count: infinite;
+  }
+
+  .cloud-1 {
+    width: 2000px;
+    height: 1060px;
+    margin-left: -1000px;
+    margin-top: -530px;
+    background-image: url(i/cloud-1.png);
+    animation-name: cloud-scale, cloud-opacity;
+    animation-duration: 15s;
+    animation-delay: -10s;
+  }
+
+  .cloud-2 {
+    width: 1392px;
+    height: 785px;
+    margin-left: -696px;
+    margin-top: -392px;
+    background-image: url(i/cloud-2.png);
+    animation-name: cloud-scale, cloud-opacity;
+    animation-duration: 20s;
+    animation-delay: -7s;
+  }
+
+  .cloud-3 {
+    width: 2000px;
+    height: 1091px;
+    margin-left: -1000px;
+    margin-top: -545px;
+    background-image: url(i/cloud-3.png);
+    animation-name: cloud-scale, cloud-opacity;
+    animation-duration: 30s;
+    animation-delay: -5s;
+  }
+
+  .cloud-4 {
+    width: 2000px;
+    height: 1182px;
+    margin-left: -1000px;
+    margin-top: -591px;
+    background-image: url(i/cloud-4.png);
+    animation-name: cloud-scale, cloud-opacity;
+    animation-duration: 15s;
+    animation-delay: -8s;
+  }
+
+  .cloud-5 {
+    width: 2000px;
+    height: 691px;
+    margin-left: -1000px;
+    margin-top: -345px;
+    background-image: url(i/cloud-5.png);
+    animation-name: cloud-scale, cloud-opacity;
+    animation-duration: 20s;
+    animation-delay: -6s;
+  }
+
+  .cloud-6 {
+    width: 2000px;
+    height: 1080px;
+    margin-left: -1000px;
+    margin-top: -540px;
+    background-image: url(i/cloud-6.png);
+    animation-name: cloud-scale, cloud-opacity;
+    animation-duration: 25s;
+    animation-delay: -4s;
+  }
+
+}
