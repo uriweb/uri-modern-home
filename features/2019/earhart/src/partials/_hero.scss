@@ -9,6 +9,7 @@
    grid-template-rows: calc( 95vh - 80px ) auto;
    justify-items: center;
    align-items: center;
+   pointer-events: none;
 
    h1 {
      font-family: "Muli", "Lato", "Hind", Arial, sans-serif;
@@ -17,13 +18,13 @@
      padding: 0 25px;
      line-height: 4.5rem;
      text-align: center;
-     color: rgba(0,0,0,.7); //6396c3
+     color: #36566f;
    }
 
    #deck {
      font-family: "Muli", "Lato", "Hind", Arial, sans-serif;
      font-size: 1.3rem;
-     color: #333;
+     color: #36566f;
      max-width: 600px;
      padding: 0 25px;
      text-align: center;
@@ -56,8 +57,8 @@
 }
 
 @keyframes cloud-scale {
-  from { transform: scale(.1) }
-  to { transform: scale(2) }
+  from { transform: scale(.2) }
+  to { transform: scale(2.5) }
 }
 
 @keyframes cloud-opacity {
@@ -77,6 +78,73 @@
   width: 100vw;
 
   background: linear-gradient( to bottom, #d0e6f5, #c3d5da );
+
+  #motion-control {
+    display: none;
+  }
+
+  #motion-control-label {
+
+		display: block;
+		position: absolute;
+    content: '';
+		right: 5vw;
+		top: 70px;
+		z-index: 5;
+		width: 20px;
+		height: 20px;
+    opacity: .5;
+		transition: all .3s ease-in-out;
+
+		&:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        border-style: solid;
+        border-width: 0 0 0 6px;
+        border-color: transparent transparent transparent #36566f;
+        transition: all .1s ease-in-out;
+    }
+
+    &:after {
+        left: 10px;
+    }
+
+  }
+
+  #motion-control:checked {
+
+    & ~ #motion-control-label {
+
+      &:before {
+          height: 10px;
+          border-width: 5px 0 5px 10px;
+          border-color: transparent transparent transparent #36566f;
+      }
+
+      &:after {
+          top: 5px;
+          height: 0;
+          border-width: 5px 0 5px 10px;
+          border-color: transparent transparent transparent #36566f;
+      }
+
+    }
+
+    & ~ .cloud {
+      animation-play-state: paused;
+    }
+
+  }
+
+  #motion-control-label:hover,
+  #motion-control-label:focus {
+      cursor: pointer;
+      opacity: 1;
+  }
 
   .cloud {
     position: absolute;
