@@ -27,8 +27,23 @@ body {
 	}
 
 	img {
-		padding: 0;
+		padding-top: 0;
 		display: block;
+	}
+
+	.feature-caption {
+
+		color: rgba(0,0,0,.7);
+		margin-left: 25px;
+
+		.credit {
+			color: rgba(0,0,0,.4);
+		}
+
+		&:after {
+			background: rgba(0,0,0,.2);
+		}
+
 	}
 
 }
@@ -42,6 +57,10 @@ body {
 		&.fullwidth {
 			width: 100%;
 			left: 0;
+		}
+
+		.feature-caption {
+			margin-left: 0;
 		}
 
 	}
@@ -154,6 +173,21 @@ body {
 	.section-header .coords-screen {
 		text-shadow: 0 0 .5rem rgba(255,255,255,.1);
 	}
+
+	.artboard .feature-caption {
+
+		color: rgba(255,255,255,.7);
+
+		.credit {
+			color: rgba(255,255,255,.4);
+		}
+
+		&:after {
+			background: rgba(255,255,255,.2);
+		}
+
+	}
+
 }
 
 #story-section-3 {
@@ -163,7 +197,23 @@ body {
 	color: #fff;
 
 	.artboard {
+
 		z-index: 0;
+
+		.feature-caption {
+
+			color: rgba(255,255,255,.7);
+
+			.credit {
+				color: rgba(255,255,255,.4);
+			}
+
+			&:after {
+				background: rgba(255,255,255,.2);
+			}
+
+		}
+
 	}
 
 	.content-width {
@@ -206,38 +256,6 @@ body {
 		//margin-top: -18vw;
 	}
 
-	ul {
-		list-style: none;
-		margin: 2rem 0;
-		padding: 2rem 1rem 0;
-		font-family: "Montserrat", "Roboto Mono", monospace;
-		font-size: 1rem;
-		text-align: center;
-		background: rgba(255,255,255,.3);
-		border: 1px solid rgba(255,255,255,.5);
-		border-radius: .2rem;
-	}
-
-	li {
-
-		padding-bottom: 1.5rem;
-		position: relative;
-		width: 80%;
-		margin: 0 auto 1.5rem;
-
-		&:not(:last-child):after {
-			display: block;
-			content: '';
-			position: absolute;
-			left: 40%;
-			bottom: 0;
-			height: 1px;
-			width: 20%;
-			background: rgba(0,0,0,.2);
-		}
-
-	}
-
 	p {
 		position: relative;
 		z-index: 1;
@@ -277,6 +295,38 @@ body {
 
 		.coords-screen {
 			text-shadow: 0 0 .7rem rgba(0,0,0,.8);
+		}
+
+	}
+
+	ul {
+		list-style: none;
+		margin: 2rem 0;
+		padding: 2rem 1rem 0;
+		font-family: "Montserrat", "Roboto Mono", monospace;
+		font-size: 1rem;
+		text-align: center;
+		background: rgba(0,0,0,.4);
+		border: 1px solid rgba(255,255,255,.2);
+		border-radius: .2rem;
+	}
+
+	li {
+
+		padding-bottom: 1.5rem;
+		position: relative;
+		width: 80%;
+		margin: 0 auto 1.5rem;
+
+		&:not(:last-child):after {
+			display: block;
+			content: '';
+			position: absolute;
+			left: 40%;
+			bottom: 0;
+			height: 1px;
+			width: 20%;
+			background: rgba(255,255,255,.2);
 		}
 
 	}
