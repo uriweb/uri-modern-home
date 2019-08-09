@@ -31,13 +31,43 @@ body {
 		display: block;
 	}
 
+	video {
+		padding-bottom: 1.5rem;
+	}
+
 	.feature-caption {
 
 		color: rgba(0,0,0,.7);
-		margin-left: 25px;
+
+		&.no-credit:after {
+			display: none;
+		}
+
+		.cutline {
+			font-family: "Muli", "Lato", "Hind", Arial, sans-serif;
+			font-size: 1.2rem;
+			line-height: 1.3rem;
+			padding: 1rem 1rem 1rem 25px;
+			background: #000;
+			color: #fff;
+			max-width: 80%;
+		}
 
 		.credit {
 			color: rgba(0,0,0,.4);
+			margin-top: 1rem;
+			margin-left: 25px;
+		}
+
+		.caption {
+			margin-left: 25px;
+		}
+
+		.attribution {
+			display: block;
+			font-size: .9rem;
+			margin-top: 1rem;
+			font-family: "Montserrat", "Roboto Mono", monospace;
 		}
 
 		&:after {
@@ -60,7 +90,17 @@ body {
 		}
 
 		.feature-caption {
-			margin-left: 0;
+
+			.cutline {
+				padding: 1rem;
+				max-width: initial;
+			}
+
+			.credit,
+			.caption {
+				margin-left: 0;
+			}
+
 		}
 
 	}
@@ -204,6 +244,11 @@ body {
 
 			color: rgba(255,255,255,.7);
 
+			.cutline {
+				background: #b18411;
+				margin-bottom: 1rem;
+			}
+
 			.credit {
 				color: rgba(255,255,255,.4);
 			}
@@ -299,6 +344,17 @@ body {
 
 	}
 
+	a {
+
+		color: #14ebbc;
+
+		&:hover,
+		&:focus {
+			color: #11ba95;
+		}
+
+	}
+
 	ul {
 		list-style: none;
 		margin: 2rem 0;
@@ -306,8 +362,7 @@ body {
 		font-family: "Montserrat", "Roboto Mono", monospace;
 		font-size: 1rem;
 		text-align: center;
-		background: rgba(0,0,0,.4);
-		border: 1px solid rgba(255,255,255,.2);
+		background: #042c32;
 		border-radius: .2rem;
 	}
 
