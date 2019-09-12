@@ -1,0 +1,188 @@
+/* ==============================
+   BLUE MINDS - HOMEPAGE STYLES
+   ============================== */
+
+@import 'partials/base';
+@import 'partials/nav';
+
+.feature-hero {
+
+  background: #050958;
+  padding: 30vh 0;
+
+  .feature-hero-content {
+
+    width: 50%;
+    margin: 0 auto;
+    color: #fff;
+    text-align: center;
+
+    h1 {
+      color: #fff;
+      font-family: $font-red-hat;
+      text-transform: lowercase;
+      width: 100%;
+      font-size: 10rem;
+      margin-bottom: 5rem;
+    }
+
+    .deck {
+      font-family: $font-red-hat;
+    }
+
+  }
+
+}
+
+/*
+.story:nth-child(odd) .story-container {
+  background: #eee;
+}
+*/
+
+.story-container {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  transition:
+    padding-top 1s ease-in-out,
+    padding-bottom 1s ease-in-out;
+
+}
+.teaser-wrapper {
+
+  width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  margin-left: -50vw !important;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  box-sizing: border-box;
+  transition:
+    padding-left .5s ease-in-out .5s,
+    padding-right .5s ease-in-out .5s;
+}
+
+.teaser-content {
+
+  width: 100%;
+
+  a {
+
+    display: block;
+    width: 100%;
+    padding-top: 40vh;
+    padding-bottom: 40vh;
+    background: #000222;
+    transition:
+      padding 1s ease-in-out,
+      background .5s ease-in-out .5s;
+
+  }
+
+  .click-target {
+    display: block;
+    width: 70%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .h1 {
+
+    display: block;
+    font-family: $font-red-hat;
+    width: 100%;
+    max-width: 100%;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 3.2rem;
+    color: #fff;
+    transition: color .5s ease-in-out .5s;
+
+    span {
+      color: #00b2ff;
+    }
+
+  }
+
+  .h2 {
+    display: block;
+    font-weight: 700;
+    font-family: "Roboto Mono", monospace;
+    width: 60%;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #fff;
+    transition: color .5s ease-in-out .5s;
+  }
+
+}
+
+.story-content-wrapper {
+  height: auto;
+  max-height: 0;
+  overflow: hidden;
+  background: #050958;
+  padding-bottom: 0;
+  transition:
+    max-height .5s ease-in-out,
+    padding-bottom .5s ease-in-out;
+}
+
+.story.open {
+
+  .story-container {
+    padding-top: 0;
+    padding-bottom: 0;
+    transition:
+      padding-top .8s ease-in-out .6s,
+      padding-bottom .8s ease-in-out .6s;
+  }
+
+  .teaser-wrapper {
+
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition:
+      padding-left .5s ease-in-out,
+      padding-right .5s ease-in-out;
+
+  }
+
+  a {
+
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    background: #050958;
+    transition:
+      padding 1s ease-in-out .2s,
+      background .5s ease-in-out;
+
+    .h1, .h2 {
+      color: #fff;
+      transition: color .5s ease-in-out;
+    }
+
+  }
+
+  .story-content-wrapper {
+    max-height: 10000px;
+    padding-bottom: 10vh;
+    transition:
+      max-height 1s ease-in-out .5s,
+      padding-bottom .5s ease-in-out 1s;
+  }
+
+
+}
+
+/* Stories */
+
+.story-body {
+
+  width: 700px;
+  margin: 0 auto;
+  color: #fff;
+
+}
