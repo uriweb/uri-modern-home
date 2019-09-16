@@ -13,40 +13,65 @@
 
   function init() {
 
-    var i, a, s;
+		var stories, i, a, s, id;
 
-    document.body.classList.add( 'has-js' );
+		document.body.classList.add( 'has-js' );
 
-    data.stories = document.querySelectorAll( 'section.story' );
+		stories = document.querySelectorAll( 'section.story' );
 
-    //console.log( data.stories );
-
-    for ( i = 0; i < data.stories.length; i++ ) {
-
-      a = data.stories[i].querySelector( 'a.story-hero' );
-
-      a.addEventListener( 'click', function(e) {
-        e.preventDefault();
-        handleClick( this );
-      }, false );
-
-    }
+		for ( i = 0; i < stories.length; i++ ) {
+		  id = stories[i].getAttribute( 'id' );
+		  setupStory( id, stories[i] );
+		}
 
   }
 
-  function handleClick( a ) {
+  function setupStory( id, story ) {
 
-    var id, el;
+		data[id] = {
+		  section: story,
+		  iframe: story.querySelector( 'iframe' ),
+		  a: story.querySelector( 'a.teaser-click-target' )
+		}
 
-    id = a.getAttribute( 'data-id' );
-    el = document.getElementById( id );
+		data[id].player = new Vimeo.Player( data[id].iframe );
 
-    if ( el.classList.contains( 'open' ) ) {
-      el.classList.remove( 'open' );
-    } else {
-      el.classList.add( 'open' );
-      el.scrollIntoView( { behavior: 'smooth', block: 'start', inline: 'nearest' } );
-    }
+    data[id].player.on( 'loaded', function() {
+      this.pause();
+    }, false );
+
+		data[id].section.addEventListener( 'mouseenter', handleMouseOver.bind( null, id ), false );
+		data[id].section.addEventListener( 'mouseleave', handleMouseOut.bind( null, id ), false );
+
+		data[id].a.addEventListener( 'click', function( e ) {
+      e.preventDefault();
+      handleClick( data[id].section );
+		}, false );
+
+  }
+
+  function handleClick( section ) {
+
+		var classItem = 'open';
+
+		if ( section.classList.contains( classItem ) ) {
+		  section.classList.remove( classItem );
+			} else {
+		  section.classList.add( classItem );
+		  section.scrollIntoView( { behavior: 'smooth', block: 'start', inline: 'nearest' } );
+			}
+
+  }
+
+  function handleMouseOver( id ) {
+
+		data[id].player.play();
+
+  }
+
+  function handleMouseOut( id ) {
+
+		data[id].player.pause();
 
   }
 
