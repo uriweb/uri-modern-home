@@ -34,14 +34,18 @@
 		  a: story.querySelector( 'a.teaser-click-target' )
 		}
 
-		data[id].player = new Vimeo.Player( data[id].iframe );
+    if ( data[id].iframe ) {
 
-    data[id].player.on( 'loaded', function() {
-      this.pause();
-    }, false );
+  		data[id].player = new Vimeo.Player( data[id].iframe );
 
-		data[id].section.addEventListener( 'mouseenter', handleMouseOver.bind( null, id ), false );
-		data[id].section.addEventListener( 'mouseleave', handleMouseOut.bind( null, id ), false );
+      data[id].player.on( 'loaded', function() {
+        this.pause();
+      }, false );
+
+  		data[id].section.addEventListener( 'mouseenter', handleMouseOver.bind( null, id ), false );
+  		data[id].section.addEventListener( 'mouseleave', handleMouseOut.bind( null, id ), false );
+
+    }
 
 		data[id].a.addEventListener( 'click', function( e ) {
       e.preventDefault();
