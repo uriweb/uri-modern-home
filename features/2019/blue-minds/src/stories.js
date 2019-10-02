@@ -22,7 +22,7 @@
 		for ( i = 0; i < stories.length; i++ ) {
 		  id = stories[i].getAttribute( 'id' );
 		  setupStory( id, stories[i] );
-		}
+			}
 
   }
 
@@ -32,25 +32,33 @@
 		  section: story,
 		  iframe: story.querySelector( 'iframe' ),
 		  a: story.querySelector( 'a.teaser-click-target' )
-		}
+			}
 
-    if ( data[id].iframe ) {
+		if ( data[id].iframe ) {
 
-  		data[id].player = new Vimeo.Player( data[id].iframe );
+			data[id].player = new Vimeo.Player( data[id].iframe );
 
-      data[id].player.on( 'loaded', function() {
-        this.pause();
-      }, false );
+		data[id].player.on(
+			 'loaded',
+			function() {
+			  this.pause();
+		  },
+		  false
+			);
 
-  		data[id].section.addEventListener( 'mouseenter', handleMouseOver.bind( null, id ), false );
-  		data[id].section.addEventListener( 'mouseleave', handleMouseOut.bind( null, id ), false );
+			data[id].section.addEventListener( 'mouseenter', handleMouseOver.bind( null, id ), false );
+			data[id].section.addEventListener( 'mouseleave', handleMouseOut.bind( null, id ), false );
 
-    }
+			}
 
-		data[id].a.addEventListener( 'click', function( e ) {
-      e.preventDefault();
-      handleClick( data[id].section );
-		}, false );
+		data[id].a.addEventListener(
+			 'click',
+			function( e ) {
+	  e.preventDefault();
+	  handleClick( data[id].section );
+				},
+			false
+			);
 
   }
 
@@ -61,9 +69,10 @@
 		if ( section.classList.contains( classItem ) ) {
 		  section.classList.remove( classItem );
 			} else {
-		  section.classList.add( classItem );
-		  section.scrollIntoView( { behavior: 'smooth', block: 'start', inline: 'nearest' } );
+		 section.classList.add( classItem );
 			}
+
+		section.scrollIntoView( { behavior: 'smooth', block: 'start', inline: 'nearest' } );
 
   }
 
