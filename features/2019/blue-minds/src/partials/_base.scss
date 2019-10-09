@@ -2,44 +2,8 @@
    BLUE MINDS - BASE STYLES
    ============================== */
 
-/* VARS */
-
-$stories:
-	blue-minds-alex-moen
-	blue-minds-rick-rhodes
-	blue-minds-brian-cacioppoli
-	blue-minds-brennan-phillips
-	blue-minds-austin-humphries
-	blue-minds-emily-clapham;
-
 /* FONTS */
 
 @import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,700&display=swap');
 
 $font-red-hat: "Red Hat Display", "Lato", "Hind", Arial, sans-serif;
-
-/*
-@font-face {
-	font-family: "Coolvetica";
-	src: url( f/coolvetica_rg.ttf );
-}
-*/
-
-/* STYLES */
-
-body:not(.home):not(.ln-preview) .globalnav {
-	display: none;
-}
-
-body {
-	position: relative;
-}
-
-#main {
-	margin-bottom: 0;
-	padding-bottom: 0;
-}
-
-.post-navigation {
-	display: none;
-}

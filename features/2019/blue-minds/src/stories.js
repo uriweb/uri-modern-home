@@ -1,6 +1,6 @@
-/* ==============================
-   BLUE MINDS - STORY SCRIPT
-   ============================== */
+/**
+ * BLUE MINDS - STORY SCRIPT
+ */
 
 
 ( function() {

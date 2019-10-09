@@ -6,7 +6,23 @@
 @import 'partials/story';
 
 body {
+
+  position: relative;
   background: #fff;
+
+  .globalnav {
+  	display: none;
+  }
+
+}
+
+#main {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.post-navigation {
+	display: none;
 }
 
 .feature-hero {
