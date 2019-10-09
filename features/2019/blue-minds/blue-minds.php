@@ -21,6 +21,8 @@ function uri_modern_features_blue_minds_story_block( $atts, $content = null ) {
 				'h1' => '',
 				'h2' => '',
 				'media_html' => '',
+				'link' => '',
+				'include_content' => true,
 			),
 		$atts
 		);

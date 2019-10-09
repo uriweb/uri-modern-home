@@ -272,6 +272,43 @@ body {
 
 }
 
+.story.external-content {
+
+  .teaser-click-target {
+    h1, h2 {
+      text-align: center;
+    }
+    h2 {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .teaser-click-icon {
+
+    border-radius: 10px;
+
+    span {
+      transform: rotate(-45deg);
+    }
+
+    &:before {
+      top: 27.5px;
+      left: 16px;
+      border-radius: 1px;
+    }
+
+    &:after {
+      top: 29px;
+      left: 27.5px;
+      transform: rotate(-90deg);
+      border-radius: 1px;
+    }
+
+  }
+
+}
+
 .story-content-wrapper {
   height: auto;
   max-height: 0;

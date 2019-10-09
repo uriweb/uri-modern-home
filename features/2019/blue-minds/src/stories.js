@@ -51,14 +51,18 @@
 
 			}
 
-		data[id].a.addEventListener(
+		if ( ! data[id].section.classList.contains( 'external-content' ) ) {
+
+			data[id].a.addEventListener(
 			 'click',
 			function( e ) {
-	  e.preventDefault();
-	  handleClick( data[id].section );
-				},
+		   e.preventDefault();
+			handleClick( data[id].section );
+			},
 			false
-			);
+			  );
+
+			}
 
   }
 
