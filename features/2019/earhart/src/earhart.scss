@@ -15,6 +15,15 @@ body {
 	display: none;
 }
 
+.post-navigation {
+	display: none;
+}
+
+#main {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
 #content {
 	max-width: 100vw;
 	overflow-x: hidden;
@@ -194,6 +203,10 @@ body {
 
 	.add-light-contrast {
 		text-shadow: 0 0 7px #fff;
+	}
+
+	.ballard-feature-vid {
+		margin-bottom: 0;
 	}
 
 }
