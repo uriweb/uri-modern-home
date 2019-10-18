@@ -100,6 +100,8 @@
   display: block;
   width: 100vw;
   margin-left: -25px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 
   .bm-artwork-image img {
     width: 100%;
@@ -115,6 +117,12 @@
     font-size: 1rem;
     font-weight: 700;
     color: #333;
+    line-height: 1.4rem;
+  }
+
+  .bm-artwork-caption-attribution {
+    color: #888;
+    margin-top: .5rem;
   }
 
   .bm-artwork-credit {
@@ -122,6 +130,7 @@
     font-weight: 400;
     font-size: .8rem;
     margin-top: .5rem;
+    color: #888;
   }
 
 }
@@ -215,6 +224,36 @@
 
   h1, h2, h3 {
     color: #fff;
+  }
+
+}
+
+body.read-mode-light {
+
+  .story-body {
+
+    color: #333;
+
+    h1, h2, h3 {
+      color: #333;
+    }
+
+    .bm-story-content {
+
+      p:first-child:first-letter {
+    		color: #333;
+    	}
+
+      a {
+        color: #005eff;
+      }
+
+    }
+
+  }
+
+  .story-content:after {
+    background-image: url('i/endmark-dark.svg');
   }
 
 }

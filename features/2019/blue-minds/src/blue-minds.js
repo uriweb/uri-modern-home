@@ -22,7 +22,9 @@
 		for ( i = 0; i < stories.length; i++ ) {
 		  id = stories[i].getAttribute( 'id' );
 		  setupStory( id, stories[i] );
-			}
+		}
+
+    setupReadMode();
 
   }
 
@@ -89,6 +91,23 @@
   function handleMouseOut( id ) {
 
 		data[id].player.pause();
+
+  }
+
+  function setupReadMode() {
+
+    var light, dark;
+
+    light = document.querySelector( '.read-mode-toggle .read-mode-toggle-light' );
+    dark = document.querySelector( '.read-mode-toggle .read-mode-toggle-dark' );
+
+    light.addEventListener( 'click', function() {
+      document.body.classList.add( 'read-mode-light' );
+    }, false );
+
+    dark.addEventListener( 'click', function() {
+      document.body.classList.remove( 'read-mode-light' );
+    }, false );
 
   }
 
