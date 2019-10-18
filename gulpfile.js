@@ -32,7 +32,6 @@ var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('autoprefixer');
-var easingGradients = require('postcss-easing-gradients');
 var postcss = require('gulp-postcss');
 var rename = require('gulp-rename');
 var path = require('path');
@@ -79,7 +78,7 @@ function styles(done) {
 		.pipe(sourcemaps.init())
 		.pipe(sass(sassOptions).on('error', sass.logError))
 		.pipe(concat('style.css'))
-        .pipe(postcss([ easingGradients(), autoprefixer() ]))
+        .pipe(postcss([ autoprefixer() ]))
 		.pipe(header(banner, { pkg : pkg } ))
 		.pipe(sourcemaps.write('./map'))
 		.pipe(gulp.dest('.'));
@@ -99,7 +98,7 @@ function featuresCSS(done) {
 			file.dirname = path.dirname(file.dirname);
 			return file;
 		}))
-        .pipe(postcss([ easingGradients(), autoprefixer() ]))
+        .pipe(postcss([ autoprefixer() ]))
 		.pipe(header('/* built */'))
 		.pipe(gulp.dest('./features/'));
 
