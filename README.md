@@ -9,7 +9,7 @@ URI Modern Home 1.7.1 is a bug fix release.
 * Fixes an issue that caused the Space Invaders game to not run on IE
 * Fixes an issue with file name case sensitivity in the Space Invaders embedded font
 
-For complete details, see the [commit history](https://github.com/uriweb/uri-modern-home/pull/48/commits) and the [issue tracker](https://github.com/uriweb/uri-modern-home/issues). 
+For complete details, see the [commit history](https://github.com/uriweb/uri-modern-home/pull/48/commits) and the [issue tracker](https://github.com/uriweb/uri-modern-home/issues).
 
 ## New in 1.7.0
 
@@ -18,7 +18,7 @@ URI Modern Home 1.7.0 is a minor release.
 * Adds styles for the Space Invaders feature story
 * Updates development tools
 
-For complete details, see the [commit history](https://github.com/uriweb/uri-modern-home/pull/46/commits) and the [issue tracker](https://github.com/uriweb/uri-modern-home/issues). 
+For complete details, see the [commit history](https://github.com/uriweb/uri-modern-home/pull/46/commits) and the [issue tracker](https://github.com/uriweb/uri-modern-home/issues).
 
 ## How do I get set up?
 
@@ -40,5 +40,5 @@ For complete details, see the [commit history](https://github.com/uriweb/uri-mod
 Contributors: Brandon Fuller, John Pennypacker  
 Tags: themes  
 Requires at least: 4.0  
-Tested up to: 4.9  
-Stable tag: 1.7.1  
+Tested up to: 5.2  
+Stable tag: 1.8.0  
