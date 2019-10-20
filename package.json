@@ -1,6 +1,6 @@
 {
   "name": "uri-modern-home",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "description": "URI Modern Home is a WordPress theme designed for the University of Rhode Island homepage site. It is a child theme of URI Modern.",
   "themeName": "URI Modern Home",
   "textDomain": "uri",
@@ -23,7 +23,7 @@
   "license": "GPL-3.0",
   "licenseURI": "http://www.gnu.org/licenses/gpl.html",
   "devDependencies": {
-    "autoprefixer": "^9.5.1",
+    "autoprefixer": "^9.6.5",
     "gulp": "^4.0.1",
     "gulp-changed": "^3.2.0",
     "gulp-concat": ">=2.6.1",
@@ -38,7 +38,8 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-strip-debug": "^3.0.0",
     "gulp-uglify": "^3.0.2",
-    "jshint": "^2.10.2"
+    "jshint": "^2.10.2",
+    "postcss-easing-gradients": "^3.0.1"
   },
   "engines": {
     "node": ">=8.9.4",

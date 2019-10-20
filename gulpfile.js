@@ -49,11 +49,11 @@ var sassOptions = {
 gulp.task('scripts', scripts);
 
 function scripts(done) {
-    
+
   gulp.src('./src/js/*.js')
     .pipe(jshint(done))
     .pipe(jshint.reporter('default'));
-    
+
   gulp.src('./src/js/*.js')
     .pipe(jscs(done))
     .pipe(jscs.reporter());
@@ -64,7 +64,7 @@ function scripts(done) {
     .pipe(uglify())
     .pipe(header(banner, { pkg : pkg } ))
     .pipe(gulp.dest('./js/'));
-    
+
 	done();
  // console.log('scripts ran');
 }
@@ -101,7 +101,7 @@ function featuresCSS(done) {
         .pipe(postcss([ autoprefixer() ]))
 		.pipe(header('/* built */'))
 		.pipe(gulp.dest('./features/'));
-	
+
 	done();
 	//console.log('features css ran');
 }
@@ -143,7 +143,7 @@ function images(done) {
 gulp.task('sniffs', sniffs);
 
 function sniffs(done) {
-    
+
     return gulp.src('.', {read:false})
         .pipe(shell(['./.sniff']));
 
@@ -158,16 +158,16 @@ function watcher(done) {
 
 	// watch for Theme CSS changes
 	gulp.watch('./src/sass/**/*', styles);
-	
+
 	// watch for Features CSS changes
 	gulp.watch('./features/**/*.scss', featuresCSS);
-	
+
 	// watch for Features JS changes
 	gulp.watch('./features/**/src/*.js', featuresJS);
 
 	// watch for image changes
 	gulp.watch('./src/images/**/*', images);
-    
+
     // watch for PHP change
     gulp.watch('./**/*.php', sniffs);
 
