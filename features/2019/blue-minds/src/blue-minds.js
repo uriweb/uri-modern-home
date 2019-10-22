@@ -25,6 +25,28 @@
 		}
 
     setupReadMode();
+    deepLink();
+
+  }
+
+  function deepLink() {
+
+    var a;
+
+    a = getAnchor();
+
+    if ( null != a ) {
+      handleClick( document.getElementById( a ) );
+    }
+
+  }
+
+  function getAnchor() {
+
+    var currentUrl = document.URL,
+  	urlParts   = currentUrl.split('#');
+
+    return ( urlParts.length > 1 ) ? urlParts[1] : null;
 
   }
 
