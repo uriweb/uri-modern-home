@@ -1,0 +1,45 @@
+/* ==============================
+   BLUE MINDS - EXPLAINER
+   ============================== */
+
+.bm-explainer-wrapper {
+
+  background: #0075a7;
+  margin-bottom: 2rem;
+
+  .bm-explainer-content {
+
+    display: block;
+    padding: 2rem;
+    font-family: $font-red-hat;
+    color: #fff;
+    transform: scale( .98 );
+    transition: transform .2s ease-in-out;
+
+    &:hover,
+    &:focus {
+      transform: scale( 1 );
+    }
+
+    span {
+      display: block;
+    }
+
+    .bm-explainer-headline {
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: lowercase;
+      margin-bottom: .5rem;
+    }
+
+    .bm-explainer {
+      max-width: 100%;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.2rem;
+      margin-bottom: .2rem;
+    }
+
+  }
+
+}
