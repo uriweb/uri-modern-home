@@ -8,6 +8,8 @@ URI Modern Home 1.9.1 is a bug fix release.
 
 * Fixes an issue that may prevent cache busting for the parent theme stylesheet
 
+For complete details, see the [commit history](https://github.com/uriweb/uri-modern-home/pull/56/commits) and the [issue tracker](https://github.com/uriweb/uri-modern-home/issues).
+
 ## New in 1.9
 
 URI Modern Home 1.9 is a minor release.
