@@ -2,7 +2,13 @@
 
 URI Modern Home is a WordPress theme designed for the University of Rhode Island homepage site. It is a child theme of URI Modern.
 
-## What's new in 1.9
+## What's new in 1.9.1
+
+URI Modern Home 1.9.1 is a bug fix release.
+
+* Fixes an issue that may prevent cache busting for the parent theme stylesheet
+
+## New in 1.9
 
 URI Modern Home 1.9 is a minor release.
 
@@ -32,4 +38,4 @@ Contributors: Brandon Fuller, John Pennypacker
 Tags: themes  
 Requires at least: 4.0  
 Tested up to: 5.2  
-Stable tag: 1.9.0  
+Stable tag: 1.9.1  
