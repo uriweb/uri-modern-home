@@ -13,8 +13,9 @@
 function uri_modern_home_enqueues() {
 
 	$parent_style = 'uri-modern-style';
+	$parent_dir_name = wp_get_theme()->get( 'Template' );
 
-	wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get( 'Version' ) );
+	wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css', array(), wp_get_theme( $parent_dir_name )->get( 'Version' ) );
 
 	wp_enqueue_style( 'uri-modern-home-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ), wp_get_theme()->get( 'Version' ) );
 
