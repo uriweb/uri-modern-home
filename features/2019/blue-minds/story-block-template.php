@@ -54,7 +54,7 @@ echo $atts['link'];
 					<?php
 
 					if ( shortcode_exists( 'display-posts' ) ) {
-						echo do_shortcode( '[display-posts id="' . $atts['post_id'] . '" post_status="publish, private" post_type="feature" include_excerpt="false" include_content="true" include_title="false" wrapper="div" wrapper_class="story-body-wrapper" content_class="story-body"]' );
+						echo do_shortcode( '[display-posts id="' . $atts['post_id'] . '" post_status="publish" post_type="feature" include_excerpt="false" include_content="true" include_title="false" wrapper="div" wrapper_class="story-body-wrapper" content_class="story-body"]' );
 					};
 
 				  ?>
