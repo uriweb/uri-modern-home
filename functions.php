@@ -48,3 +48,8 @@ require get_stylesheet_directory() . '/inc/custom-fields.php';
  * Customizer addons
  */
 require get_stylesheet_directory() . '/inc/customizer-addons.php';
+
+/**
+ * Blue Minds shortcodes
+ */
+include get_stylesheet_directory() . '/features/2019/blue-minds/blue-minds.php';
