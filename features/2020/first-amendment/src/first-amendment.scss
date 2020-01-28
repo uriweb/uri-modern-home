@@ -1,0 +1,144 @@
+/* ==============================
+   FIRST AMENDMENT STYLES
+   ============================== */
+
+@import url('https://fonts.googleapis.com/css?family=Libre+Caslon+Display|Petit+Formal+Script&display=swap');
+
+$type-header: "Libre Caslon Display", "Charter", "Georgia", "Times New Roman", serif;
+
+$flag-dark: linear-gradient( 135deg, #fe2e2e -20%, #005eff 120%);
+$flag-light: linear-gradient( 135deg, #fe2e2e -20%, #005eff 120%);
+
+@mixin flag {
+  display: block;
+  content: '';
+  position: relative;
+  top: -2rem;
+  left: 0;
+  width: 50px;
+  height: 10px;
+  background: $flag-dark;
+}
+
+body {
+
+  position: relative;
+  background: #000;
+
+  .globalnav {
+  	display: none;
+  }
+
+}
+
+#main {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.post-navigation {
+	display: none;
+}
+
+.feature-hero {
+
+  padding: 30vh 0 0;
+
+  h1 {
+    font-family: $type-header;
+    font-size: 6rem;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto 40vh;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #999;
+  }
+
+  .deck {
+
+    position: relative;
+    color: #fff;
+    margin: 0 auto 40vh;
+    width: 500px;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-family: $type-header;
+
+    &:before {
+      @include flag;
+    }
+
+  }
+
+  .story-nav {
+    display: flex;
+  }
+
+  .story-nav-item a {
+    color: #fff;
+    display: block;
+    background: #111;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+}
+
+.story {
+  background: #fff;
+}
+
+.story-hero {
+
+  position: relative;
+  background: #222;
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+  margin-bottom: 4rem;
+
+  .marker {
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: "Lato", "Hind", Arial, sans-serif;
+    color: #000;
+    background: #fff;
+    text-align: center;
+    margin-bottom: 6rem;
+  }
+
+  h1 {
+    font-family: $type-header;
+    color: #f6f2ed;
+    font-size: 4.5rem;
+
+    span {
+      background: #444;
+      padding: 0 1rem;
+    }
+
+  }
+
+  h2 {
+    position: relative;
+    color: #777;
+    font-size: 1.2rem;
+    padding-left: .2rem;
+  }
+
+}
+
+.story-content {
+
+  p:first-child:first-letter {
+		color: #000;
+		float: left;
+		font-size: 2rem;
+		font-family: "Petit Formal Script";
+		line-height: 2.7rem;
+	}
+
+}
