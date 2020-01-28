@@ -46,7 +46,7 @@ body {
 
   h1 {
     font-family: $type-header;
-    font-size: 6rem;
+    font-size: 3rem;
     font-weight: 400;
     color: #fff;
     text-align: center;
@@ -60,9 +60,9 @@ body {
     position: relative;
     color: #fff;
     margin: 0 auto 40vh;
-    width: 500px;
-    font-size: 2rem;
-    line-height: 2.5rem;
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 2rem;
     font-family: $type-header;
 
     &:before {
@@ -114,6 +114,7 @@ body {
     font-family: $type-header;
     color: #f6f2ed;
     font-size: 4.5rem;
+    line-height: 5rem;
 
     span {
       background: #444;
@@ -127,6 +128,7 @@ body {
     color: #777;
     font-size: 1.2rem;
     padding-left: .2rem;
+    line-height: 1.5rem;
   }
 
 }
@@ -141,4 +143,26 @@ body {
 		line-height: 2.7rem;
 	}
 
+}
+
+@media screen and (min-width:350px) {
+  .feature-hero {
+    h1 {
+      font-size: 4rem;
+    }
+  }
+}
+
+@media screen and (min-width:500px) {
+  .feature-hero {
+    h1 {
+      font-size: 6rem;
+    }
+
+    .deck {
+      width: 500px;
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+  }
 }
