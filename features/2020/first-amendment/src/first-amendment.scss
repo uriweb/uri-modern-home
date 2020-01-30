@@ -2,6 +2,8 @@
    FIRST AMENDMENT STYLES
    ============================== */
 
+@import 'partials/particles';
+
 @import url('https://fonts.googleapis.com/css?family=Libre+Caslon+Display|Petit+Formal+Script&display=swap');
 
 $type-header: "Libre Caslon Display", "Charter", "Georgia", "Times New Roman", serif;
@@ -42,6 +44,7 @@ body {
 
 .feature-hero {
 
+  position: relative;
   padding: 30vh 0 0;
 
   h1 {
