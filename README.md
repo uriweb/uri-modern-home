@@ -31,7 +31,7 @@ For complete details, see the [commit history](https://github.com/uriweb/uri-mod
 
 [![GitHub release](https://img.shields.io/github/release/uriweb/uri-modern-home.svg)](https://github.com/uriweb/uri-modern-home/releases/latest)
 [![GitHub Release Date](https://img.shields.io/github/release-date/uriweb/uri-modern-home.svg)](https://github.com/uriweb/uri-modern-home/releases/latest)
-[![Master Build Status](https://travis-ci.org/uriweb/uri-modern-home.svg?branch=master "Master build status")](https://travis-ci.org/uriweb/uri-modern-home)
+[![Master Build Status](https://travis-ci.com/uriweb/uri-modern-home.svg?branch=master "Master build status")](https://travis-ci.com/uriweb/uri-modern-home)
 [![CodeFactor](https://www.codefactor.io/repository/github/uriweb/uri-modern-home/badge/master)](https://www.codefactor.io/repository/github/uriweb/uri-modern-home/overview/master)
 [![Codacy Badge](https://img.shields.io/codacy/grade/e0a03abdc4344cf79f92384a7ca76f27.svg)](https://www.codacy.com/app/uriweb/uri-modern-home?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=uriweb/uri-modern-home&amp;utm_campaign=Badge_Grade)
 [![devDependencies Status](https://david-dm.org/uriweb/uri-modern-home/dev-status.svg "devDependencies status")](https://david-dm.org/uriweb/uri-modern-home?type=dev)
