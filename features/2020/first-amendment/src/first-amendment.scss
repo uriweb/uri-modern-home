@@ -45,6 +45,20 @@ body {
     background: $yellow;
   }
 
+  &.has-js {
+    .story-overflow {
+      display: none;
+    }
+    .overflow-visible {
+      .overflow-toggle {
+        display: none;
+      }
+      .story-overflow {
+        display: block;
+      }
+    }
+  }
+
 }
 
 #main {
@@ -232,6 +246,19 @@ body {
 		line-height: 2.3rem;
     margin-right: -.2rem;
 	}
+
+  .overflow-toggle {
+
+    font-family: "Hind", "Lato", "Arial", sans-serif;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: #0684cb;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+  }
 
 }
 

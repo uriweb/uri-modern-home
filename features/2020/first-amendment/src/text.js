@@ -1,3 +1,9 @@
+/**
+ * FIRST AMENDMENT -- TEXT HERO ANIMATION
+ *
+ * @package uri-modern-home
+ */
+
 ( function () {
 
   'use strict';
