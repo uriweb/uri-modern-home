@@ -1,0 +1,168 @@
+// VIDEO
+
+.video-content {
+
+  height: calc( 100vw / 2.39 );
+  overflow: hidden;
+  background: #000;
+  margin-bottom: 4rem;
+
+  &.video-trailer {
+    margin-bottom: 0;
+  }
+
+  &.video-condensed {
+
+    .video-poster  {
+
+      .video-overlay {
+        top: initial;
+        left: initial;
+        bottom: 10vw;
+        width: 100%;
+        text-align: center;
+
+        .action {
+          background: #000;
+          border: 1px solid $yellow;
+        }
+
+      }
+
+      &:hover .action {
+        background: $yellow;
+        transform: translateX(0) translateY(-.5rem);
+      }
+
+    }
+
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+
+  iframe {
+    position: relative;
+    z-index: 0;
+  }
+
+  p {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    line-height: initial;
+  }
+
+  .video-poster {
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    transform: scale(1);
+    transition: all .5s ease-in-out;
+    z-index: 1;
+
+    &:hover {
+
+      cursor: pointer;
+
+      .action {
+
+        background: $yellow;
+        color: #000;
+        transform: translateX(.5rem);
+
+        &:after {
+          background-position: 0 100%;
+        }
+
+      }
+
+    }
+
+    .video-overlay {
+      position: absolute;
+      top: 5vw;
+      left: 10vw;
+      color: #fff;
+      font-family: $type-header;
+      width: 30%;
+    }
+
+    .caption {
+      font-size: 3rem;
+      line-height: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .credit {
+      font-size: 1.2rem;
+    }
+
+    .action {
+
+      position: relative;
+      font-family: "Hind", "Lato", "Helvetica", "Arial", sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: $yellow;
+      display: inline-block;
+      padding: .5rem 1.7rem .4rem .5rem;
+      margin-top: 2rem;
+      left: -.5rem;
+      top: -.5rem;
+      transform: translateX(0);
+      transition: all .2s ease-in-out;
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: .5rem;
+        top: .5rem;
+        width: 14px;
+        height: 14px;
+        overflow: hidden;
+        background-image: url( 'i/play-rewind.png' );
+        background-position: 0 0;
+        background-size: auto 200%;
+        background-repeat: no-repeat;
+      }
+
+    }
+
+
+  }
+
+  &.playing {
+
+    .video-poster {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(1.1);
+    }
+
+  }
+
+  &.watched {
+
+    .video-poster .action:after {
+      background-position: 100% 0;
+    }
+
+    .video-poster:hover .action:after {
+      background-position: 100% 100%;
+    }
+
+  }
+
+}

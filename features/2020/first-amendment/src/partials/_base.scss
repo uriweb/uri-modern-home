@@ -1,0 +1,45 @@
+// BASE
+
+body {
+
+  position: relative;
+  background: #000;
+
+  .globalnav {
+  	display: none;
+  }
+
+  span.blackout {
+    background: #000;
+    color: #fff;
+  }
+
+  span.highlight {
+    color: #000;
+    background: $yellow;
+  }
+
+  &.has-js {
+    .story-overflow {
+      display: none;
+    }
+    .overflow-visible {
+      .overflow-toggle {
+        display: none;
+      }
+      .story-overflow {
+        display: block;
+      }
+    }
+  }
+
+}
+
+#main {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.post-navigation {
+	display: none;
+}

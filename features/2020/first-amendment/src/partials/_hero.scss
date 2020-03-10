@@ -1,0 +1,105 @@
+// HERO
+
+.feature-hero {
+
+  position: relative;
+  padding: 30vh 0 0;
+
+  #amendment-text-bg {
+
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    color: #333;
+    pointer-events: none;
+    z-index: 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    span {
+
+      color: inherit;
+      transition: color 1s ease-in-out;
+
+      &.active {
+        color: $yellow;
+        transition: color .2s ease-in-out;
+      }
+
+    }
+
+  }
+
+  h1 {
+
+    position: relative;
+    font-family: $type-header;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #000;
+    text-align: center;
+    margin: 0 auto 40vh;
+    padding: 1rem;
+    z-index: 1;
+    background: $yellow;
+    //backdrop-filter: blur(2px);
+    //border: 1px solid rgba(255,255,255,.1);
+  }
+
+  .deck {
+
+    position: relative;
+    color: #fff;
+    margin: 0 auto 20vh;
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-family: $type-header;
+    box-sizing: border-box;
+    padding: 1.5rem 1rem 1rem;
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255,255,255,.1);
+
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -1px;
+      width: calc( 100% + 2px );
+      height: 10px;
+      background: $yellow;
+    }
+
+  }
+
+}
+
+.gradient-rule {
+  width: 100%;
+  height: 20vh;
+  background: linear-gradient( to bottom, transparent, #000 );
+}
+
+@media screen and (min-width:350px) {
+  .feature-hero {
+    h1 {
+      font-size: 4rem;
+    }
+  }
+}
+
+@media screen and (min-width:500px) {
+  .feature-hero {
+    h1 {
+      font-size: 6rem;
+    }
+
+    .deck {
+      width: 500px;
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+  }
+}
