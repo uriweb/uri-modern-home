@@ -29,6 +29,12 @@
 
     }
 
+    &.subtle {
+      span.active {
+        color: #777;
+      }
+    }
+
   }
 
   h1 {
@@ -47,11 +53,11 @@
     //border: 1px solid rgba(255,255,255,.1);
   }
 
-  .deck {
+  #deck {
 
     position: relative;
     color: #fff;
-    margin: 0 auto 20vh;
+    margin: 0 auto;
     width: 100%;
     font-size: 1.5rem;
     line-height: 2rem;
@@ -70,6 +76,40 @@
       width: calc( 100% + 2px );
       height: 10px;
       background: $yellow;
+    }
+
+  }
+
+  #amendment {
+
+    position: relative;
+    font-family: $type-header;
+    color: $yellow;
+    font-size: 4rem;
+    background: linear-gradient( to bottom, transparent, rgba(0,0,0,.3) 50vh, rgba(0,0,0,.3) 92%, #000 );
+
+    .header {
+      font-family: $type-script;
+      padding: 0;
+      color: #777;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    &>div {
+      padding: 40vh 0;
+      margin: 0 auto;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    &>div:nth-child(2) {
+      padding-top: 0;
+    }
+
+    &>div:first-child {
+      padding-top: 80vh;
     }
 
   }
@@ -96,7 +136,7 @@
       font-size: 6rem;
     }
 
-    .deck {
+    #deck {
       width: 500px;
       font-size: 2rem;
       line-height: 2.5rem;

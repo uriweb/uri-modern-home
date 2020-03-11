@@ -85,9 +85,8 @@
 		color: #000;
 		float: left;
 		font-size: 2rem;
-		font-family: "Petit Formal Script";
-		line-height: 2.3rem;
-    margin-right: -.2rem;
+		font-family: $type-script;
+		line-height: 2.5rem;
 	}
 
   hr {
@@ -150,6 +149,7 @@
 
     &:hover {
       cursor: pointer;
+      text-decoration: underline;
     }
 
   }

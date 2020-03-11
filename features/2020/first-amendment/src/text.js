@@ -19,6 +19,9 @@
     data.story = {
       el: document.querySelector( '.story' ),
     };
+    data.amendment = {
+      el: document.getElementById( 'amendment' ),
+    }
     data.status = false;
 
 		let text = '';
@@ -58,12 +61,19 @@
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     data.story.p = data.story.el.getBoundingClientRect().top + scrollTop;
+    data.amendment.p = data.amendment.el.getBoundingClientRect().top + scrollTop;
 
     if ( scrollTop > data.story.p ) {
       clearTimeout( data.timer );
       data.status = false;
     } else if ( false == data.status ) {
       highlight();
+    }
+
+    if ( scrollTop > data.amendment.p ) {
+      data.el.classList.add( 'subtle' );
+    } else {
+      data.el.classList.remove( 'subtle' );
     }
 
   }
