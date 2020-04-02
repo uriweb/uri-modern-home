@@ -3,7 +3,6 @@
 .feature-hero {
 
   position: relative;
-  padding: 30vh 0 0;
 
   #amendment-text-bg {
 
@@ -23,32 +22,44 @@
       transition: color 1s ease-in-out;
 
       &.active {
-        color: $yellow;
+        color: #777;
         transition: color .2s ease-in-out;
       }
 
     }
 
-    &.subtle {
+    &.emphasis {
       span.active {
-        color: #777;
+        color: $yellow;
       }
     }
 
   }
 
-  h1 {
+  #headline {
 
     position: relative;
+    z-index: 2;
+    padding: 60vh 0 40vh;
+    background: linear-gradient( to bottom, rgba(0,0,0,.3), transparent 10%, transparent 30%, rgba(0,0,0,.3) 60%, #000 );
+
+    &.reveal h1 {
+      opacity: 1;
+    }
+  }
+
+  h1 {
+
     font-family: $type-header;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 900;
     color: #000;
     text-align: center;
     margin: 0 auto 40vh;
     padding: 1rem;
-    z-index: 1;
     background: $yellow;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
     //backdrop-filter: blur(2px);
     //border: 1px solid rgba(255,255,255,.1);
   }
@@ -56,26 +67,16 @@
   #deck {
 
     position: relative;
-    color: #fff;
     margin: 0 auto;
     width: 100%;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-family: $type-header;
     box-sizing: border-box;
-    padding: 1.5rem 1rem 1rem;
-    backdrop-filter: blur(2px);
-    border: 1px solid rgba(255,255,255,.1);
 
-    &:before {
-      display: block;
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -1px;
-      width: calc( 100% + 2px );
-      height: 10px;
-      background: $yellow;
+    p {
+      color: #fff;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      font-family: $type-header;
+      margin-bottom: 4rem;
     }
 
   }
@@ -83,49 +84,95 @@
   #amendment {
 
     position: relative;
-    font-family: $type-header;
-    color: $yellow;
-    font-size: 4rem;
-    background: linear-gradient( to bottom, transparent, rgba(0,0,0,.3) 50vh, rgba(0,0,0,.3) 92%, #000 );
+    z-index: 1;
+    background: rgba(0,0,0,.3);
 
-    .header {
-      font-family: $type-script;
-      padding: 0;
-      color: #777;
+    div {
+      padding: 25vh 0 0;
+      font-family: $type-header;
+      color: $yellow;
       font-size: 2rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    &>div {
-      padding: 40vh 0;
-      margin: 0 auto;
+      line-height: 2rem;
       width: 90%;
       max-width: 600px;
+      margin: 0 auto;
     }
 
-    &>div:nth-child(2) {
-      padding-top: 0;
+    span {
+      color: transparent;
+      pointer-events: none;
+      transition: color .5s ease-in-out;
     }
 
-    &>div:first-child {
-      padding-top: 80vh;
+    &[data-level='1'] {
+      span:nth-child(1) {
+        color: $yellow;
+        pointer-events: all;
+      }
+    }
+
+    &[data-level='2'] {
+      span:nth-child(1) {
+        color: #777;
+        pointer-events: all;
+      }
+      span:nth-child(2) {
+        color: $yellow;
+        pointer-events: all;
+      }
+    }
+
+    &[data-level='3'] {
+      span:nth-child(-n+2) {
+        color: #777;
+        pointer-events: all;
+      }
+      span:nth-child(3) {
+        color: $yellow;
+        pointer-events: all;
+      }
+    }
+
+    &[data-level='4'] {
+      span:nth-child(-n+3) {
+        color: #777;
+        pointer-events: all;
+      }
+      span:nth-child(4) {
+        color: $yellow;
+        pointer-events: all;
+      }
+    }
+
+    &[data-level='5'] {
+      span:nth-child(-n+5) {
+        color: #777;
+        pointer-events: all;
+      }
+      span:nth-child(5) {
+        color: $yellow;
+        pointer-events: all;
+      }
+    }
+
+    &[data-level='6'] {
+      span {
+        color: #777;
+      }
     }
 
   }
 
 }
 
-.gradient-rule {
-  width: 100%;
-  height: 20vh;
-  background: linear-gradient( to bottom, transparent, #000 );
-}
-
 @media screen and (min-width:350px) {
   .feature-hero {
     h1 {
-      font-size: 4rem;
+      font-size: 3rem;
+    }
+    #amendment div {
+      font-size: 2.5rem;
+      line-height: 2.5rem;
     }
   }
 }
@@ -137,9 +184,28 @@
     }
 
     #deck {
+
       width: 500px;
-      font-size: 2rem;
-      line-height: 2.5rem;
+
+      p {
+        font-size: 2rem;
+        line-height: 2.5rem;
+      }
+
+    }
+
+    #amendment div {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+  }
+}
+
+@media screen and (min-width:800px) {
+  .feature-hero {
+    #amendment div {
+      font-size: 4rem;
+      line-height: 4rem;
     }
   }
 }
