@@ -9,9 +9,10 @@
 .jshintignore export-ignore
 .sniff export-ignore
 .travis.yml export-ignore
+.eslintrc.json export-ignore
 # gulp files
 gulpfile.js export-ignore
 package.json export-ignore
 package-lock.json export-ignore
-# src files 
+# src files
 src export-ignore
