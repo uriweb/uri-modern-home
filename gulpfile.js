@@ -22,8 +22,7 @@ var banner = ['/*',
   ''].join('\n');
 
 // include plug-ins
-var jshint = require('gulp-jshint');
-var jscs = require('gulp-jscs');
+var eslint = require('gulp-eslint');
 var changed = require('gulp-changed');
 var imagemin = require('gulp-imagemin');
 var concat = require('gulp-concat');
@@ -51,12 +50,8 @@ gulp.task('scripts', scripts);
 function scripts(done) {
 
   gulp.src('./src/js/*.js')
-    .pipe(jshint(done))
-    .pipe(jshint.reporter('default'));
-
-  gulp.src('./src/js/*.js')
-    .pipe(jscs(done))
-    .pipe(jscs.reporter());
+    .pipe(eslint(done))
+    .pipe(eslint.format());
 
   gulp.src('./src/js/*.js')
     .pipe(concat('script.min.js'))
@@ -111,14 +106,18 @@ gulp.task('featuresJS', featuresJS);
 
 function featuresJS(done) {
 
+  gulp.src('./features/**/src/*.js')
+    .pipe(eslint(done))
+    .pipe(eslint.format());
+
 	gulp.src('./features/**/src/*.js')
 		.pipe(rename(function(file) {
 			file.dirname = path.dirname(file.dirname);
 			return file;
 		}))
-    	.pipe(terser())
+    .pipe(terser())
 		.pipe(header('/* built */'))
-    	.pipe(gulp.dest('./features/'));
+    .pipe(gulp.dest('./features/'));
 
 	done();
 	//console.log('features js ran');

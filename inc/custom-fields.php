@@ -16,6 +16,7 @@ register_post_type(
 		'public' => true,
 		'show_ui' => true,
 		'show_in_menu' => true,
+		'show_in_rest' => true,
 		'capability_type' => 'post',
 		'hierarchical' => true,
 		'rewrite' => array( 'slug' => 'features' ),
