@@ -17,8 +17,7 @@
     "node_modules/",
     "gulpfile.js",
     "js/script.min.js",
-    "js/block-editor.min.js",
-    "js/smoothscroll.min.js",
-    "static/**"
+    "features/**/*.js",
+    "!features/**/src/*.js"
   ]
 }
