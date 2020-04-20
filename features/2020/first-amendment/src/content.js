@@ -4,42 +4,36 @@
  * @package uri-modern-home
  */
 
-( function () {
+( function() {
+	'use strict';
 
-  'use strict';
+	window.addEventListener( 'load', init, false );
 
-  window.addEventListener( 'load', init, false );
+	const data = {};
 
-  const data = {};
-
-  function init() {
-
+	function init() {
 		document.body.classList.add( 'has-js' );
 		data.els = document.querySelectorAll( '.story-overflow' );
 
 		for ( let i = 0; i < data.els.length; i++ ) {
-		  setupStory( data.els[i] );
-			}
+			setupStory( data.els[ i ] );
+		}
+	}
 
-  }
-
-  function setupStory( el ) {
-
+	function setupStory( el ) {
 		const parent = el.parentElement;
 		const div = document.createElement( 'div' );
 		div.className = 'overflow-toggle';
 		div.innerHTML = 'Continue reading';
 
 		div.addEventListener(
-		 'click',
-		function() {
-		parent.classList.add( 'overflow-visible' );
+			'click',
+			function() {
+				parent.classList.add( 'overflow-visible' );
 			},
-		false
-		  );
+			false
+		);
 
-		  parent.insertBefore( div, el );
-
-  }
-
-})();
+		parent.insertBefore( div, el );
+	}
+}() );
