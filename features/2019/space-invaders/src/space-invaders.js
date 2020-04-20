@@ -5,76 +5,72 @@
  */
 
 ( function() {
-
 	'use strict';
 
-	var data;
+	let data;
 
 	window.addEventListener( 'load', initInvaders, false );
 
 	function initInvaders() {
-
-		var baseURL, game;
-
-		baseURL = URIMODERN.path.theme + '/features/2019/space-invaders/';
+		const baseURL = URIMODERN.path.theme + '/features/2019/space-invaders/';
 
 		data = {
-			'unit': 16, // Increment by which creatures should be placed
-			'status': 0, // 0 = not started, 1 = running, 2 = game over, 3 = paused, 4 = initiate
-			'pointcap': 50, // Game over threshold
-			'n': 0,
-			'els': {
-				'page': document.getElementById( 'page' ),
-				'habitat': document.getElementById( 'habitat-creatures' ),
+			unit: 16, // Increment by which creatures should be placed
+			status: 0, // 0 = not started, 1 = running, 2 = game over, 3 = paused, 4 = initiate
+			pointcap: 50, // Game over threshold
+			n: 0,
+			els: {
+				page: document.getElementById( 'page' ),
+				habitat: document.getElementById( 'habitat-creatures' ),
 			},
-			'buttons': {},
-			'creatures': {},
-			'types': {
-				'tunicate1': {
-					'slug': 'tunicate-1',
-					'name': 'Styela clava'
+			buttons: {},
+			creatures: {},
+			types: {
+				tunicate1: {
+					slug: 'tunicate-1',
+					name: 'Styela clava',
 				},
-				'tunicate2': {
-					'slug': 'tunicate-2',
-					'name': 'Ciona intestinalis'
+				tunicate2: {
+					slug: 'tunicate-2',
+					name: 'Ciona intestinalis',
 				},
-				'seaweed1': {
-					'slug': 'seaweed-1',
-					'name': 'Grateloupia turuturu'
+				seaweed1: {
+					slug: 'seaweed-1',
+					name: 'Grateloupia turuturu',
 				},
-				'seaweed2': {
-					'slug': 'seaweed-2',
-					'name': 'Codium fragile'
+				seaweed2: {
+					slug: 'seaweed-2',
+					name: 'Codium fragile',
 				},
-				'crab': {
-					'slug': 'crab',
-					'name': 'Hemigrapsus sanguineus'
-				}
+				crab: {
+					slug: 'crab',
+					name: 'Hemigrapsus sanguineus',
+				},
 			},
-			'container': {},
-			'endscreen': {},
-			'score': {
-				'points': 0,
-				'spawned': 0,
-				'removed': 0,
-				'types': {},
-				'high': getHighScore(),
-				'board': {
-					'wrapper': document.getElementById( 'scoreboard-wrapper' ),
-					},
+			container: {},
+			endscreen: {},
+			score: {
+				points: 0,
+				spawned: 0,
+				removed: 0,
+				types: {},
+				high: getHighScore(),
+				board: {
+					wrapper: document.getElementById( 'scoreboard-wrapper' ),
+				},
 			},
-			'timing': {
-				'init': 2000, // Initial interval between spawns
-				'duration': 60000, // Time until max spawn rate (approx)
-				'timers': {},
+			timing: {
+				init: 2000, // Initial interval between spawns
+				duration: 60000, // Time until max spawn rate (approx)
+				timers: {},
 			},
-			'audio': {
-				'bounce': new Audio( baseURL + 'mp3/bounce.mp3' ),
-				'elevate': new Audio( baseURL + 'mp3/elevate.mp3' ),
-				'shoot': new Audio( baseURL + 'mp3/shoot.mp3' ),
-				'end': new Audio( baseURL + 'mp3/end.mp3' ),
-				'menu': new Audio( baseURL + 'mp3/menu.mp3' )
-			}
+			audio: {
+				bounce: new Audio( baseURL + 'mp3/bounce.mp3' ),
+				elevate: new Audio( baseURL + 'mp3/elevate.mp3' ),
+				shoot: new Audio( baseURL + 'mp3/shoot.mp3' ),
+				end: new Audio( baseURL + 'mp3/end.mp3' ),
+				menu: new Audio( baseURL + 'mp3/menu.mp3' ),
+			},
 		};
 
 		// If it's the homepage, do homepage specific stuff and skip everything else
@@ -88,8 +84,8 @@
 
 		// Add some more data that's only available on the story page
 		data.story = {
-			'h': document.getElementById( 'story' ).offsetHeight,
-			'top': document.getElementById( 'story' ).getBoundingClientRect().top
+			h: document.getElementById( 'story' ).offsetHeight,
+			top: document.getElementById( 'story' ).getBoundingClientRect().top,
 		};
 
 		// Create the game
@@ -119,15 +115,11 @@
 
 		window.addEventListener( 'resize', handleResize, false );
 		window.addEventListener( 'scroll', handleScroll, false );
-
 	}
 
 	function renderHomepageHero() {
-
-		var hero, still;
-
-		hero = document.getElementById( 'feature-hero' ).querySelector( '.cl-hero' );
-		still = hero.querySelector( '.still' );
+		const hero = document.getElementById( 'feature-hero' ).querySelector( '.cl-hero' );
+		const still = hero.querySelector( '.still' );
 
 		hero.insertBefore( makeCreatureContainer(), still );
 		hero.insertBefore( makeBubblesContainer(), still );
@@ -139,31 +131,28 @@
 
 		makeBubbles();
 		setIntervalX( 'homepageCreatures', addCreature, 1000, 20 );
-
 	}
 
 	function makeEndScreen() {
-
-		var stats, high, div, span, x, type;
+		let div, span, x, type;
 
 		data.endscreen.el = document.createElement( 'div' );
 		data.endscreen.el.id = 'endscreen';
 		data.endscreen.el.className = 'modal';
 		data.endscreen.el.innerHTML = '<h1>Game <br> Over</h1>';
 
-		high = document.createElement( 'div' );
+		const high = document.createElement( 'div' );
 		high.id = 'new-high-score';
 		high.innerHTML = 'New High Score';
 		data.endscreen.el.appendChild( high );
 
-		stats = document.createElement( 'div' );
+		const stats = document.createElement( 'div' );
 		stats.id = 'game-stats';
 
 		data.endscreen.stats = {};
 
 		for ( x in data.types ) {
-
-			type = data.types[x].slug;
+			type = data.types[ x ].slug;
 
 			div = document.createElement( 'div' );
 			div.className = 'stat-wrapper';
@@ -172,18 +161,17 @@
 			span.className = 'stat-creature ' + type;
 			div.appendChild( span );
 
-			data.endscreen.stats[type] = document.createElement( 'span' );
-			data.endscreen.stats[type].className = 'stat-label';
-			data.endscreen.stats[type].innerHTML = 0;
-			div.appendChild( data.endscreen.stats[type] );
+			data.endscreen.stats[ type ] = document.createElement( 'span' );
+			data.endscreen.stats[ type ].className = 'stat-label';
+			data.endscreen.stats[ type ].innerHTML = 0;
+			div.appendChild( data.endscreen.stats[ type ] );
 
 			span = document.createElement( 'span' );
 			span.className = 'stat-creature-name';
-			span.innerHTML = data.types[x].name;
+			span.innerHTML = data.types[ x ].name;
 			div.appendChild( span );
 
 			stats.appendChild( div );
-
 		}
 
 		data.endscreen.el.appendChild( stats );
@@ -203,42 +191,32 @@
 		data.endscreen.el.appendChild( div );
 
 		return data.endscreen.el;
-
 	}
 
 	function makeCountDown() {
-
 		data.countdown = document.createElement( 'div' );
 		data.countdown.id = 'countdown';
 		data.countdown.className = 'modal';
 		data.countdown.innerHTML = 'Invasives coming!<div class="counter">3</div>';
 
 		return data.countdown;
-
 	}
 
 	function makeCreatureContainer() {
-
 		data.container.el = document.createElement( 'div' );
 		data.container.el.id = 'creature-container';
 
 		return data.container.el;
-
 	}
 
 	function makeBubblesContainer() {
-
 		data.bubbles = document.createElement( 'div' );
 		data.bubbles.id = 'bubbles-container';
 
 		return data.bubbles;
-
 	}
 
 	function makeScoreBoard() {
-
-		var scores, points, high, remaining, progress, progressLabel;
-
 		// Controls
 		data.buttons.controls = document.createElement( 'div' );
 		data.buttons.controls.id = 'controls';
@@ -254,10 +232,10 @@
 		data.buttons.controls.appendChild( data.buttons.resume );
 
 		// Scores
-		scores = document.createElement( 'div' );
+		const scores = document.createElement( 'div' );
 		scores.id = 'scores';
 
-		points = document.createElement( 'div' );
+		const points = document.createElement( 'div' );
 		points.id = 'points';
 		points.innerHTML = '<div class="label">score</div>';
 		data.score.board.points = document.createElement( 'div' );
@@ -266,7 +244,7 @@
 		points.appendChild( data.score.board.points );
 		scores.appendChild( points );
 
-		high = document.createElement( 'div' );
+		const high = document.createElement( 'div' );
 		high.id = 'high';
 		high.innerHTML = '<div class="label">high</div>';
 		data.score.board.high = document.createElement( 'div' );
@@ -276,14 +254,14 @@
 		scores.appendChild( high );
 
 		// Progress Bar
-		progress = document.createElement( 'div' );
+		const progress = document.createElement( 'div' );
 		progress.id = 'progress';
 
 		data.progress = document.createElement( 'div' );
 		data.progress.id = 'progress-bar';
 		progress.appendChild( data.progress );
 
-		progressLabel = document.createElement( 'div' );
+		const progressLabel = document.createElement( 'div' );
 		progressLabel.id = 'progress-label';
 		progressLabel.innerHTML = 'Complete Invasion! -->';
 		progress.appendChild( progressLabel );
@@ -296,75 +274,48 @@
 		data.score.board.el.appendChild( progress );
 
 		return data.score.board.el;
-
 	}
 
 	function addButtonEvents() {
-
 		// Reset button
 		data.buttons.reset.addEventListener(
-			 'click',
+			'click',
 			function() {
-			playAudio( data.audio.menu );
-		},
+				playAudio( data.audio.menu );
+			},
 			false
-			);
+		);
 
 		// Pause button
 		data.buttons.pause.addEventListener(
-			 'click',
+			'click',
 			function() {
-				if ( 1 == data.status ) {
+				if ( 1 === data.status ) {
 					playAudio( data.audio.menu );
 				}
-		},
+			},
 			false
-			);
+		);
 
 		// Resume button
 		data.buttons.resume.addEventListener(
-			 'click',
+			'click',
 			function() {
-				if ( 3 == data.status ) {
+				if ( 3 === data.status ) {
 					playAudio( data.audio.menu );
 				}
-		},
+			},
 			false
-			);
-
-	}
-
-	function initiateCountdown() {
-
-		var n, counter, count;
-
-		data.status = 4;
-		count = data.countdown.querySelector( '.counter' );
-
-		n = 4;
-		data.countdown.classList.add( 'visible' );
-
-		counter = function() {
-
-			n--;
-			count.innerHTML = n;
-			0 < n ? setTimeout( counter, 1000 ) : startGame();
-
-		}
-
-		counter();
-
+		);
 	}
 
 	function startGame() {
-
 		data.countdown.classList.remove( 'visible' );
 		data.els.page.classList.add( 'gameplay' );
 
 		// Don't restart the game if it's already playing
 		// (prevents multiple instances)
-		if ( 1 != data.status ) {
-
+		if ( 1 !== data.status ) {
 			data.status = 1;
 			updateScore();
 
@@ -372,43 +323,34 @@
 
 			data.timing.start = Date.now();
 			setTimeout( ticker, data.timing.init );
-
 		}
-
 	}
 
 	function ticker() {
+		let millis, y, min;
 
-		var millis, y, min;
-
-		if ( 1 == data.status ) {
-
+		if ( 1 === data.status ) {
 			millis = Date.now() - data.timing.start;
 			y = ease( 0, data.timing.duration, millis );
 			min = Math.max( 120, Math.min( 300, ( data.container.x * data.container.y / 1000000 ) * 300 ) );
 			data.timing.interval = Math.max( min, data.timing.init - ( data.timing.init * y ) );
 
-			addCreature()
+			addCreature();
 			data.n++;
 			setTimeout( ticker, data.timing.interval );
-
 		}
-
 	}
 
 	function pauseGame() {
-
 		data.status = 3;
 		data.timing.paused = Date.now();
 		data.container.el.classList.add( 'paused' );
 		data.buttons.controls.classList.add( 'paused' );
 		data.els.page.classList.remove( 'gameplay' );
-
 	}
 
 	function resumeGame() {
-
-		var resume = Date.now();
+		const resume = Date.now();
 
 		data.status = 1;
 		data.timing.start += resume - data.timing.paused;
@@ -417,21 +359,19 @@
 		data.els.page.classList.add( 'gameplay' );
 
 		setTimeout( ticker, data.timing.interval );
-
 	}
 
 	function endGame() {
-
-		var type, score, x, n;
+		let type, score;
 
 		data.status = 2;
 
 		for ( type in data.endscreen.stats ) {
-			score = 0
-			if ( null != data.score.types[type] ) {
-				score = data.score.types[type];
+			score = 0;
+			if ( null !== data.score.types[ type ] ) {
+				score = data.score.types[ type ];
 			}
-			data.endscreen.stats[type].innerHTML = score;
+			data.endscreen.stats[ type ].innerHTML = score;
 		}
 
 		playAudio( data.audio.end );
@@ -443,15 +383,12 @@
 			data.endscreen.el.classList.add( 'new-high' );
 		}
 
-		x = 0;
-		n = Math.floor( Math.max( 200, Math.min( 600, ( data.container.x * data.container.y / 1000000 ) * 400 ) ) );
+		const n = Math.floor( Math.max( 200, Math.min( 600, ( data.container.x * data.container.y / 1000000 ) * 400 ) ) );
 
-		setIntervalX( 'endGame', addCreature, 20, n )
-
+		setIntervalX( 'endGame', addCreature, 20, n );
 	}
 
 	function resetGame() {
-
 		// Clear any existing gameplay
 		window.clearInterval( data.timing.timers.endGame );
 		data.container.el.innerHTML = '';
@@ -469,11 +406,9 @@
 		data.score.board.high.innerHTML = padNum( data.score.high );
 
 		startGame();
-
 	}
 
 	function removeGame() {
-
 		// Clear any existing gameplay
 		window.clearInterval( data.timing.timers.endGame );
 
@@ -482,15 +417,12 @@
 		document.getElementById( 'main' ).removeChild( data.game );
 
 		document.body.classList.remove( 'si-gameplay-supported' );
-
 	}
 
 	function updateScore() {
+		let remaining, percent;
 
-		var remaining, percent;
-
-		if ( 1 == data.status ) {
-
+		if ( 1 === data.status ) {
 			data.score.board.points.innerHTML = padNum( data.score.points );
 
 			if ( data.score.points >= data.score.high ) {
@@ -515,20 +447,18 @@
 				data.progress.classList.add( 'danger' );
 			}
 
-			if ( data.pointcap == remaining ) {
+			if ( data.pointcap === remaining ) {
 				endGame();
 			}
-
 		}
-
 	}
 
 	function getCreature() {
+		let speed;
 
-		var creature = {}, speed, n, s;
-
-		n = Math.floor( Math.random() * 1000 );
-		s = Math.floor( ( Math.random() * 3 ) + 1 );
+		const n = Math.floor( Math.random() * 1000 );
+		const s = Math.floor( ( Math.random() * 3 ) + 1 );
+		const creature = {};
 
 		if ( 300 > n ) {
 			creature.type = data.types.tunicate1.slug;
@@ -558,54 +488,48 @@
 		creature.div.className = 'creature ' + creature.type + ' ' + speed;
 
 		return creature;
-
 	}
 
 	function getRandomExistingCreatureID( type ) {
+		const list = data.container.el.querySelectorAll( '.' + type + ':not(.destroyed)' );
+		const n = Math.floor( ( Math.random() * list.length ) );
 
-		var list, n;
-
-		list = data.container.el.querySelectorAll( '.' + type + ':not(.destroyed)' );
-		n = Math.floor( ( Math.random() * list.length ) );
-
-		return list.length > 0 ? list[n].parentNode.getAttribute( 'id' ) : null;
-
+		return list.length > 0 ? list[ n ].parentNode.getAttribute( 'id' ) : null;
 	}
 
 	function addCreature() {
+		let x, y;
 
-		var creature, target, p, boundary, div, x, y, z, id;
-
-		creature = getCreature();
-		target = getRandomExistingCreatureID( creature.type );
+		const creature = getCreature();
+		const target = getRandomExistingCreatureID( creature.type );
 
 		// Generate a random ID
-		id = 'c_' + Math.random().toString( 36 ).substr( 2, 9 );
+		const id = 'c_' + Math.random().toString( 36 ).substr( 2, 9 );
 
-		boundary = {
-			'left': 0,
-			'right': data.container.x - 128,
-			'top': Math.max( 128, data.container.y - data.n * 16 ),
-			'bottom': data.container.y - data.score.board.h
-		}
+		const boundary = {
+			left: 0,
+			right: data.container.x - 128,
+			top: Math.max( 128, data.container.y - ( data.n * 16 ) ),
+			bottom: data.container.y - data.score.board.h,
+		};
 
-		p = Math.floor( ( Math.random() * 1000 ) );
+		const p = Math.floor( ( Math.random() * 1000 ) );
 
 		// 70% of the time, position the new creature near another same-type creature, unless it's a crab
 		// Otherwise, position it randomly
-		if ( 700 > p && null != target && 'crab' != creature.type && 0 < data.n) {
-			x = Math.min( boundary.right, Math.max( 128, data.creatures[target].x + ( data.unit * Math.floor( Math.random() * 17 - 8 ) ) ) );
-			y = Math.min( boundary.bottom, Math.max( 128, data.creatures[target].y + ( data.unit * Math.floor( Math.random() * 17 - 8 ) ) ) );
+		if ( 700 > p && null !== target && 'crab' !== creature.type && 0 < data.n ) {
+			x = Math.min( boundary.right, Math.max( 128, data.creatures[ target ].x + ( data.unit * Math.floor( ( Math.random() * 17 ) - 8 ) ) ) );
+			y = Math.min( boundary.bottom, Math.max( 128, data.creatures[ target ].y + ( data.unit * Math.floor( ( Math.random() * 17 ) - 8 ) ) ) );
 		} else {
 			x = Math.max( boundary.left, data.unit * Math.floor( Math.random() * ( boundary.right / data.unit ) ) );
 			y = Math.max( boundary.top, data.unit * Math.floor( Math.random() * ( boundary.bottom / data.unit ) ) );
 		}
 
 		// Get a random value for z-index
-		z = Math.floor( ( Math.random() * 10 ) + 1 );
+		const z = Math.floor( ( Math.random() * 10 ) + 1 );
 
 		// Make the creature wrapper and creature
-		div = document.createElement( 'div' );
+		const div = document.createElement( 'div' );
 		div.id = id;
 		div.className = 'creature-wrapper';
 
@@ -616,17 +540,17 @@
 		div.setAttribute( 'style', 'top:' + y + 'px; left:' + x + 'px; z-index:' + z );
 		div.appendChild( creature.div );
 
-		if ( 1 == data.status ) {
+		if ( 1 === data.status ) {
 			div.addEventListener( 'click', removeCreature.bind( null, id ), false );
 		}
 
 		// Add it to the database
-		data.creatures[id] = {
-			'el': div,
-			'x': x,
-			'y': y,
-			'type': creature.type,
-			'status': 1
+		data.creatures[ id ] = {
+			el: div,
+			x,
+			y,
+			type: creature.type,
+			status: 1,
 		};
 
 		// Put the creature on the page
@@ -634,27 +558,29 @@
 		data.score.spawned++;
 
 		updateScore();
-
 	}
 
 	function removeCreature( id ) {
+		let pointValue;
 
-		var creature, pointValue;
-
-		creature = data.creatures[id];
+		const creature = data.creatures[ id ];
 
 		creature.el.classList.add( 'destroyed' );
 		creature.status = 0;
 
-		null == data.score.types[creature.type] ? data.score.types[creature.type] = 1 : data.score.types[creature.type]++;
+		if ( null === data.score.types[ creature.type ] ) {
+			data.score.types[ creature.type ] = 1;
+		} else {
+			data.score.types[ creature.type ]++;
+		}
 
 		// Remove div after 5 seconds
 		setTimeout(
-			 function() {
-					 data.container.el.removeChild( creature.el );
-		},
+			function() {
+				data.container.el.removeChild( creature.el );
+			},
 			5000
-			);
+		);
 
 		switch ( creature.type ) {
 			case data.types.crab.slug:
@@ -685,23 +611,19 @@
 		data.score.removed++;
 		data.score.points += pointValue;
 		updateScore();
-
 	}
 
 	function makeBubbles() {
+		const min = 1000; // Min time between bubbles
+		const max = 8000; // Max time between bubbles
+		const duration = Math.floor( ( Math.random() * ( max - min + 1 ) ) + min );
 
-		var duration, min, max, id, boundary, x, y, div;
-
-		min = 1000; // Min time between bubbles
-		max = 8000; // Max time between bubbles
-		duration = Math.floor( Math.random() * ( max - min + 1 ) + min );
-
-		id = 'b_' + Math.random().toString( 36 ).substr( 2, 9 );
-		x = data.unit * Math.floor( Math.random() * ( data.container.x / data.unit ) );
-		y = data.unit * Math.floor( Math.random() * ( data.container.y / data.unit ) );
+		const id = 'b_' + Math.random().toString( 36 ).substr( 2, 9 );
+		const x = data.unit * Math.floor( Math.random() * ( data.container.x / data.unit ) );
+		const y = data.unit * Math.floor( Math.random() * ( data.container.y / data.unit ) );
 
 		// Make the creature wrapper and creature
-		div = document.createElement( 'div' );
+		const div = document.createElement( 'div' );
 		div.id = id;
 		div.className = 'bubbles bubbles-1';
 		div.setAttribute( 'style', 'top:' + y + 'px; left:' + x + 'px' );
@@ -711,24 +633,22 @@
 
 		// Remove div after 5 seconds
 		setTimeout(
-			 function() {
-					 data.bubbles.removeChild( div );
-		},
+			function() {
+				data.bubbles.removeChild( div );
+			},
 			5000
-			);
+		);
 
 		setTimeout( makeBubbles, duration );
-
 	}
 
 	function playAudio( clip ) {
-
-		var promise, success, failure;
+		let promise, success, failure;
 
 		success = audioSuccess;
 		failure = audioFailure;
 
-		if ( data.audio.menu == clip ) {
+		if ( data.audio.menu === clip ) {
 			success = function() {
 				clip.onended = menuButtonCallback;
 			};
@@ -736,19 +656,14 @@
 		}
 
 		if ( clip.paused ) {
-
 			promise = clip.play();
 
 			if ( undefined !== promise ) {
 				promise.then( success ).catch( failure );
 			}
-
 		} else {
-
 			clip.currentTime = 0;
-
 		}
-
 	}
 
 	function audioSuccess() {
@@ -760,7 +675,6 @@
 	}
 
 	function menuButtonCallback() {
-
 		switch ( data.status ) {
 			case 0:
 				startGame();
@@ -775,150 +689,117 @@
 				resumeGame();
 				break;
 		}
-
 	}
 
 	function padNum( num ) {
-		var s = "00000" + num;
+		const s = '00000' + num;
 		return s.substr( s.length - 5 );
 	}
 
-	function ease(min, max, current) {
-
-		var range, position;
-
-		range = Math.abs( max ) - Math.abs( min );
-		position = ( Math.abs( current ) - Math.abs( min ) ) / range;
+	function ease( min, max, current ) {
+		const range = Math.abs( max ) - Math.abs( min );
+		const position = ( Math.abs( current ) - Math.abs( min ) ) / range;
 
 		return Math.pow( position, 2 );
-
 	}
 
 	function handleResize() {
-
 		data.score.board.h = data.score.board.el.offsetHeight;
 		data.score.board.y = data.score.board.el.getBoundingClientRect().top;
 		data.container.el.style.height = 'calc( 100vh - ' + data.score.board.h + 'px)';
 		data.container.x = data.container.el.offsetWidth;
 		data.container.y = data.container.el.offsetHeight;
-
 	}
 
 	function handleScroll() {
+		const yPos = window.pageYOffset;
 
-		var yPos = window.pageYOffset;
-
-		if ( yPos > data.score.board.y - data.container.y && 0 == data.status ) {
+		if ( yPos > data.score.board.y - data.container.y && 0 === data.status ) {
 			data.score.board.el.classList.add( 'fixed' );
 			startGame();
 		}
-
 	}
 
 	function setIntervalX( name, callback, delay, reps ) {
-
-		var x, intervalID;
+		let x;
 
 		x = 0;
-		data.timing.timers[name] = window.setInterval(
-			 function () {
+		data.timing.timers[ name ] = window.setInterval(
+			function() {
+				callback();
 
-					callback();
-
-					if ( ++x === reps ) {
-						 window.clearInterval( data.timing.timers[name] );
-						  }
-
-		},
+				if ( ++x === reps ) {
+					window.clearInterval( data.timing.timers[ name ] );
+				}
+			},
 			delay
-			);
-
+		);
 	}
 
 	function populateCreatureBox() {
-
-		var creatures, creature, x, z;
+		let creature, x, z;
 
 		data.els.habitat.innerHTML = '';
-		creatures = document.createElement( 'div' );
+		const creatures = document.createElement( 'div' );
 		data.els.habitat.appendChild( creatures );
 
 		setIntervalX(
-			 'populateCreatureBox',
-			 function() {
+			'populateCreatureBox',
+			function() {
+				creature = getCreature();
 
-					 creature = getCreature();
+				x = data.unit * Math.floor( ( Math.random() * 48 ) + 1 );
+				z = Math.floor( ( Math.random() * 10 ) + 1 );
 
-					 x = data.unit * Math.floor( ( Math.random() * 48 ) + 1 );
-					 z = Math.floor( ( Math.random() * 10 ) + 1 );
+				creature.div.setAttribute( 'style', 'left:' + x + 'px; z-index:' + z );
 
-					 creature.div.setAttribute( 'style', 'left:' + x + 'px; z-index:' + z );
-
-					 creatures.appendChild( creature.div );
-
-		},
+				creatures.appendChild( creature.div );
+			},
 			50,
 			15
-			);
-
+		);
 	}
 
 	function getHighScore() {
+		const high = getCookie( 'uri-space-invaders-high-score' );
 
-		var high;
-
-		high = getCookie( 'uri-space-invaders-high-score' );
-
-		if ( '' == high ) {
+		if ( '' === high ) {
 			setHighScore( 0 );
 			return 0;
-		} else {
-			return high;
 		}
-
+		return high;
 	}
 
 	function setHighScore( n ) {
-
 		setCookie( 'uri-space-invaders-high-score', n, 365 );
-
 	}
 
 	function setCookie( cname, cvalue, exdays ) {
-
-		var d, expires;
-
-		d = new Date();
-		d.setTime( d.getTime() + (exdays * 24 * 60 * 60 * 1000) );
-		expires = 'expires=' + d.toUTCString();
+		const d = new Date();
+		d.setTime( d.getTime() + ( exdays * 24 * 60 * 60 * 1000 ) );
+		const expires = 'expires=' + d.toUTCString();
 
 		document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
-
 	}
 
 	function getCookie( cname ) {
+		let i, c;
 
-		var name, ca, i, c;
-
-		name = cname + '=';
-		ca = document.cookie.split( ';' );
+		const name = cname + '=';
+		const ca = document.cookie.split( ';' );
 
 		for ( i = 0; i < ca.length; i++ ) {
+			c = ca[ i ];
 
-			c = ca[i];
-
-			while ( ' ' == c.charAt( 0 ) ) {
+			while ( ' ' === c.charAt( 0 ) ) {
 				c = c.substring( 1 );
 			}
 
-			if ( 0 == c.indexOf( name ) ) {
+			if ( 0 === c.indexOf( name ) ) {
 				return c.substring( name.length, c.length );
 			}
-
 		}
 
 		return '';
-
 	}
-
-})();
+}() );
