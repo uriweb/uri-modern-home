@@ -5,48 +5,40 @@
  */
 
 ( function() {
-
 	'use strict';
 
-	var els, l;
+	let els, l;
 
 	window.addEventListener(
-		 'load',
+		'load',
 		function() {
+			let i;
 
-		var i;
+			els = document.querySelectorAll( '.artboard.reveal' );
+			l = els.length;
 
-		els = document.querySelectorAll( '.artboard.reveal' );
-		l = els.length;
+			for ( i = 0; i < l; i++ ) {
+				els[ i ].classList.add( 'has-js' );
+			}
 
-		for ( i = 0; i < l; i++ ) {
-				els[i].classList.add( 'has-js' );
+			showImages();
 		}
-
-		showImages;
-
-	}
-		);
+	);
 
 	window.addEventListener( 'scroll', showImages, false );
 	window.addEventListener( 'resize', showImages, false );
 
 	function showImages() {
+		let offset, i;
 
-		var vh, offset, i;
-
-		vh = window.innerHeight;
+		const vh = window.innerHeight;
 
 		for ( i = 0; i < l; i++ ) {
-
-			offset = els[i].getBoundingClientRect().top;
+			offset = els[ i ].getBoundingClientRect().top;
 
 			if ( vh * .8 > offset ) {
-				els[i].classList.add( 'visible' );
+				els[ i ].classList.add( 'visible' );
 			}
-
 		}
-
 	}
-
-})();
+}() );
