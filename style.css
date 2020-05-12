@@ -16,6 +16,6 @@ Tags: education, theme-options
 @author John Pennypacker <jpennypacker@uri.edu>
 
 */
-.cl-scard .cl-scard-category-the-big-story{color:#717da3}.cl-scard .cl-scard-category-the-big-story:after{border-bottom-color:#717da3}.feature-hero img{max-width:100%;height:auto}
+.cl-scard .cl-scard-category-the-big-story{color:#717da3}.cl-scard .cl-scard-category-the-big-story:after{border-bottom-color:#717da3}@media screen and (min-width: 600px){body.post-type-archive-feature .cl-tiles.flow>div:nth-child(1) .cl-card{grid-template-rows:minmax(445px, 1fr)}body.post-type-archive-feature .cl-tiles.flow>div:nth-child(1) .cl-card img{position:absolute}}@media screen and (min-width: 800px){body.post-type-archive-feature .cl-tiles.flow>div:nth-child(2) .cl-card>.cl-card-container:nth-child(1){height:0;padding-bottom:calc( 191 / 294 * 100%)}body.post-type-archive-feature .cl-tiles.flow>div:nth-child(2) .cl-card>.cl-card-container:nth-child(1) img{-o-object-fit:cover;object-fit:cover;height:100%;width:100%}}.feature-hero img{max-width:100%;height:auto}
 
 /*# sourceMappingURL=map/style.css.map */
