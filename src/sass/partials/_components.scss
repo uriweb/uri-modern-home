@@ -15,38 +15,3 @@
 	}
 
 }
-
-@media screen and (min-width: $break1) {
-
-	body.post-type-archive-feature .cl-tiles.flow {
-
-		& > div:nth-child(1) .cl-card {
-
-			grid-template-rows: minmax( 445px, 1fr );
-
-			img {
-				position: absolute;
-			}
-
-		}
-
-	}
-
-}
-
-@media screen and (min-width: $break2 ) {
-
-	body.post-type-archive-feature .cl-tiles.flow > div:nth-child(2) .cl-card > .cl-card-container:nth-child(1) {
-
-		height: 0;
-		padding-bottom: calc( 191 / 294 * 100% );
-
-		img {
-			object-fit: cover;
-			height: 100%;
-			width: 100%;
-		}
-
-	}
-
-}
