@@ -17,7 +17,7 @@
 
   .story-hero-caption {
 
-    background: #fafafa;
+    background: #f3f3f3;
     padding: 2rem 0 1rem;
     font-family: "Hind", "Lato", "Helvetica", "Arial", sans-serif;
     color: #555;
@@ -133,7 +133,7 @@
   .intro {
 
     font-family: $type-intro;
-    color: #999;
+    color: #595959;
     border-bottom: 1px solid #ddd;
     padding-bottom: 3rem;
     margin-bottom: 3rem;
@@ -173,6 +173,23 @@
       text-decoration: underline;
     }
 
+  }
+
+}
+
+.artboard img {
+  max-width: 100%;
+}
+
+.feature-caption {
+
+  font-family: "Hind", "Lato", "Helvetica", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: .8rem;
+
+  .credit {
+    font-weight: 400;
+    font-size: .7rem;
   }
 
 }

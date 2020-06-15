@@ -46,22 +46,23 @@
     &.reveal h1 {
       opacity: 1;
     }
-  }
 
-  h1 {
+    h1 {
 
-    font-family: $type-header;
-    font-size: 2rem;
-    font-weight: 900;
-    color: #000;
-    text-align: center;
-    margin: 0 auto 40vh;
-    padding: 1rem;
-    background: $yellow;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    //backdrop-filter: blur(2px);
-    //border: 1px solid rgba(255,255,255,.1);
+      font-family: $type-header;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #000;
+      text-align: center;
+      margin: 0 auto 40vh;
+      padding: 1rem;
+      background: $yellow;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      //backdrop-filter: blur(2px);
+      //border: 1px solid rgba(255,255,255,.1);
+    }
+
   }
 
   #deck {
@@ -167,7 +168,7 @@
 
 @media screen and (min-width:350px) {
   .feature-hero {
-    h1 {
+    #headline h1 {
       font-size: 3rem;
     }
     #amendment div {
@@ -179,7 +180,7 @@
 
 @media screen and (min-width:500px) {
   .feature-hero {
-    h1 {
+    #headline h1 {
       font-size: 6rem;
     }
 
