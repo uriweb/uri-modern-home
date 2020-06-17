@@ -226,7 +226,7 @@
     &:focus {
 
       cursor: pointer;
-      background: rgba(255,255,255,.3);
+      background: rgba(255,255,255,.2);
 
       &:after {
         border-color: #000;
@@ -430,9 +430,94 @@
 }
 
 @media screen and (min-width: 800px) {
+
   .story-navigation:not(.sticky) .nav-panels {
     grid-template-columns: repeat( 3, 1fr );
   }
+
+  #sticky-nav-wrapper .story-navigation {
+
+    .nav-panels {
+
+      transform: translate( 0, -110% );
+      width: 50%;
+
+      ol {
+        padding: 1.3rem 0 0;
+      }
+
+      & > div {
+        background: #000;
+      }
+
+      h1 {
+
+        color: #fff;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+
+        &:hover,
+        &:focus {
+          &:after {
+            opacity: 1;
+            border-color: rgba(255,255,255,.2);
+          }
+        }
+      }
+
+    }
+
+    &.nav-open .nav-panels {
+      transform: translate( 0, 0 );
+    }
+
+    .nav-back-button {
+      display: none;
+    }
+
+    &[data-active="no-active"] {
+
+      h1:after {
+        opacity: 0;
+      }
+
+    }
+
+    &[data-active="no-active"] .nav-panel-part-1-speaking-truth,
+    &[data-active='active-panel-part-1-speaking-truth'] .nav-panel-part-1-speaking-truth,
+    &[data-active='active-panel-part-2-bearing-witness'] .nav-panel-part-2-bearing-witness,
+    &[data-active='active-panel-part-3-compelling-creativity'] .nav-panel-part-3-compelling-creativity,
+    &[data-active='active-panel-part-4-taking-responsibility'] .nav-panel-part-4-taking-responsibility,
+    &[data-active='active-panel-part-5-embodying-civility'] .nav-panel-part-5-embodying-civility {
+
+      ol {
+        display: block;
+      }
+
+      h1 {
+
+        background: $yellow;
+        color: #000;
+
+        &:after {
+          opacity: 1;
+          border-color: rgba(0,0,0,.3);
+        }
+
+        &:hover,
+        &:focus {
+
+          cursor: default;
+
+          &:after {
+            border-color: rgba(0,0,0,.3);
+          }
+        }
+      }
+
+    }
+
+  }
+
 }
 
 @media screen and (min-width: 1050px) {

@@ -102,13 +102,20 @@
     line-height: 2.5rem;
   }
 
-  .story-body>p:first-of-type:first-letter {
-		color: #000;
-		float: left;
-		font-size: 2rem;
-		font-family: $type-script;
-		line-height: 2.5rem;
-	}
+  .story-body {
+
+    border-top: 1px solid #ddd;
+    padding-top: 3rem;
+
+    & > p:first-of-type:first-letter {
+  		color: #000;
+  		float: left;
+  		font-size: 2rem;
+  		font-family: $type-script;
+  		line-height: 2.5rem;
+  	}
+
+  }
 
   hr {
     margin: 5rem 0 3rem;
@@ -134,8 +141,6 @@
 
     font-family: $type-intro;
     color: #595959;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 3rem;
     margin-bottom: 3rem;
 
     p {

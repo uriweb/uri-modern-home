@@ -24,6 +24,7 @@
 		data.stickyWrapper = document.getElementById( 'sticky-nav-wrapper' );
 		data.stickyNav = data.nav.cloneNode( true );
 		data.stickyNav.classList.add( 'sticky' );
+		data.stickyNav.setAttribute( 'data-active', 'no-active' );
 		data.stickyWrapper.appendChild( data.stickyNav );
 
 		navigation( data.nav, false );
@@ -90,6 +91,7 @@
 			data.stickyWrapper.classList.add( 'visible' );
 		} else {
 			data.stickyWrapper.classList.remove( 'visible' );
+			data.stickyNav.classList.remove( 'nav-open' );
 		}
 	}
 
