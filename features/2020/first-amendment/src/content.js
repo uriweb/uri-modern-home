@@ -19,7 +19,18 @@
 			setupStory( data.els[ i ] );
 		}
 
-		navigation();
+		data.nav = document.querySelector( '.story-navigation' );
+		data.navPos = data.nav.offsetTop + data.nav.offsetHeight;
+		data.stickyWrapper = document.getElementById( 'sticky-nav-wrapper' );
+		data.stickyNav = data.nav.cloneNode( true );
+		data.stickyNav.classList.add( 'sticky' );
+		data.stickyWrapper.appendChild( data.stickyNav );
+
+		navigation( data.nav, false );
+		navigation( data.stickyNav, true );
+
+		window.addEventListener( 'scroll', handleSticky, false );
+		window.addEventListener( 'resize', handleSticky, false );
 	}
 
 	function setupStory( el ) {
@@ -39,15 +50,12 @@
 		parent.insertBefore( div, el );
 	}
 
-	function navigation() {
-		const nav = document.getElementById( 'story-navigation' );
-		const panelsParent = document.getElementById( 'nav-panels' );
+	function navigation( nav, isSticky ) {
+		const panelsParent = nav.querySelector( '.nav-panels' );
 		const links = panelsParent.querySelectorAll( 'a' );
 
-		data.navPos = nav.offsetTop + nav.offsetHeight;
-
 		for ( let i = 0; i < links.length; i++ ) {
-			setUpNavLink( links[ i ] );
+			setUpNavLink( links[ i ], nav );
 		}
 
 		const panels = panelsParent.querySelectorAll( '.nav-panel' );
@@ -63,45 +71,46 @@
 		}, false );
 		panelsParent.insertBefore( backbutton, panels[ 0 ] );
 
-		const menubar = document.createElement( 'div' );
-		menubar.id = 'nav-menubar';
-		menubar.innerHTML = 'Sections';
-		menubar.addEventListener( 'click', function() {
-			nav.classList.toggle( 'nav-open' );
-		}, false );
-		nav.insertBefore( menubar, panelsParent );
-
-		window.addEventListener( 'scroll', handleSticky.bind( null, nav ), false );
-		window.addEventListener( 'resize', handleSticky.bind( null, nav ), false );
-	}
-
-	function handleSticky( nav ) {
-		const y = window.pageYOffset;
-		if ( y >= data.navPos ) {
-			window.pageYOffset += nav.offsetHeight;
-			nav.classList.add( 'sticky' );
-		} else {
-			nav.classList.remove( 'sticky' );
+		if ( isSticky ) {
+			const menubar = document.createElement( 'div' );
+			menubar.className = 'nav-menubar';
+			menubar.innerHTML = 'Sections';
+			menubar.addEventListener( 'click', toggleNavOpen.bind( null, nav ), false );
+			nav.insertBefore( menubar, panelsParent );
 		}
 	}
 
-	function setUpNavLink( a ) {
+	function toggleNavOpen( nav ) {
+		nav.classList.toggle( 'nav-open' );
+	}
+
+	function handleSticky() {
+		const y = window.pageYOffset;
+		if ( y >= data.navPos ) {
+			data.stickyWrapper.classList.add( 'visible' );
+		} else {
+			data.stickyWrapper.classList.remove( 'visible' );
+		}
+	}
+
+	function setUpNavLink( a, nav ) {
 		const grandparent = a.parentElement.parentElement.parentElement;
-		const id = grandparent.getAttribute( 'id' );
-		const section = document.getElementById( id.replace( 'nav-panel-', '' ) );
+		const id = grandparent.getAttribute( 'class' );
+		const section = document.getElementById( id.replace( 'nav-panel nav-panel-', '' ) );
 		const expander = section.querySelector( '.overflow-toggle' );
 		const anchor = a.getAttribute( 'href' ).replace( '#', '' );
 
 		a.addEventListener( 'click', function( e ) {
 			e.preventDefault();
 			expander.click();
+			toggleNavOpen( nav );
 			document.getElementById( anchor ).scrollIntoView( { behavior: 'smooth', block: 'start', inline: 'nearest' } );
 		}, false );
 	}
 
 	function setUpNavPanel( p, nav ) {
-		const id = p.getAttribute( 'id' );
-		const name = id.replace( 'nav-panel-', '' );
+		const id = p.getAttribute( 'class' );
+		const name = id.replace( 'nav-panel nav-panel-', '' );
 		const section = document.getElementById( name );
 
 		p.addEventListener( 'click', function( e ) {
@@ -110,9 +119,10 @@
 	}
 
 	function widthSwitcher( e, section, nav, name ) {
-		if ( 600 > window.innerWidth ) {
+		if ( 600 > window.innerWidth || nav.classList.contains( 'sticky' ) ) {
 			nav.setAttribute( 'data-active', 'active-panel-' + name );
 		} else if ( 'A' !== e.target.nodeName ) {
+			toggleNavOpen( nav );
 			section.scrollIntoView( { behavior: 'smooth', block: 'start', inline: 'nearest' } );
 		}
 	}
