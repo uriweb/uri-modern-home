@@ -32,6 +32,30 @@
 
 		window.addEventListener( 'scroll', handleSticky, false );
 		window.addEventListener( 'resize', handleSticky, false );
+
+		deepLink();
+	}
+
+	function deepLink() {
+		const a = getAnchor();
+
+		if ( null !== a ) {
+			handleAnchor( document.getElementById( a ) );
+		}
+	}
+
+	function getAnchor() {
+		const currentUrl = document.URL,
+			urlParts = currentUrl.split( '#' );
+
+		return ( urlParts.length > 1 ) ? urlParts[ 1 ] : null;
+	}
+
+	function handleAnchor( a ) {
+		const grandparent = a.parentElement.parentElement;
+		const expander = grandparent.querySelector( '.overflow-toggle' );
+		expander.click();
+		a.scrollIntoView( { behavior: 'smooth', block: 'start', inline: 'nearest' } );
 	}
 
 	function setupStory( el ) {
