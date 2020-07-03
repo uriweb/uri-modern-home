@@ -11,6 +11,10 @@
     margin-bottom: 0;
   }
 
+  &.video-has-caption {
+    margin-bottom: 2rem;
+  }
+
   &.video-secondary {
     height: calc( ( 100vw - 50px ) / 2.39 );
     width: calc( 100vw - 50px ) !important;
