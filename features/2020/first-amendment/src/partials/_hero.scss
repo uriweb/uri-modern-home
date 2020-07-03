@@ -1,6 +1,6 @@
 // HERO
 
-.feature-hero {
+.feature-hero-first-amendment {
 
   position: relative;
 
@@ -171,7 +171,7 @@
 }
 
 @media screen and (min-width:350px) {
-  .feature-hero {
+  .feature-hero-first-amendment {
     #headline h1 {
       font-size: 3rem;
     }
@@ -183,7 +183,7 @@
 }
 
 @media screen and (min-width:500px) {
-  .feature-hero {
+  .feature-hero-first-amendment {
     #headline {
 
       background: linear-gradient( to bottom, rgba(0,0,0,.3), transparent 10%, transparent 30%, rgba(0,0,0,.3) 60%, #000 );
@@ -212,7 +212,7 @@
 }
 
 @media screen and (min-width:850px) {
-  .feature-hero {
+  .feature-hero-first-amendment {
     #headline h1 {
       font-size: 6rem;
       width: initial;

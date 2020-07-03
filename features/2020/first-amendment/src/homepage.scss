@@ -5,7 +5,7 @@
 @import 'partials/vars';
 @import 'partials/hero';
 
-.feature-hero {
+.feature-hero-first-amendment {
 
   overflow: hidden;
   z-index: 0;
@@ -97,13 +97,13 @@
 }
 
 @media screen and (min-width:350px) {
-  .feature-hero .cl-hero h1 {
+  .feature-hero-first-amendment .cl-hero h1 {
     font-size: 2.4rem;
   }
 }
 
 @media screen and (min-width:500px) {
-  .feature-hero .cl-hero {
+  .feature-hero-first-amendment .cl-hero {
     h1 {
       font-size: 4rem;
     }
@@ -114,7 +114,7 @@
 }
 
 @media screen and (min-width:850px) {
-  .feature-hero .cl-hero {
+  .feature-hero-first-amendment .cl-hero {
     h1 {
       font-size: 5rem;
     }
