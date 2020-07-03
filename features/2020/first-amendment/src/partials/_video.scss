@@ -11,6 +11,12 @@
     margin-bottom: 0;
   }
 
+  &.video-secondary {
+    height: calc( ( 100vw - 50px ) / 2.39 );
+    width: calc( 100vw - 50px ) !important;
+    margin-left: calc( -50vw + 25px ) !important;
+  }
+
   &.video-condensed {
 
     .video-poster  {
@@ -165,4 +171,20 @@
 
   }
 
+}
+
+@media screen and (min-width: 700px) {
+  .video-content.video-secondary {
+    height: calc( 650px / 2.39 );
+    width: 650px !important;
+    margin-left: -325px !important;
+  }
+}
+
+@media screen and (min-width: 1075px) {
+  .video-content.video-secondary {
+    height: calc( 60vw / 2.39 );
+    width: 60vw !important;
+    margin-left: -30vw !important;
+  }
 }

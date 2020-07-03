@@ -123,13 +123,13 @@
 
   h2 {
     font-family: $type-header;
-    font-size: 4rem;
+    font-size: 3.2rem;
     max-width: 500px;
     margin-bottom: 2rem;
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 3rem;
     padding: .5rem;
     background: #000;
@@ -217,4 +217,15 @@
     font-size: .7rem;
   }
 
+}
+
+@media screen and (min-width: 600px) {
+  .story-content {
+    h2 {
+      font-size: 4rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
 }
