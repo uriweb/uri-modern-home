@@ -1,0 +1,85 @@
+/* ==============================
+   FIRST AMENDMENT HOMEPAGE STYLES
+   ============================== */
+
+@import 'partials/vars';
+@import 'partials/hero';
+
+.feature-hero {
+
+  overflow: hidden;
+  z-index: 0;
+
+  #amendment-text-bg {
+    z-index: 1;
+    background: #000;
+  }
+
+  .cl-hero {
+
+    .cl-hero-proper {
+      background: transparent;
+    }
+
+    .still {
+      display: none;
+    }
+
+    .overlay {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .block {
+      padding: 0;
+      position: relative;
+      align-self: center;
+      background: none;
+    }
+
+    h1 {
+      font-family: $type-header;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+      width: 80%;
+      max-width: 800px;
+      text-align: center;
+      margin: 0 auto 1rem;
+      padding: 1rem;
+      background: #1a1a1a;
+      text-shadow: none;
+      transition: all .2s ease-in-out;
+    }
+
+    a:hover,
+    a:focus {
+      h1 {
+        background: $yellow;
+        color: #000;
+      }
+    }
+
+  }
+
+}
+
+@media screen and (min-width:350px) {
+  .feature-hero .cl-hero h1 {
+    font-size: 2.4rem;
+  }
+}
+
+@media screen and (min-width:500px) {
+  .feature-hero .cl-hero h1 {
+    font-size: 4rem;
+    width: 90%;
+  }
+}
+
+@media screen and (min-width:850px) {
+  .feature-hero .cl-hero h1 {
+    font-size: 5rem;
+    width: initial;
+  }
+}

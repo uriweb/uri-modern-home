@@ -14,18 +14,24 @@
 	function init() {
 		data.t = 'Congress shall make no law respecting an establishment of <span>religion</span>, or prohibiting the free exercise thereof; or abridging the freedom of <span>speech</span> or of <span>the press</span>; or the right of the people peaceably to <span>assemble</span>, and to <span>petition</span> the Government for a redress of grievances.';
 		data.el = document.getElementById( 'amendment-text-bg' );
-		data.story = {
-			el: document.querySelector( '.story' ),
-		};
-		data.headline = {
-			el: document.getElementById( 'headline' ),
-		};
 		data.status = false;
-		data.amendment = {
-			el: document.getElementById( 'amendment' ),
-			heights: [],
-		};
-		data.amendment.spans = data.amendment.el.querySelectorAll( 'span' );
+
+		if ( data.el.classList.contains( 'homepage' ) ) {
+			data.isStory = false;
+		} else {
+			data.isStory = true;
+			data.story = {
+				el: document.querySelector( '.story' ),
+			};
+			data.headline = {
+				el: document.getElementById( 'headline' ),
+			};
+			data.amendment = {
+				el: document.getElementById( 'amendment' ),
+				heights: [],
+			};
+			data.amendment.spans = data.amendment.el.querySelectorAll( 'span' );
+		}
 
 		let text = '';
 		for ( let i = 0; i < 50; i++ ) {
@@ -37,14 +43,16 @@
 		data.spans = data.el.querySelectorAll( 'span' );
 		data.l = data.spans.length;
 
-		window.addEventListener(
-			'scroll',
-			function() {
-				updateVars();
-				requestAnimationFrame( scroll );
-			},
-			false
-		);
+		if ( data.isStory ) {
+			window.addEventListener(
+				'scroll',
+				function() {
+					updateVars();
+					requestAnimationFrame( scroll );
+				},
+				false
+			);
+		}
 
 		window.addEventListener( 'resize', resize, false );
 		resize();
@@ -55,12 +63,14 @@
 	function resize() {
 		updateVars();
 
-		let previous = -0.15 * data.vh;
-		for ( let i = 0; i < data.amendment.spans.length; i++ ) {
-			let h = ( data.amendment.spans[ i ].offsetHeight * .5 ) + 50;
-			h += previous;
-			data.amendment.heights.push( h );
-			previous = h;
+		if ( data.isStory ) {
+			let previous = -0.15 * data.vh;
+			for ( let i = 0; i < data.amendment.spans.length; i++ ) {
+				let h = ( data.amendment.spans[ i ].offsetHeight * .5 ) + 50;
+				h += previous;
+				data.amendment.heights.push( h );
+				previous = h;
+			}
 		}
 
 		const max = 1920 * 1080;
@@ -68,15 +78,19 @@
 
 		data.threshold = Math.round( data.l * p );
 
-		requestAnimationFrame( scroll );
+		if ( data.isStory ) {
+			requestAnimationFrame( scroll );
+		}
 	}
 
 	function updateVars() {
 		data.scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 		data.vh = window.innerHeight;
 		data.vw = window.innerWidth;
-		data.story.p = data.story.el.getBoundingClientRect().top + data.scrollTop;
-		data.headline.p = data.headline.el.getBoundingClientRect().top + data.scrollTop;
+		if ( data.isStory ) {
+			data.story.p = data.story.el.getBoundingClientRect().top + data.scrollTop;
+			data.headline.p = data.headline.el.getBoundingClientRect().top + data.scrollTop;
+		}
 	}
 
 	function scroll() {
