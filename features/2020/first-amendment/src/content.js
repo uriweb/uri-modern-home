@@ -40,7 +40,7 @@
 		const a = getAnchor();
 
 		if ( null !== a ) {
-			handleAnchor( document.getElementById( a ) );
+			handleAnchor( a );
 		}
 	}
 
@@ -52,10 +52,15 @@
 	}
 
 	function handleAnchor( a ) {
-		const grandparent = a.parentElement.parentElement;
-		const expander = grandparent.querySelector( '.overflow-toggle' );
-		expander.click();
-		a.scrollIntoView( { behavior: 'smooth', block: 'start', inline: 'nearest' } );
+		const el = document.getElementById( a );
+		const grandparent = el.parentElement.parentElement;
+
+		if ( -1 === a.indexOf( 'part' ) ) {
+			const expander = grandparent.querySelector( '.overflow-toggle' );
+			expander.click();
+		}
+
+		el.scrollIntoView( { behavior: 'smooth', block: 'start', inline: 'nearest' } );
 	}
 
 	function setupStory( el ) {
