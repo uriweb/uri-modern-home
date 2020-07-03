@@ -168,14 +168,34 @@
 
   .overflow-toggle {
 
+    position: relative;
+    display: inline-block;
     font-family: "Hind", "Lato", "Helvetica", "Arial", sans-serif;
-    font-size: 1rem;
+    font-size: .9rem;
     margin-bottom: 2rem;
-    color: #0684cb;
+    background: #0684cb;
+    color: #fff;
+    padding: .5rem 1.7rem .3rem .7rem;
+    border-radius: .2rem;
+    transition: background .2s ease-in-out;
+
+    &:after {
+      display: block;
+      content: '';
+      position: absolute;
+      right: 9px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      background-image: url( i/continue.png );
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: center center;
+    }
 
     &:hover {
       cursor: pointer;
-      text-decoration: underline;
+      background: #046195;
     }
 
   }
