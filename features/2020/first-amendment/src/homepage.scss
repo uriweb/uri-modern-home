@@ -37,27 +37,59 @@
       background: none;
     }
 
+    a {
+
+      position: relative;
+      background: #1a1a1a;
+      display: block;
+      margin: 0 auto 1rem;
+      width: 80%;
+      max-width: 800px;
+
+      &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1rem;
+        background: $yellow;
+        transition: all .2s ease-in-out;
+        z-index: 0;
+      }
+
+    }
+
     h1 {
+
+      position: relative;
+      z-index: 1;
       font-family: $type-header;
       font-size: 2rem;
       font-weight: 900;
       color: #fff;
-      width: 80%;
-      max-width: 800px;
+      width: 100%;
       text-align: center;
-      margin: 0 auto 1rem;
-      padding: 1rem;
-      background: #1a1a1a;
+      margin: 0;
+      padding: 1rem 1rem 2rem;
       text-shadow: none;
       transition: all .2s ease-in-out;
+
     }
 
     a:hover,
     a:focus {
-      h1 {
-        background: $yellow;
-        color: #000;
+
+      &:after {
+        height: 100%;
       }
+
+      h1 {
+        color: #000;
+        padding: 1.5rem 1rem;
+      }
+
     }
 
   }
@@ -71,15 +103,23 @@
 }
 
 @media screen and (min-width:500px) {
-  .feature-hero .cl-hero h1 {
-    font-size: 4rem;
-    width: 90%;
+  .feature-hero .cl-hero {
+    h1 {
+      font-size: 4rem;
+    }
+    a {
+      width: 90%;
+    }
   }
 }
 
 @media screen and (min-width:850px) {
-  .feature-hero .cl-hero h1 {
-    font-size: 5rem;
-    width: initial;
+  .feature-hero .cl-hero {
+    h1 {
+      font-size: 5rem;
+    }
+    a {
+      width: initial;
+    }
   }
 }
