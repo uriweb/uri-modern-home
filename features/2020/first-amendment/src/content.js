@@ -55,7 +55,7 @@
 		const el = document.getElementById( a );
 		const grandparent = el.parentElement.parentElement;
 
-		if ( -1 === a.indexOf( 'part' ) ) {
+		if ( -1 === a.indexOf( 'part-' ) ) {
 			const expander = grandparent.querySelector( '.overflow-toggle' );
 			expander.click();
 		}
