@@ -67,7 +67,7 @@
 		const parent = el.parentElement;
 		const div = document.createElement( 'div' );
 		div.className = 'overflow-toggle overflow-part-' + ( i + 1 );
-		div.innerHTML = 'Continue reading';
+		div.innerHTML = 'Expand and continue reading';
 
 		div.addEventListener(
 			'click',
