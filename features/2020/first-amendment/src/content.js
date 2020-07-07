@@ -16,7 +16,7 @@
 		data.els = document.querySelectorAll( '.story-overflow' );
 
 		for ( let i = 0; i < data.els.length; i++ ) {
-			setupStory( data.els[ i ] );
+			setupStory( data.els[ i ], i );
 		}
 
 		data.nav = document.querySelector( '.story-navigation' );
@@ -63,10 +63,10 @@
 		el.scrollIntoView( { behavior: 'smooth', block: 'start', inline: 'nearest' } );
 	}
 
-	function setupStory( el ) {
+	function setupStory( el, i ) {
 		const parent = el.parentElement;
 		const div = document.createElement( 'div' );
-		div.className = 'overflow-toggle';
+		div.className = 'overflow-toggle overflow-part-' + ( i + 1 );
 		div.innerHTML = 'Continue reading';
 
 		div.addEventListener(
