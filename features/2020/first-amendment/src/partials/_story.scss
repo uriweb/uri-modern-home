@@ -59,8 +59,8 @@
 
     font-family: $type-header;
     color: #f6f2ed;
-    font-size: 4.5rem;
-    line-height: 5rem;
+    font-size: 3.5rem;
+    line-height: 4.5rem;
 
     span {
       background: $yellow;
@@ -225,6 +225,10 @@
 }
 
 @media screen and (min-width: 600px) {
+  .story-hero h1 {
+    font-size: 4.5rem;
+    line-height: 5rem;
+  }
   .story-content {
     h2 {
       font-size: 4rem;
