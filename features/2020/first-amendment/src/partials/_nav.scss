@@ -1,0 +1,551 @@
+// NAVIGATION
+
+#sticky-nav-wrapper {
+
+  .story-navigation {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 1s ease-in-out;
+  }
+
+  &.visible .story-navigation {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+}
+
+.story-navigation {
+
+  position: relative;
+
+  &.sticky {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    pointer-events: none;
+
+    .nav-menubar {
+      display: block;
+      pointer-events: all;
+    }
+
+    .nav-panels {
+      transform: translateY( -110% );
+      margin-top: 30px;
+      box-shadow: 0 .4rem 1rem rgba(0,0,0,.1);
+    }
+
+    &.nav-open {
+
+      pointer-events: all;
+
+      .nav-menubar:after {
+        transform: translateY(13px) rotate(-135deg);
+      }
+
+      .nav-panels {
+        transform: translateY(0px);
+      }
+
+    }
+
+  }
+
+  &[data-active='active-panel-part-1-speaking-truth'],
+  &[data-active='active-panel-part-2-bearing-witness'],
+  &[data-active='active-panel-part-3-compelling-creativity'],
+  &[data-active='active-panel-part-4-taking-responsibility'],
+  &[data-active='active-panel-part-5-challenging-convention'] {
+
+    .nav-panels {
+
+      transform: translateX(-95%);
+
+      h1:after {
+        opacity: 0;
+      }
+
+    }
+
+    &.sticky .nav-panels {
+      transform: translate( -95%, -110% );
+    }
+
+    &.sticky.nav-open .nav-panels {
+      transform: translate( -95%, 0 );
+    }
+
+  }
+
+  &[data-active='active-panel-part-1-speaking-truth'] .nav-panel-part-1-speaking-truth,
+  &[data-active='active-panel-part-2-bearing-witness'] .nav-panel-part-2-bearing-witness,
+  &[data-active='active-panel-part-3-compelling-creativity'] .nav-panel-part-3-compelling-creativity,
+  &[data-active='active-panel-part-4-taking-responsibility'] .nav-panel-part-4-taking-responsibility,
+  &[data-active='active-panel-part-5-challenging-convention'] .nav-panel-part-5-challenging-convention {
+
+    ol {
+      display: block;
+    }
+
+  }
+
+  .nav-menubar {
+
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: $yellow;
+    height: 30px;
+    font-family: "Lato", "Hind", "Helvetica", "Arial", sans-serif;
+    font-size: 1rem;
+    color: rgba(0,0,0,.5);
+    line-height: 30px;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+    box-sizing: border-box;
+    text-align: center;
+    transition: color .2s ease-in-out;
+    z-index: 1;
+
+    &:after {
+      position: absolute;
+      top: 0;
+      left: calc( 50% + 2.8rem );
+      content: '';
+      width: 10px;
+      height: 10px;
+      transform: translateY(7px) rotate(45deg);
+      border-radius: 0 0 .1rem 0;
+      border-width: 0 1px 1px 0;
+      border-color: #000;
+      border-style: solid;
+      opacity: .3;
+      transition: all .2s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+
+      cursor: pointer;
+      color: #000;
+
+      &:after {
+        opacity: 1;
+      }
+
+    }
+
+  }
+
+  .nav-back-button {
+
+    position: absolute;
+    top: 1rem;
+    left: calc( 100% + 2.1rem );
+    z-index: 1;
+    height: 1.7rem;
+    line-height: 1.6rem;
+    background: none;
+    color: #fff;
+    font-size: .9rem;
+    font-family: "Lato", "Hind", "Helvetica", "Arial", sans-serif;
+    padding: 0 .9rem 0 .7rem;
+
+    &:before {
+      position: absolute;
+      top: 7px;
+      left: -9px;
+      content: '';
+      width: 12px;
+      height: 12px;
+      transform: rotate(45deg);
+      border-radius: 0 0 0 .1rem;
+      border-width: 0 0 1px 1px;
+      border-color: #aaa;
+      border-style: solid;
+    }
+
+    &:hover,
+    &:focus {
+
+      cursor: pointer;
+      color: $yellow;
+
+      &:before {
+        border-color: $yellow;
+      }
+
+    }
+
+  }
+
+}
+
+.nav-panels {
+
+  position: relative;
+  background: #000;
+  transform: translateX(0px);
+  transition: transform .2s ease-in-out;
+
+  & > div {
+    background: $yellow;
+  }
+
+  h1 {
+
+    position: relative;
+    font-family: $type-header;
+    color: #000;
+    background: transparent;
+    max-width: initial;
+    font-size: 1.5rem;
+    padding: 1.5rem 25px;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    transition: background .2s ease-in-out;
+
+    &:after {
+      position: absolute;
+      top: 29px;
+      right: 16px;
+      content: '';
+      width: 12px;
+      height: 12px;
+      transform: rotate(45deg);
+      border-radius: 0 .1rem 0 0;
+      border-width: 1px 1px 0 0;
+      border-color: rgba(0,0,0,.3);
+      border-style: solid;
+      opacity: 1;
+      transition: all .2s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+
+      cursor: pointer;
+      background: rgba(255,255,255,.2);
+
+      &:after {
+        border-color: #000;
+      }
+
+    }
+
+  }
+
+  ol {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1a;
+    margin: 0;
+    padding: 5rem 0 0;
+    list-style: none;
+    box-sizing: border-box;
+  }
+
+  li {
+    line-height: 1;
+    padding: 0 2rem;
+    margin: 0;
+  }
+
+  a {
+
+    display: block;
+    color: #fff;
+    font-size: 1rem;
+    font-family: $type-intro;
+    padding: .5rem 0;
+    transform: color .2s ease-in-out;
+
+    &:hover,
+    &:focus {
+
+      text-decoration: underline;
+
+      .video-marker {
+        opacity: 1;
+      }
+
+    }
+
+  }
+
+  .marker {
+    display: none;
+  }
+
+  .video-marker {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    width: 0;
+    height: 16px;
+    padding-left: 16px;
+    margin-left: 3px;
+    overflow: hidden;
+    background-image: url(i/video-marker.png);
+    background-repeat: no-repeat;
+    background-position: center 100%;
+    background-size: 16px auto;
+    opacity: 1;
+  }
+
+}
+
+@media screen and (min-width: 600px) {
+
+  .story-navigation:not(.sticky) {
+
+    .nav-back-button {
+      display: none;
+    }
+
+    .nav-panels {
+
+      display: grid;
+      grid-template-columns: repeat( 2, 1fr );
+      row-gap: 1rem;
+      column-gap: 1rem;
+      padding: 0;
+      transform: none;
+
+      &>div {
+
+        position: relative;
+        padding: 0 0 6rem;
+        background: #1a1a1a;
+        overflow: hidden;
+        transform: translateY(0px);
+        transition: all .2s ease-in-out;
+
+        &:before {
+          display: block;
+          content: '';
+          width: 100%;
+          height: 5rem;
+          background: $yellow;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 0;
+          transform: translateY(8rem);
+          transition: all .2s ease-in-out;
+        }
+
+      }
+
+      h1 {
+
+        margin-bottom: 2.5rem;
+        font-size: 2rem;
+        padding: .5rem 2rem;
+        border-bottom: none;
+        transition: none;
+
+        &:hover,
+        &:focus {
+          background: none;
+        }
+
+        &:after {
+          display: none;
+        }
+
+        span {
+          display: block;
+        }
+
+      }
+
+      ol {
+        display: block;
+        position: relative;
+        top: initial;
+        left: initial;
+        width: initial;
+        height: initial;
+        background: none;
+        padding: 0;
+      }
+
+      .marker {
+        display: block;
+        position: relative;
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        font-size: .9rem;
+        font-weight: 700;
+        font-family: "Lato", "Hind", "Helvetica", "Arial", sans-serif;
+        color: #000;
+        background: #fff;
+        text-align: center;
+        margin-bottom: 4rem;
+        margin-left: 2rem;
+        margin-top: 2rem;
+        transform: translateY(-2rem);
+        transition: transform .2s ease-in-out;
+      }
+
+    }
+
+  }
+
+  body.has-js .story-navigation:not(.sticky) .nav-panels > div {
+
+    &:hover,
+    &:focus {
+
+      cursor: pointer;
+
+      &:before {
+        height: 100%;
+        transform: translateY( 0px );
+      }
+
+      a {
+        color: #000;
+      }
+
+      .marker {
+        transform: translateY(0px);
+      }
+
+      .video-marker {
+        background-position: center 0;
+      }
+
+    }
+
+  }
+
+}
+
+@media screen and (min-width: 800px) {
+
+  .story-navigation:not(.sticky) .nav-panels {
+    grid-template-columns: repeat( 3, 1fr );
+  }
+
+  #sticky-nav-wrapper .story-navigation {
+
+    .nav-panels {
+
+      transform: translate( 0, -110% );
+      width: 50%;
+
+      ol {
+        padding: 1.3rem 0 0;
+      }
+
+      & > div {
+        background: #000;
+      }
+
+      h1 {
+
+        color: #fff;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+
+        &:hover,
+        &:focus {
+          &:after {
+            opacity: 1;
+            border-color: rgba(255,255,255,.2);
+          }
+        }
+      }
+
+    }
+
+    &.nav-open .nav-panels {
+      transform: translate( 0, 0 );
+    }
+
+    .nav-back-button {
+      display: none;
+    }
+
+    &[data-active="no-active"] {
+
+      h1:after {
+        opacity: 0;
+      }
+
+    }
+
+    &[data-active="no-active"] .nav-panel-part-1-speaking-truth,
+    &[data-active='active-panel-part-1-speaking-truth'] .nav-panel-part-1-speaking-truth,
+    &[data-active='active-panel-part-2-bearing-witness'] .nav-panel-part-2-bearing-witness,
+    &[data-active='active-panel-part-3-compelling-creativity'] .nav-panel-part-3-compelling-creativity,
+    &[data-active='active-panel-part-4-taking-responsibility'] .nav-panel-part-4-taking-responsibility,
+    &[data-active='active-panel-part-5-challenging-convention'] .nav-panel-part-5-challenging-convention {
+
+      ol {
+        display: block;
+      }
+
+      h1 {
+
+        background: $yellow;
+        color: #000;
+
+        &:after {
+          opacity: 1;
+          border-color: rgba(0,0,0,.3);
+        }
+
+        &:hover,
+        &:focus {
+
+          cursor: default;
+
+          &:after {
+            border-color: rgba(0,0,0,.3);
+          }
+        }
+      }
+
+    }
+
+  }
+
+}
+
+@media screen and (min-width: 1050px) {
+  .story-navigation:not(.sticky) .nav-panels {
+    grid-template-columns: repeat( 5, auto );
+  }
+}
+@media screen and (min-width: 1250px) {
+  .story-navigation:not(.sticky) .nav-panels {
+    & > div:before {
+      height: 6.1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+}
+@media screen and (min-width: 1400px) {
+  .story-navigation:not(.sticky) .nav-panels {
+    &>div:before {
+      height: 7.2rem;
+    }
+    h1 {
+      font-size: 3rem;
+    }
+  }
+}
