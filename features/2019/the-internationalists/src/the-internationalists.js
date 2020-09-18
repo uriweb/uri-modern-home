@@ -1,7 +1,5 @@
 /**
  * THE INTERNATIONALISTS
- *
- * @package uri-modern-home
  */
 
 ( function() {

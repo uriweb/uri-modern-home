@@ -2,7 +2,6 @@
  * Riser
  *
  * @see https://codepen.io/Archtects/pen/YJeaVJ
- * @package uri-modern-home
  */
 
 ( function() {

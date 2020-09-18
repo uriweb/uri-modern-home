@@ -1,7 +1,5 @@
 /**
  * FIRST AMENDMENT -- CONTENT
- *
- * @package uri-modern-home
  */
 
 ( function() {

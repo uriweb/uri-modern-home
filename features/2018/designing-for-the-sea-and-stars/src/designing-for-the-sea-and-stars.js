@@ -1,7 +1,5 @@
 /**
  * DESIGNING FOR THE SEA AND STARS
- *
- * @package uri-modern-home
  */
 
 ( function() {

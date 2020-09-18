@@ -1,7 +1,5 @@
 /**
  * EARHART
- *
- * @package uri-modern-home
  */
 
 ( function() {

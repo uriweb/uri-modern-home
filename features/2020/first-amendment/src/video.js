@@ -1,7 +1,5 @@
 /**
  * VIDEO
- *
- * @package uri-modern-home
  */
 
 ( function() {

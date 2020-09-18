@@ -1,7 +1,5 @@
 /**
  * SPACE INVADERS
- *
- * @package uri-modern-home
  */
 
 ( function() {
