@@ -7,6 +7,21 @@
  * @package uri-modern-home
  */
 
+
+/**
+ * Returns a string to be used for cache busting
+ *
+ * @return str
+ */
+function uri_modern_home_cache_buster() {
+	static $cache_buster;
+	if ( empty( $cache_buster ) ) {
+		$cache_buster = wp_get_theme()->get( 'Version' );
+		// $cache_buster = date(time());
+	}
+	return $cache_buster;
+}
+
 /**
  * Enqueue scripts and styles.
  */
@@ -17,7 +32,9 @@ function uri_modern_home_enqueues() {
 
 	wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css', array(), wp_get_theme( $parent_dir_name )->get( 'Version' ) );
 
-	wp_enqueue_style( 'uri-modern-home-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ), wp_get_theme()->get( 'Version' ) );
+	wp_enqueue_style( 'uri-modern-home-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ), uri_modern_home_cache_buster() );
+
+	wp_enqueue_script( 'uri-modern-home-scripts', get_stylesheet_directory_uri() . '/js/script.min.js', array(), uri_modern_home_cache_buster(), true );
 
 }
 add_action( 'wp_enqueue_scripts', 'uri_modern_home_enqueues' );

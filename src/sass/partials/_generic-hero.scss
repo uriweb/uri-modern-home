@@ -1,3 +1,23 @@
 /* ==============================
    GENERIC HERO SHORTCODE
    ============================== */
+
+.uri-generic-hero {
+
+  margin: 0 0 2rem;
+
+  * {
+     box-sizing: border-box;
+  }
+
+  .uri-generic-hero-proper {
+
+  	width: 100vw;
+  	overflow: hidden;
+  	position: relative;
+  	background: #002147;
+  	z-index: 1;
+
+  }
+
+}
