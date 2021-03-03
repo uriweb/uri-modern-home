@@ -22,7 +22,7 @@
     "!features/**/src/*.js"
   ],
   "globals": {
-    "Vimeo": ["readonly"],
-    "URIMODERN": ["readonly"]
+    "Vimeo": "readonly",
+    "URIMODERN": "readonly"
   }
 }
