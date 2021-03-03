@@ -51,6 +51,11 @@ require get_stylesheet_directory() . '/inc/custom-fields.php';
 require get_stylesheet_directory() . '/inc/customizer-addons.php';
 
 /**
+ * Shortcodes
+ */
+require get_stylesheet_directory() . '/inc/shortcodes.php';
+
+/**
  * Blue Minds shortcodes
  */
 include get_stylesheet_directory() . '/features/2019/blue-minds/blue-minds.php';
