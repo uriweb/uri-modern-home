@@ -11,7 +11,8 @@
     "no-alert": ["warn"],
     "no-console": [ "error", { "allow": ["warn", "error"] } ],
     "jsx-a11y/label-has-associated-control": ["warn"],
-    "jsx-a11y/label-has-for": [0]
+    "jsx-a11y/label-has-for": [0],
+    "@wordpress/no-global-event-listener": [0]
   },
   "ignorePatterns": [
     "node_modules/",
@@ -19,5 +20,9 @@
     "js/script.min.js",
     "features/**/*.js",
     "!features/**/src/*.js"
-  ]
+  ],
+  "globals": {
+    "Vimeo": ["readonly"],
+    "URIMODERN": ["readonly"]
+  }
 }
