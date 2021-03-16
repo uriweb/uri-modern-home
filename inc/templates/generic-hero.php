@@ -18,18 +18,26 @@ if ( ! empty( $atts['css'] ) ) {
 $output .= '>';
 
 // The backdrop
-$bg = '<div class="uri-generic-hero-backdrop">';
-$speeds = array(
-	'low',
-	'medium',
-	'high',
-);
-for ( $n = 0; $n <= 10; $n++ ) {
-	$w = rand( 2, 8 ) * 10;
-	$x = rand( 10, 90 );
-	$o = rand( 1, 5 ) / 10;
-	$s = $speeds[ array_rand( $speeds, 1 ) ];
-	$bg .= '<div class="speed-' . $s . '" style="width:calc( 1vw * ' . $w . '); left:' . ( $x - ( $w / 2 ) ) . '%; opacity:' . $o . '"></div>';
+$bg = '<div class="uri-generic-hero-backdrop"';
+if ( ! empty( $atts['background'] ) ) {
+	$bg .= ' style="background:' . $atts['background'] . '"';
+}
+$bg .= '>';
+
+if ( 'bars' == $atts['style'] ) {
+
+	$speeds = array(
+		'low',
+		'medium',
+		'high',
+	);
+	for ( $n = 0; $n <= 10; $n++ ) {
+		$w = rand( 2, 8 ) * 10;
+		$x = rand( 10, 90 );
+		$o = rand( 1, 5 ) / 10;
+		$s = $speeds[ array_rand( $speeds, 1 ) ];
+		$bg .= '<div class="speed-' . $s . '" style="width:calc( 1vw * ' . $w . '); left:' . ( $x - ( $w / 2 ) ) . '%; opacity:' . $o . '"></div>';
+	}
 }
 
 $bg .= '</div>';
