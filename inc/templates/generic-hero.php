@@ -24,19 +24,38 @@ if ( ! empty( $atts['background'] ) ) {
 }
 $bg .= '>';
 
-if ( 'bars' == $atts['style'] ) {
+$speeds = array(
+	'low',
+	'medium',
+	'high',
+);
+$directions = array(
+	'left',
+	'right',
+);
 
-	$speeds = array(
-		'low',
-		'medium',
-		'high',
-	);
+if ( 'bars' == $atts['style'] ) {
 	for ( $n = 0; $n <= 10; $n++ ) {
 		$w = rand( 2, 8 ) * 10;
 		$x = rand( 10, 90 );
 		$o = rand( 1, 5 ) / 10;
 		$s = $speeds[ array_rand( $speeds, 1 ) ];
-		$bg .= '<div class="speed-' . $s . '" style="width:calc( 1vw * ' . $w . '); left:' . ( $x - ( $w / 2 ) ) . '%; opacity:' . $o . '"></div>';
+		$bg .= '<div class="bar speed-' . $s . '" style="width:calc( 1vw * ' . $w . '); left:' . ( $x - ( $w / 2 ) ) . '%; opacity:' . $o . '"></div>';
+	}
+}
+
+if ( 'discs' == $atts['style'] ) {
+	for ( $n = 0; $n <= 5; $n++ ) {
+		$w = rand( 2, 7 ) * 10;
+		$x = rand( 10, 90 );
+		$y = rand( 10, 90 );
+		$o = rand( 2, 5 ) / 10;
+		$r = rand( 1, 3 ) * 10;
+		$d = $directions[ array_rand( $directions, 1 ) ];
+		$s = $speeds[ array_rand( $speeds, 1 ) ];
+		$bg .= '<div class="disc direction-' . $d . ' speed-' . $s . '" style="width:calc( 1vw * ' . $r . '); height:calc( 1vw * ' . $r . '); left:' . ( $x - ( $r / 2 ) ) . '%; top:' . ( $y - ( $r / 2 ) ) . '%; opacity:' . $o . '">';
+		$bg .= '<div style="top:-' . ( $w / 2 ) . 'vw; left:' . ( ( $r / 2 ) - ( $w / 2 ) ) . 'vw; width:calc( 1vw * ' . $w . '); height:calc( 1vw * ' . $w . ');"></div>';
+		$bg .= '</div>';
 	}
 }
 

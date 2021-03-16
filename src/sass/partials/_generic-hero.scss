@@ -18,6 +18,19 @@
   100% { opacity: .2 }
 }
 
+@keyframes generic-disc-blur {
+  0% { filter: blur(20px) }
+  25% { filter: blur(5px) }
+  50% { filter: blur(2px) }
+  75% { filter: blur(12px) }
+  100% { filter: blur(0px) }
+}
+
+@keyframes generic-disc-rotation {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
 .uri-generic-hero {
 
   position: relative;
@@ -36,7 +49,7 @@
     height: 100%;
     background: #002147;
 
-    div {
+    div.bar {
 
       position: absolute;
       mix-blend-mode: soft-light;
@@ -65,6 +78,43 @@
       &.speed-high {
         animation-duration: 20s;
       }
+    }
+
+    div.disc {
+
+      position: absolute;
+    	transform: rotate(0deg);
+      filter: blur(20px);
+      opacity: 0;
+      mix-blend-mode: soft-light;
+      animation-name: generic-disc-rotation, generic-disc-blur;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear, ease-in-out;
+      animation-direction: normal, alternate;
+      animation-fill-mode: forwards;
+
+      &.direction-left {
+        animation-direction: reverse, alternate;
+      }
+
+      &.speed-low {
+        animation-duration: 60s;
+      }
+
+      &.speed-medium {
+        animation-duration: 40s;
+      }
+
+      &.speed-high {
+        animation-duration: 20s;
+      }
+
+      div {
+        position: relative;
+      	background: #fff;
+        border-radius: 50%;
+      }
+
     }
   }
 
