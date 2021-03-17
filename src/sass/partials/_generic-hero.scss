@@ -31,6 +31,34 @@
   to { transform: rotate(360deg); }
 }
 
+@keyframes generic-triangle-flash-low {
+  0% { opacity: .1; background: #000 }
+  50% { opacity: .1; background: #000 }
+  75% { opacity: .5; background: #fff }
+  100% { opacity: .1; background: #000 }
+}
+
+@keyframes generic-triangle-flash-medium {
+  0% { opacity: .1; background: #000 }
+  70% { opacity: .1; background: #000 }
+  85% { opacity: .5; background: #fff }
+  100% { opacity: .1; background: #000 }
+}
+
+@keyframes generic-triangle-flash-high {
+  0% { opacity: .1; background: #000 }
+  90% { opacity: .1; background: #000 }
+  95% { opacity: .5; background: #fff }
+  100% { opacity: .1; background: #000 }
+}
+
+:root {
+  --uri-generic-hero-grid-size: calc(4.5rem + 2vw);
+  --uri-generic-hero-grid-size-y: calc(var(--uri-generic-hero-grid-size) * 0.8660254);
+  --uri-generic-hero-grid-column-gap-mult: 0.023;
+  --uri-generic-hero-num-cols: 9;
+}
+
 .uri-generic-hero {
 
   position: relative;
@@ -48,6 +76,16 @@
     width: 100vw;
     height: 100%;
     background: #002147;
+
+    &.lattice {
+      display: grid;
+      overflow: hidden;
+      grid-auto-rows: var(--uri-generic-hero-grid-size-y);
+      grid-template-columns: repeat(var(--uri-generic-hero-num-cols), var(--uri-generic-hero-grid-size));
+      grid-row-gap: var(--uri-generic-hero-grid-size-y);
+      grid-column-gap: calc(var(--uri-generic-hero-grid-size) * var(--uri-generic-hero-grid-column-gap-mult));
+      justify-content: center;
+    }
 
     div.bar {
 
@@ -116,6 +154,43 @@
       }
 
     }
+
+    div.triangle {
+
+      position: relative;
+      background: #000;
+      mix-blend-mode: soft-light;
+      opacity: 0;
+      transform: scale(1.93);
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      animation-direction: normal, alternate;
+      animation-fill-mode: forwards;
+      animation-duration: 20s;
+      animation-delay: -10s;
+
+      &.speed-low {
+        animation-name: generic-triangle-flash-slow;
+      }
+
+      &.speed-medium {
+        animation-name: generic-triangle-flash-medium;
+      }
+
+      &.speed-high {
+        animation-name: generic-triangle-flash-high;
+      }
+
+      &:nth-child(odd) {
+        clip-path: polygon(0 0, 100% 0, 50% 98%, 0 0);
+      }
+
+      &:nth-child(even) {
+        clip-path: polygon(50% 2%, 100% 100%, 0 100%, 50% 2%);
+      }
+
+    }
+
   }
 
   .uri-generic-hero-proper {
@@ -158,4 +233,28 @@
 
   }
 
+}
+
+@media (min-width: 570px) {
+  :root {
+    --uri-generic-hero-num-cols: 13;
+  }
+}
+
+@media (min-width: 810px) {
+  :root {
+    --uri-generic-hero-num-cols: 17;
+  }
+}
+
+@media (min-width: 1120px) {
+  :root {
+    --uri-generic-hero-num-cols: 19;
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --uri-generic-hero-num-cols: 21;
+  }
 }

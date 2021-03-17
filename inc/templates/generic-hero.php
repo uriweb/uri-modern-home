@@ -18,7 +18,11 @@ if ( ! empty( $atts['css'] ) ) {
 $output .= '>';
 
 // The backdrop
-$bg = '<div class="uri-generic-hero-backdrop"';
+$bgclasses = 'uri-generic-hero-backdrop';
+if ( 'lattice' == $atts['style'] ) {
+	$bgclasses .= ' lattice';
+}
+$bg = '<div class="' . $bgclasses . '"';
 if ( ! empty( $atts['background'] ) ) {
 	$bg .= ' style="background:' . $atts['background'] . '"';
 }
@@ -56,6 +60,14 @@ if ( 'discs' == $atts['style'] ) {
 		$bg .= '<div class="disc direction-' . $d . ' speed-' . $s . '" style="width:calc( 1vw * ' . $r . '); height:calc( 1vw * ' . $r . '); left:' . ( $x - ( $r / 2 ) ) . '%; top:' . ( $y - ( $r / 2 ) ) . '%; opacity:' . $o . '">';
 		$bg .= '<div style="top:-' . ( $w / 2 ) . 'vw; left:' . ( ( $r / 2 ) - ( $w / 2 ) ) . 'vw; width:calc( 1vw * ' . $w . '); height:calc( 1vw * ' . $w . ');"></div>';
 		$bg .= '</div>';
+	}
+}
+
+if ( 'lattice' == $atts['style'] ) {
+	for ( $n = 0; $n <= 200; $n++ ) {
+		$t = rand( 5, 60 );
+		$s = $speeds[ array_rand( $speeds, 1 ) ];
+		$bg .= '<div class="triangle speed-' . $s . '" style="animation-duration:' . $t . 's;"></div>';
 	}
 }
 
