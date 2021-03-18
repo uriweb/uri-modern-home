@@ -2,6 +2,8 @@
    GENERIC HERO SHORTCODE
    ============================== */
 
+// SET UP A FEW THINGS
+
 @keyframes generic-bg-movement {
   0% { transform: translateX(0); }
   20% { transform: translateX(20vw); }
@@ -31,7 +33,7 @@
   to { transform: rotate(360deg); }
 }
 
-@keyframes generic-triangle-flash-low {
+@keyframes generic-triangle-flash-slow {
   0% { opacity: .1; background: #000 }
   50% { opacity: .1; background: #000 }
   75% { opacity: .5; background: #fff }
@@ -40,15 +42,15 @@
 
 @keyframes generic-triangle-flash-medium {
   0% { opacity: .1; background: #000 }
-  70% { opacity: .1; background: #000 }
-  85% { opacity: .5; background: #fff }
+  65% { opacity: .1; background: #000 }
+  82.5% { opacity: .5; background: #fff }
   100% { opacity: .1; background: #000 }
 }
 
-@keyframes generic-triangle-flash-high {
+@keyframes generic-triangle-flash-fast {
   0% { opacity: .1; background: #000 }
-  90% { opacity: .1; background: #000 }
-  95% { opacity: .5; background: #fff }
+  80% { opacity: .1; background: #000 }
+  90% { opacity: .5; background: #fff }
   100% { opacity: .1; background: #000 }
 }
 
@@ -58,6 +60,32 @@
   --uri-generic-hero-grid-column-gap-mult: 0.023;
   --uri-generic-hero-num-cols: 9;
 }
+
+@media (min-width: 570px) {
+  :root {
+    --uri-generic-hero-num-cols: 13;
+  }
+}
+
+@media (min-width: 810px) {
+  :root {
+    --uri-generic-hero-num-cols: 17;
+  }
+}
+
+@media (min-width: 1120px) {
+  :root {
+    --uri-generic-hero-num-cols: 19;
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --uri-generic-hero-num-cols: 21;
+  }
+}
+
+// OKAY, NOW FOR THE ACTUAL STYLES
 
 .uri-generic-hero {
 
@@ -168,6 +196,7 @@
       animation-fill-mode: forwards;
       animation-duration: 20s;
       animation-delay: -10s;
+      animation-play-state: paused;
 
       &.speed-low {
         animation-name: generic-triangle-flash-slow;
@@ -178,7 +207,7 @@
       }
 
       &.speed-high {
-        animation-name: generic-triangle-flash-high;
+        animation-name: generic-triangle-flash-fast;
       }
 
       &:nth-child(odd) {
@@ -201,21 +230,54 @@
   	position: relative;
   	z-index: 1;
 
+    &.has-img .uri-generic-hero-content-wrapper {
+      display: grid;
+      grid-template-rows: 125px 1fr;
+      grid-template-columns: 1fr;
+    }
+
+  }
+
+  .uri-generic-hero-content-wrapper {
+    place-self: center;
+    padding: 0 25px;
+  }
+
+  .uri-generic-hero-img {
+
+    place-self: start left;
+
+    .img-wrapper {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+  }
+
+  .divider {
+    background: #fff;
+    opacity: .5;
   }
 
   .uri-generic-hero-text {
 
-    place-self: center;
-    padding: 2rem;
-
     h1 {
-      font-size: 4rem;
+      font-size: 2rem;
+      margin-bottom: 1rem;
       color: #fff;
     }
 
     p {
       color: #fff;
-      width: 80%;
+      width: 100%;
+      font-size: 1rem;
       max-width: 500px;
     }
 
@@ -235,26 +297,76 @@
 
 }
 
-@media (min-width: 570px) {
-  :root {
-    --uri-generic-hero-num-cols: 13;
+@media screen and (min-width:680px) {
+
+  .uri-generic-hero .uri-generic-hero-proper {
+
+    &.has-img .uri-generic-hero-content-wrapper {
+      grid-template-rows: 150px 1fr;
+    }
+
+    .uri-generic-hero-text {
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+
+    }
+
+    .uri-generic-hero-img {
+
+      .img-wrapper {
+        width: 125px;
+        height: 125px;
+      }
+
+    }
+
   }
+
 }
 
-@media (min-width: 810px) {
-  :root {
-    --uri-generic-hero-num-cols: 17;
-  }
-}
+@media screen and (min-width:950px) {
 
-@media (min-width: 1120px) {
-  :root {
-    --uri-generic-hero-num-cols: 19;
-  }
-}
+  .uri-generic-hero .uri-generic-hero-proper {
 
-@media (min-width: 1600px) {
-  :root {
-    --uri-generic-hero-num-cols: 21;
+    &.has-img .uri-generic-hero-content-wrapper {
+      grid-template-rows: 1fr;
+      grid-template-columns: 200px 700px;
+    }
+
+    .uri-generic-hero-text {
+      padding-left: 50px;
+      border-left: 1px solid rgba(255,255,255,.5);
+
+      h1 {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+      }
+
+      p {
+        width: 80%;
+        font-size: 1.25rem;
+      }
+
+    }
+
+    .uri-generic-hero-img {
+
+      place-self: center left;
+
+      .img-wrapper {
+        width: 150px;
+        height: 150px;
+      }
+
+    }
+
   }
+
 }

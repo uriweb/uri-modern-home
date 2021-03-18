@@ -65,18 +65,37 @@ if ( 'discs' == $atts['style'] ) {
 
 if ( 'lattice' == $atts['style'] ) {
 	for ( $n = 0; $n <= 200; $n++ ) {
-		$t = rand( 5, 60 );
+		$lattice_classes = 'triangle';
+		$t = rand( 10, 60 );
 		$s = $speeds[ array_rand( $speeds, 1 ) ];
-		$bg .= '<div class="triangle speed-' . $s . '" style="animation-duration:' . $t . 's;"></div>';
+		$p = rand( 1, 3 );
+		if ( 1 < $p ) {
+			$lattice_classes .= ' speed-' . $s;
+		}
+		$bg .= '<div class="' . $lattice_classes . '" style="animation-duration:' . $t . 's;"></div>';
 	}
 }
 
 $bg .= '</div>';
 $output .= $bg;
 
-$output .= '<div class="uri-generic-hero-proper">';
+$img = '';
+$proper_classes = 'uri-generic-hero-proper animate-text';
 
+if ( ! empty( $atts['img'] ) ) {
+	$proper_classes .= ' has-img';
+	$img .= '<div class="uri-generic-hero-img">';
+	$img .= '<div class="img-wrapper">';
+	$img .= '<img src="' . $atts['img'] . '">';
+	$img .= '</div>';
+	$img .= '</div>';
+}
 
+$output .= '<div class="' . $proper_classes . '">';
+
+$output .= '<div class="uri-generic-hero-content-wrapper">';
+
+$output .= $img;
 
 $output .= '<div class="uri-generic-hero-text">';
 
@@ -100,6 +119,8 @@ if ( ! empty( $atts['link'] ) ) {
 }
 
 $output .= '</div>'; // .uri-generic-hero-text
+
+$output .= '</div>'; // .uri-generic-hero-content-wrapper
 
 $output .= '</div>'; // .uri-generic-hero-proper
 
