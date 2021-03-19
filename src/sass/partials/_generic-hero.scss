@@ -147,6 +147,7 @@
     .bar {
 
       position: absolute;
+      will-change: transform, opacity;
       mix-blend-mode: soft-light;
       height: 100%;
       background: linear-gradient(to right,
@@ -178,6 +179,7 @@
     .disc {
 
       position: absolute;
+      will-change: transform, filter;
     	transform: rotate(0deg);
       filter: blur(20px);
       opacity: 0;
@@ -215,6 +217,7 @@
     .triangle {
 
       position: relative;
+      will-change: opacity, background;
       background: #000;
       mix-blend-mode: soft-light;
       opacity: 0;
@@ -251,6 +254,7 @@
     .hex {
 
       position: relative;
+      will-change: opacity;
       top: -50%;
       visibility: hidden;
       outline: 1px solid transparent;
