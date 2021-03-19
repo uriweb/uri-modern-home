@@ -54,6 +54,27 @@
   100% { opacity: .1; background: #000 }
 }
 
+@keyframes generic-hex-pulse-slow {
+  0% { opacity: 0; }
+  8.333% { opacity: 1; }
+  16.666% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes generic-hex-pulse-medium {
+  0% { opacity: 0; }
+  62.5% { opacity: 1; }
+  75% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes generic-hex-pulse-fast {
+  0% { opacity: 0; }
+  35% { opacity: 1; }
+  60% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
 :root {
   --uri-generic-hero-grid-size: calc(4.5rem + 2vw);
   --uri-generic-hero-grid-size-y: calc(var(--uri-generic-hero-grid-size) * 0.8660254);
@@ -115,7 +136,15 @@
       justify-content: center;
     }
 
-    div.bar {
+    &.honeycomb {
+      left: -15vw;
+      display: flex;
+      flex-wrap: wrap;
+      width: 130vw;
+      overflow: hidden;
+    }
+
+    .bar {
 
       position: absolute;
       mix-blend-mode: soft-light;
@@ -146,7 +175,7 @@
       }
     }
 
-    div.disc {
+    .disc {
 
       position: absolute;
     	transform: rotate(0deg);
@@ -183,7 +212,7 @@
 
     }
 
-    div.triangle {
+    .triangle {
 
       position: relative;
       background: #000;
@@ -196,7 +225,6 @@
       animation-fill-mode: forwards;
       animation-duration: 20s;
       animation-delay: -10s;
-      animation-play-state: paused;
 
       &.speed-low {
         animation-name: generic-triangle-flash-slow;
@@ -216,6 +244,66 @@
 
       &:nth-child(even) {
         clip-path: polygon(50% 2%, 100% 100%, 0 100%, 50% 2%);
+      }
+
+    }
+
+    .hex {
+
+      position: relative;
+      top: -50%;
+      visibility: hidden;
+      outline: 1px solid transparent;
+      backface-visibility: hidden;
+      mix-blend-mode: soft-light;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+
+      &:after{
+        content:'';
+        display:block;
+        padding-bottom: 86.602%;  /* =  100 / tan(60) * 1.5 */
+      }
+
+      &.speed-low {
+        animation-name: generic-hex-pulse-slow;
+        animation-duration: 30s;
+      }
+
+      &.speed-medium {
+        animation-name: generic-hex-pulse-medium;
+        animation-duration: 20s;
+      }
+
+      &.speed-high {
+        animation-name: generic-hex-pulse-fast;
+        animation-duration: 10s;
+      }
+
+      .hexwrap{
+        position: absolute;
+        width:96%;
+        padding-bottom: 110.851%; /* =  width / sin(60) */
+        margin: 2%;
+        overflow: hidden;
+        visibility: hidden;
+        outline:1px solid transparent;
+        transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+      }
+
+      .hexcontent {
+        position: absolute;
+        visibility: visible;
+        outline: 1px solid transparent;
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: #fff;
+        overflow: hidden;
+        background: linear-gradient( to bottom, rgba(255,255,255,.4), rgba(255,255,255,.2) );
+        transform: skewY(-30deg) rotate3d(0,0,1,60deg);
       }
 
     }
@@ -363,6 +451,80 @@
       .img-wrapper {
         width: 150px;
         height: 150px;
+      }
+
+    }
+
+  }
+
+}
+
+/*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
+
+@media (min-width:1201px) { /* <- 10-9  hexagons per row */
+
+  .uri-generic-hero .uri-generic-hero-backdrop.honeycomb {
+
+    .hex {
+
+      width: calc( 100% / 10 );
+
+      &:nth-child(19n+11) { /* first hexagon of even rows */
+        margin-left: calc( 100% / 20 );  /* = width of .hex / 2  to indent even rows */
+      }
+
+    }
+
+  }
+
+}
+
+@media (max-width: 1200px) and (min-width:901px) { /* <- 8-7  hexagons per row */
+
+  .uri-generic-hero .uri-generic-hero-backdrop.honeycomb {
+
+    .hex {
+
+      width: calc( 100% / 8 );
+
+      &:nth-child(15n+9) { /* first hexagon of even rows */
+        margin-left: calc( 100% / 16 );  /* = width of .hex / 2  to indent even rows */
+      }
+
+    }
+
+  }
+
+}
+
+@media (max-width: 900px) and (min-width:601px) { /* <- 6-5  hexagons per row */
+
+  .uri-generic-hero .uri-generic-hero-backdrop.honeycomb {
+
+    .hex {
+
+      width: calc( 100% / 6 );
+
+      &:nth-child(11n+7) { /* first hexagon of even rows */
+        margin-left: calc( 100% / 12 );  /* = width of .hex / 2  to indent even rows */
+      }
+
+    }
+
+  }
+
+}
+
+@media (max-width: 600px) { /* <- 5-4  hexagons per row */
+
+  .uri-generic-hero .uri-generic-hero-backdrop.honeycomb {
+
+    .hex {
+
+      width: calc( 100% / 5 );
+
+      &:nth-child(9n+6) { /* first hexagon of even rows */
+        margin-left: calc( 100% / 10 );  /* = width of .hex / 2  to indent even rows */
       }
 
     }

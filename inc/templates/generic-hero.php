@@ -22,6 +22,9 @@ $bgclasses = 'uri-generic-hero-backdrop';
 if ( 'lattice' == $atts['style'] ) {
 	$bgclasses .= ' lattice';
 }
+if ( 'honeycomb' == $atts['style'] ) {
+	$bgclasses .= ' honeycomb';
+}
 $bg = '<div class="' . $bgclasses . '"';
 if ( ! empty( $atts['background'] ) ) {
 	$bg .= ' style="background:' . $atts['background'] . '"';
@@ -73,6 +76,14 @@ if ( 'lattice' == $atts['style'] ) {
 			$lattice_classes .= ' speed-' . $s;
 		}
 		$bg .= '<div class="' . $lattice_classes . '" style="animation-duration:' . $t . 's;"></div>';
+	}
+}
+
+if ( 'honeycomb' == $atts['style'] ) {
+	for ( $n = 0; $n <= 200; $n++ ) {
+		$d = rand( 1, 29 );
+		$s = $speeds[ array_rand( $speeds, 1 ) ];
+		$bg .= '<div class="hex speed-' . $s . '" style="animation-delay:-' . $d . 's"><div class="hexwrap"><div class="hexcontent"></div></div></div>';
 	}
 }
 
