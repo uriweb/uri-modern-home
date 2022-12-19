@@ -15,7 +15,7 @@ get_header(); ?>
 	if ( have_posts() ) :
 	?>
 
-		<div class="cl-tiles magic square-image equal-height">
+		<div class="cl-tiles thirds">
 		<?php
 		/* Start the Loop */
 		while ( have_posts() ) :
