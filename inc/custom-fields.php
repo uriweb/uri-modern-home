@@ -16,7 +16,7 @@ register_post_type(
 		'public' => true,
 		'show_ui' => true,
 		'show_in_menu' => true,
-		'show_in_rest' => true,
+		/*'show_in_rest' => true,*/ // Enables block editor for feature posts... keep disabled for now
 		'capability_type' => 'post',
 		'hierarchical' => true,
 		'rewrite' => array( 'slug' => 'features' ),
