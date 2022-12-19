@@ -1,0 +1,225 @@
+// HERO
+
+.feature-hero-first-amendment {
+
+  position: relative;
+
+  #amendment-text-bg {
+
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    color: #333;
+    pointer-events: none;
+    z-index: 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    span {
+
+      color: inherit;
+      transition: color 1s ease-in-out;
+
+      &.active {
+        color: #777;
+        transition: color .2s ease-in-out;
+      }
+
+    }
+
+    &.emphasis {
+      span.active {
+        color: $yellow;
+      }
+    }
+
+  }
+
+  #headline {
+
+    position: relative;
+    z-index: 2;
+    padding: 60vh 0 40vh;
+    background: linear-gradient( to bottom, rgba(0,0,0,.3), transparent 10%, transparent 30%, rgba(0,0,0,.8) 60%, #000 );
+
+    &.reveal h1 {
+      opacity: 1;
+    }
+
+    h1 {
+
+      font-family: $type-header;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #000;
+      width: 65%;
+      max-width: 800px;
+      text-align: center;
+      margin: 0 auto 40vh;
+      padding: 1rem;
+      background: $yellow;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      //backdrop-filter: blur(2px);
+      //border: 1px solid rgba(255,255,255,.1);
+    }
+
+  }
+
+  #deck {
+
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 500px;
+    box-sizing: border-box;
+
+    p {
+      color: #fff;
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+      font-family: $type-header;
+      margin-bottom: 4rem;
+      text-shadow: 0 .1rem .3rem #000;
+    }
+
+  }
+
+  #amendment {
+
+    position: relative;
+    z-index: 1;
+    background: rgba(0,0,0,.3);
+
+    div {
+      padding: 25vh 0 0;
+      font-family: $type-header;
+      color: $yellow;
+      font-size: 2rem;
+      line-height: 2rem;
+      width: 80%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    span {
+      color: transparent;
+      pointer-events: none;
+      transition: color .5s ease-in-out;
+    }
+
+    &[data-level='1'] {
+      span:nth-child(1) {
+        color: $yellow;
+        pointer-events: all;
+      }
+    }
+
+    &[data-level='2'] {
+      span:nth-child(1) {
+        color: #777;
+        pointer-events: all;
+      }
+      span:nth-child(2) {
+        color: $yellow;
+        pointer-events: all;
+      }
+    }
+
+    &[data-level='3'] {
+      span:nth-child(-n+2) {
+        color: #777;
+        pointer-events: all;
+      }
+      span:nth-child(3) {
+        color: $yellow;
+        pointer-events: all;
+      }
+    }
+
+    &[data-level='4'] {
+      span:nth-child(-n+3) {
+        color: #777;
+        pointer-events: all;
+      }
+      span:nth-child(4) {
+        color: $yellow;
+        pointer-events: all;
+      }
+    }
+
+    &[data-level='5'] {
+      span:nth-child(-n+5) {
+        color: #777;
+        pointer-events: all;
+      }
+      span:nth-child(5) {
+        color: $yellow;
+        pointer-events: all;
+      }
+    }
+
+    &[data-level='6'] {
+      span {
+        color: #777;
+      }
+    }
+
+  }
+
+}
+
+@media screen and (min-width:350px) {
+  .feature-hero-first-amendment {
+    #headline h1 {
+      font-size: 3rem;
+    }
+    #amendment div {
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+    }
+  }
+}
+
+@media screen and (min-width:500px) {
+  .feature-hero-first-amendment {
+    #headline {
+
+      background: linear-gradient( to bottom, rgba(0,0,0,.3), transparent 10%, transparent 30%, rgba(0,0,0,.3) 60%, #000 );
+
+      h1 {
+        font-size: 5rem;
+        width: 80%;
+      }
+
+    }
+
+    #deck {
+
+      p {
+        font-size: 2rem;
+        line-height: 2.5rem;
+      }
+
+    }
+
+    #amendment div {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+  }
+}
+
+@media screen and (min-width:850px) {
+  .feature-hero-first-amendment {
+    #headline h1 {
+      font-size: 6rem;
+      width: initial;
+    }
+    #amendment div {
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+  }
+}

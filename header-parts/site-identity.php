@@ -15,7 +15,8 @@
 
 		$ancestor_title_whitelist = explode( "\n", get_option( 'use_ancestor_title_whitelist' ) );
 
-		$top_ancestor_id = get_ancestors( get_the_ID(), 'page' )[0];
+		$ancestors = get_ancestors( get_the_ID(), 'page' );
+		$top_ancestor_id = ( is_array( $ancestors ) && ! empty( $ancestors[0] ) ) ? $ancestors[0] : null;
 		$top_ancestor_title = empty( $top_ancestor_id ) ? get_the_title() : get_the_title( $top_ancestor_id );
 
 		$this_post_type = get_post_type( get_the_ID() );

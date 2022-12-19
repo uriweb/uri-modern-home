@@ -16,6 +16,7 @@ register_post_type(
 		'public' => true,
 		'show_ui' => true,
 		'show_in_menu' => true,
+		/*'show_in_rest' => true,*/ // Enables block editor for feature posts... keep disabled for now
 		'capability_type' => 'post',
 		'hierarchical' => true,
 		'rewrite' => array( 'slug' => 'features' ),
@@ -43,7 +44,7 @@ register_post_type(
 	)
   );
 }
-add_action( 'init', 'uri_modern_home_create_feature_post_type' );
+add_action( 'init', 'uri_modern_home_create_feature_post_type', 9 );
 
 /**
  * Set the default order for homepage features to most recent first in the admin screen
