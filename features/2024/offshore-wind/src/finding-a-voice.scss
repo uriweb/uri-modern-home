@@ -1,0 +1,33 @@
+/* ==============================
+   WHY HIP HOP MATTERS: FINDING A VOICE
+   ============================== */
+
+@import 'partials/base';
+@import 'partials/nav';
+
+#story-hero {
+	
+	border-bottom-color: $theme-color-track-5;
+	margin-bottom: 4rem;
+	
+	.superhead {
+	
+		color: $theme-color-track-5-text;
+
+		&:after {
+			background: $theme-color-track-5-text;
+		}
+
+	}
+	
+	&>div:nth-child(1) {
+		background-position: 80% center;
+	}
+	
+}
+
+@media screen and (min-width:1000px) {
+	#story-hero {
+		margin-bottom: 6rem;
+	}
+}
