@@ -1,8 +1,8 @@
 /* ==============================
-   WHY HIP HOP MATTERS - NAVIGATION
+   OFFSHORE WIND - NAVIGATION
    ============================== */
 
-.nav-hip-hop-wrapper {
+.nav-offshore-wrapper {
 	
 	input {
 		display: none;
@@ -61,7 +61,7 @@
 			
 		}
 
-		& ~ nav.hip-hop {
+		& ~ nav.offshore {
 			display: block;
 		}
 		
@@ -69,8 +69,8 @@
 	
 }
 
-#feature-hero .nav-hip-hop-wrapper,
-.hip-hop-navigation-wrapper.footer {
+#feature-hero .nav-offshore-wrapper,
+.offshore-navigation-wrapper.footer {
 	
 	input,
 	label {
@@ -79,7 +79,7 @@
 	
 }
 
-nav.hip-hop {
+nav.offshore {
 	
 	display: none;
 	overflow: hidden;
@@ -113,7 +113,7 @@ nav.hip-hop {
 		font-size: 1rem;
 	}
 
-	.nav-track {
+	.nav-story {
 		font-family: "Oswald", "Hind", "Arial", sans-serif;
 		font-size: .8rem;
 		text-transform: uppercase;
@@ -122,15 +122,15 @@ nav.hip-hop {
 }
 
 #feature-hero,
-.hip-hop-navigation-wrapper.footer {
+.offshore-navigation-wrapper.footer {
 	
-	nav.hip-hop {
+	nav.offshore {
 		display: block;
 	}
 	
 	@each $t in $tracks {
 		
-		&.#{$t} nav.hip-hop div.nav-#{$t} .nav-title {
+		&.#{$t} nav.offshore div.nav-#{$t} .nav-title {
 			display: none;
 		}
 		
