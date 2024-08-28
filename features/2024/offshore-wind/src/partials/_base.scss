@@ -4,14 +4,13 @@
 
 /* COLORS */
 
-$theme-color-generic: #0e93ce;
-$theme-color-track-1: #37a588;
-$theme-color-track-2: #bc3833;
-$theme-color-track-3: #db6ce0;
-$theme-color-track-3-text: #e251e8;
-$theme-color-track-4: #94af00; //239ee0
-$theme-color-track-5: #fad556;
-$theme-color-track-5-text: #d89704;
+$theme-color-generic: #f3bc4b;
+$theme-color-story-1: #568132;
+$theme-color-story-2: #46847e;
+$theme-color-story-3: #3b87b6;
+$theme-color-story-3-text: #3b87b6;
+$theme-color-story-4: #002147; //239ee0
+
 
 /* FAWNTS */
 
@@ -23,11 +22,11 @@ $stories:
 	offshore-there-was-trust
 	offshore-roseate-tern
 	offshore-who-counts
-	offshore-winners-and-losers
+	offshore-winners-and-losers;
 
 /* MIXINS */
 
-@mixin graffiti() {
+/* @mixin graffiti() {
 	position: relative;
 	display: block;
 	content: '';
@@ -36,7 +35,7 @@ $stories:
 	background-repeat: no-repeat;
 	filter: hue-rotate(0);
 	animation: rotate-hue 10s linear infinite, move-background 30s linear infinite alternate;
-}
+} */
 
 /* STYLES */
 
@@ -105,7 +104,7 @@ body:not(.home) .globalnav {
 	}
 	
 	.deck {
-		font-family: "Abel", "Hind", "Arial", sans-serif;
+		font-family: "Manrope", "Hind", "Arial", sans-serif;
 		font-weight: 300;
 		font-size: 1.5rem;
 	}
@@ -412,19 +411,19 @@ body:not(.home) .globalnav {
 	padding-left: 20px;
 	
 	.teaser-track {
-		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-family: "Abel", "Hind", "Arial", sans-serif;
 		font-weight: 300;
 		text-transform: uppercase;
 	}
 	
 	.teaser-day,
 	.teaser-title {
-		font-family: "Bungee", "Lato", "Hind", "Arial", sans-serif;
+		font-family: "Laila", "El Messiri", "Hind", "Arial", sans-serif;
 		font-size: 1.3rem;
 	}
 		
 	.teaser-body {
-		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-family: "Manrope", "Hind", "Arial", sans-serif;
 		font-weight: 300;
 		font-size: 1.1rem;
 		padding-top: 1rem;

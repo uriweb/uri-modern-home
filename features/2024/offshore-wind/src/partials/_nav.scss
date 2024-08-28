@@ -14,7 +14,7 @@
 		width: 100%;
 		padding: 1rem 0;
 		text-align: center;
-		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-family: "Abel", "Hind", "Arial", sans-serif;
 		font-size: 1rem;
 		text-transform: uppercase;
 		
@@ -92,7 +92,7 @@ nav.offshore {
 		display: block;
 		width: 100%;
 		height: 100%;
-		font-family: "Bungee", "Lato", "Hind", "Arial", sans-serif;
+		font-family: "Laila", "El Messiri", "Hind", "Arial", sans-serif;
 		transition: all .1s ease-in-out;
 		
 		span {
@@ -114,7 +114,7 @@ nav.offshore {
 	}
 
 	.nav-story {
-		font-family: "Oswald", "Hind", "Arial", sans-serif;
+		font-family: "Abel", "Hind", "Arial", sans-serif;
 		font-size: .8rem;
 		text-transform: uppercase;
 	}
@@ -140,7 +140,7 @@ nav.offshore {
 
 /* FOOTER NAV */
 
-.hip-hop-navigation-wrapper.footer nav.hip-hop {
+.offshore-navigation-wrapper.footer nav.offshore {
 	
 	background: #eee;
 	border-bottom: 20px solid #000;
@@ -175,33 +175,33 @@ nav.offshore {
 
 @media screen and (min-width: 1000px) {
 
-	.nav-hip-hop-wrapper {
+	.nav-offshore-wrapper {
 		input,
 		label {
 			display: none;
 		}
 	}
 
-	nav.hip-hop,
-	#feature-hero nav.hip-hop,
-	.hip-hop-navigation-wrapper.footer nav.hip-hop,
-	.nav-hip-hop-wrapper input:checked ~ nav.hip-hop,
-	#feature-hero .nav-hip-hop-wrapper input:checked ~ #feature-hero nav.hip-hop,
-	.hip-hop-navigation-wrapper.footer .nav-hip-hop-wrapper input:checked ~ .hip-hop-navigation-wrapper.footer nav.hip-hop {
+	nav.offshore,
+	#feature-hero nav.offshore,
+	.offshore-navigation-wrapper.footer nav.offshore,
+	.nav-offshore-wrapper input:checked ~ nav.offshore,
+	#feature-hero .nav-offshore-wrapper input:checked ~ #feature-hero nav.offshore,
+	.offshore-navigation-wrapper.footer .nav-offshore-wrapper input:checked ~ .offshore-navigation-wrapper.footer nav.offshore {
 		display: flex;
 	}
 
-	nav.hip-hop>div {
+	nav.offshore>div {
 		flex: 1;
 	}
 	
-	.hip-hop-navigation-wrapper.footer nav.hip-hop .nav-content {
+	.offshore-navigation-wrapper.footer nav.offshore .nav-content {
 		padding: 3rem 1rem;
 	}
 	
 	@each $t in $tracks {
 		
-		body.ln-#{$t} .hip-hop-navigation-wrapper.footer nav.hip-hop div.nav-#{$t} {
+		body.ln-#{$t} .offshore-navigation-wrapper.footer nav.offshore div.nav-#{$t} {
 			
 			a:before
 			span.disabled-link:before {
@@ -227,9 +227,9 @@ nav.offshore {
 
 /* Generic */
 
-#feature-hero.hip-hop-generic {
+#feature-hero.offshore-generic {
 	
-	nav.hip-hop {
+	nav.offshore {
 		
 		a,
 		span.disabled-link {
@@ -250,31 +250,31 @@ nav.offshore {
 	
 }
 
-/* Track 1: From Masta to Legend */
+/* Story 1: 'There was trust' */
 
-body.ln-#{nth($tracks, 1)} .nav-hip-hop-wrapper label {
+body.ln-#{nth($stories, 1)} .nav-offshore-wrapper label {
 	color: #fff;
-	background: $theme-color-track-1;
+	background: $theme-color-story-1;
 }
 
-body.ln-#{nth($tracks, 1)},
-#feature-hero.#{nth($tracks, 1)} {
+body.ln-#{nth($stories, 1)},
+#feature-hero.#{nth($stories, 1)} {
 	
-	nav.hip-hop {
+	nav.offshore {
 		
 		a,
 		span.disabled-link {
-			color: $theme-color-track-1;
+			color: $theme-color-story-1;
 		}
 
 		a:hover {
 			color: #fff;
-			background: $theme-color-track-1;
+			background: $theme-color-story-1;
 		}
 	
-		div.nav-#{nth($tracks, 1)} a {
+		div.nav-#{nth($stories, 1)} a {
 			color: #fff;
-			background: $theme-color-track-1;
+			background: $theme-color-story-1;
 		}
 		
 	}
@@ -282,31 +282,31 @@ body.ln-#{nth($tracks, 1)},
 }
 
 
-/* Track 2: Hip Hop is Getting to the Truth */
+/* Story 2: Why should we care about the roseate tern? */
 
-body.ln-#{nth($tracks, 2)} .nav-hip-hop-wrapper label {
+body.ln-#{nth($stories, 2)} .nav-offshore-wrapper label {
 	color: #fff;
-	background: $theme-color-track-2; /* #c62d44 */
+	background: $theme-color-story-2; /* #46847e */
 }
 
-body.ln-#{nth($tracks, 2)},
-#feature-hero.#{nth($tracks, 2)} {
+body.ln-#{nth($stories, 2)},
+#feature-hero.#{nth($stories, 2)} {
 	
-	nav.hip-hop {
+	nav.offshore {
 		
 		a,
 		span.disabled-link {
-			color: $theme-color-track-2;
+			color: $theme-color-story-2;
 		}
 			
 		a:hover {
 			color: #fff;
-			background: $theme-color-track-2;
+			background: $theme-color-story-2;
 		}
 		
-		div.nav-#{nth($tracks, 2)} a {
+		div.nav-#{nth($stories, 2)} a {
 			color: #fff;
-			background: $theme-color-track-2;
+			background: $theme-color-story-2;
 		}
 
 	}
@@ -314,31 +314,31 @@ body.ln-#{nth($tracks, 2)},
 }
 
 
-/* Track 3: Hip Hop is Making a Stand */
+/* Story 3: Who Counts */
 
-body.ln-#{nth($tracks, 3)} .nav-hip-hop-wrapper label {
+body.ln-#{nth($stories, 3)} .nav-offshore-wrapper label {
 	color: #fff;
-	background: $theme-color-track-3;
+	background: $theme-color-story-3;
 }
 
-body.ln-#{nth($tracks, 3)},
-#feature-hero.#{nth($tracks, 3)} {
+body.ln-#{nth($stories, 3)},
+#feature-hero.#{nth($stories, 3)} {
 	
-	nav.hip-hop {
+	nav.offshore {
 		
 		a,
 		span.disabled-link {
-			color: $theme-color-track-3;
+			color: $theme-color-story-3;
 		}
 			
 		a:hover {
 			color: #fff;
-			background: $theme-color-track-3;
+			background: $theme-color-story-3;
 		}
 		
-		div.nav-#{nth($tracks, 3)} a {
+		div.nav-#{nth($stories, 3)} a {
 			color: #fff;
-			background: $theme-color-track-3;
+			background: $theme-color-story-3;
 		}
 
 	}
@@ -346,31 +346,31 @@ body.ln-#{nth($tracks, 3)},
 }
 
 
-/* Track 4: Hip Hop is Staking Its Claim */
+/* Story 4: Winners and Losers */
 
-body.ln-#{nth($tracks, 4)} .nav-hip-hop-wrapper label {
+body.ln-#{nth($stories, 4)} .nav-offshore-wrapper label {
 	color: #fff;
-	background: $theme-color-track-4;
+	background: $theme-color-story-4;
 }
 
-body.ln-#{nth($tracks, 4)},
-#feature-hero.#{nth($tracks, 4)} {
+body.ln-#{nth($stories, 4)},
+#feature-hero.#{nth($stories, 4)} {
 	
-	nav.hip-hop {
+	nav.offshore {
 		
 		a,
 		span.disabled-link {
-			color: $theme-color-track-4;
+			color: $theme-color-story-4;
 		}
 			
 		a:hover {
 			color: #fff;
-			background: $theme-color-track-4;
+			background: $theme-color-story-4;
 		}
 		
-		div.nav-#{nth($tracks, 4)} a {
+		div.nav-#{nth($stories, 4)} a {
 			color: #fff;
-			background: $theme-color-track-4;
+			background: $theme-color-story-4;
 		}
 
 	}
@@ -378,38 +378,4 @@ body.ln-#{nth($tracks, 4)},
 }
 
 
-/* Track 5: Hip Hop is Finding A Voice */
 
-body.ln-#{nth($tracks, 5)} .nav-hip-hop-wrapper label {
-	
-	background: $theme-color-track-5;
-	
-	span:after {
-		background-position: right center;
-	}
-	
-}
-
-body.ln-#{nth($tracks, 5)},
-#feature-hero.#{nth($tracks, 5)} {
-	
-	nav.hip-hop {
-		
-		a,
-		span.disabled-link {
-			color: $theme-color-track-5;
-		}
-			
-		a:hover {
-			color: #000;
-			background: $theme-color-track-5;
-		}
-		
-		div.nav-#{nth($tracks, 5)} a {
-			color: #000;
-			background: $theme-color-track-5;
-		}
-
-	}
-	
-}
